@@ -12,9 +12,10 @@
 
 ## Git에 커밋할지?
 
-- **권장(기본)**: 원본 PDF는 종종 **기밀/저작권/개인정보** 이슈가 있어서 git 커밋을 피합니다.  
-  이 repo는 기본 설정으로 `docs/03_proposal/references/proposals/*.pdf`를 `.gitignore`로 제외했습니다.
-- **대신 커밋**: 요약 노트(`*.md`)만 커밋해 “재사용 포인트”를 남기는 방식을 권장합니다.
+- 원본 PDF는 종종 **기밀/저작권/개인정보** 이슈가 있을 수 있습니다. (외부 공유/원격 push 전 확인 권장)
+- 현재 설정은 **PDF는 커밋 가능**, 대신 자동 생성물은 제외:
+  - 커밋 가능: `docs/03_proposal/references/proposals/*.pdf`
+  - 기본 제외: `docs/03_proposal/references/proposals/parsed/`, `ocr_previews/`
 
 ## 네이밍 규칙(권장)
 
