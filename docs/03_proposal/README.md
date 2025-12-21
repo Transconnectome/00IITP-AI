@@ -14,5 +14,7 @@
 - `outline.md`: 전체 구조/목차/핵심 주장
 - `sections/_template.md`: 섹션 템플릿
 - `references/`: 참고문헌/근거자료(요약/표준/시장자료 등)
+- `drafts/`: 작업 중인 원본(워드/한글/LaTeX 등) — 필요 시 사용
+- `submissions/`: 최종 제출본/제출 패키지(날짜/버전으로 관리)
 
 
