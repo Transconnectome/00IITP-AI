@@ -43,4 +43,16 @@
 - `docs/01_project_planning/`: WP/일정/리스크/KPI를 공고 요구에 맞게 확정
 - `docs/03_proposal/`: 제안서 아웃라인과 섹션별 초안을 “평가항목 중심”으로 재배치
 
+---
+
+## 5) 현재 repo에 확보된 원본(발견됨)
+
+`docs/00_task_description/raw/`에 IITP 관련 원본을 정리해 두었습니다:
+
+- `fwdiitp5_10.zip`: 원본 압축(파일명 인코딩 포함, 보존용)
+- `IITP_ICT_RnD_task_description.hwp`: 압축에서 추출한 과제/공고 문서(편의용 이름)
+- `IITP_attachments.egg`: 압축 내 첨부(편의용 이름)
+
+> 다음 단계: HWP 내용을 **PDF로 내보내거나 텍스트 추출본**을 만들어 주시면, 여기 체크리스트/요약표를 실제 내용으로 채우고, WP·KPI·아웃라인을 설명서 기준으로 재구성하겠습니다.
+
 
