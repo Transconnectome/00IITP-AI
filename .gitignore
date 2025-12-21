@@ -33,4 +33,9 @@ results/
 # Large binaries (optional: keep PDFs tracked only if you want)
 # *.pdf
 
+# Proposal reference PDFs (often confidential; keep in repo folder but avoid committing by default)
+docs/03_proposal/references/proposals/*.pdf
+docs/03_proposal/references/proposals/parsed/
+docs/03_proposal/references/proposals/ocr_previews/
+
 
