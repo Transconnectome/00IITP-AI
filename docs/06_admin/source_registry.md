@@ -18,4 +18,33 @@
   - Captures (repo path):
   - Used in (proposal section):
 
+## Downloads (최근 수집: 2025-12-21)
+
+> 아래 자료는 “최근 다운로드/정리된 레퍼런스”로, **근거 인용/배경 설명/그림 아이디어**에 활용합니다.
+
+- **AI 기술 동향 및 주요 연구 프로젝트 브리핑 (MD)**  
+  - Repo path: `docs/02_literature/briefings/AI 기술 동향 및 주요 연구 프로젝트 브리핑.md`  
+  - Notes: Flamingo, LeCun(JEPA/World Model), Yejin Choi(Pluralism), Tunnel Effect, 대규모 뇌-멀티오믹스 FM 등 배경 요약
+
+- **기술 동향: 뉴로모픽 및 양자 컴퓨팅 (MD)**  
+  - Repo path: `docs/02_literature/briefings/기술 동향.md`  
+  - Notes: von Neumann 병목, SNN/멤리스터/플랫폼 동향, 하이브리드 컴퓨팅 프레임
+
+- **브리핑: 뉴로모픽·AI·신경과학 융합 (MD)**  
+  - Repo path: `docs/02_literature/briefings/브리핑.md`
+
+- **The_Inside-Out_AI_Revolution (PDF, 이미지 기반)**  
+  - Repo path: `docs/02_literature/papers/The_Inside-Out_AI_Revolution.pdf`  
+  - Notes: 현재 PDF가 **텍스트 레이어 없음(스캔/이미지)** → OCR 필요
+
+- **뇌에서_하이퍼코그니션까지 (PDF, 이미지 기반)**  
+  - Repo path: `docs/02_literature/papers/뇌에서_하이퍼코그니션까지.pdf`  
+  - Notes: 현재 PDF가 **텍스트 레이어 없음(스캔/이미지)** → OCR 필요
+
+- **뉴로모픽 인포그래픽 (JPG/PDF)**  
+  - Repo path: `docs/02_literature/papers/inbox/unnamed.jpg`, `docs/02_literature/papers/inbox/unnamed.jpg.pdf`
+
+- **레퍼런스 제안서 초안(참고용) (MD)**  
+  - Repo path: `docs/03_proposal/references/notes/LLM 정렬 기반 멀티모달 뇌 파운데이션 모델 구축 연구 제안서.md`
+
 
