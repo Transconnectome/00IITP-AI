@@ -1,0 +1,27 @@
+# System
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+
+# Chrome User Data (Playwright/Selenium) - HEAVY FILES
+scripts/chrome_user_data*
+scripts/chrome_user_data/
+scripts/chrome_user_data_clean/
+scripts/chrome_user_data_clean_2/
+
+# Document Raw Files (Binary/Large) - AI should read summaries instead
+docs/00_task_description/raw/
+*.pdf
+*.hwp
+*.hwpx
+*.zip
+*.egg
+
+# Debug/Temp
+dashboard_debug.png
+dashboard_dump.html
+*.log
