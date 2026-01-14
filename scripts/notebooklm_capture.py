@@ -138,12 +138,11 @@ def main():
     print("Starting NotebookLM Knowledge Base Builder...")
     
     with sync_playwright() as p:
-        # Disable GPU to avoid crashes on some systems, use persistent context
+        # Simple launch
         browser = p.chromium.launch_persistent_context(
             user_data_dir=USER_DATA_DIR,
             headless=False,
-            viewport={"width": 1280, "height": 900},
-            args=["--disable-gpu", "--disable-dev-shm-usage"]
+            viewport={"width": 1280, "height": 900}
         )
         
         if browser.pages:
