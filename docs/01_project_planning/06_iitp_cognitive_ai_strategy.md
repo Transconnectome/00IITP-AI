@@ -1,7 +1,7 @@
 # IITP(인공지능) — 인지·뇌 기반 통합지능 연구전략 (초안)
 
 대상: `docs/00_task_description/raw/2-1. 인공지능.pdf`의 **2026-인공지능-010~014(병렬형)**  
-목표: “감각-의미화-기억-학습-추론”을 통합한 **인지모사 통합지능 원천기술** + **벤치마크/지표/데이터** 패키지 제안
+목표: **강건하고 효율적인 다중감각 통합 지능(Robust and Efficient Multisensory Integrated Intelligence)** 원천기술 + **벤치마크/지표/데이터** 패키지 제안
 
 ---
 
@@ -17,11 +17,11 @@
 
 핵심 컨셉은 “LLM을 더 크게”가 아니라:
 
-- **뇌의 구조**
-- **뇌의 학습 규칙(국소/보상/예측)**
-- **기억(사건 분절·망각/강화·의미기억)**
-- **주의/다중감각 통합(불완전/모호한 환경에서 강건성)**
-- **메타인지(자기 검증 루프)**
+- **뇌의 구조 (Predictive Latent Representation)**
+- **뇌의 학습 규칙 (Neural ODEs / LTC)**
+- **기억 (Titans / Long-term Memory SSM / Bayesian Surprisal)**
+- **주의/다중감각 통합 (Global Neural Workspace / Asynchronous Integration)**
+- **메타인지 (Active Inference / Predictive Coding)**
 
 를 결합해 **적은 데이터/적은 자원/긴 시간**에서 “적응적 추론”을 달성하는 것입니다.
 
@@ -96,5 +96,3 @@
   - `docs/01_project_planning/07_iitp_2026_ai_014_data_semanticization_plan.md`
   - `docs/01_project_planning/08_kpi_mapping_2026_ai_014.md`
 - `docs/03_proposal/outline.md`를 014 중심으로 재배치(특히 **벤치마크/지표/데이터 공개/총괄 연계** 강조)
-
-
