@@ -24,7 +24,7 @@
 ### Part 3. Artificial Allostasis System (Safety & Efficiency)
 > **"From World-Aware to Allostasis-Driven AI"**
 
-![Artificial Allostasis Concept](../05_figures/allostasis_vs_homeostasis_diagram.png)
+![Artificial Allostasis Concept](/docs/05_figures/allostasis_vs_homeostasis_diagram.png)
 *Figure 2. Reactive Homeostasis vs. Predictive Allostasis: 차세대 AI의 진화 방향*
 
 *   **The Inner Sense**: **알로스타시스(Allostasis, 예측적 항상성)** 원리를 도입하여, AI가 스스로 작업 부하와 불확실성을 예측하고 연산 자원을 선제적으로 조절하는 **"Energy-Efficient AI"**를 구현한다.
@@ -38,5 +38,5 @@
 *   **출력**: 고해상도 뇌 활동 생성 및 통합적 인지 상태 추론
 *   **활용**: 뇌신경 과학 및 감각 연구를 위한 **"핵심 생성 엔진(Generative Engine)"**으로 기능하며, 향후 신경 보철, 디지털 치료제 등 다양한 응용 분야의 기술적 기반을 제공한다.
 
-![Neuro-GINR Architecture](../05_figures/neuro_ginr_infographic.png)
+![Neuro-GINR Architecture](/docs/05_figures/neuro_ginr_infographic.png)
 *Figure 1. Neuro-GINR 아키텍처: 미시 세계(Spikes)와 거시 세계(fMRI)를 잇는 불변량 학습 파이프라인*
