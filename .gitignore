@@ -17,3 +17,4 @@ scripts/chrome_user_data_clean_2/
 dashboard_debug.png
 dashboard_dump.html
 *.log
+email*.pdf
