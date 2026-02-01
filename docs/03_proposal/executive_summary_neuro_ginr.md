@@ -12,9 +12,10 @@
 우리는 생물학적 뇌의 **"감각-기억-동기"** 루프를 수학적으로 정식화(Operationalize)한 3단계 아키텍처를 제시한다.
 
 ### Part 1. Interoceptive Sensory Encoder (Body-Brain Bridge)
-> **"Context-Dependent Perception: 배고픈 뇌는 다르게 본다."**
-*   **개념**: 시각/청각 등 외부 감각과 **IVS (Interoceptive Valence Signal, 예: 위장 팽창)**를 통합 인코딩하는 **Neuro-GINR** 기술 적용.
-*   **혁신성**: 외부 자극이 내부 상태(State)에 따라 다르게 임베딩되는 **"상태 의존적 인지(State-Dependent Cognition)"** 구현. (동일한 사과 이미지도 '공복' vs '포만' 상태에서 다르게 해석됨)
+> **"Neuro-GINR: 신체와 뇌를 잇는 '연속적 신경장(Continuous Neural Fields)'"**
+*   **Core Tech (Neuro-GINR)**: 입자 물리학에서 검증된 **Geometry-Invariant Neural Representation (GINR)** 기술을 뇌신경 데이터에 최초로 적용한다.
+    *   **연속성(Continuity)**: 뇌 활동을 이산적(Discrete) 토큰이 아닌, 시공간 상의 **연속 함수 $f(x,t)$**로 모델링하여, 서로 다른 해상도(Spike vs fMRI)와 스케일(뇌파 vs 위장 팽창)을 단일한 수학적 공간인 **'Manifold'**에 통합한다.
+*   **Interoceptive Embedding**: 이 연속장 위에 **IVS (Interoceptive Valence Signal)**를 추가 차원으로 매핑하여, 외부 감각(Vision)이 내부 상태(Gastric)의 좌표계 내에서 해석되는 **"Context-Dependent Perception"**을 구현한다.
 
 ### Part 2. Homeostatic Neural Memory (Continuous State Core)
 > **"Transformer는 리셋되지만, 생명은 지속된다. (Life doesn't reset.)"**
