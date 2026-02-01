@@ -17,7 +17,7 @@ We argue that **Neuro-GINR + Titans-Mamba** is not just *compatible* with the Co
 ### Logic 1: From LTC (Micro) to GINR (Universal Field)
 > **"Generalizing Continuity from Time to Space-Time"**
 -   **Core Request**: LTCs are requested for their "continuous-time" capability to handle irregular sensory data.
--   **Our Solution (Neuro-GINR)**: We upgrade LTC to **GINR (Geometry-Invariant Neural Representation)**.
+-   **Our Solution (Neuro-GINR)**: We upgrade LTC to **GINR (Generalized Implicit Neural Representation)**.
 -   **Logic**: LTC is continuous in *Time* ($t$). GINR is continuous in *Space-Time* ($x, t$). This allows us to handle not just irregular sampling intervals (LTC's strength), but also **irregular sensor placements** (e.g., different EEG layouts, Mouse vs. Human brain maps).
 -   **Persuasion Point**: "LTC handles the *When*, GINR handles the *Where* and *When*. It is the Super-set of LTC."
 

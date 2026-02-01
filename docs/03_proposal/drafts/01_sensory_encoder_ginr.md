@@ -1,7 +1,7 @@
 # Section 2-1: The "Neuro-GINR" Sensory Encoder (Part 1)
 
 ## 1. 기술적 개요: "Liquid Time to Liquid Space-Time"
-기존의 **LTC (Liquid Time-Constant)** 네트워크는 시간적(Time) 연속성을 다루는 데 탁월했으나, 공간적(Space) 불변성을 확보하지 못했습니다. 본 연구는 LTC의 개념을 **시공간(Space-Time)**으로 확장하여, 입자 물리학의 **GINR (Geometry-Invariant Neural Representation)** 기술을 뇌과학에 도입합니다. 이를 통해 **"좌표 독립적인(Coordinate-Independent)"** 차세대 센서리 인코더를 제안합니다.
+기존의 **LTC (Liquid Time-Constant)** 네트워크는 시간적(Time) 연속성을 다루는 데 탁월했으나, 공간적(Space) 불변성을 확보하지 못했습니다. 본 연구는 LTC의 개념을 **시공간(Space-Time)**으로 확장하여, 입자 물리학의 **GINR (Generalized Implicit Neural Representation)** 기술을 뇌과학에 도입합니다. 이를 통해 **"좌표 독립적인(Coordinate-Independent)"** 차세대 센서리 인코더를 제안합니다.
 
 ## 2. 핵심 기술: Continuous Neural Field Modeling
 - **Universal Field**: 뇌 활동을 이산적인(Discrete) 픽셀이 아닌, 연속적인(Continuous) 함수 $f(x, t)$로 모델링합니다. 이는 **LTC의 시간적 유동성**과 **Neural Field의 공간적 유연성**을 결합한 것입니다.

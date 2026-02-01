@@ -13,7 +13,7 @@
 
 ### Part 1. Interoceptive Sensory Encoder (Body-Brain Bridge)
 > **"Neuro-GINR: 신체와 뇌를 잇는 '연속적 신경장(Continuous Neural Fields)'"**
-*   **Core Tech (Neuro-GINR)**: 입자 물리학에서 검증된 **Geometry-Invariant Neural Representation (GINR)** 기술을 뇌신경 데이터에 최초로 적용한다.
+*   **Core Tech (Neuro-GINR)**: 입자 물리학에서 검증된 **Generalized Implicit Neural Representation (GINR)** 기술을 뇌신경 데이터에 최초로 적용한다.
     *   **연속성(Continuity)**: 뇌 활동을 이산적(Discrete) 토큰이 아닌, 시공간 상의 **연속 함수 $f(x,t)$**로 모델링하여, 서로 다른 해상도(Spike vs fMRI)와 스케일(뇌파 vs 위장 팽창)을 단일한 수학적 공간인 **'Manifold'**에 통합한다.
 *   **Interoceptive Embedding**: 이 연속장 위에 **IVS (Interoceptive Valence Signal)**를 추가 차원으로 매핑하여, 외부 감각(Vision)이 내부 상태(Gastric)의 좌표계 내에서 해석되는 **"Context-Dependent Perception"**을 구현한다.
 
@@ -27,30 +27,7 @@
 ### Part 3. Generative Replay & Allostasis (Sleep & Dream)
 > **"꿈(Dream)은 환각이 아니라, 생존을 위한 최적화 과정이다."**
 
-```mermaid
-graph TD
-    subgraph Body ["Body (Interoception)"]
-        Stomach[Gastric Distension] -->|Vagus Nerve| cNTS[cNTS / Brainstem]
-        Metabolism[Glucose/Energy] -->|Blood Signal| Hypo[Hypothalamus]
-    end
-
-    subgraph Brain ["State-Dependent Core"]
-        cNTS -->|IVS Gate| Core[Neural Memory SSM]
-        Hypo -->|Drive State| Core
-        Vision[Visual Input] -->|Sensory Encoder| Core
-        
-        Core -->|Prediction| Action[Action Selection]
-        Core -->|High Surprise| Replay[Generative Replay (SWR)]
-    end
-
-    Action -->|Feeding| Stomach
-    Replay -->|Consolidation| Core
-
-    style Body fill:#ffe,stroke:#aa0
-    style Brain fill:#eef,stroke:#00a
-    style Stomach fill:#fdd
-    style Core fill:#ccf,stroke:#33f,stroke-width:2px,fill-opacity:0.6
-```
+![Figure 1. The Inside-Out Loop: 신체 신호가 뇌(AI)의 기억 Gate를 조절하는 구조](../05_figures/interoceptive_allostasis_diagram.png)
 *Figure 1. The Inside-Out Loop: 신체 신호가 뇌(AI)의 기억 Gate를 조절하는 구조*
 
 *   **Generative Replay (SWR)**: 낮(Awake) 동안 수집된 **High-Valence 정보**를 밤(Sleep)이나 휴식기에 **10배속으로 고속 재생(Replay)**하여 재학습. 이는 **Catastrophic Forgetting(망각)**을 방지하는 생물학적 **Continual Learning**의 핵심 기술임.
@@ -64,40 +41,5 @@ graph TD
 *   **Output**: 내적 동기에 기반한 행동(Action) 및 적응형 인지 상태.
 *   **Impact**: 외부 보상 함수 없이도 **"스스로 에너지를 관리하고 생존하는 자율 에이전트"** (Robotics, Autonomous Systems)의 원천 기술 확보.
 
-```mermaid
-graph LR
-    subgraph Inputs
-        E1[External Sense]
-        I1[Interoception (IVS)]
-    end
-
-    subgraph "Neuro-GINR Encoders"
-        Fusion[Multisensory Fusion]
-    end
-
-    subgraph "Homeostatic Core"
-        Valence[Valence Gate g(t)]
-        Mem[Neural Memory SSM h(t)]
-        Sleep[Generative Replay]
-    end
-
-    subgraph Outputs
-        Act[Action]
-        State[Internal State]
-    end
-
-    E1 --> Fusion
-    I1 --> Fusion
-    Fusion --> Mem
-    I1 -->|Modulates| Valence
-    Valence -->|Gates| Mem
-    Mem --> Act
-    Mem -.->|Offline| Sleep
-    Sleep -->|Consolidates| Mem
-    Act -.->|Feedback| I1
-
-    style Valence fill:#fbb,stroke:#f00
-    style Mem fill:#bbf,stroke:#00f
-    style Sleep fill:#bfb,stroke:#0b0
-```
+![Figure 2. Neural Memory-Interoception 아키텍처: Homeostasis가 이끄는 "Inside-Out" 인지 모델](../05_figures/titans_interoception_arch.png)
 *Figure 2. Neural Memory-Interoception 아키텍처: Homeostasis가 이끄는 "Inside-Out" 인지 모델*
