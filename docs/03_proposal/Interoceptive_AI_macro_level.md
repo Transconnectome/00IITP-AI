@@ -4,6 +4,7 @@
 ---
 
 ## 1. Lee et al. (2026) EVAAA의 강화학습 에이전트: 작동 원리와 한계
+<img width="1100" height="834" alt="image" src="https://github.com/user-attachments/assets/640e91cd-6e01-47d3-a32e-9f71c75d827c" />
 
 **EVAAA**(**Essential Variables in Autonomous and Adaptive Agents**)는 단순한 점수 획득이 아니라, 생존을 위한 **Homeostasis** 유지를 목표로 하는 가상 환경입니다.
 
@@ -20,6 +21,8 @@
 
 
 ## 2. Rao et al. (2023)의 Active Predictive Coding (APC) 통합: 이유와 방법
+<img width="678" height="865" alt="image" src="https://github.com/user-attachments/assets/9f5c1db3-ee01-495d-b973-7efa2c11a97c" />
+<img width="807" height="826" alt="image" src="https://github.com/user-attachments/assets/acdfb1ef-b249-4955-a405-6c16db82afdd" />
 
 **APC**를 도입하는 핵심 이유는 에이전트의 목표를 '보상 최대화'에서 **'예측 오차 최소화(Minimizing Prediction Error)'**로 재정의하기 위함입니다. 이는 뇌과학의 **Free Energy Principle**를 구현하는 것입니다.
 
