@@ -21,7 +21,9 @@
 > **"Transformer는 리셋되지만, 생명은 지속된다. (Life doesn't reset.)"**
 *   **Backbone**: 연속적인 시간(Continuous Time)과 상태(State)를 유지할 수 있는 유일한 아키텍처인 **Neural Memory SSM (Mamba-based)**을 채택.
 *   **Mechanism**: **항상성 강화학습(HRRL)** 원리를 기억 갱신 공식에 직접 반영. 
-    > $$ h_{t+1} = (1 - g_t) h_t + g_t \cdot \text{Input} $$ 
+    $$
+    h_{t+1} = (1 - g_t) h_t + g_t \cdot \text{Input}
+    $$
     > ($g_t$: **IVS**에 의해 결정되는 **Neural Gate**. 욕구 해소에 도움이 되는 정보만 $h_t$에 'Lasering' 하여 저장.)
 
 ### Part 3. Generative Replay & Allostasis (Sleep & Dream)
