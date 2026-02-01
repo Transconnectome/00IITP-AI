@@ -1,42 +1,102 @@
-# Executive Summary: 차세대 멀티모달 뇌 파운데이션 모델 (Neuro-GINR)
+# Executive Summary: "Inside-Out" 뇌 파운데이션 모델 (Neural Memory-Interoception)
 
-## 📌 비전: 연속적 신경장(Continuous Neural Fields)을 통한 뇌 활동의 시공간 불변량 학습
-본 연구단은 기존의 이산적(Discrete) 뇌영상 분석의 한계를 넘어, 뇌 활동을 시공간 상의 **'연속적인 장(Field)'으로 모델링하는 SCENT(Scalable Conditioned Neural Fields) 방법론**을 도입한다. 이를 통해 마우스의 스파이크(Micro) 데이터, **인간의 Intracranial EEG**, 그리고 fMRI(Macro) 데이터를 단일한 수학적 공간에서 통합하고 상호 생성하는 **세계 최초의 Cross-Species Generative Foundation Model**을 제안한다.
+## 📌 비전: 신체 감각(Interoception)이 이끄는 능동적 지능 (Inside-Out AI)
+본 연구단은 기존 AI가 외부 데이터를 수동적으로 학습하는 **"Outside-In (Stateless)"** 방식의 한계를 극복하고, 생존 본능을 가진 생명체처럼 **'내부 상태(Homeostatic State)'와 '신체적 욕구(IVS)'**를 통해 스스로 정보를 선별하고 학습하는 **"Inside-Out" 패러다임의 차세대 뇌 파운데이션 모델(Neural Memory-Interoception)**을 제안한다.
 
-입자 물리학 분야에서 거대 데이터를 처리하기 위해 개발된 **GINR (Geometry-Invariant Neural Representation)** 기술은 이러한 연속적 모델링이 대규모 데이터에서도 작동함을 입증한 성공적인 사례(FM4NPP)이며, 본 연구는 이 검증된 아키텍처를 뇌신경 데이터에 최적화하여 적용한다.
-
----
-
-## 🏗️ 핵심 아키텍처: Two-Part Model (Sensory Encoder + Titans Memory)
-
-본 제안서는 홍석준 교수팀의 "Titans" 전략과 차지욱 교수팀의 "대규모 모델링" 역량을 결합하여, 다음과 같은 혁신적 구조를 제시한다 (Figure 1 참조).
-
-### Part 1. Neuro-GINR Sensory Encoder (Universal Bridge)
-> **"Generalizing Liquid Time (LTC) to Space-Time"**
-*   **개념**: SCENT 논문의 핵심 원리를 적용하여, 기존 **LTC (Liquid Time-Constant)**의 시간적 연속성을 **시공간(Space-Time)**으로 확장한다. 뇌 활동을 고정된 픽셀이 아닌 **연속 함수 $f(x, t)$**로 모델링한다.
-*   **혁신성**: 전극의 위치가 달라도, 종(Species)이 달라도 변하지 않는 **"불변 표상(Invariant Manifold)"**을 추출한다. 이는 마우스의 신경 활동을 인간의 뇌 활동으로 "Zero-shot 번역"하는 기술적 토대가 된다.
-
-### Part 2. Titans-Mamba Neural Memory (Integrative Core)
-> **"예측 불가능한(Surprising) 정보만 기억한다."**
-*   **Backbone**: **Global Neural Workspace (GNW)** 이론을 구현하기 위해, 24시간 연속된 생체 신호를 선형 복잡도($O(N)$)로 처리하는 **Mamba (SSM)** 아키텍처를 도입한다.
-*   **Memory Integration**: 인코더(Part 1)가 예측에 실패한 **"Surprisal(놀라움)"** 정보만을 선택적으로 장기 기억소(**Titans**)에 저장하여, 효율적인 학습과 망각 기전을 구현한다.
-
-### Part 3. Artificial Allostasis System (Safety & Efficiency)
-> **"From World-Aware to Allostasis-Driven AI"**
-
-![Artificial Allostasis Concept](/docs/05_figures/allostasis_vs_homeostasis_diagram.png)
-*Figure 2. Reactive Homeostasis vs. Predictive Allostasis: 차세대 AI의 진화 방향*
-
-*   **The Inner Sense**: **알로스타시스(Allostasis, 예측적 항상성)** 원리를 도입하여, AI가 스스로 작업 부하와 불확실성을 예측하고 연산 자원을 선제적으로 조절하는 **"Energy-Efficient AI"**를 구현한다.
-*   **Safety Gate**: 시스템의 내부 상태(Interoception)가 안정 범위(Stability Zone)를 벗어날 위험을 감지하면, 즉시 안전 모드로 전환하여 예측 불가능한 환경에서도 **강건성(Robustness)**을 유지한다.
+특히, 김성연 교수팀의 **"위장 팽창(Gastric Distension) 기반 내수용감각 신호"**를 단순한 입력 데이터가 아닌, AI의 **학습 속도와 기억 형성(Consolidation)을 조절하는 핵심 변수(Gating Factor)**로 활용하여 **"스스로 학습의 이유를 아는 AI"**를 구현한다.
 
 ---
 
-## 🎯 최종 목표: Integrative Brain Foundation Engine
-단순한 의료 기기나 어플리케이션 개발이 아니다. 우리는 감각과 인지를 통합하는 **"범용 뇌 파운데이션 모델(General-Purpose Brain Model)"**을 구축한다.
-*   **입력**: 희소한(Sparse) 웨어러블 뇌파 신호 및 다중 감각 데이터
-*   **출력**: 고해상도 뇌 활동 생성 및 통합적 인지 상태 추론
-*   **활용**: 뇌신경 과학 및 감각 연구를 위한 **"핵심 생성 엔진(Generative Engine)"**으로 기능하며, 향후 신경 보철, 디지털 치료제 등 다양한 응용 분야의 기술적 기반을 제공한다.
+## 🏗️ 핵심 아키텍처: The "Interoceptive Loop" (Three-Part Model)
 
-![Neuro-GINR Architecture](/docs/05_figures/neuro_ginr_infographic.png)
-*Figure 1. Neuro-GINR 아키텍처: 미시 세계(Spikes)와 거시 세계(fMRI)를 잇는 불변량 학습 파이프라인*
+우리는 생물학적 뇌의 **"감각-기억-동기"** 루프를 수학적으로 정식화(Operationalize)한 3단계 아키텍처를 제시한다.
+
+### Part 1. Interoceptive Sensory Encoder (Body-Brain Bridge)
+> **"Context-Dependent Perception: 배고픈 뇌는 다르게 본다."**
+*   **개념**: 시각/청각 등 외부 감각과 **IVS (Interoceptive Valence Signal, 예: 위장 팽창)**를 통합 인코딩하는 **Neuro-GINR** 기술 적용.
+*   **혁신성**: 외부 자극이 내부 상태(State)에 따라 다르게 임베딩되는 **"상태 의존적 인지(State-Dependent Cognition)"** 구현. (동일한 사과 이미지도 '공복' vs '포만' 상태에서 다르게 해석됨)
+
+### Part 2. Homeostatic Neural Memory (Continuous State Core)
+> **"Transformer는 리셋되지만, 생명은 지속된다. (Life doesn't reset.)"**
+*   **Backbone**: 연속적인 시간(Continuous Time)과 상태(State)를 유지할 수 있는 유일한 아키텍처인 **Neural Memory SSM (Mamba-based)**을 채택.
+*   **Mechanism**: **항상성 강화학습(HRRL)** 원리를 기억 갱신 공식에 직접 반영. 
+    > $$ h_{t+1} = (1 - g_t) h_t + g_t \cdot \text{Input} $$ 
+    > ($g_t$: **IVS**에 의해 결정되는 **Neural Gate**. 욕구 해소에 도움이 되는 정보만 $h_t$에 'Lasering' 하여 저장.)
+
+### Part 3. Generative Replay & Allostasis (Sleep & Dream)
+> **"꿈(Dream)은 환각이 아니라, 생존을 위한 최적화 과정이다."**
+
+```mermaid
+graph TD
+    subgraph Body ["Body (Interoception)"]
+        Stomach[Gastric Distension] -->|Vagus Nerve| cNTS[cNTS / Brainstem]
+        Metabolism[Glucose/Energy] -->|Blood Signal| Hypo[Hypothalamus]
+    end
+
+    subgraph Brain ["State-Dependent Core"]
+        cNTS -->|IVS Gate| Core[Neural Memory SSM]
+        Hypo -->|Drive State| Core
+        Vision[Visual Input] -->|Sensory Encoder| Core
+        
+        Core -->|Prediction| Action[Action Selection]
+        Core -->|High Surprise| Replay[Generative Replay (SWR)]
+    end
+
+    Action -->|Feeding| Stomach
+    Replay -->|Consolidation| Core
+
+    style Body fill:#ffe,stroke:#aa0
+    style Brain fill:#eef,stroke:#00a
+    style Stomach fill:#fdd
+    style Core fill:#ccf,stroke:#33f,stroke-width:2px,fill-opacity:0.6
+```
+*Figure 1. The Inside-Out Loop: 신체 신호가 뇌(AI)의 기억 Gate를 조절하는 구조*
+
+*   **Generative Replay (SWR)**: 낮(Awake) 동안 수집된 **High-Valence 정보**를 밤(Sleep)이나 휴식기에 **10배속으로 고속 재생(Replay)**하여 재학습. 이는 **Catastrophic Forgetting(망각)**을 방지하는 생물학적 **Continual Learning**의 핵심 기술임.
+
+---
+
+## 🎯 최종 목표: Embodied Brain Foundation Engine
+우리는 단순히 '성능 좋은 모델'이 아니라, **"항상성(Homeostasis)을 가진 인공 생명"**의 청사진을 제시한다.
+
+*   **Input**: 멀티모달 뇌파, IVS(위장/혈당), 환경 데이터.
+*   **Output**: 내적 동기에 기반한 행동(Action) 및 적응형 인지 상태.
+*   **Impact**: 외부 보상 함수 없이도 **"스스로 에너지를 관리하고 생존하는 자율 에이전트"** (Robotics, Autonomous Systems)의 원천 기술 확보.
+
+```mermaid
+graph LR
+    subgraph Inputs
+        E1[External Sense]
+        I1[Interoception (IVS)]
+    end
+
+    subgraph "Neuro-GINR Encoders"
+        Fusion[Multisensory Fusion]
+    end
+
+    subgraph "Homeostatic Core"
+        Valence[Valence Gate g(t)]
+        Mem[Neural Memory SSM h(t)]
+        Sleep[Generative Replay]
+    end
+
+    subgraph Outputs
+        Act[Action]
+        State[Internal State]
+    end
+
+    E1 --> Fusion
+    I1 --> Fusion
+    Fusion --> Mem
+    I1 -->|Modulates| Valence
+    Valence -->|Gates| Mem
+    Mem --> Act
+    Mem -.->|Offline| Sleep
+    Sleep -->|Consolidates| Mem
+    Act -.->|Feedback| I1
+
+    style Valence fill:#fbb,stroke:#f00
+    style Mem fill:#bbf,stroke:#00f
+    style Sleep fill:#bfb,stroke:#0b0
+```
+*Figure 2. Neural Memory-Interoception 아키텍처: Homeostasis가 이끄는 "Inside-Out" 인지 모델*
