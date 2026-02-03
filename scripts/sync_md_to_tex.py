@@ -19,18 +19,12 @@ def md_to_tex(content):
     # Fix adjacent itemize (merge them) - naive approach
     content = content.replace('\\end{itemize}\n\\begin{itemize}\n', '')
 
-    # Images
-    # ![Alt](Path) -> \begin{figure}...
     def image_repl(match):
         alt = match.group(1)
         path = match.group(2)
-        # Fix path for tex (assume images are in docs/05_figures/ relative to tex root)
-        # We need to copy images to tex/images or adjust path. 
-        # For now, let's just make the path relative to project root if possible or just put a placeholder.
-        # Actually Overleaf needs the file. Best is to use 'images/' and user uploads or symlinks.
-        # Let's adjust path to '../docs/05_figures/'
-        tex_path = path.replace('../', '../') 
-        return f"\\begin{{figure}}[h]\n\\centering\n\\includegraphics[width=0.8\\textwidth]{{{tex_path}}}\n\\caption{{{alt}}}\n\\end{{figure}}"
+        # Use flat graphics structure for Overleaf
+        filename = Path(path).name
+        return f"\\begin{{figure}}[h]\n\\centering\n\\includegraphics[width=1.0\\textwidth]{{graphics/{filename}}}\n\\caption{{{alt}}}\n\\end{{figure}}"
 
     content = re.sub(r'!\[(.*?)\]\((.*?)\)', image_repl, content)
 

@@ -1,8 +1,11 @@
 # 🧠 IITP Brain × AI: Robust & Efficient Multisensory Intelligence
 >
 > **Project Code**: 00IITP-AI (NeuroX)  
-> **Core Strategy**: Two-Part Model (Sensory Encoder + Titans Memory SSM)  
-> **System**: NeuroX-OS v1.0
+> **Core Strategy**: Two-Part Model (Sensory Encoder + Titans Memory SSM) 
+> **Links**:
+> - **[Overleaf Proposal (Paper)](https://www.overleaf.com/2262852297jskmgtrhqpfy#fc872c)**
+> - **[GitHub (Research Hub)](https://github.com/Transconnectome/00IITP-AI)**
+> - **[GitHub (Proposal Sync)](https://github.com/snuconnectome/IITP-2026-Proposal)**
 > **Knowledge Base**: [NotebookLM Link](https://notebooklm.google.com/notebook/7acc2737-c783-43ff-af4c-e360ad02cf2c)
 
 이 저장소는 **2026 IITP 인간 인지 기반 인공지능** 과제 제안서 작성을 위한 **"Agentic Proposal Operating System (NeuroX-OS)"**입니다. 단순한 파일 저장소를 넘어, AI 에이전트가 문헌 조사, 전략 검증, 초안 작성, 레드팀 리뷰를 수행하는 능동형 워크스페이스입니다.

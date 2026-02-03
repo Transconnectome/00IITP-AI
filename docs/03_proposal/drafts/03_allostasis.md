@@ -3,6 +3,8 @@
 ## 3.1 개요: 예측적 생존 본능 (Predictive Allostasis)
 기존의 AI 에이전트나 웰니스 앱은 문제가 발생한 후 반응하는 **Homeostasis(항상성, Reactive)** 모델에 그쳤음. 본 과제는 시스템이 변화하는 미래 환경을 예측하고 사전에 에너지를 조절하는 **Allostasis(알로스태시스, Predictive Regulation)** 개념을 도입하여, 에이전트의 생존성을 극대화함.
 
+![Interoceptive Allostasis vs Homeostasis](../../05_figures/allostasis_vs_homeostasis_diagram.png)
+
 ## 3.2 시스템 구조: Neuro-Twin Loop
 사용자의 신체 및 환경 데이터를 실시간으로 미러링하는 **"Digital Neuro-Twin"**을 구축함.
 
