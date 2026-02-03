@@ -12,11 +12,11 @@
 \subsection{1.2 듀얼 인코더 시스템 (Dual Encoders)}
 서로 다른 물리적 특성을 가진 두 가지 데이터 스트림 처리를 위해 특화된 \textbf{Dual Encoder} 구조를 채택함.
 
-\subsubsection{1.2.1 Sensory-Motor Encoder (감각-운동 인코더)}
+\subsubsection{1.2.1 Sensory-Motor Encoder (감각-운동 인코더): \textbf{OmniField}}
 에이전트가 환경과 상호작용하는 데 필요한 외부 정보를 처리함.
 \begin{itemize}
-\item   \textbf{Visual & Text}: ViT 및 LLM 백본을 활용, 시각적 객체와 언어적 의미를 고차원 잠재 공간으로 매핑함.
-\item   \textbf{Proprioception & Tactile (신규)}: 기존 멀티모달 모델 한계를 극복하고자 \textbf{고유감각(Proprioception)}과 촉각(Tactile) 정보를 명시적으로 포함함[RFP-013]. 관절 각도(Joint Angles) 및 피부 압력 분포 등을 처리하여 에이전트의 "신체 도식(Body Schema)"을 형성함.
+\item   \textbf{OmniField (Neural Fields)}: David Keetae Park 등\cite{valencia2025omnifield}이 제안한 \textbf{OmniField} 아키텍처를 도입함. 이는 희소(Sparse)하고 비정형적인(Irregular) 멀티모달 데이터를 강건한 연속 함수(Continuous Function)로 인코딩하여, 노이즈가 심한 생체/환경 데이터 처리에 최적화됨.
+\item   \textbf{Proprioception Integration}: 기존 ViT의 고정된 그리드 처리 한계를 넘어, \textbf{OmniField}의 유연한 좌표 기반(Coordinate-based) 신경망을 통해 관절 각도 및 촉각 정보를 시각 정보와 매끄럽게 통합함.
 \end{itemize}
 
 \subsubsection{1.2.2 Brain Spatiotemporal Encoder (뇌 시공간 인코더)}
@@ -30,8 +30,9 @@
 이종(Heterogeneous) 표상은 \textbf{Titans Memory Core}에서 통합됨.
 \begin{itemize}
 \item   \textbf{Neural Memory Module}: Titans 아키텍처[1]는 Test-time에 과거 맥락을 효율적으로 기억(Memorize)함. 이는 단순 저장이 아닌, 현재 목표(Goal) 관련 정보만 선별하는 \textbf{"Memory Surprise"} 메트릭에 기반함.
-\item   \textbf{Global Neural Workspace (GNW)}: Dehaene 등[5]의 GNW 이론에 따라, Titans는 감각/뇌 정보가 경쟁·통합되는 "의식적 작업 공간" 역할을 수행함. \textbf{Top-down Selective Attention}이 작동하여 무의미한 노이즈를 억제하고 행동에 필요한 핵심 정보만 장기 기억으로 전이함.
-\item   \textbf{Tubular Manifold Alignment}: 통합 과정에서 모델은 Bertram 등[4]의 \textbf{"Tubularity(관형 구조)"}를 따르도록 학습됨. 잠재 궤적(Latent Trajectory)이 엉키지 않고(Untangled) 매끄러운 튜브 형태를 유지하여, 환경 변화에도 안정적 성능을 보장함.
+\item   \textbf{Global Neural Workspace (GNW)}: Dehaene 등[5]의 GNW 이론에 따라, Titans는 감각/뇌 정보가 경쟁·통합되는 "의식적 작업 공간" 역할을 수행함.
+\item   \textbf{Graph-Informed Reasoning}: Moontae Lee(LG AI Research) 심층 추론 방법론\cite{lee2024strategic}을 적용, Titans 메모리에 저장된 에피소드들을 그래프 구조로 연결하여 단순 회상(Recall)을 넘어선 \textbf{전략적 추론(Strategic Reasoning)}을 수행함.
+\item   \textbf{Tubular Manifold Alignment}: 통합 과정에서 모델은 Bertram 등[4]의 \textbf{"Tubularity(관형 구조)"}를 유지하도록 학습되어 강건성을 확보함.
 \end{itemize}
 
 \subsection{1.4 결론 및 차별점}

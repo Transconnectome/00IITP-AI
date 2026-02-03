@@ -27,6 +27,9 @@ def md_to_tex(content):
         return f"\\begin{{figure}}[h]\n\\centering\n\\includegraphics[width=1.0\\textwidth]{{{filename}}}\n\\caption{{{alt}}}\n\\end{{figure}}"
 
     content = re.sub(r'!\[(.*?)\]\((.*?)\)', image_repl, content)
+    
+    # Citations: [@key] -> \cite{key}
+    content = re.sub(r'\[@(.*?)\]', r'\\cite{\1}', content)
 
     return content
 
