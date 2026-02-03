@@ -4,6 +4,13 @@
 
 echo "🚀 Starting Universal Sync..."
 
+# 0. Pre-flight Validation
+python3 scripts/validate_sync.py
+if [ $? -ne 0 ]; then
+    echo "❌ Validation Failed. Fix errors before syncing."
+    exit 1
+fi
+
 # 1. Deploy to Overleaf Repo (Proposal Only)
 echo ">> [1/2] Syncing to Overleaf (IITP-2026-Proposal)..."
 ./scripts/deploy_to_overleaf.sh
