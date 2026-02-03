@@ -19,11 +19,20 @@
 -   **학습**: Google Cloud / NVIDIA DGX A100 인프라 활용.
 
 ## 4.2 검증 지표 (Validation Metrics)
-| 지표 | 정의 (Definition) | 목표치 (Target) |
-| :--- | :--- | :--- |
-| **Tubularity** | Neural Manifold의 원통형 구조 유지 정도 (Bertram et al., 2026). | Baseline 대비 +30% |
-| **Memory Capacity** | Titans가 저장 가능한 유효 시퀀스 길이 (Effective Context Length). | > 100k tokens |
-| **Allostatic Efficiency** | 작업 수행 시 소모되는 연산 에너지 효율 (Energy per Task). | 기존 Transformer 대비 50% 절감 (LTC 효과) |
+### 주요 검증 지표 (Validation Metrics)
+
+1.  **Tubularity (관형성)**
+    *   **정의**: Neural Manifold가 노이즈에도 불구하고 원통형(Tubular) 구조를 얼마나 잘 유지하는가 (Robustness 척도).
+    *   **참고**: Bertram et al., 2026.
+    *   **목표치**: 기존 Baseline 대비 **+30% 향상**.
+
+2.  **Memory Capacity (기억 용량)**
+    *   **정의**: Titans Memory가 손실 없이 저장하고 인출할 수 있는 유효 시퀀스 길이 (Effective Context Length).
+    *   **목표치**: **100k tokens** 이상 (Test-time Training 활용).
+
+3.  **Allostatic Efficiency (알로스태틱 효율성)**
+    *   **정의**: 특정 작업 수행 시 소모되는 총 연산 에너지 (Energy per Task).
+    *   **목표치**: 기존 Transformer 대비 **50% 절감** (LTC/Neural ODE의 희소성 활용).
 
 ## 4.3 결론
 본 연구는 **신체성(Embodiment)**과 **뇌 동역학(LTC)**을 결합하여, 단순 AI를 넘어선 **"강건하고 효율적인 뇌 내재화 모델"**을 제시함. 이는 차세대 AI(Next-AI)의 표준이 될 것임.
