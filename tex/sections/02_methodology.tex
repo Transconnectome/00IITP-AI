@@ -19,11 +19,10 @@
 \subsection{2.2 Titans Memory Mechanism (메모리 방법론)}
 장기 의존성(Long-term Dependency) 문제 해결을 위해 Google의 최신 아키텍처인 \textbf{Titans}[1]를 본 과제에 맞게 최적화함.
 
-\subsubsection{2.2.1 Surprise-based Memory Update}
-모든 정보를 저장하는 것은 비효율적임. Titans의 핵심 원리인 \textbf{"Memory Surprise"}를 활용하여, 예측 오차(Prediction Error)가 큰 정보만을 선별적으로 장기 기억(Long-term Memory)에 저장함.
-\begin{itemize}
-\item   \textbf{효과}: 메모리 효율성을 극대화하고, 불필요한 배경 노이즈를 자동으로 필터링함.
-\end{itemize}
+\subsubsection{2.2.1 Surprise-based Memory Update (MIRAS)}
+모든 정보를 저장하는 것은 비효율적임. Google Titans의 \textbf{MIRAS 프레임워크}를 적용하여 다음 두 가지 원칙에 따라 메모리를 갱신함.
+1.  \textbf{Surprise Metric}: 예측 오차(Gradient)가 큰 정보(Unexpected Event)만을 선별적으로 장기 기억에 저장함.
+2.  \textbf{Momentum & Forgetting}: 과거 맥락의 관성(Momentum)을 유지하되, 적응형 감쇠(Adaptive Decay)를 통해 불필요한 정보는  망각(Forgetting)하여 메모리 효율을 극대화함.
 
 \subsubsection{2.2.2 Dual Memory System}
 \begin{itemize}

@@ -29,7 +29,7 @@
 \subsection{1.3 Titans Memory: 통합과 선택적 주의 (The Integrator)}
 이종(Heterogeneous) 표상은 \textbf{Titans Memory Core}에서 통합됨.
 \begin{itemize}
-\item   \textbf{Neural Memory Module}: Titans 아키텍처[1]는 Test-time에 과거 맥락을 효율적으로 기억(Memorize)함. 이는 단순 저장이 아닌, 현재 목표(Goal) 관련 정보만 선별하는 \textbf{"Memory Surprise"} 메트릭에 기반함.
+\item   \textbf{Neural Memory Module (MIRAS Framework)}: Google의 최신 \textbf{MIRAS (Memory as Context)} 프레임워크\cite{behrens2025titans}에 기반하여, 단순 저장이 아닌 \textbf{"Surprise Metric (놀라움 척도)"}과 \textbf{"Momentum (관성)"}을 이용해 능동적으로 중요 기억을 선별함.
 \item   \textbf{Global Neural Workspace (GNW)}: Dehaene 등[5]의 GNW 이론에 따라, Titans는 감각/뇌 정보가 경쟁·통합되는 "의식적 작업 공간" 역할을 수행함.
 \item   \textbf{Graph-Informed Reasoning}: Moontae Lee(LG AI Research) 심층 추론 방법론\cite{lee2024strategic}을 적용, Titans 메모리에 저장된 에피소드들을 그래프 구조로 연결하여 단순 회상(Recall)을 넘어선 \textbf{전략적 추론(Strategic Reasoning)}을 수행함.
 \item   \textbf{Tubular Manifold Alignment}: 통합 과정에서 모델은 Bertram 등[4]의 \textbf{"Tubularity(관형 구조)"}를 유지하도록 학습되어 강건성을 확보함.
