@@ -3,10 +3,10 @@
 **Date**: 2026-02-03
 **Target**: DIVER-Neuro Architecture & Methodology (Merged Drafts)
 
-## 1. Overall Impression
+## Overall Impression
 The proposal incorporates cutting-edge components (**Titans/MIRAS**, **OmniField**, **Brain Tuning**) and demonstrates high ambition ("Excellence"). However, the rapid integration of these SOTA models creates "Frankenstein Risks" where components are conceptually stacked but mechanistically disconnected.
 
-## 2. Coherence Gaps (Critical)
+## Coherence Gaps (Critical)
 
 ### 🚨 Gap 1: The "Field-to-Token" Disconnect
 -   **Structure**: The Sensory Encoder uses **OmniField** (Continuous Neural Field). The Memory Core uses **Titans** (Discrete/Token-based Sequence Model).
@@ -28,5 +28,5 @@ The proposal incorporates cutting-edge components (**Titans/MIRAS**, **OmniField
 -   **Critique**: These are mathematically similar but terminology is split.
 -   **Action**: Explicitly state: **"MIRAS Surprise $\approx$ Free Energy (Prediction Error)."** Unify the narrative.
 
-## 3. Conclusion
+## Conclusion
 The "Excellence" is high, but "Rigour" is slightly loose. Address Gap 1 (Sampler) and Gap 4 (Unification) immediately. Gap 2 & 3 are secondary but strengthen the proposal.

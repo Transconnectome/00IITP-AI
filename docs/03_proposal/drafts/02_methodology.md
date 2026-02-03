@@ -6,7 +6,7 @@
 ### 2.1.1 Neural Manifold Alignment
 이종(Heterogeneous) 데이터(시각, 언어, 뇌파)가 통합될 때, 각 모달리티의 잠재 공간(Latent Space)이 서로 엉키지 않고 매끄럽게 정렬되어야 강건한 추론이 가능함.
 -   **Tubularity Metric**: 학습된 궤적(Trajectory)이 국소적으로 원통형(Tubular) 구조를 유지하는지 측정함. 이는 모델이 노이즈에 얼마나 강건한지(Robustness)를 나타내는 핵심 지표임.
--   **검증 목표**: DIVER-Neuro 모델의 Tubularity Score가 기존 Transformer 기반 모델 대비 30% 이상 향상됨을 입증함.
+-   **검증 목표**: DIVER-Neuro 모델의 Tubularity Score가 기존 Transformer 기반 모델 대비 30 percent 이상 향상됨을 입증함.
 
 # 실험 및 검증 방법론 (Methodology)
 

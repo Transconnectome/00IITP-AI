@@ -1,43 +1,41 @@
-# 🧑‍🔬 연구원 협업 가이드 (Overleaf First)
+# 🧑‍🔬 연구원 협업 가이드 (Overleaf Only Mode)
 **Project**: IITP 2026 Embodied Neuro-AI Proposal
 
 ---
 
-## 🚨 핵심 변경 사항 (Overleaf First Policy)
-이제부터 **제안서 텍스트의 원본(Source of Truth)**은 **Overleaf**입니다.
-Markdown 파일은 더 이상 원본이 아니며, 단순 백업/참조용으로 전락합니다.
+## 🚨 정책 변경: Overleaf 단일화
+**2026.02.03 부로 모든 제안서 작업(텍스트, 그림)은 `Overleaf`에서 직접 수행합니다.**
+Git/Markdown 기반의 작업은 중단되었습니다.
 
 ---
 
-## 1. 작업 프로세스
+## 1. 작업 방법 (How to Work)
 
-### A. 텍스트 수정 (Text)
-*   **어디서?**: **Overleaf 웹사이트**에서 직접 수정하십시오.
-*   **주의**: 로컬의 Markdown 파일(`docs/03_proposal/drafts`)을 수정해도 반영되지 않습니다 (오히려 Overleaf 내용에 의해 덮어씌워질 수 있습니다).
+### A. 텍스트 및 수식 (Text & Math)
+*   **접속**: Team Overleaf 프로젝트에 접속합니다.
+*   **수정**: `.tex` 파일을 직접 수정합니다.
+    *   `main.tex`: 전체 구조 관리.
+    *   `sections/`: 챕터별 내용 (`01_architecture.tex` 등).
 
-### B. 그림 추가 (Figures)
-그림은 여전히 로컬 Git에서 관리합니다.
-1.  **생성**: `docs/05_figures/` 폴더에 이미지 파일(PNG/PDF)을 넣습니다.
-2.  **업로드**: 터미널에서 다음 스크립트를 실행합니다.
-    ```bash
-    ./scripts/upload_figures.sh
-    ```
-3.  **사용**: Overleaf에서 `\includegraphics{graphics/filename.png}` 로 사용합니다.
+### B. 그림 (Figures)
+*   **업로드**: Overleaf 웹사이트의 'Upload' 버튼을 사용하여 `graphics/` 폴더에 이미지를 직접 올립니다.
+*   **Git 사용 안 함**: 그림을 Git에 올리고 스크립트로 동기화하던 기존 방식은 **더 이상 사용하지 않습니다.** (원한다면 백업용으로 Git에 올릴 수는 있지만, Overleaf에 자동으로 들어가지 않습니다).
 
-### C. 최신 내용 가져오기 (Sync)
-Overleaf에서 다른 사람이 수정한 내용을 내 로컬 저장소로 백업하려면:
+---
+
+## 2. Git 저장소의 역할 (00IITP-AI)
+이 저장소(`00IITP-AI`)는 이제 **"코드 및 실험 데이터 아카이브"**의 역할만 수행합니다.
+*   **제안서 백업**: 정기적으로 Overleaf 내용을 이 저장소로 **백업(Pull)**합니다.
+*   **코드**: 모델 구현 코드, 실험 스크립트는 여전히 여기서 관리합니다.
+
+### 백업 방법 (Backup)
+Overleaf의 최신 내용을 로컬 Git으로 가져와서 안전하게 보관하고 싶다면:
 ```bash
-./scripts/pull_from_overleaf.sh
+./scripts/backup_from_overleaf.sh
 ```
-> 이 명령은 Overleaf의 `.tex` 파일들을 내 로컬 `tex/` 폴더로 다운로드합니다.
+*(기존 `universal_push.sh`는 이 스크립트로 대체되었습니다)*
 
 ---
 
-## 2. 금지 사항 (Do Not Do This)
-*   ❌ **`deploy_to_overleaf.sh` 실행 금지**: 이 스크립트는 로컬 Markdown 내용을 강제로 Overleaf에 덮어씌웁니다. **Overleaf에서 작업한 내용이 전부 삭제됩니다.** (정말 초기화가 필요한 경우에만 경고 메시지 확인 후 사용하세요).
-
----
-
-## 3. GitHub 저장소 구조
-*   `00IITP-AI` (이 저장소): 코드, 실험 데이터, 그림 원본, 그리고 **Overleaf 백업본**.
-*   `IITP-2026-Proposal` (Overleaf 연동): Overleaf와 실시간 동기화되는 저장소. (직접 건드리지 마세요).
+## 3. 금지 사항
+*   ❌ **`deploy_to_overleaf.sh` 실행 절대 금지**: 로컬의 낡은 Markdown 내용으로 Overleaf의 최신 작업을 덮어씌우게 됩니다. 절대 실행하지 마십시오.
