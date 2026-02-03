@@ -6,6 +6,10 @@ Thumbs.db
 __pycache__/
 *.py[cod]
 *.so
+.venv/
+
+# NotebookLM MCP
+chrome_profile_notebooklm/
 
 # Chrome User Data (Playwright/Selenium)
 scripts/chrome_user_data*
