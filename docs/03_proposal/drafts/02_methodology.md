@@ -15,19 +15,19 @@
 ## 2.2 Titans Memory Mechanism (메모리 방법론)
 장기 의존성(Long-term Dependency) 문제 해결을 위해 Google의 최신 아키텍처인 **Titans**[1]를 본 과제에 맞게 최적화함.
 
-### 2.2.1 Surprise-based Memory Update (MIRAS)
+### 2.2.1 Surprise-based Memory Update (MIRAS & Allostasis)
 모든 정보를 저장하는 것은 비효율적임. Google Titans의 **MIRAS 프레임워크**를 적용하여 다음 두 가지 원칙에 따라 메모리를 갱신함.
-1.  **Surprise Metric**: 예측 오차(Gradient)가 큰 정보(Unexpected Event)만을 선별적으로 장기 기억에 저장함.
-2.  **Momentum & Forgetting**: 과거 맥락의 관성(Momentum)을 유지하되, 적응형 감쇠(Adaptive Decay)를 통해 불필요한 정보는  망각(Forgetting)하여 메모리 효율을 극대화함.
+1.  **Surprise Metric vs Free Energy**: MIRAS의 Surprise Metric(예측 오차)은 Friston[@friston2010free]의 **자유 에너지(Free Energy) 최소화** 원리와 수학적으로 동등함. 즉, 모델은 "예측 불가능한(High Surprise)" 정보만을 장기 기억에 저장하여, 미래의 불확실성을 최소화하는 방향으로 학습됨.
+2.  **Momentum & Forgetting**: 과거 맥락의 관성(Momentum)을 유지하되, 적응형 감쇠(Adaptive Decay)를 통해 불필요한 정보는망각(Forgetting)하여 메모리 효율을 극대화함.
 
 ### 2.2.2 Dual Memory System
 -   **Short-term (Core)**: 현재 작업(Task) 수행을 위한 빠른 주의(Attention) 매커니즘.
 -   **Long-term (Neural Memory)**: 심층 신경망 가중치(Weights) 형태로 저장되는 암묵적 기억(Implicit Memory). SSM(State Space Model)을 통해 수천 스텝 이전의 정보도 손실 없이 인출함[3].
 
-## 2.3 Brain-Tuning: 생물학적 정렬 (Biological Alignment)
-Mariya Toneva 등[@benara2025braintuning]이 제안한 **"Brain-Tuning"** 기법을 도입하여, 인공신경망의 잠재 표현을 실제 인간 뇌 반응(fMRI/EEG)과 정렬(Alignment)시킴.
--   **Method**: Titans 모델의 중간 레이어 출력을 인간 뇌의 언어/감각 피질 반응 데이터(DIVER Dataset)와 매핑되도록 지도 학습(Supervised Fine-tuning)함.
--   **Effect**: Toneva의 연구[@policzer2025multimodal]에서 입증되었듯, 단순 데이터 학습 대비 **의미론적 이해(Semantic Understanding)** 능력이 대폭 향상되며, 인간과 유사한 계층적 정보 처리(Hierarchical Processing) 구조를 갖추게 됨.
+## 2.3 Brain-Tuning: Semantic Alignment (의미론적 정렬)
+Mariya Toneva 등[@benara2025braintuning]의 연구에 기반하여, Titans 모델의 **의미론적 잠재 공간(Semantic Latent Space)**을 인간 뇌 반응과 정렬함.
+-   **Method**: Titans의 상위 레이어 출력을 인간 뇌의 언어/개념 피질 반응(Semantic Cortex) 데이터와 매핑되도록 지도 학습함 (감각-운동 레벨은 Reconstruction Loss 사용).
+-   **Effect**: Toneva의 연구[@policzer2025multimodal]에서 입증되었듯, 단순 데이터 학습 대비 **의미론적 이해(Semantic Understanding)** 능력이 대폭 향상됨.
 
 ## 2.4 실험 및 검증 계획 (Validation Plan)
 -   **Phase 1**: Toy Dataset(Moving MNIST + Synthetic EEG)을 이용한 개념 증명.

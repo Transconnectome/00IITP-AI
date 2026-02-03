@@ -11,6 +11,7 @@
 ### 1.2.1 Sensory-Motor Encoder (감각-운동 인코더): **OmniField**
 에이전트가 환경과 상호작용하는 데 필요한 외부 정보를 처리함.
 -   **OmniField (Neural Fields)**: David Keetae Park 등[@valencia2025omnifield]이 제안한 **OmniField** 아키텍처를 도입함. 이는 희소(Sparse)하고 비정형적인(Irregular) 멀티모달 데이터를 강건한 연속 함수(Continuous Function)로 인코딩하여, 노이즈가 심한 생체/환경 데이터 처리에 최적화됨.
+-   **Latent Coordinate Sampler**: 연속적인 OmniField의 출력을 Titans가 처리 가능한 토큰 형태로 변환하기 위해, **좌표 기반 샘플링(Coordinate Sampling)** 층을 둠. 이 과정에서 Han et al.[@han2024simulated]의 **Simulated Annealing** 기법을 초기화 단계에 적용하여, 최적의 특징점(Feature Points)을 포착하고 Local Minima를 방지함.
 -   **Proprioception Integration**: 기존 ViT의 고정된 그리드 처리 한계를 넘어, **OmniField**의 유연한 좌표 기반(Coordinate-based) 신경망을 통해 관절 각도 및 촉각 정보를 시각 정보와 매끄럽게 통합함.
 
 ### 1.2.2 Brain Spatiotemporal Encoder (뇌 시공간 인코더)

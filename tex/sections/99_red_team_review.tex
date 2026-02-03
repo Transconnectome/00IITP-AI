@@ -1,0 +1,40 @@
+\section{🛡️ Red Team Review Report (Expert Persona)}
+\textbf{Reviewer}: Prof. Neuro-AI
+\textbf{Date}: 2026-02-03
+\textbf{Target}: DIVER-Neuro Architecture & Methodology (Merged Drafts)
+
+\subsection{1. Overall Impression}
+The proposal incorporates cutting-edge components (\textbf{Titans/MIRAS}, \textbf{OmniField}, \textbf{Brain Tuning}) and demonstrates high ambition ("Excellence"). However, the rapid integration of these SOTA models creates "Frankenstein Risks" where components are conceptually stacked but mechanistically disconnected.
+
+\subsection{2. Coherence Gaps (Critical)}
+
+\subsubsection{🚨 Gap 1: The "Field-to-Token" Disconnect}
+\begin{itemize}
+\item   \textbf{Structure}: The Sensory Encoder uses \textbf{OmniField} (Continuous Neural Field). The Memory Core uses \textbf{Titans} (Discrete/Token-based Sequence Model).
+\item   \textbf{Critique}: How does the continuous field output of OmniField become a discrete token for Titans? If this "Tokenizer" or "Sampler" step is missing, the architecture is broken.
+\item   \textbf{Action}: Explicitly define a \textbf{"Coordinate Sampler"} or \textbf{"Latent Tokenizer"} layer between OmniField and Titans.
+\end{itemize}
+
+\subsubsection{🚨 Gap 2: Brain Tuning Data Feasibility}
+\begin{itemize}
+\item   \textbf{Structure}: Methodology 2.3 proposes \textbf{Brain-Tuning} using Toneva's method (Language-to-Brain alignment).
+\item   \textbf{Critique}: Toneva's work relies on Text-fMRI pairs. DIVER deals with "Sensory-Motor" data. Do you have "Motor-fMRI" pairs? Or are you tuning only the "Concept/Language" part of Titans?
+\item   \textbf{Action}: Clarify that Brain Tuning applies primarily to the \textbf{"Semantic/Concept Latent Space"} of Titans, leveraging the Language-Brain datasets (DIVER-Lang subset), while Sensory parts use standard reconstruction loss.
+\end{itemize}
+
+\subsubsection{🚨 Gap 3: Missing "Simulated Annealing" Strategy}
+\begin{itemize}
+\item   \textbf{Structure}: Han et al. (2024) "Simulated Annealing in Early Layers" is cited.
+\item   \textbf{Critique}: It appears in the bibliography but is \textbf{nowhere in the text}. Why cite it if you don't use it?
+\item   \textbf{Action}: Integrate it into \textbf{Phase 1 Optimization Strategy} or removing it if irrelevant. (Suggestion: Use it for the \textbf{OmniField Initialization} to prevent local minima).
+\end{itemize}
+
+\subsubsection{🚨 Gap 4: MIRAS vs. Allostasis}
+\begin{itemize}
+\item   \textbf{Structure}: MIRAS uses "Surprise Metric". Allostasis uses "Free Energy Minimization".
+\item   \textbf{Critique}: These are mathematically similar but terminology is split.
+\item   \textbf{Action}: Explicitly state: \textbf{"MIRAS Surprise $\approx$ Free Energy (Prediction Error)."} Unify the narrative.
+\end{itemize}
+
+\subsection{3. Conclusion}
+The "Excellence" is high, but "Rigour" is slightly loose. Address Gap 1 (Sampler) and Gap 4 (Unification) immediately. Gap 2 & 3 are secondary but strengthen the proposal.
