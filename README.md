@@ -3,7 +3,7 @@
 > **Project Code**: 00IITP-AI (NeuroX)  
 > **Core Strategy**: Two-Part Model (Sensory Encoder + Titans Memory SSM) 
 > **Links**:
-> - **[Overleaf Proposal (Paper)](https://www.overleaf.com/2262852297jskmgtrhqpfy#fc872c)**
+> - **[📝 Current Working Document (Overleaf)](https://www.overleaf.com/1388485975djyxnxqtntmp#15280b)** 👈 **Main Paper**
 > - **[GitHub (Research Hub)](https://github.com/Transconnectome/00IITP-AI)**
 > - **[GitHub (Proposal Sync)](https://github.com/snuconnectome/IITP-2026-Proposal)**
 > **Knowledge Base**: [NotebookLM Link](https://notebooklm.google.com/notebook/7acc2737-c783-43ff-af4c-e360ad02cf2c)
