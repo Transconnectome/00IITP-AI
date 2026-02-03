@@ -22,3 +22,5 @@ dashboard_debug.png
 dashboard_dump.html
 *.log
 email*.pdf
+docs/00_task_description/raw/*.zip
+docs/03_proposal/references/proposals/*.pdf
