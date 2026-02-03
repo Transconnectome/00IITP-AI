@@ -1,0 +1,252 @@
+Citation: Duriez, A.; Bergerot, C.;
+Cone, J.J.; Roitman, M.F.; Gutkin, B.
+Homeostatic Reinforcement Theory
+Accounts for Sodium Appetitive
+State- and Taste-Dependent
+Dopamine Responding. Nutrients
+2023, 15, 1015. https://doi.org/
+10.3390/nu15041015
+Academic Editor: Micah Leshem
+Received: 24 November 2022
+Revised: 9 February 2023
+Accepted: 11 February 2023
+Published: 17 February 2023
+Copyright: © 2023 by the authors.
+Licensee MDPI, Basel, Switzerland.
+This article is an open access article
+distributed under the terms and
+conditions of the Creative Commons
+Attribution (CC BY) license (https://
+creativecommons.org/licenses/by/
+4.0/).
+nutrients
+Article
+Homeostatic Reinforcement Theory Accounts for Sodium
+Appetitive State- and Taste-Dependent Dopamine Responding
+Alexia Duriez 1,2
+ , Clémence Bergerot 1,3,4,5 , Jackson J. Cone 6
+ , Mitchell F. Roitman 7 and Boris Gutkin 1, *
+1 Group for Neural Theory, LNC2 DEC ENS, PSL University, 75005 Paris, France
+2 School of Life Sciences, Ecole Polytechnique Fédérale de Lausanne, 1015 Lausanne, Switzerland
+3 Charité—Universitätsmedizin Berlin, Einstein Center for Neurosciences Berlin, 10117 Berlin, Germany
+4 Institute for Theoretical Biology, Department of Biology, Humboldt-Universität zu Berlin, Philippstraße 13,
+10115 Berlin, Germany
+5 Bernstein Center for Computational Neuroscience Berlin, Philippstr. 13, 10115 Berlin, Germany
+6 Hotchkiss Brain Institute, Department of Psychology, University of Calgary, Calgary, AB T2N 1N4, Canada
+7 Department of Psychology, University of Illinois Chicago, Chicago, IL 60607, USA
+* Correspondence: boris.gutkin@ens.fr; Tel.: +33-(0)6-8631-6231
+Abstract: Seeking and consuming nutrients is essential to survival and the maintenance of life.
+Dynamic and volatile environments require that animals learn complex behavioral strategies to obtain
+the necessary nutritive substances. While this has been classically viewed in terms of homeostatic
+regulation, recent theoretical work proposed that such strategies result from reinforcement learning
+processes. This theory proposed that phasic dopamine (DA) signals play a key role in signaling
+potentially need-fulﬁlling outcomes. To examine links between homeostatic and reinforcement
+learning processes, we focus on sodium appetite as sodium depletion triggers state- and taste-
+dependent changes in behavior and DA signaling evoked by sodium-related stimuli. We ﬁnd that
+both the behavior and the dynamics of DA signaling underlying sodium appetite can be accounted for
+by a homeostatically regulated reinforcement learning framework (HRRL). We ﬁrst optimized HRRL-
+based agents to sodium-seeking behavior measured in rodents. Agents successfully reproduced
+the state and the taste dependence of behavioral responding for sodium as well as for lithium and
+potassium salts. We then showed that these same agents account for the regulation of DA signals
+evoked by sodium tastants in a taste- and state-dependent manner. Our models quantitatively
+describe how DA signals evoked by sodium decrease with satiety and increase with deprivation.
+Lastly, our HRRL agents assigned equal preference for sodium versus the lithium containing salts,
+accounting for similar behavioral and neurophysiological observations in rodents. We propose that
+animals use orosensory signals as predictors of the internal impact of the consumed good and our
+results pose clear targets for future experiments. In sum, this work suggests that appetite-driven
+behavior may be driven by reinforcement learning mechanisms that are dynamically tuned by
+homeostatic need.
+Keywords: sodium appetite; dopamine; homeostasis; reinforcement learning
+1. Introduction
+Seeking and consuming nutrients is essential to survival and the maintenance of life.
+Animals living in dynamic and volatile environments must develop complex behavioral
+strategies to obtain the necessary nutritive substances. This has been classically viewed in
+terms of homeostatic regulation, where complex nutrient-seeking behaviors are triggered
+by physiological need. Animals also seek nutrients in advance of acute need. How animals
+acquire nutrient-directed behaviors has most often been examined through the lens of
+reinforcement learning (RL) theories. In RL, subjects acquire information about signals
+from the environment that are associated with the receipt of reward [1]. Importantly, RL
+signals are distributed throughout the brain [2,3]. Similarly, physiological need impacts a
+Nutrients 2023, 15, 1015. https://doi.org/10.3390/nu15041015 https://www.mdpi.com/journal/nutrients
+Nutrients 2023, 15, 1015 2 of 22
+wide array of brain circuits that regulate behaviors motivated by nutrient rewards [4–6].
+Intriguingly, the vast majority of RL theories do not treat the physiological origins of
+primary reward seeking, nor do they speak to how nutrients and their associated values are
+modulated by internal state. To maximize survival, physiological needs should augment
+signals that drive RL to promote learning in environments that offer access to essential
+nutrients. Thus, the reinforcing value of a nutrient, and consequently the degree to which
+an RL-based agent can learn from actions that acquire said nutrient, should be modulated
+in an appetite-dependent manner.
+An essential area for exploration is thus the degree to which homeostatic and reinforce-
+ment learning processes are coupled in the central nervous system. RL processes have been
+most closely associated with mesolimbic circuitry, namely the midbrain DA neurons and
+their major target, the striatum [7–9]. While debate remains as to the role of DA in RL [10],
+it is increasingly clear that midbrain DA neurons and their responses to essential nutrients
+are modulated by physiological state, through direct hormonal inﬂuence [ 11–14] or via
+interactions with homeostatic and/or related circuits [ 15–20]. A particularly powerful
+example of the impact of physiological need on motivated behavior and DA signaling is
+sodium appetite. Sodium appetite is a natural behavior [21] whereby a sodium deﬁcit gen-
+erates sodium-seeking behaviors and selective consumption of sodium over other nutrients.
+Under homeostatic conditions, rodents avoid consumption of hypertonic sodium solutions.
+However, sodium depletion (via injection of a diuretic/natriuretic, e.g., furosemide) or
+removal of the adrenal glands [ 22] induces avid consumption of hypertonic sodium so-
+lutions and appetitive taste reactivity [23]. Importantly, phasic DA responses to the taste
+of a hypertonic sodium solution are dynamically sensitive to sodium balance [16,17]. As
+with behavior, the DA response in sodium-depleted rats is blocked by lingual application
+of the epithelial sodium channel blocker amiloride [16] and is selective for sodium solu-
+tions [17]. Lithium chloride, a notable exception, is equally preferred [17,24], likely due to
+sodium taste ﬁbers responding to lithium as well (but not potassium) [25]. These data argue
+strongly that information related to the current state of sodium balance is communicated to
+midbrain DA neurons to regulate brain signals thought to drive RL. Taken together, these
+data pose a major challenge to current state of the art RL theories, and novel RL models
+need to be developed that account for the impact of physiological need and the role of
+gustatory information on reward learning. Sodium appetite is an ideal paradigm to address
+this issue.
+We recently put forth a homeostatic reinforcement learning (HRRL) framework that
+was developed to study how animals learn need-based adaptive behavioral strategies
+in their environment to obtain rewarding outcomes [ 26,27]. The HRRL agent learns to
+maximize the total cumulative reward by performing actions and predicting the impact of
+their outcome on its internal state. This framework relies on a new deﬁnition of rewards:
+the rewarding value of an action is a function of the predicted impact on the difference
+between the current internal state and the ideal one (i.e., “setpoint”). The function that links
+the internal states to rewards is called the drive function. In other words, the reinforcing
+value of a stimulus is modulated by the degree to which it alleviates or exacerbates a
+physiological need. In this way, HRRL joins the predictive homeostatic regulation and
+reinforcement learning theories by positing that minimizing deviations from a homeostatic
+setpoint and maximizing reward are equivalent. In other words HRRL synthesizes RL
+algorithms with the drive reduction theories of motivation [ 28]. HRRL has been used
+to simulate the consumption of various resources and reproduce experimental data. It
+can also be used to represent complex behavior such as anticipatory responding, binge
+eating [26] and cocaine addiction [29]. Interestingly, it can be shown mathematically that
+HRRL agents show predictive allostatic behavior and HRRL accounts for the incentive
+salience proposals: the internal state of the HRRL agents is dynamically changed according
+to upcoming challenges and the action values (incentives) are modulated dynamically by
+the internal state of the animal.
+Nutrients 2023, 15, 1015 3 of 22
+Here, we show that the HRRL model can account for sodium-seeking behavior and
+DA signaling in rats. We ﬁrst required the HRRL models to reproduce behavioral data
+showing that sodium-deprived rats preferred sodium and lithium over potassium solutions.
+We then showed that such HRRL agents also reproduce the dynamics of DA signals. We
+then used the models to make several predictions about satiety-dependent modulation of
+behavior and how exposure to lithium may only modulate the behavior and the reinforcing
+value sodium.
+2. Methods
+2.1. HRRL Theory for Sodium Consumption
+2.1.1. State Space Representation
+The internal state is considered a continuous variable that can be represented at each
+time t by a point in a homeostatic state space. As theorized by Keramati and Gutkin [26],
+this state space has one dimension per homeostatic variable. The ideal internal state is the
+equilibrium point of the homeostatic state space. This point we call the setpoint represents
+the internal state that maximizes the chances of survival (satiety). It is denoted by H* = (h1*,
+h2*, . . . , hN*). In this study, the state space has only one dimension, corresponding to the
+internal sodium level.
+2.1.2. Reward Calculation Mechanism
+The HRRL theory provides a function called the drive, which takes as its argument the
+degree of departure from a “satiety” point and has a unique minimum at that setpoint. The
+drive is a function of the deviation of the animal’s internal stateHt from its homeostatic
+setpoint H* (Figure 1). In a homeostatic state space with one dimension, the drive is given
+by the following expression [26]:
+D(Ht) = m
+√
+|h∗−ht|n (1)
+where t represents the time, m and n are free parameters that inﬂuence, non-linearly, the
+mapping between homeostatic deviations and the rewarding value of their reduction.
+As an animal performs an action, its internal state is modiﬁed by the outcome Kt of
+the action. The homeostatic reward is deﬁned in a non-circular way, as the reduction in the
+homeostatic distance from the setpoint caused by the outcome Kt.
+r, Kt = D(Ht) −D(Ht+1) (2)
+r(Ht, Kt) = D(Ht) −D(Ht + Kt) (3)
+The reward associated with taking an action from state Ht resulting in an outcome Kt
+that transitions the internal state to Ht+1 is positive if the subsequent internal state (Ht+1)
+remains below or equal to the setpoint However, if the animal is currently at its setpoint
+(i.e., Ht = H∗), the reward value obtained with the outcome Kt is negative: the outcome is
+negatively reinforcing.
+Nutrients 2023, 15, 1015 4 of 22
+Nutrients 2023, 15, x FOR PEER REVIEW 4 of 24 
+ 
+ 
+Nutrients 2023, 15, x. https://doi.org/10.3390/xxxxx www.mdpi.com/journal/nutrients 
+ 
+Figure 1. (A) Drive as a function of the internal sodium level. The optimal sodium level is denoted 
+by H*, indicated by a dot. The current sodium state of the agent at time t is 𝐻௧. An action apports an 
+outcome that impacts the sodium level denoted by 𝐾௧, transitioning the internal state to Ht + 1 = Ht 
++ Kt. The change in the drive functi on is defined as the reward r = ΔD (Ht, Ht + Kt). (B) Probability 
+distributions for parameter valu es yielding model results cons istent with the experimental 
+observations. Parameters are, from top to bottom: the setpoint H*, the learning rate 𝜖, the rate of 
+exploration 𝛽, the fixed outcome K, the loss of sodium after each  trial and the energy cost of 
+drinking. If each parameter takes a value with a high probability, the simulation results are 
+consistent with the experimental observation. Fo r each pair of parameters, the joint probability 
+distribution that the two parameters fall in th eir respective range of possible values is also 
+represented. Distributions obtained following Go nçalvez et al. [30], see Methods for details. ( C) 
+Diagram of the agent computations during a sing le trial (adapted from Schultz [31]). After 
+performing an action, the agent receives a rewa rd computed with the drive function and the 
+estimated outcome of the action. The reward predic tion error will be used to update the predicted 
+value of this action and the probability of the agent to choose it at the next trial. In the meantime, 
+Figure 1. (A) Drive as a function of the internal sodium level. The optimal sodium level is de-
+noted by H*, indicated by a dot. The current sodium state of the agent at time t is Ht. An action
+apports an outcome that impacts the sodium level denoted by Kt, transitioning the internal state to
+Ht + 1 = Ht + Kt. The change in the drive function is deﬁned as the reward r = ∆D (Ht, Ht + Kt).
+(B) Probability distributions for parameter values yielding model results consistent with the experi-
+mental observations. Parameters are, from top to bottom: the setpoint H*, the learning rate ϵ, the
+rate of exploration β, the ﬁxed outcome K, the loss of sodium after each trial and the energy cost of
+drinking. If each parameter takes a value with a high probability, the simulation results are consistent
+with the experimental observation. For each pair of parameters, the joint probability distribution that
+the two parameters fall in their respective range of possible values is also represented. Distributions
+obtained following Gonçalvez et al. [30], see Methods for details. (C) Diagram of the agent computa-
+tions during a single trial (adapted from Schultz [31]). After performing an action, the agent receives
+a reward computed with the drive function and the estimated outcome of the action. The reward
+prediction error will be used to update the predicted value of this action and the probability of the
+agent to choose it at the next trial. In the meantime, the agent receives the outcome of the action,
+which modiﬁes its internal state and its prediction of this outcome.
+Nutrients 2023, 15, 1015 5 of 22
+2.1.3. Taste Value Estimation Mechanism
+We hypothesize that animals sense the rewarding value of a tastant through the
+gustatory information they receive before experiencing its post-ingestive qualities [26]. The
+reward is thus computed by the animals’ orosensory approximation of the nutritional value
+Kt given the amount of solution they consumed. This estimate of the outcome, based on
+the orosensory properties of the stimulus, is denoted by ˆKt. The reward therefore becomes:
+r
+(
+Ht , ˆKt
+)
+= D(Ht) −D
+(
+Ht + ˆKt
+)
+(4)
+We further hypothesize that ˆKt is not constant. In our model, ˆKt is learned with a
+learning rate ϵ through tasting the corresponding solution and experiencing its impact
+on the internal sodium level Ht. We introduced this aspect since it has been suggested
+that assigning a reinforcing value to a taste of food requires that the animal experiences its
+nutritional impact [32]. According to this study, hungry animals learn that a taste stimulus
+is predictive of a need-reducing reward by experiencing the association between these two
+properties of food. We consider that ˆKt also has an innate non-zero initial value, which
+is supported by recording of DA transients: the ﬁrst NaCl infusion already elicits a DA
+response [16].
+ˆKt = ˆKt−1 + ϵδk (5)
+δk= Kt − ˆKt (6)
+It has been shown that in the absence of prior experience, sodium-depleted rats cannot
+discriminate between sodium and lithium chloride [17]. We therefore hypothesize that taste
+information alone is insufﬁcient to distinguish between sodium and lithium in the absence
+of any post-ingestive impact on D. In our model, this means that, for naïve animals, sodium
+and lithium have the same ˆKt, which represents the estimated impact of a sodium-like
+tasting solution on the internal state.
+2.1.4. Action Value Estimation Mechanism
+With the Q-learning method, rats estimate the value v of each choice as they discover
+which actions are more rewarding than the others [33] Once a rat executes an action a and
+the homeostatic reward r is computed, the value v(a) of this action is updated using the
+reward prediction error (RPE), δr, with the learning rate ϵ [26].
+v(a) ← v(a) + ϵδr (7)
+δr = r(Ht, ˆKt) −v(a) −cost (8)
+The cost is a penalty we introduced in this model associated with the energy cost
+of approaching the sipper tubes and consuming any of the solutions. By decreasing the
+reward prediction error term (RPE), it reduces the reinforcing value of an action, and thus
+the motivation of the agent to pursue that action in the future. We assume that the cost of
+approaching and drinking from a sipper tube is a priori encoded in the rats’ representation
+of their environment.
+δr is the RPE signal that is purportedly encoded by midbrain dopaminergic neurons
+(e.g., see [34]). We therefore monitor the RPE by sampling DA ﬂuctuations in the Nucleus
+Accumbens (NAc). A positive RPE in our model corresponds to a phasic DA response in
+the NAc. The RPE signal is negative when the predicted reward is superior to the actual
+one. The RPE can also be negative for actions that yield no reward due to the energy cost
+associated with performing said action.

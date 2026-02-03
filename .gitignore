@@ -13,6 +13,10 @@ scripts/chrome_user_data/
 scripts/chrome_user_data_clean/
 scripts/chrome_user_data_clean_2/
 
+# RAG vector DB (nv-ingest + ChromaDB)
+data/vector_db_iitp_ai/
+tmp/iitp_ai_pdf_list.txt
+
 # Debug/Temp
 dashboard_debug.png
 dashboard_dump.html

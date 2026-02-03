@@ -2,6 +2,11 @@
 
 설명서/협약 기준에 따라 아래 항목을 관리합니다.
 
+## IITP-AI RAG 연동 문서
+
+- **[DESIGN_RAG_NVINGEST_AI_COSCIENTIST.md](./DESIGN_RAG_NVINGEST_AI_COSCIENTIST.md)** — 설계: 00IITP-AI ↔ k-bfm RAG · AI-CoScientist · nv-ingest 아키텍처
+- **[IITP_RAG_IMPLEMENTATION_DOCUMENTATION.md](./IITP_RAG_IMPLEMENTATION_DOCUMENTATION.md)** — 구현 문서: Changelog, API 레퍼런스, Runbook
+
 ## 체크 항목(예시)
 
 - 예산 편성(인건비/장비/재료/외주/간접비)

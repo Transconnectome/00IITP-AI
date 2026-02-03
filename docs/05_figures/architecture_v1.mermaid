@@ -1,0 +1,34 @@
+graph TD
+    %% Core Architecture: Neuro-GINR Generative Foundation Model
+
+    subgraph "Micro-Scale (Sensory Input)"
+        Spikes[Single Unit Spikes (Micro)] -->|Continuous Field| GINR_S[Neuro-GINR Micro Encoder]
+        LFP[LFP / EEG (Meso)] -->|Continuous Field| GINR_S
+    end
+
+    subgraph "Part 1: Invariant Neural Manifold (Neuro-GINR)"
+        GINR_S -->|Invariant Mapping| Latent[Unified Continuous Manifold]
+        Latent -- Precision --> Uncertainty[Uncertainty Field (Sigma)]
+        Latent -- Features --> Mean[Feature Field (Mu)]
+        
+        Note1[Key Innovation: Geometry-Invariant Representation<br/>Aligns Mouse Spikes & Human fMRI]
+    end
+
+    subgraph "Part 2: Titans-Mamba Memory"
+        Mean -->|Linear Attention| Mamba[Mamba-SSM Backbone]
+        Uncertainty -->|Gating| Surplus[Bayesian Surprisal Gate]
+        Surplus -->|Permit| LTM[Long-Term Memory (Titans)]
+        Mamba <--> LTM
+    end
+
+    subgraph "Macro-Scale (Generative Output)"
+        Mamba -->|Generative Decode| fMRI[Human fMRI (Macro)]
+        Mamba -->|Generative Decode| Action[Behavior/Motor]
+    end
+
+    %% Styles
+    style Spikes fill:#ffcccc,stroke:#333,stroke-width:2px
+    style fMRI fill:#ccccff,stroke:#333,stroke-width:2px
+    style Latent fill:#e1f5fe,stroke:#0277bd,stroke-width:4px
+    style Mamba fill:#fff3e0,stroke:#ef6c00,stroke-width:4px
+    style LTM fill:#e8f5e9,stroke:#2e7d32,stroke-width:4px

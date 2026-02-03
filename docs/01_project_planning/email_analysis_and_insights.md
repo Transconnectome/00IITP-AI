@@ -23,11 +23,12 @@
 
 ### 🎯 차지욱 (User) & 김병훈 교수님
 
-- **핵심 역할**: **Multimodal SSM의 대규모화 (Scaling) 및 확장**
+- **핵심 역할**: **Neuro-GINR Generative Foundation Model (Physics-Inspired SSM) 스케일링**
 - **세부 주제**:
-  - Vision, Language, Action을 아우르는 Multimodal SSM 연구
-  - 기존 수행하던 Large Brain Model / Foundation Model 연구를 SSM 기반으로 확장
-- **Action Item**: 기존 연구 방향(대규모 모델링)을 유지하되, **Titans / SSM** 키워드와의 연계성 강조 필요.
+  - **Generative Translation**: Mouse Spike(Micro) 데이터를 Human fMRI(Macro) 패턴으로 생성/변환하는 **Cross-Species Bridge** 구축.
+  - **Neuro-GINR Encoder**: 입자 물리의 Invariant 학습법(FM4NPP)을 적용해 뇌 데이터의 시공간적 불변량(Invariant Manifold) 추출.
+  - **Titans Memory Integration**: Mamba-SSM을 Titans의 장기 기억소로 활용하여 24시간 연속 데이터 처리.
+- **Action Item**: `strategy_neuro_ginr.md` (V2) 및 `evidence_matrix_ssm.md`를 기반으로 제안서 아키텍처 구체화.
 
 ### 🧪 실험 및 데이터 수집 (Data Providers)
 

@@ -3,8 +3,38 @@
 > **Project Code**: 00IITP-AI (NeuroX)  
 > **Core Strategy**: Two-Part Model (Sensory Encoder + Titans Memory SSM)  
 > **System**: NeuroX-OS v1.0
+> **Knowledge Base**: [NotebookLM Link](https://notebooklm.google.com/notebook/7acc2737-c783-43ff-af4c-e360ad02cf2c)
 
 이 저장소는 **2026 IITP 인간 인지 기반 인공지능** 과제 제안서 작성을 위한 **"Agentic Proposal Operating System (NeuroX-OS)"**입니다. 단순한 파일 저장소를 넘어, AI 에이전트가 문헌 조사, 전략 검증, 초안 작성, 레드팀 리뷰를 수행하는 능동형 워크스페이스입니다.
+
+---
+
+## 📜 Master Plan (Start Here!!)
+
+**"모든 전략과 계획은 이 문서에서 시작됩니다."**
+
+**[📄 PROPOSAL_PLAN.md (제안서 마스터 플랜)](docs/03_proposal/PROPOSAL_PLAN.md)**
+
+이 파일은 본 과제(2026-014)의 **가장 중요한 설계도**이자 **나침반**입니다. 제안서 작업에 착수하기 전 반드시 필독해야 합니다.
+
+*   **핵심 철학**: **DIVER-Neuro** 파운데이션 모델의 정의 ("Ground Truth는 뇌에 있다").
+*   **아키텍처 정의**:
+    *   **Part 1 (Dual Encoders & Titans)**: 시각/언어/신체(Proprioception)와 뇌 신호(LTC)를 통합하는 메커니즘.
+    *   **Part 3 (Allostatic Neuro-Twin)**: 단순 웰니스 에이전트를 넘어선 예측적 항상성(Homeostasis) 조절 원리.
+*   **검증 논리**: "Tubularity", "Manifold Alignment" 등 학술적 근거(Bertram et al., 2026)와 Titans Memory(Surprise-based)의 타당성.
+*   **실행 로드맵**: Phase 1(이론) $\rightarrow$ Phase 2(마이크로 구현) $\rightarrow$ Phase 3(통합) $\rightarrow$ Phase 4(초안 작성).
+
+---
+
+## 🧠 Knowledge Base (NotebookLM)
+
+**[NotebookLM 바로가기](https://notebooklm.google.com/notebook/7acc2737-c783-43ff-af4c-e360ad02cf2c)**
+
+이 Notebook는 NeuroX 프로젝트의 **"지식 베이스(Knowledge Base)"**이자 **"Agentic Red Teamer"** 역할을 수행합니다.
+
+*   **Source Grounding**: RFP 원문 및 최신 논문에 기반한 엄밀한 팩트 체크.
+*   **Audio Briefing**: 이동 중 제안서의 논리적 흐름을 청각적으로 점검.
+*   **Deep Q&A**: "SSM vs Transformer" 등 심층적인 기술적 차별점 논리 생성.
 
 ---
 
@@ -26,26 +56,19 @@
 이 시스템에는 제안서 작성을 돕는 6가지 특수 능력(Skill)과 5가지 자동화 흐름(Workflow)이 탑재되어 있습니다.
 
 ### 1. 🤖 Available Skills (`.agent/skills/`)
-
 AI 에이전트는 상황에 따라 아래 스킬을 자동으로 로드하여 작업을 수행합니다.
 
 | Skill Name | 설명 (Goal) | 산출물 (Output) |
 | :--- | :--- | :--- |
-| **`strategy-titans-alignment`** | 제안서 내용이 **"Titans 전략"** 및 **R&R(이메일 분석)**과 일치하는지 검증합니다. | `strategy_alignment_report.md` |
-| **`evidence-synthesis-ssm`** | arXiv/Semantic Scholar에서 **SSM, Mamba, Titans** 관련 최신 논문을 수집하고 근거 매트릭스를 만듭니다. | `evidence_matrix_ssm.md` |
-| **`proposal-outline-iitp`** | IITP 평가 지표(기술성, 연구능력 등)에 맞춘 **MECE 아웃라인**을 생성합니다. | `outline_iitp_v1.md` |
-| **`draft-writer-neurox`** | "세계 최고/최초" 톤앤매너로 **정부 제안서 스타일**의 초안을 작성합니다. | `docs/03_proposal/drafts/` |
-| **`figure-architecture-blueprint`** | Two-Part Model의 구조를 **Mermaid/Draw.io 다이어그램**으로 설계합니다. | `docs/05_figures/` |
-| **`redteam-reviewer-impact`** | 심사위원 페르소나를 장착하여 **"혁신성 부족", "실현 가능성"** 등을 혹독하게 비판합니다. | `redteam_report.md` |
+| **`embodied-neuro-proposal-writer`** | **[New]** IITP 제안서(LTC, Proprioception) 전용 고품질 초안 작성. | `docs/03_proposal/drafts/` |
+| **`embodied-neuro-reviewer`** | **[New]** RFP-013(신체성) 및 IdeaDeck 정합성을 엄격히 심사. | `docs/99_reviews/` |
+| **`evidence-synthesis-ssm`** | 문헌 조사 및 근거 매트릭스 생성. | `evidence_matrix_ssm.md` |
+| **`figure-architecture-blueprint`** | 아키텍처 다이어그램 설계. | `docs/05_figures/` |
 
 ### 2. ⚡ Automated Workflows (`.agent/workflows/`)
+채팅창에 아래 명령어를 입력하세요.
 
-복잡한 작업을 한 번의 명령으로 수행할 수 있습니다. 채팅창에 아래 명령어를 입력하세요.
-
-* **`@/align`**: **전략 정렬**. 최신 이메일/회의록을 분석하여 제안서 방향 수정 제안.
-* **`@/lit-ssm`**: **문헌 조사**. 최신 SSM/Titans 논문 10편 수집 → 요약 → 근거 추가.
-* **`@/draft-part1`**: **1세부 초안 작성**. "Sensory Encoder" 파트 자동 작성.
-* **`@/draft-part2`**: **2세부 초안 작성**. "Titans Memory" 파트 자동 작성.
+* **`@/draft-proposal`**: **전체 초안 작성 루프**. (Write -> Review -> Refine).
 * **`@/fig-arch`**: **그림 설계**. 아키텍처 다이어그램 업데이트.
 
 ---

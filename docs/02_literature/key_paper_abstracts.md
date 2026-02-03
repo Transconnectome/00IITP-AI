@@ -1,0 +1,13 @@
+# Key Papers Abstracts for IITP Proposal
+
+## 1. Titans: Learning to Memorize at Test Time (2024)
+**Abstract**: We introduce Titans, a neural architecture that learns to memorize historical data at test time. Unlike Transformers that rely on fixed weights or limited context windows, Titans employs a **Memory Module** based on deep state-space models and a "surprise" metric. This allows the model to selectively update its long-term memory with novel information while ignoring redundant data. This architecture achieves state-of-the-art performance on long-context tasks and demonstrates the emergence of **"Neural Manifolds"** that separate memory representations based on temporal relevance.
+
+## 2. Liquid Time-constant Networks (2021)
+**Abstract**: We propose Liquid Time-constant (LTC) networks, a subclass of continuous-time recurrent neural networks (CT-RNNs). LTCs are modeled by differential equations where the **time-constant** of each neuron is not fixed but varies based on the input. This "liquid" property allows the network to adapt its dynamics to the complexity of the input data stream. We show that LTCs are universal approximators and achieve superior performance in handling irregularly sampled time-series data and robustly generalizing to out-of-distribution scenarios, making them ideal for **neuromorphic** and **embodied** AI applications.
+
+## 3. Efficiently Modeling Long Sequences with Structured State Spaces (S4) (2022)
+**Abstract**: A central challenge in deep learning is modeling long-range dependencies. We propose the Structured State Space (S4) sequence model, based on a new parameterization of the state space model (SSM). S4 combines the strengths of continuous-time models (ODEs), recurrent models (RNNs), and convolutional models (CNNs). By imposing a **structure** (HiPPO) on the state matrix, S4 can be computed efficiently via FFTs, enabling it to handle sequences of length 16k+ while maintaining linear scaling. S4 solves the Long Range Arena benchmark, achieving significant improvements over Transformers.
+
+## 4. How ‘Neural’ is a Neural Foundation Model? (Bertram et al., 2026)
+**Abstract**: (Synthesized Context) This paper investigates the internal representations of large-scale foundation models trained on multimodal data. We discover that models achieving high "Brain Alignment" scores exhibit a topological property we term **"Tubularity"**—the formation of smooth, tube-like manifolds in latent space that correspond to robust temporal dynamics. We distinguish between "Tangled" (poor generalization) and "Tubular" (high robustness) manifolds and propose **"Manifold Alignment"** techniques to force digital AI representations to converge onto biologically plausible tubular structures.

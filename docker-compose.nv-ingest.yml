@@ -1,0 +1,27 @@
+services:
+  nv-ingest:
+    image: nvcr.io/nvidia/nemo-retriever/nv-ingest:24.03
+    container_name: nv-ingest
+    runtime: nvidia
+    environment:
+      - CUDA_VISIBLE_DEVICES=0
+      - NV_INGEST_Redis__Host=redis
+      - NV_INGEST_Redis__Port=6379
+    ports:
+      - "7670:7670" # gRPC
+      - "7671:7671" # HTTP
+    depends_on:
+      - redis
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+  redis:
+    image: redis:latest
+    container_name: nv-ingest-redis
+    ports:
+      - "6379:6379"

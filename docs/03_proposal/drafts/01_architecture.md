@@ -1,0 +1,26 @@
+# 제1장: 듀얼 인코더 & Titans 통합 아키텍처 (Embodied Neuro-AI Architecture)
+
+## 1.1 개요: 신체화된 신경 인공지능 (Embodied Neuro-AI)
+본 제안서는 인간의 인지 과정이 뇌 내부 연산뿐만 아니라 신체(Body)와 환경(Environment)의 상호작용 속에서 발현된다는 **"Embodied AI"** 철학을 따름. 시각/청각 등 외부 감각(External Sense)과 뇌파/고유감각 등 내부 신호(Internal Signal)를 통합하여, 인간 수준의 적응성과 강건성을 갖춘 **"DIVER-Neuro 파운데이션 모델"**을 제안함.
+
+## 1.2 듀얼 인코더 시스템 (Dual Encoders)
+서로 다른 물리적 특성을 가진 두 가지 데이터 스트림 처리를 위해 특화된 **Dual Encoder** 구조를 채택함.
+
+### 1.2.1 Sensory-Motor Encoder (감각-운동 인코더)
+에이전트가 환경과 상호작용하는 데 필요한 외부 정보를 처리함.
+-   **Visual & Text**: ViT 및 LLM 백본을 활용, 시각적 객체와 언어적 의미를 고차원 잠재 공간으로 매핑함.
+-   **Proprioception & Tactile (신규)**: 기존 멀티모달 모델 한계를 극복하고자 **고유감각(Proprioception)**과 촉각(Tactile) 정보를 명시적으로 포함함[RFP-013]. 관절 각도(Joint Angles) 및 피부 압력 분포 등을 처리하여 에이전트의 "신체 도식(Body Schema)"을 형성함.
+
+### 1.2.2 Brain Spatiotemporal Encoder (뇌 시공간 인코더)
+뇌 활동(EEG/iEEG)의 복잡한 시공간적 동역학(Spatiotemporal Dynamics)을 모델링함.
+-   **Liquid Time-Constant (LTC) Networks**: 불규칙하고 연속적인 뇌 신호 처리를 위해, 입력에 따라 유동적으로 변하는 **Time-constant**를 가진 미분방정식 기반 **LTC (Neural ODE)**를 도입함[2].
+-   **장점**: 노이즈가 많은 생체 신호 처리 시 기존 RNN/LSTM 대비 월등한 강건성을 보이며, 인과관계(Causality) 추론에 유리함.
+
+## 1.3 Titans Memory: 통합과 선택적 주의 (The Integrator)
+이종(Heterogeneous) 표상은 **Titans Memory Core**에서 통합됨.
+-   **Neural Memory Module**: Titans 아키텍처[1]는 Test-time에 과거 맥락을 효율적으로 기억(Memorize)함. 이는 단순 저장이 아닌, 현재 목표(Goal) 관련 정보만 선별하는 **"Memory Surprise"** 메트릭에 기반함.
+-   **Global Neural Workspace (GNW)**: Dehaene 등[5]의 GNW 이론에 따라, Titans는 감각/뇌 정보가 경쟁·통합되는 "의식적 작업 공간" 역할을 수행함. **Top-down Selective Attention**이 작동하여 무의미한 노이즈를 억제하고 행동에 필요한 핵심 정보만 장기 기억으로 전이함.
+-   **Tubular Manifold Alignment**: 통합 과정에서 모델은 Bertram 등[4]의 **"Tubularity(관형 구조)"**를 따르도록 학습됨. 잠재 궤적(Latent Trajectory)이 엉키지 않고(Untangled) 매끄러운 튜브 형태를 유지하여, 환경 변화에도 안정적 성능을 보장함.
+
+## 1.4 결론 및 차별점
+본 아키텍처는 단순 멀티모달 결합(Early Fusion)을 넘어, **LTC 기반 생물학적 동역학 모델링**과 **Titans 기반 능동적 메모리 관리**를 결합한 세계 최초 시도임. 이를 통해 IITP RFP가 요구하는 "인간 수준 인지 능력을 갖춘 뇌 내재화 모델"을 실현함.
