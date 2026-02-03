@@ -23,6 +23,11 @@
 -   **Short-term (Core)**: 현재 작업(Task) 수행을 위한 빠른 주의(Attention) 매커니즘.
 -   **Long-term (Neural Memory)**: 심층 신경망 가중치(Weights) 형태로 저장되는 암묵적 기억(Implicit Memory). SSM(State Space Model)을 통해 수천 스텝 이전의 정보도 손실 없이 인출함[3].
 
-## 2.3 실험 및 검증 계획 (Validation Plan)
+## 2.3 Brain-Tuning: 생물학적 정렬 (Biological Alignment)
+Mariya Toneva 등[@benara2025braintuning]이 제안한 **"Brain-Tuning"** 기법을 도입하여, 인공신경망의 잠재 표현을 실제 인간 뇌 반응(fMRI/EEG)과 정렬(Alignment)시킴.
+-   **Method**: Titans 모델의 중간 레이어 출력을 인간 뇌의 언어/감각 피질 반응 데이터(DIVER Dataset)와 매핑되도록 지도 학습(Supervised Fine-tuning)함.
+-   **Effect**: Toneva의 연구[@policzer2025multimodal]에서 입증되었듯, 단순 데이터 학습 대비 **의미론적 이해(Semantic Understanding)** 능력이 대폭 향상되며, 인간과 유사한 계층적 정보 처리(Hierarchical Processing) 구조를 갖추게 됨.
+
+## 2.4 실험 및 검증 계획 (Validation Plan)
 -   **Phase 1**: Toy Dataset(Moving MNIST + Synthetic EEG)을 이용한 개념 증명.
 -   **Phase 2**: BCM-V(뇌-컴퓨터 인터페이스) 데이터셋을 활용한 대규모 학습 및 Tubularity 측정.
