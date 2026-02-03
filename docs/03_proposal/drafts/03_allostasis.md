@@ -8,10 +8,10 @@
 ## 3.2 시스템 구조: Neuro-Twin Loop
 사용자의 신체 및 환경 데이터를 실시간으로 미러링하는 **"Digital Neuro-Twin"**을 구축함.
 
-### 3.2.1 Ubiquitous Sensing (입력)
+### 3.2.1 Ubiquitous & Visceral Sensing (입력)
+-   **Visceral Interoception**: 김성연 교수팀[@kim2020neural]의 연구에 기반하여, 위장 팽창(Gastric Distension)과 같은 내부 장기 신호를 **NTS $\rightarrow$ PVH $\rightarrow$ aIC** 경로를 통해 실시간으로 추적함. 이는 단순한 포만감을 넘어, 에이전트의 **기초 에너지 수준(Basal Energy Level)**을 정의하는 핵심 변수로 작용함.
 -   **Passive Sensing**: 스마트워치/글래스 등 웨어러블 기기를 통해 심박 변이도(HRV), 피부 전도도(EDA) 등 자율신경계 신호를 수동적으로 수집함.
--   **Active Proprioception**: 사용자의 자세, 움직임 등 고유감각 정보를 통합하여 신체 에너지 소모량을 정밀 추정함.
--   **Neural Proxy**: 뇌파(EEG)와 자율신경계 신호 간의 상관관계를 매핑하여, 웨어러블 신호만으로도 뇌의 각성(Arousal) 상태를 역추론하는 대리 모델(Proxy Model)을 가동함[JMIR 2025].
+-   **Neural Proxy based on Gastric State**: 위장 상태(Gastric State)가 뇌의 각성(Arousal) 및 행동 모드(Exploration vs. Exploitation)를 조절한다는 이론[@berntson2021neural]을 적용하여, 내장 신호로부터 뇌의 거시적 상태를 역추론함.
 
 ### 3.2.2 Energy Landscape Inference (처리)
 뇌 상태를 고차원 **"Energy Landscape(에너지 지형)"** 상의 좌표로 매핑함.

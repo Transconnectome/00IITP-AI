@@ -30,14 +30,16 @@
 \item   \textbf{Long-term (Neural Memory)}: 심층 신경망 가중치(Weights) 형태로 저장되는 암묵적 기억(Implicit Memory). SSM(State Space Model)을 통해 수천 스텝 이전의 정보도 손실 없이 인출함[3].
 \end{itemize}
 
-\subsection{2.3 Brain-Tuning: Semantic Alignment (의미론적 정렬)}
-Mariya Toneva 등\cite{benara2025braintuning}의 연구에 기반하여, Titans 모델의 \textbf{의미론적 잠재 공간(Semantic Latent Space)}을 인간 뇌 반응과 정렬함.
-\begin{itemize}
-\item   \textbf{Method}: Titans의 상위 레이어 출력을 인간 뇌의 언어/개념 피질 반응(Semantic Cortex) 데이터와 매핑되도록 지도 학습함 (감각-운동 레벨은 Reconstruction Loss 사용).
-\item   \textbf{Effect}: Toneva의 연구\cite{policzer2025multimodal}에서 입증되었듯, 단순 데이터 학습 대비 \textbf{의미론적 이해(Semantic Understanding)} 능력이 대폭 향상됨.
-\end{itemize}
+\subsubsection{2.3 Brain-Tuning: Semantic Alignment}
+DIVER의 fMRI 데이터를 사용하여 Titans의 상위 레벨 표상을 의미론적으로 정렬합니다 \cite{benara2025braintuning}.
 
-\subsection{2.4 실험 및 검증 계획 (Validation Plan)}
+\subsubsection{2.4 Biological Validation: Gastric Interoception (Murine Data)}
+Titans의 기억 메커니즘이 실제 생물학적 회로와 유사하게 작동하는지 검증하기 위해, \textbf{김성연 교수팀의 동물 실험 데이터}를 활용합니다 \cite{kim2020neural}.
+*   \textbf{Data Source}: 생쥐(Mouse)의 \textbf{PB Pdyn 뉴런 Two-photon Calcium Imaging} 데이터 (위장 팽창 시의 단일 뉴런 활성).
+*   \textbf{Hypothesis}: Titans의 \textbf{Surprise Metric}은 생쥐의 PB Pdyn 뉴런이 보여주는 \textbf{Sustained Activity (Integrator)} 패턴과 높은 상관관계를 보여야 합니다.
+*   \textbf{Validation}: 위장 팽창(Gastric Distension) 시뮬레이션 환경에서, Titans의 Memory State 변화가 실제 신경 데이터의 역동성과 일치하는지 정량적으로 분석합니다. 이는 AI가 단순한 정보 저장이 아닌, 생체와 유사한 \textbf{'내부 상태 적분(Internal State Integration)'}을 수행함을 증명합니다.
+
+\subsection{2.5 실험 및 검증 계획 (Validation Plan)}
 \begin{itemize}
 \item   \textbf{Phase 1}: Toy Dataset(Moving MNIST + Synthetic EEG)을 이용한 개념 증명.
 \item   \textbf{Phase 2}: BCM-V(뇌-컴퓨터 인터페이스) 데이터셋을 활용한 대규모 학습 및 Tubularity 측정.

@@ -12,13 +12,12 @@
 \subsection{1.2 듀얼 인코더 시스템 (Dual Encoders)}
 서로 다른 물리적 특성을 가진 두 가지 데이터 스트림 처리를 위해 특화된 \textbf{Dual Encoder} 구조를 채택함.
 
-\subsubsection{1.2.1 Sensory-Motor Encoder (감각-운동 인코더): \textbf{OmniField}}
-에이전트가 환경과 상호작용하는 데 필요한 외부 정보를 처리함.
-\begin{itemize}
-\item   \textbf{OmniField (Neural Fields)}: David Keetae Park 등\cite{valencia2025omnifield}이 제안한 \textbf{OmniField} 아키텍처를 도입함. 이는 희소(Sparse)하고 비정형적인(Irregular) 멀티모달 데이터를 강건한 연속 함수(Continuous Function)로 인코딩하여, 노이즈가 심한 생체/환경 데이터 처리에 최적화됨.
-\item   \textbf{Latent Coordinate Sampler}: 연속적인 OmniField의 출력을 Titans가 처리 가능한 토큰 형태로 변환하기 위해, \textbf{좌표 기반 샘플링(Coordinate Sampling)} 층을 둠. 이 과정에서 Han et al.\cite{han2024simulated}의 \textbf{Simulated Annealing} 기법을 초기화 단계에 적용하여, 최적의 특징점(Feature Points)을 포착하고 Local Minima를 방지함.
-\item   \textbf{Proprioception Integration}: 기존 ViT의 고정된 그리드 처리 한계를 넘어, \textbf{OmniField}의 유연한 좌표 기반(Coordinate-based) 신경망을 통해 관절 각도 및 촉각 정보를 시각 정보와 매끄럽게 통합함.
-\end{itemize}
+\subsubsection{1.2.1 Sensory-Motor & Interoceptive Encoder (OmniField)}
+\textbf{OmniField} \cite{valencia2025omnifield}는 시각/청각뿐만 아니라 \textbf{내수용 감각(Interoception)} 신호를 통합하는 4D Neural Field입니다.
+*   \textbf{External}: Camera(Ego-centric), Mic(Audio)의 비정형 데이터를 처리함.
+*   \textbf{Internal (Allostasis)}: 위장 팽창(Gastric Distension)과 같은 생체 신호를 연속적인 \textbf{내부 상태 변수(Internal State Variable)}로 인코딩합니다.
+    *   \textbf{Biological Grounding}: 김성연 교수팀\cite{kim2020neural}의 연구에 기반하여, \textbf{NTS $\rightarrow$ PVH $\rightarrow$ aIC} 신경 회로를 모사합니다. 위장 팽창 신호를 단순 자극이 아닌 '적분형(Slow Integrator)' 정보로 처리하여 행동 모드(Exploration vs. Exploitation) 전환의 기준점으로 삼습니다.
+*   \textbf{Latent Sampler}: 연속적인 OmniField의 출력을 Titans가 처리 가능한 토큰($z_t$)으로 변환하기 위해, \textbf{좌표 기반 샘플링(Coordinate Sampling)} 층을 둠. 이 과정에서 Han et al.\cite{han2024simulated}의 \textbf{Simulated Annealing} 기법을 초기화 단계에 적용하여, 최적의 특징점(Feature Points)을 포착하고 Local Minima를 방지함.
 
 \subsubsection{1.2.2 Brain Spatiotemporal Encoder (뇌 시공간 인코더)}
 뇌 활동(EEG/iEEG)의 복잡한 시공간적 동역학(Spatiotemporal Dynamics)을 모델링함.
