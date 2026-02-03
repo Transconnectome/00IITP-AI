@@ -1,6 +1,17 @@
 #!/bin/bash
 # Sync drafts from Research Repo (00IITP-AI) to Publication Repo (IITP-2026-Proposal)
 
+# 0. Safety Guard
+echo "⚠️  DANGER: This script will OVERWRITE all .tex files in Overleaf with local Markdown content."
+echo "   Use this ONLY if you are absolutely sure that local Markdown is the source of truth."
+echo "   If you edited text in Overleaf, your changes there WILL BE LOST."
+read -p "Are you sure you want to proceed? (y/N): " confirm
+
+if [[ "$confirm" != "y" ]]; then
+    echo "❌ Operation cancelled."
+    exit 1
+fi
+
 # 1. Convert latest MD to TeX
 python3 scripts/sync_md_to_tex.py
 
