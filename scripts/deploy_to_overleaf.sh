@@ -15,8 +15,9 @@ cp -r src export_pkg/
 cp README.md export_pkg/
 
 # 4. Copy Graphics
+mkdir -p export_pkg/tex/graphics
 if ls docs/05_figures/*.png 1> /dev/null 2>&1; then
-    cp docs/05_figures/*.png export_pkg/graphics/
+    cp docs/05_figures/*.png export_pkg/tex/graphics/
 fi
 
 # 5. Commit and Push in Export Repo

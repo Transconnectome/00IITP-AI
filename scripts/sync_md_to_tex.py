@@ -24,7 +24,7 @@ def md_to_tex(content):
         path = match.group(2)
         # Use flat graphics structure for Overleaf
         filename = Path(path).name
-        return f"\\begin{{figure}}[h]\n\\centering\n\\includegraphics[width=1.0\\textwidth]{{graphics/{filename}}}\n\\caption{{{alt}}}\n\\end{{figure}}"
+        return f"\\begin{{figure}}[h]\n\\centering\n\\includegraphics[width=1.0\\textwidth]{{{filename}}}\n\\caption{{{alt}}}\n\\end{{figure}}"
 
     content = re.sub(r'!\[(.*?)\]\((.*?)\)', image_repl, content)
 
