@@ -20,20 +20,20 @@
 *   \textbf{Latent Sampler}: 연속적인 OmniField의 출력을 Titans가 처리 가능한 토큰($z_t$)으로 변환하기 위해, \textbf{좌표 기반 샘플링(Coordinate Sampling)} 층을 둠. 이 과정에서 Han et al.\cite{han2024simulated}의 \textbf{Simulated Annealing} 기법을 초기화 단계에 적용하여, 최적의 특징점(Feature Points)을 포착하고 Local Minima를 방지함.
 
 \subsubsection{Brain Spatiotemporal Encoder (뇌 시공간 인코더)}
-뇌 활동(EEG/iEEG)의 복잡한 시공간적 동역학(Spatiotemporal Dynamics)을 모델링함.
+뇌 활동(EEG/iEEG)의 복잡한 시공간적 동역학(Spatiotemporal Dynamics)을 모델링하기 위해, \textbf{'Hybrid Liquid-SSM Architecture'}를 제안함.
 \begin{itemize}
-\item   \textbf{Liquid Time-Constant (LTC) Networks}: 불규칙하고 연속적인 뇌 신호 처리를 위해, 입력에 따라 유동적으로 변하는 \textbf{Time-constant}를 가진 미분방정식 기반 \textbf{LTC (Neural ODE)}를 도입함[2].
-\item   \textbf{장점}: 노이즈가 많은 생체 신호 처리 시 기존 RNN/LSTM 대비 월등한 강건성을 보이며, 인과관계(Causality) 추론에 유리함.
+\item   \textbf{Local Micro-Dynamics (LTC)}: 미세한 뉴런 단위의 \textbf{불규칙한 스파이킹(Irregular Spiking)}과 \textbf{인과성(Causality)}을 보존하기 위해, 이산화 오차가 없는 연속 시간 모델인 \textbf{Liquid Time-Constant (LTC) Network}를 적용함[2].
+\item   \textbf{Global Macro-Dynamics (SSM)}: 뇌 전체의 장기적 상태 변화(Long-range Dependencies)는 선형 복잡도($O(N)$)를 가진 \textbf{State Space Model (Mamba)} 메커니즘으로 처리하여 BrainMamba\cite{brainmamba2024} 수준의 연산 효율성을 극대화함.
 \end{itemize}
 
 \subsection{Titans Memory: 통합과 선택적 주의 (The Integrator)}
 이종(Heterogeneous) 표상은 \textbf{Titans Memory Core}에서 통합됨.
 \begin{itemize}
-\item   \textbf{Neural Memory Module (MIRAS Framework)}: Google의 최신 \textbf{MIRAS (Memory as Context)} 프레임워크\cite{behrens2025titans}에 기반하여, 단순 저장이 아닌 \textbf{"Surprise Metric (놀라움 척도)"}과 \textbf{"Momentum (관성)"}을 이용해 능동적으로 중요 기억을 선별함.
+\item   \textbf{Neural Memory Module (MIRAS Framework)}: Google의 최신 \textbf{MIRAS (Memory as Context)} 프레임워크\cite{behrens2025titans}에 기반하여, 단순 저장이 아닌 \textbf{"Surprise Metric (놀라움 척도)"}을 이용해 능동적으로 중요 기억을 선별함. 특히, 학습 종료 후에도 추론 단계에서 실시간으로 학습하는 \textbf{Test-Time Training (TTT)}을 수행하여 급변하는 생체 리듬과 환경에 즉각 적응함.
 \item   \textbf{Global Neural Workspace (GNW)}: Dehaene 등[5]의 GNW 이론에 따라, Titans는 감각/뇌 정보가 경쟁·통합되는 "의식적 작업 공간" 역할을 수행함.
 \item   \textbf{Graph-Informed Reasoning}: Moontae Lee(LG AI Research) 심층 추론 방법론\cite{lee2024strategic}을 적용, Titans 메모리에 저장된 에피소드들을 그래프 구조로 연결하여 단순 회상(Recall)을 넘어선 \textbf{전략적 추론(Strategic Reasoning)}을 수행함.
 \item   \textbf{Tubular Manifold Alignment}: 통합 과정에서 모델은 Bertram 등[4]의 \textbf{"Tubularity(관형 구조)"}를 유지하도록 학습되어 강건성을 확보함.
 \end{itemize}
 
 \subsection{결론 및 차별점}
-본 아키텍처는 단순 멀티모달 결합(Early Fusion)을 넘어, \textbf{LTC 기반 생물학적 동역학 모델링}과 \textbf{Titans 기반 능동적 메모리 관리}를 결합한 세계 최초 시도임. 이를 통해 IITP RFP가 요구하는 "인간 수준 인지 능력을 갖춘 뇌 내재화 모델"을 실현함.
+본 아키텍처는 단순 멀티모달 결합(Early Fusion)을 넘어, \textbf{LTC의 설명 가능한 인과성(Explainable Causality)}과 \textbf{Titans/SSM의 대규모 연산 효율성}을 결합한 \textbf{'Hybrid Liquid-SSM'} 아키텍처임. 이를 통해 IITP RFP가 요구하는 "인간 수준 인지 능력을 갖춘 뇌 내재화 모델"을 실현함.
