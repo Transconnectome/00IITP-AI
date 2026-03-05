@@ -1,0 +1,483 @@
+Title: Polygenic Risk-Informed White Matter Integrity Improves Deep Learning-Based Prediction of Youth Depression 
+Jungyoun Janice Min1, Heehwan Wang2, Eunji Lee3, Bo-Gyeom Kim3, Gakyung Kim1, Seung Yun Choi1, Kahyun Choi1, Sung Hee Hong4, Yumin Jang4, Yu Jin Rah1, Ji Yeon Kim1, Seunghui Han5, Kyung Hwa Lee5, Junhyung Kim6, Milenna T. van Dijk7,8, Jae-Won Kim5, Grace H. Chung4, Dongil Chung9, Sang Ah Lee1, Yoonjung Yoonie Joo10, Jiook Cha1,2,3,11 †
+Affiliations
+	•	Department of Brain and Cognitive Sciences, Seoul National University, Seoul, Republic of Korea
+	•	Interdisciplinary Program in Artificial Intelligence, Seoul National University, Seoul, Republic of Korea
+	•	Department of Psychology, Seoul National University, Seoul, Republic of Korea
+	•	Department of Child Development and Family Studies, Seoul National University, Seoul, Republic of Korea
+	•	Division of Child and Adolescent Psychiatry, Department of Psychiatry, Seoul National University Hospital, Seoul, Republic of Korea 
+	•	Department of psychiatry, Samsung kangbuk Hospital, Sungkyunkwan University School of Medicine, Seoul, Republic of Korea
+	•	Department of Psychiatry, Vagelos College of Physicians and Surgeons, Columbia University, New York, United States of America
+	•	Division of Translational Epidemiology, New York State Psychiatric Institute, New York, United States of America
+	•	Department of Biomedical Engineering, Ulsan National Institute of Science and Technology, Ulsan, Republic of Korea
+	•	Department of Digital Health, Samsung Advanced Institute for Health Sciences & Technology (SAIHST), Sungkyunkwan University, Samsung Medical Center, Seoul, Republic of Korea
+	•	Institute of Psychological Science, Seoul National University, Seoul, Republic of Korea
+
+Correspondence to: 
+Jiook Cha, Ph.D. 
+Gwanak-ro 1, Building #16, Suite M512 
+Gwanak-gu, Seoul, Republic of Korea 
+connectome@snu.ac.kr 
+
+Keywords: Child Depression, Polygenic Score, White matter, Track-weighted imaging (TWI), Convolutional Neural Network (CNN), Multi cohort validation
+Abstract 
+Early detection of youth depression is crucial, given its rising prevalence and long-term consequences. Although genetic factors contribute significantly to youth depression, their integration with neuroimaging remains limited. We present a deep learning framework using polygenic scores (PGS) to pretrain a 3D convolutional neural network on diffusion MRI (track-weighted fractional anisotropy), capturing gene–brain associations from a multi-ethnic cohort in the Adolescent Brain Cognitive Development Study (N=4,741). Fine-tuned for predicting depression, the model improved cross-sectional (N=266; Area Under the Curve (AUC)=0.62) and two-year predictions of depression and suicidality (AUC=0.61–0.66). It outperformed unimodal models, increasing accuracy by up to 24% over PGS-only and 5.8% over brain-only models. Explainable artificial intelligence identified key white matter tracts—superior longitudinal fasciculus, cingulum and corpus callosum—as predictive features. Decision curve analysis showed greater clinical utility. The model generalized to an independent Korean youth sample (N=108; AUC=0.67), supporting the cross-ethnic scalability of PGS-informed diffusion MRI for precision psychiatry
+Introduction 
+Youth depression is a growing global health concern [1, 2], marked by early onset, high recurrence, resistance to treatments, and long-term consequences including suicide, which is a leading cause of death of youth [3-6]. These features underscore the urgent need for early identification to alter adverse developmental trajectories. Within the framework of precision psychiatry, which emphasizes individualized risk detection, biological markers reflecting latent vulnerability—such as genetic predispositions and brain-based features—represent a promising avenue for early prediction and intervention.
+Youth depression exhibits stronger genetic associations than adult-onset depression [7], including higher polygenic risk scores (PGS) and increased genetic overlap with other psychiatric disorders [8-10]. Twin studies confirm high heritability [11] with genetic factors impacting symptom persistence and stability [7, 12, 13]. Youths with high familial risk are more likely to experience early-onset depression, further shaped by stress and maternal psychopathology [14]. These genetic vulnerabilities interact strongly with neurobiological substrates, particularly white matter integrity, which provides the structural basis for long-range neural connectivity [15-17]. Fractional Anisotropy (FA), derived from diffusion MRI (dMRI), serves as a key marker of white matter integrity [18]. It demonstrates high heritability with genetic factors explaining up to 88% of its variance [15, 19, 20]. Higher polygenic risk for major depressive disorder (MDD) has been linked to reductions in white mater integrity, suggesting that genetic predisposition may contribute to neurostructural vulnerabilities in depression [21]. Specific tracts, such as the corpus callosum, corona radiata, and superior longitudinal fasciculus, are strongly influenced by genetic factors, supporting the notion that white matter differences are under strong genetic control [17, 20]. 
+Converging evidence from human and animal studies implicates disruptions in specific white matter tracts in the pathophysiology of depression. Human studies report reduced FA in major white matter tracts, including the corpus callosum, cingulum, superior longitudinal fasciculus, and uncinate fasciculus [22-24]. Consistent with these findings, animal models of depression show reduced FA in the corpus callosum and related tracts [25, 26]. Developmental alterations in white matter, particularly in the corpus callosum, fimbria, external capsule, and internal capsule, were observed in rodent model of depression [27]. These findings collectively underscore the critical role of changes in white matter integrity in the pathophysiology of depression.
+The interplay between genetic predispositions and white matter integrity is critical for understanding the biological basis of depression. Supporting this, population-level genetic correlation studies have identified shared genetic liability between diffusion tensor imaging measures and depression-related traits [19, 28]. Additionally, forebrain white matter-related dMRI measures have been associated with single nucleotide polymorphisms in genes, encoding proteins involved in extracellular matrix and epidermal growth factor signaling, which are critical for myelin repair and synaptic plasticity and closely linked to MDD [16]. These findings suggest shared genetic mechanisms influencing both white matter integrity and depression susceptibility. 
+Despite these correlational findings at the population level, critical gaps remain intranslating genetic-neuroimaging associations into individual-level prediction of youth depression. Most studies have examined genetic and neuroimaging factors in isolation, failing to capture their complex interplay [24, 29, 30]. Research in other psychiatric disorders shows that integrating genetic and neuroimaging data through multi-modal approaches enhances predictive accuracy over single-modality models [31, 32]. Deep learning methodologies enables multi-modal integration [33], by capturing complex non-linear relationships and learning shared representations across different modalities. However, their application in developmental psychiatric research is often constrained by small sample sizes, limiting model generalizability. [34]. Optimized strategies are therefore needed to effectively utilize multi-modal information in youth depression research, where datasets are typically smaller. 
+Additionally, most existing studies in both neuroimaging and genetics have been conducted on predominantly Caucasian populations, leaving other ethnic groups underrepresented [35]. Addressing this disparity is critical to developing globally applicable predictive models for depression.  Further investigation is needed to assess model applicability in underrepresented groups, such as through transfer learning approaches.
+To address these challenges, this study introduces a novel deep learning framework that leverages PGS to pretrain a model on dMRI data (specifically, track-weighted fractional anisotropy (TW-FA) from a large, multi-ethnic cohort (the Adolescent Brain Cognitive Development [ABCD] Study), then fine-tune for classification of depression. This approach aims to: (1) improve the accuracy of both cross-sectional and longitudinal prediction of youth depression by integrating genetic and neuroimaging information; (2) identify key white matter tracts associated with depression risk; and (3) demonstrate the cross-ethnic generalizability of our model by validating it in an independent Korean cohort.
+Methods
+Participants
+We used participants from the Adolescent Brain and Cognitive Development (ABCD) study [36] (N=11,868), and a Korean cohort (N=180) recruited through research collaboration with Seoul National University and Ulsan National Institute of Science and Technology. Following rigorous quality control and exclusion criteria, the final analysis included 5,647 ABCD participants and 108 Korean participants.  Detailed demographics and full inclusion/exclusion criteria are provided in Supplementary Materials (Figure. S1).
+
+Track-weighted FA (TW-FA) Imaging Processing 
+Track-weighted FA (TW-FA) was used as the input in all experiments. dMRI provides measures of brain macrostructure (e.g. volume(mm3), length(mm), area(mm2)) and microstructure (e.g. white matter integrity), non-invasively [37]. The processing was conducted using software based on the MRtrix3 package [38] especially using the command tckmap after general MRI quality assessment. TW-FA maps were formed as described in previous studies [37, 39], so we will describe them briefly here. In summary, reference maps (here, FA maps) values were computed at each point along the streamline. For each voxel, a Gaussian-weighted mean of the reference map values was determined within the neighborhood along individual fiber streamlines (yielding the track-wise statistic). The voxel intensity for the track-weighted imaging map was then calculated as the average of these track-wise values across all tracts passing through the voxel, resulting in the voxel-wise statistic. We utilized full-width-half-maximums (FHWM) of 15mm for gaussian neighborhood weightings, which is known to be more sensitive to focal abnormalities . The TW-FA framework applies directional smoothing to tractograms by assigning each streamline a weight derived from the average FA value along its path, effectively creating a track-informed version of the FA map [40].  TW-FA processing was conducted using the same protocol for both cohorts.
+
+
+Demographic and Behavioral Variables 
+Psychiatric Variables of ABCD Cohort
+For assessing the children’s lifetime MDD and depressive symptoms, our analysis employed the computerized version of the Kiddie-Structured Assessment for Affective Disorders and Schizophrenia (KSADS-COMP) based on child and parent reports and Child Behavioral Checklist (CBCL) [41], which relies on parent reports. KSADS-COMP has been well validated from previous study showing good to high reliability (AUC 0.89-1.0) compared against clinician administered [42]. For the current analysis, we used a lifetime MDD diagnosis variable encompassing past, present and remitted MDD diagnoses, based on summary ratings from the KSADS-COMP, which considers both child and parent reports. We excluded participants who were taking anti-depressant medication and who met lifetime psychotic (e.g. schizophrenia) or neurodevelopmental disorder (e.g. autism spectrum disorder) diagnoses [43, 44]. For a control group, we included participants who met none of the diagnosis criteria in child nor parent report past or current time point and met healthy control criteria of CBCL (total problems T-score<60) from the baseline to 2-year follow-up. We utilized lifetime indicators of suicidality (including suicidal ideation and suicide attempts) based on KSADS-COMP diagnoses, derived from child and parent reports. The criteria for the control group were consistent with those described earlier. 
+Since we excluded all the MDD diagnosed participants from pretraining set to maximize the sample size of the finetune set, depressive symptoms score was used exclusively within the pretraining set to estimate the composite polygenic scores. We generated a depressive symptoms score based on a previous study [45], using module 1 of the KSADS-COMP symptoms assessment, based on summation of the child and parent reports. Detailed methods for composite PGS calculations are described in the Methods section of Genetic Data Preprocessing.
+In conclusion, 4741 participants were included in the pretraining dataset, and 266 participants (control:133) whose propensity scores were matched for age, biological sex, and study site were used for cross-sectional MDD classification in fine-tune set. In addition, to statistically evaluate the 2-year follow-up zero-shot prediction performance, we utilized individuals with MDD diagnosis at the 2-year follow-up and matched them with randomly sampled participants not included in either the pretrained or finetune sets (control: 118). This matching process was repeated 10 times to ensure robustness through different samples, which leads to 10 datasets of 236 participants. For suicidality we used the same strategy, resulting in 10 datasets of 116 (control: 58) participants with MDD and suicidal active ideation prediction at the 2-year follow-up and 30 (control: 15) participants with MDD and suicidal attempt prediction. However, we ensured that none of the participants overlapped with pretraining nor finetune sets. Detailed demographics statistics are provided in Supplementary Materials (Table. S1).
+
+Psychiatric Variables of Korean Cohort
+	Validated Korean translations of depression measures were used to classify participants . Depression was assessed using the child-reported Center for Epidemiological Studies-Depression Scale (CES-D) [46, 47] and parent-reported CBCL [48]. Based on prior meta-analyses, a CES-D cut-off of ≥21, which accounts for gender and racial variations [49, 50], was chosen to align with ABCD study criteria. The depressed group included individuals with CES-D ≥21, while the control group had CES-D <16 and CBCL total problems T-scores <60. The final sample consisted of 108 participants (41 depressed, 67 control). For deep learning, data were split into 10-folds using iterative stratification by age, sex, and CES-D score, followed by propensity score matching for validation and test sets.
+
+Genetic Data Preprocessing 
+ In this study, we used polygenic scores (PGS) to estimate individual-specific genetic propensities, which were previously calculated and validated in [51], where a detailed description of the methodology is provided. Full details on genotype preprocessing and the complete PGS calculation methodology are provided in the Supplementary Materials. Here, we briefly summarize the key aspects of the PGS calculation. The PGS were calculated using PLINK version 1.9 and the parameters were optimized in PRS-CSx with Bayesian approach [52]. Since our study focused on youth depression in the American population of multi-ancestry, we utilized PGS scores derived from publicly available multi-ancestry Genome-Wide Association Study (GWAS) summary statistics with robust statistical power. PGS related to depression, body mass index, post-traumatic stress disorder, alcohol dependency and schizophrenia were included, as these were constructed using multi-ancestry GWAS summary statistics to ensure applicability across diverse populations. 
+	We included composite PGS in our analysis, guided by prior research, that demonstrated the increased predictive power of composite PGS in enhancing risk stratification [53, 54]. Among the 29 traits in Joo et al. (2024), five PGS, BMI, PTSD, depression, schizophrenia, and alcohol dependence, were constructed as multi-ethnic PGS by combining GWAS summary statistics from both European-ancestry and non-European-ancestry populations (detailed in Supplementary Materials). From these five multi-ancestry candidate PGS, we employed Elastic Net regularization, which is robust in multicollinearity, to identify the optimal weighted combination that maximized prediction of depressive symptoms in our pretraining set. Because the pretraining set (n=4,741) excluded participants with lifetime MDD diagnosis to maximize the sample size for the fine-tuning set, we used a depressive symptom score derived from KSADS-COMP as the target outcome for composite PGS optimization. The Elastic Net model was fitted to maximize explained variance (R²) while minimizing the number of independent variables through a stepwise elimination process across 5,000 resampled train-validation-test splits within the pretraining set. This iterative optimization consistently identified three PGS—Depression, BMI, and Alcohol Dependence—as providing the best predictive performance. The final composite PGS was computed as a weighted sum of these three selected PGS, each weighted by its corresponding beta coefficient from the best-performing model. PTSD and Schizophrenia PGS were excluded during the regularization process as they did not improve explained variance beyond the contribution of the three retained PGS.
+
+ Model Optimization and Evaluation 
+Deep Neural Network Training 
+We implemented a 3D-Convolution Neural Network (3DCNN) model with densenet3D121 as the backbone architecture across all our experiments. The model consists of an initial 3D convolutional module, four 3D dense-blocks, three 3D Transition layers and one fully connected classifier for each task. In the field of medical imaging, prior studies have demonstrated the superior performance of densenet3D121 model compared to traditional CNNs in classification tasks utilizing neuroimaging [55, 56]. Additionally, we conducted experiments using a model that incorporated both each participant’s PGS and brain imaging data as input features. This was done by concatenating the PGS with the features extracted by the 3DCNN backbone. This combined vector was then processed by a Multilayer Perceptron (MLP) for classification (3DCNN+MLP). We optimized the model with Mean Squared Error loss for regression tasks and Cross Entropy for the classification tasks. Minimal augmentation was applied, including resizing images to 128x128x128, Random Rotation by 90 degrees (probability=0.5), Random Axis Flip (probability=0.5), and Random Affine Transform (probability=0.5). The deep neural networks were optimized using the AdamW optimizer with a cosine learning rate decay scheduler and a linear warm-up. Additionally, we implemented early stopping with a patience window of 30 epochs to prevent overfitting on the training data. 
+In the pretraining set in ABCD cohort, the 3DCNN model was trained with TW-FA as input and depression PGS or composite PGS as the outcome to learn gene-brain associations. The pretrained model weights were then used in the fine-tune set for MDD classification. Subsequently, this PGS-pretrained MDD classifier trained on ABCD data was transferred to the Korean cohort using only TW-FA (3DCNN models), without requiring genetic data from Korean participants. 
+We employed three non-overlapping datasets: pretraining, finetuning, and 2-year follow-up prediction set. For cross-sectional MDD classification, we implemented nested 10-fold cross-validation with 7:2:1 train/validation/test splits. Hyperparameter tuning was performed exclusively on validation sets, and model evaluation was conducted solely on held-out test sets, ensuring no data leakage. Each participant appeared in exactly one test set. Reported performance metrics represent averages across all 10 test sets. For 2-year predictions, zero-shot inference was conducted without additional training, with metrics averaged across 10 matched iterations.
+We employed two types of comparison models to evaluate our approach. The first set of comparison models focused on modality, including unimodal approaches that used either genetic or neuroimaging data alone and a multi-modal model that incorporated both but without pretraining. This comparison aimed to assess whether both genetic and neuroimaging information are essential for detecting children with MDD and to evaluate the benefit of PGS-based pretraining. Specifically, we implemented an MLP model using only PGS as input, a 3DCNN model using only TW-FA, and a from-scratch 3DCNN+MLP model that integrated both PGS and TW-FA as inputs without employing a pretraining strategy. The second set of comparison models included traditional machine learning models: support vector classifier with a linear kernel (SVC_linear), support vector machine with an RBF kernel (SVC_rbf), and eXtreme Gradient Boosting (XGBOOST) using FA-weighted structural connectivity and PGS as their inputs. All experiments were conducted using 10-fold cross-validation, ensuring that the same training, validation, and test folds were used consistently across all experiments including comparison models. Details on the training parameters for pretraining, cross-sectional and 2-year follow-up MDD prediction, along with transfer learning, are available in the Supplementary Materials.
+Explainable Artificial Intelligence 
+To identify brain regions contributing most to the model’s predictions, we employed explainable AI (XAI) techniques, specifically Integrated Gradients [57] combined with SmoothGrad [58]. Integrated Gradients generate saliency maps by integrating the gradients of the model's predictions with respect to the input features, providing a measure of each voxel’s contribution. SmoothGrad enhances this approach by adding Gaussian noise (σ = 0.05) to input images within brain regions, generating 50 noise-augmented images per participant and averaging their resulting saliency maps. This method was implemented using the Captum library (version 0.6.0).
+We performed tract-level analyses and identified key tracts containing voxels that significantly contributed to depression classification and prediction. We analyzed only the voxels with statistically significant XAI attribute values between the control and depressed groups. We conducted voxel-wise t-tests with False Discovery Rate (FDR) corrections using the Benjamin-Hochberg method and applied a cluster-based threshold to identify statistically significant regions. Then we calculated the proportion of significant voxels for each tract, by dividing the total number of significant voxels by the total voxels in the tract. This allowed us to determine the positive and negative associations of each tract in the depression classification task.
+
+Decision Curve Analysis
+To assess the clinical utility of our model, we conducted Decision Curve Analysis (DCA) by computing net benefit across a range of clinically relevant threshold probabilities [59]. Net benefit quantifies the balance between true positives and false positives, incorporating the relative harm of unnecessary interventions. It is calculated as: 
+
+where 𝑝 is the threshold probability, and 𝑁 is the sample size. The threshold probability is defined as the minimum probability of disease at which a clinician would opt for an intervention. Mathematically, this threshold serves as the relative weight between the benefit of true positives and the harm of false positives (unnecessary interventions). We compared our best-performing models against two baseline strategies: ‘Treat All’ (assuming all individuals are at risk and should receive intervention) and ‘Treat None’ (assuming no individuals require intervention). Given the balanced nature of our dataset (approximate prevalence of 50%), we evaluated net benefit across threshold probabilities with emphasis on the 0.40–0.60 range where model discrimination is particularly informative given the balanced prevalence. A higher net benefit across threshold probabilities indicates superior clinical applicability by improving the identification of at-risk individuals while minimizing unnecessary interventions.
+Results 
+We analyzed 5,647 ABCD participants with multiple ancestral backgrounds meeting strict quality criteria for dMRI and genetic data.  The dataset was divided into three groups: Pretrain (N=4,741), Finetune (N=266 [Case N =133/Control N=133]), and 2-Year Follow-up Prediction (N=236 [Case N=118/Control N=118) sets with additional subsets for suicidality analyses (Figure. S1). We pretrained a 3DCNN on depression PGS and composite PGS alongside white matter imaging to learn gene-brain associations using the pretraining set, then fine-tuned for depression classification via 10-fold cross-validation (Figure. 1). Propensity score matching (age, sex, and study site) minimized selection bias in each fold. To ensure robust evaluation of zero-shot prediction in the 2-Year Prediction subsets, we generated 10 matched subsets with diverse controls. All experiments including comparison models were conducted using identical splits were used. Further details on PGS calculations are provided in the Methods section. Full demographics and performance metrics are in Supplementary Materials (Table. S1, S12–S33).
+
+PGS-Pretrained 3DCNN Outperforms Comparison Models in Cross-sectional MDD classification
+The PGS-pretrained 3DCNN using track-weighted FA (TW-FA) consistently outperformed unimodal and multimodal baselines for both cross-sectional and 2-year follow-up MDD prediction. For cross-sectional classification, the composite PGS-pretrained model achieved an AUROC of 0.62±0.121 and an F1 score of 0.636±0.072, surpassing models trained with only composite PGS (AUROC = 0.50±0.118, F1 = 0.444±0.149), only TW-FA (AUROC = 0.586±0.133, F1 = 0.278±0.212), and multimodal models trained without pretraining (AUROC = 0.562±0.118, F1 = 0.449±0.217) (Figure. 2A, B). Compared to composite PGS-only models, the pretrained model improved AUROC by 24%, while outperforming brain-only and non-pretrained multimodal models by 5.8% and 10.3%, respectively. F1 score differences were statistically significant across all comparisons (p < 0.05) (Table. S13).
+The benchmark for psychiatric risk prediction was established using symptom-based model that incorporated behavior (CBCL internalizing problems at age 9-10 years), age, and biological sex, achieving an AUROC of 0.767±0.07. Our PGS-pretrained model retained 80.5% of this benchmark performance, demonstrating that genetic and neuroimaging biomarkers can serve as robust predictive features.
+ A similar pattern was observed with depression PGS, where the pretrained model (AUROC = 0.597±0.12, F1 = 0.629±0.085) outperformed depression PGS-only (AUROC = 0.546±0.114, F1 = 0.517±0.155) and non-pretrained multimodal models (AUROC = 0.54±0.146, F1 = 0.484±0.223) (Figure. S2A, B; Table. S12). Additionally, the pretrained 3DCNN surpassed traditional machine learning models, including support vector classifiers and XGBOOST (Table. S3), further underscoring the effectiveness of integrating PGS-based pretraining with white matter imaging.
+
+PGS-Pretraining Enhances 2-Year Follow-Up MDD Prediction
+In the 2-year follow-up MDD prediction, conducted as a zero-shot evaluation on unseen data, our PGS-pretrained model again demonstrated superior predictive accuracy. The 3DCNN+Multi-layer Perceptron(3DCNN+MLP) model, which processes brain images via a composite PGS–pretrained 3DCNN and integrates composite PGS through an additional MLP, achieved an AUROC of 0.61±0.011 and an F1 score of 0.652±0.007, significantly surpassing models using only composite PGS (AUROC = 0.562±0.011, F1 = 0.474±0.016), only TW-FA (AUROC = 0.589±0.012, F1 = 0.534±0.016), and from-scratch multimodal models (AUROC = 0.596±0.008, F1 = 0.604±0.011) (p < 0.05) (Figure. 2C, D; Table. S17). Specifically, compared to composite PGS-only models, our pretrained model improved AUROC by 8.5%, while outperforming brain-only and from-scratch multimodal models by 3.6% and 2.3%, respectively. 
+A similar trend was observed for depression PGS, where the depression PGS-pretrained 3DCNN+MLP model (AUROC = 0.619±0.014, F1 = 0.623±0.012) significantly outperformed depression PGS-only (AUROC = 0.538±0.01, F1 = 0.473±0.017) and from-scratch multimodal models (AUROC = 0.607±0.014, F1 = 0.565±0.02) (p < 0.05) (Figure. S2C, D; Table. S16). Importantly, traditional machine learning models showed poor generalizability, with AUROC and F1 scores below 0.55 (Table. S4). In contrast, both PGS-pretrained + MLP models exhibited significant improvements over conventional machine learning models (p < 0.01) (Table. S18, S19).
+These findings highlight the utility of PGS integration strategies across tasks. While PGS-based pretraining alone improved cross-sectional MDD prediction, likely by embedding stable gene–brain associations, combining pretraining with direct PGS input conferred additional advantages in 2-year follow-up prediction. This suggests that incorporating polygenic risk at both representational and decision levels may be particularly beneficial when forecasting longer-term psychiatric outcomes.
+
+Decision Curve Analysis (DCA) Results for Clinical Utility
+To evaluate the potential clinical utility of our pretrained models, we conducted a Decision Curve Analysis (DCA) comparing the default strategies including, “Treat All” and “Treat None” with our best-performing PGS-pretrained 3DCNN. In the clinically relevant threshold probability range of 0.4-0.6, where the decision boundaries are most critical given the balanced nature of the dataset, our model consistently yielded higher net benefit values compared to both comparison strategies (Figure. S3 A, B). Specifically, at a threshold probability of 0.50, the model achieved a net benefit of approximately 0.10, whereas the net benefit of the "Treat All" strategy decreased markedly. This indicates superior performance in identifying children who would progress to MDD while minimizing unnecessary interventions. 
+
+Leveraging PGS in 2-Year Follow-Up MDD and Suicidality Prediction
+The PGS-pretrained 3DCNN demonstrated superior performance in predicting MDD with suicidality at the 2-year follow-up across all tested models. Using composite PGS, the PGS-pretrained 3DCNN + MLP model achieved the best predictive accuracy. For MDD with suicidal active ideation, our model attained an AUROC of 0.64±0.02 and F1 score of 0.675±0.007, showing a 1.9% improvement over composite PGS-only models (AUROC = 0.628±0.015) and a 13.9% improvement over unimodal TW-FA models (AUROC = 0.562±0.021) (Figure. 2E; Table. S5). While symptom-based models reached an AUROC of 0.815±0.021, our model retained 79% of this benchmark, highlighting its utility even in the absence of behavioral indicators. For MDD with suicidal attempts, the PGS-pretrained model achieved an AUROC of 0.665±0.071 (F1 = 0.702±0.034), improving upon from-scratch 3DCNN + MLP models by 9% (AUROC = 0.611±0.061) (Figure. 2F; Table. S7). Compared to the symptom-based model (AUROC = 0.756±0.03), our model retained 88% of its predictive accuracy, further supporting its clinical relevance.
+A similar pattern was observed with depression PGS, where the best-performing model using TW-FA and depression PGS reached an AUROC of 0.651±0.021 (F1 = 0.664±0.008), exceeding depression PGS-only (AUROC = 0.614±0.016) by 6% and TW-FA-only models (AUROC = 0.562±0.021) by 15.8% (Figure. S2 E, F; Table. S5). For MDD with suicidal attempts, the depression PGS-pretrained model (AUROC = 0.67±0.076, F1 = 0.651±0.034) outperformed from-scratch multimodal models (AUROC = 0.661±0.074) by 7.4% and TW-FA-only models (AUROC = 0.573±0.062) by 16.9% (Figure. S2 G, H; Table. S7). Across all comparisons, both PGS-pretrained models significantly outperformed alternative approaches in F1 scores (p < 0.01) (Table. S20, S21).
+Traditional machine learning models failed to generalize in the unseen dataset for MDD and suicidality prediction, with AUROC and F1 scores below 0.55 (Table. S6, S8). In contrast, PGS-pretrained + MLP models exhibited statistically significant improvements over conventional machine learning models (p < 0.05) (Table. S22, S23, S26, S27). Notably, our approach maintained robust performance across all comparison models in predicting MDD onset at the 2-year follow-up, even when excluding cases with suicidality.
+We conducted a control analysis to evaluate the specificity of PGS-based pretraining. We compared our approach against alternative pretraining approaches using family history of depression, cognitive variable (NIH Toolbox), and behavioral measure (CBCL Total Problems) as pretraining outcomes. The composite PGS-pretrained model showed significantly higher AUROC than the family history and cognitive variable models (p<0.05) (Table. S28), while no statistically significant difference was observed compared to the behavioral variable-based pretraining. Additional control analyses, including microstructural versus macrostructural feature evaluations, MDD subgroup analyses and performance assessments of multi-modal models using TW-FA, PGS, age, sex, and behavioral variables are provided in the Supplementary Materials (Figure. S4-S6; Table. S9-S11).
+
+Machine Learning Interpretation 	
+Using Integrated Gradients [57]  and SmoothGrad [58], we generated voxel-level saliency maps to identify key white matter features associated with MDD (Figure. 3A). Lower fractional anisotropy (FA) across widespread white matter regions is associated with a higher probability of MDD. To improve interpretability, we performed fasciculus-level analyses, revealing that the superior longitudinal fasciculus, cingulum, corticospinal tract, and corpus callosum contained a high proportion of voxels with reduced FA, significantly differing from controls (Figure. 3B). In contrast, relatively few voxels showed a positive association with MDD (Figure. 3C). Children who developed depressive symptoms and suicidal ideation two years later exhibited similar FA reductions in these tracts, which strongly contributed to their symptom prediction (Figure. 3D–F).
+
+Generalizability testing on Independent Korean Cohorts
+To assess cross-ethnic generalizability, we evaluated the PGS-pretrained 3DCNN on an independent Korean adolescent sample. Fine-tuning the PGS-pretrained 3DCNN models on this dataset significantly outperformed the from-scratch model trained solely on Korean data in AUROC (p-value < 0.05) (Table. S33). The composite PGS-pretrained model achieved an AUROC of 0.673±0.154 and F1 score of 0.61±0.227, compared to the from-scratch model’s AUROC of 0.532±0.127 and F1 score of 0.5±0.215 (Figure. 2G, H; Table. 3). These observations underscore the value of combining PGS with neuroimaging data to improve cross-population applicability.
+
+Discussion
+This study demonstrates that integrating PGS with white matter neuroimaging significantly enhances the prediction of youth depression. Using a deep learning framework, we achieved robust predictive performance in cross-sectional and longitudinal datasets. PGS-pretrained models significantly outperformed alternative pretraining outcomes (e.g. family history, cognitive variables), underscoring the specificity. Our model successfully identified key white matter tracts, including the superior longitudinal fasciculus, cortico-spinal tract, corpus callosum, and cingulum, as critical predictors of depression risk. Furthermore, the model demonstrated strong generalizability, accurately classifying children and adolescents at risk for depression in the independent Korean cohort. To our knowledge, this is the first study to pretrain white matter representations using polygenic risk and apply them to psychiatric outcome prediction, with validation conducted longitudinally and cross-cohort.
+Pretraining the deep learning model with PGS likely enhanced the model’s capacity to detect biologically meaningful white matter features shaped by genetic risk for depression. Compared to auxiliary pretraining targets such as family history of depression or cognitive variables, our approach yielded the higher classification performance, underscoring the specificity of genetic information in guiding the white matter representation learning. 
+Depression related PGS captures the cumulative effects of thousands of common variants associated with depression risk, many of which influence neurodevelopmental processes relevant to white matter, including myelination, axonal integrity, and synaptic signaling. Variants such as 5-HTTLPR [60], BDNF [61], SLC6A15 [62] and COMT [63] have been associated with alterations in white matter microstructure. Beyond individual variants, PGS for depression correlates with FA values, supporting broader genetic influences beyond single-gene effects on white matter integrity [27]. Epigenetic modifications in genes like SLC6A4, COMT, and BDNF [33 may further shape neural pathways by regulating gene expression related to myelination and neural plasticity. During pretraining, the model may have learned to recognize subtle, spatially distributed FA patterns shaped by these genetic factors, enabling more sensitive detection of depression-related white matter deviations during fine-tuning. This approach bridges genetic vulnerability and neurodevelopmental architecture, offering a biologically grounded framework for early risk identification.
+Our composite PGS, which integrated Depression, BMI, and Alcohol Dependence selected via data-driven Elastic Net optimization, showed similar cross-sectional performance to depression-specific PGS (AUROC 0.62 vs. 0.597), while depression-specific PGS showed better performance in zero-shot 2-year prediction (0.619 vs. 0.61). Importantly, both approaches demonstrated substantial improvements when integrated with white matter imaging through pretraining compared to unimodal and non-pretrained multimodal baselines, indicating that the primary value lies in the polygenic-informed white matter representational learning framework. 
+Our approach not only yielded improved predictions of depression but also more nuanced insights about neurological correlations of child depression. We observed a widespread distribution of voxels with reduced FA that were significant predictors of youth depression. Individuals with early-onset MDD, particularly those with recurrent or persistent symptoms, showed widespread reductions in FA, which are also broadly influenced by genetic factors [15, 61, 64]. These results emphasize that whole-brain FA alterations may mediate genetic influences on the development of depression.
+Despite the importance of whole-brain level white matter microstructures in MDD prediction, we specified several key fasciculi with a high proportion of reduced FA that were critical for predicting youth depression. The superior longitudinal fasciculus, with over 90% of its voxels exhibiting lower FA in youth with an increased likelihood of MDD compared to controls. As a tract connecting frontal, parietal, temporal, and occipital lobes, the superior longitudinal fasciculus has been consistently linked to depression severity, even among asymptomatic youth with familial risk [65, 66]. Meta-analyses further observed the association between the superior longitudinal fasciculus integrity with depression duration and treatment response [67]. Moreover, reduced superior longitudinal fasciculus integrity has been tied to cognitive symptoms related to depression, including deficits in working memory, executive functioning, and attention maintenance [68]. Consistent with prior findings, our results identify the superior longitudinal fasciculus as the most important tract for predicting depression, both cross-sectionally and longitudinally, underscoring its pivotal role in the neurobiology of youth depression.
+The cingulum was another significant predictor, with a high proportion of lower FA values contributing critically to the MDD classification. This tract connects the anterior cingulate cortex to the hippocampus and is central to emotional regulation, self-initiative processes, and spatial memory [69], function closely tied to depressive symptoms such as anhedonia, rumination and memory deficits. Disrupted connectivity in the anterior cingulate cortex is a hallmark of adolescent depression [70]. Furthermore, reduced FA in the cingulum has also been consistently associated with suicidal thoughts and behaviors, implicating fronto-limbic dysfunction in both mood dysregulation and self-harm risks [71]. 
+The corpus callosum is a well-established white matter marker in depression, with reduced FA frequently linked to the future symptom severity [24, 72]. Among its subregions, the genu and body show the most pronounced reductions in FA, reflecting impaired interhemispheric connectivity in the frontal lobes, which is critical for emotional and cognitive regulation [73]. Animal studies further support this, with reduced FA observed in mice lacking the serotonin transporter gene SLC6A4, which is strongly associated with depressive behaviors [26, 74]. These findings, corroborated by human studies [75], emphasize the central role of the corpus callosum in depression-related white matter alterations.
+While our model’s AUROCs in the 0.61-0.66 range fall within the moderate performance band, they consistently surpassed unimodal and conventional machine learning baselines. In the context of low-prevalence, high-stakes conditions such as youth depression [5], even modest improvements in future outcome prediction can provide incremental predictive value. Decision curve analysis (DCA)[59]further demonstrated that our models offer higher net benefit over default strategies such as  “treat-all” or “treat-none” approaches, particularly in the threshold range of 0.4-0.6. To interpret this clinically, a net benefit of 0.1 at a threshold of 0.5 is equivalent to identifying 10 additional true positive cases per 100 patients without increasing the number of false positives [59]. These findings support the clinical utility of biologically informed prediction models, not as stand-alone diagnostics, but as components of multi-tiered screening frameworks.
+Our core thesis is that polygenic risk–informed white matter analyses represent a pivotal step forward in the early detection of youth depression, surpassing conventional unimodal approaches in both effect size and cross-ethnic scalability. To aid interpretation, we converted AUROC values to Cohen’s d using the formula  (under the equal variance assumption) [76]. We observed estimated Cohen’s d of  0.43 (cross-sectional), 0.40 (2-year MDD), 0.51 (suicidal ideation), 0.60 (suicidal attempt), and 0.63 (Korean cohort). These values exceed those reported in large-scale studies where univariate brain features alone often yield modest or non-replicating effects. For example, Van Velzen et al. (2020) reported subtle white matter alterations in adult MDD with Cohen’s d = 0.12–0.26, but adolescent findings did not survive correction [23]. Similarly, large-scale ENIGMA meta-analysis have reported cortical surface area reductions in adolescents with MDD, with effect sizes ranging from Cohen’s d = –0.26 to –0.57, as well as subcortical volume differences, including Cohen’s d = –0.20 for the hippocampus [77]. In contrast, our gene-informed white matter framework yields medium-to-large effect sizes across cohorts and outcomes, comparable to or exceeding those reported in prior large-scale studies. This supports its potential as a robust tool for identifying youth at risk of depression.
+Our model retained 80-88% of symptom-based model performance using only genetic and neuroimaging data, demonstrating the utility of biological vulnerability markers. While the symptom-based model utilizing baseline behavioral symptoms (CBCL internalizing problems) achieved superior 2-year prediction (AUROC 0.767-0.815), several considerations support the value of biological vulnerability assessment. First, the long-term predictive utility of subclinical symptoms in early childhood is questionable. For instance, childhood depressive symptoms have been reported to have ‘very limited accuracy’ for predicting depression occurring 9-16 years later [78]. Second, once youth develop a first clinical episode, they enter a high-risk trajectory characterized by substantial recurrence (46-50%) [5], treatment resistance (~40%) [79] and chronicity (18% remain persistently unwell)[5]. Early-onset depression is "particularly malignant and recalcitrant" [80], being "more chronic and debilitating than depression beginning in adulthood"[3], with optimal identification occurring before first clinical episode. Our approach captures biological vulnerability through genetic predisposition and brain structure, markers independent of current symptom state that provide stable indices of underlying risk, which may be particularly valuable for identifying pre-symptomatic youth years before clinical episode onset, when primary prevention remains possible.
+	Our moderate-to-large effect sizes persist even in the smaller independent Korean cohort (N=108), highlighting how transfer learning can bolster predictive power in underrepresented samples. Taken together, these findings underscore the promise of gene-informed white matter models for identifying youth at risk of depression – offering a more robust and generalizable signal than has typically been observed with single-modality or univariate approaches.
+	
+	Our model is not intended for universal screening but as a second-tier assessment for asymptomatic youth already identified as high-risk through family history or genetic screening. This targeted strategy mirrors established practices in other medical domains where costly imaging is reserved for genetically vulnerable individuals. For such high-risk but pre-symptomatic youth, integrating genetic and neuroimaging data improves prediction beyond genetic information alone (8.5-24% improvement over PGS-only models). While neuroimaging involves costs, these must be weighed against the substantial lifetime burden of early-onset depression [4].
+While this study provides valuable insights into youth depression, several limitations remain. First, our framework does not incorporate environmental factors like early stress and socio-economic status. Future research integrating environmental stressor assessments alongside genetic and neuroimaging data may enable pre-symptomatic prediction approaching symptom-based performance while retaining applicability before first episode onset.Second, dMRI has known limitations in resolving crossing fibers [81], although we applied recommended preprocessing pipelines and utilized track-weighted imaging, which has demonstrated higher sensitivity compared to conventional diffusion tensor imaging in representing crossing fiber configurations [39], to mitigate this. Third, our approach excluded other biological modalities, such as brain hippocampal volume and functional connectivity, limiting a comprehensive view of depression. Future research should address these limitations by integrating environmental measures and diverse imaging modalities to enhance prediction and early intervention strategies. Fourth, our study employed a 'joint fusion' strategy rather than more complex, state-of-the-art fusion models. This was a deliberate methodological choice, prioritizing a parameter-efficient model suitable for our modest sample size of finetune set (N=266). However, we acknowledge that this represents a trade-off, and future work with larger, dedicated datasets should explore whether advanced fusion mechanisms could yield further improvements in predictive accuracy. Finally, the practical implementation of a tiered screening approach requires validation in real-world clinical settings, assessment of cost-effectiveness, and development of standardized protocols for identifying and monitoring high-risk youth. This represents important directions for future work.
+Despite these limitations, our multi-modal integration strategy advances understanding of pediatric depression by demonstrating how PGS-based pretraining can improve neuroimaging-based classification and prognosis in large-scale cohorts. By integrating genetic predispositions and white matter neuroimaging data, we provide a novel framework for identifying children with depression and further at-risk youth before symptom onset. Our findings highlight multiple white matter tracts—including the corpus callosum, superior longitudinal fasciculus, cingulum, and corticospinal tract—as key features for depression prediction. Furthermore, the model’s robust performance in an independent Korean population emphasizes its potential for cross-population generalizability. These findings support a precision psychiatry approach, integrating genetics and neuroimaging for early depression risk detection.
+
+
+
+[36]
+
+
+[82][38][37, 39][40][40, 83]
+
+
+
+
+[41][42][43, 44]
+[45]
+
+
+
+	[84][46, 47][48][49, 50]
+
+
+[51][52]
+	[53, 54]
+
+
+
+[55][56]
+
+
+[57][58]
+
+
+
+[59]
+
+
+
+Acknowledgements
+This work was supported by the National Research Foundation of Korea(NRF) grant funded by the Korea government(MSIT) (No. 2021R1C1C1006503, RS-2023-00266787, RS-2023-00265406, RS-2024-00421268, RS-2024-00342301, RS-2024-00435727, NRF-2021M3E5D2A01022515), by Creative-Pioneering Researchers Program through Seoul National University(No. 200-20240057, 200-20240135), by Semi-Supervised Learning Research Grant by SAMSUNG(No.A0342-20220009), by Identify the network of brain preparation steps for concentration Research Grant by LooxidLabs(No.339-20230001), by Institute of Information & communications Technology Planning & Evaluation (IITP) grant funded by the Korea government(MSIT) [NO.RS-2021-II211343, Artificial Intelligence Graduate School Program (Seoul National University)] by the MSIT(Ministry of Science, ICT), Korea, under the Global Research Support Program in the Digital Field program(RS-2024-00421268) supervised by the IITP(Institute for Information & Communications Technology Planning & Evaluation), by the National Supercomputing Center with supercomputing resources including technical support(KSC-2023-CRE-0568) and by the Ministry of Education of the Republic of Korea and the National Research Foundation of Korea (NRF-2021S1A3A2A02090597, NRF-2023R1A2C2005587,  RS-2023-00301976), Seoul National University Center for Happiness Studies (No. 0404-20220001), by the Korea Health Industry Development Institute (KHIDI), and by the Ministry of Health and Welfare, Republic of Korea (HR22C1605), SNU Creative-Pioneering Researchers Program (339-20230014), Research Grant from Seoul National University(350-20230080) and by Artificial intelligence industrial convergence cluster development project funded by the Ministry of Science and ICT(MSIT, Korea) & Gwangju Metropolitan City and by KBRI basic research program  through  Korea  Brain  Research  Institute funded by Ministry of Science and ICT(25-BR-05-01).
+Conflict of Interest 
+The authors have no conflicts of interest to disclose.
+Data and Code Availability
+The ABCD Study data are publicly available through the NIMH Data Archive (https://abcdstudy.org/scientists_data_sharing.html). The Korean cohort data are subject to IRB restrictions protecting participant privacy but may be shared with qualified researchers upon reasonable requests to the corresponding author, following institutional review and completion of appropriate data use agreements. The 3DCNN and 3DCNN+MLP model implementations used in this study are publicly available at https://github.com/mieuxmin/PGSTWFA-3DCNN with documentation to support reproducibility.
+
+References
+1.	Mangione, C.M., et al., Screening for depression and suicide risk in children and adolescents: US preventive services task force recommendation statement. Jama, 2022. 328(15): p. 1534-1542.
+2.	Collaborators, G.M.D., Global, regional, and national burden of 12 mental disorders in 204 countries and territories, 1990–2019: a systematic analysis for the Global Burden of Disease Study 2019. The Lancet Psychiatry, 2022. 9(2): p. 137-150.
+3.	Fleisher, W.P. and L.Y. Katz, Early onset major depressive disorder. Paediatrics & Child Health, 2001. 6(7): p. 444-448.
+4.	Organization, W.H., Depression and other common mental disorders: global health estimates. 2017.
+5.	Copeland, W.E., et al., Associations of childhood and adolescent depression with adult psychiatric and functional outcomes. Journal of the American Academy of Child & Adolescent Psychiatry, 2021. 60(5): p. 604-611.
+6.	Prevention, C.f.D.C.a. Health Disparities in Suicide. 2025  [cited 2025 March 23]; Available from: https://www.cdc.gov/suicide/disparities/index.html.
+7.	Harder, A., et al., Genetics of age-at-onset in major depression. Translational Psychiatry, 2022. 12(1): p. 124.
+8.	Kendler, K.S., et al., Age at onset and familial risk for major depression in a Swedish national twin sample. Psychological Medicine, 2005. 35(11): p. 1573-1579.
+9.	Power, R.A., et al., Genome-wide association for major depression through age at onset stratification: major depressive disorder working group of the psychiatric genomics consortium. Biological psychiatry, 2017. 81(4): p. 325-335.
+10.	Rice, F., et al., Characterizing developmental trajectories and the role of neuropsychiatric genetic risk variants in early-onset depression. JAMA psychiatry, 2019. 76(3): p. 306-313.
+11.	Thapar, A. and P. McGuffin, A twin study of depressive symptoms in childhood. The British Journal of Psychiatry, 1994. 165(2): p. 259-265.
+12.	Akingbuwa, W.A., et al., Genetic associations between childhood psychopathology and adult depression and associated traits in 42 998 individuals: a meta-analysis. JAMA psychiatry, 2020. 77(7): p. 715-728.
+13.	Nivard, M., et al., Stability in symptoms of anxiety and depression as a function of genotype and environment: a longitudinal twin study from ages 3 to 63 years. Psychological medicine, 2015. 45(5): p. 1039-1049.
+14.	Elsayed, N.M., et al., The role of familial risk, parental psychopathology, and stress for first-onset depression during adolescence. Journal of affective disorders, 2019. 253: p. 232-239.
+15.	Kochunov, P., et al., Genetics of microstructure of cerebral white matter using diffusion tensor imaging. Neuroimage, 2010. 53(3): p. 1109-1116.
+16.	Elliott, L.T., et al., Genome-wide association studies of brain imaging phenotypes in UK Biobank. Nature, 2018. 562(7726): p. 210-216.
+17.	Zhao, B., et al., Common genetic variation influencing human white matter microstructure. Science, 2021. 372(6548): p. eabf3736.
+18.	Johansen-Berg, H. and T.E. Behrens, Diffusion MRI: from quantitative measurement to in vivo neuroanatomy. 2013: Academic Press.
+19.	Zhao, B., et al., Large-scale GWAS reveals genetic architecture of brain white matter microstructure and genetic overlap with cognitive and mental health traits (n= 17,706). Molecular psychiatry, 2021. 26(8): p. 3943-3955.
+20.	Kochunov, P., et al., Heritability of fractional anisotropy in human white matter: a comparison of Human Connectome Project and ENIGMA-DTI data. Neuroimage, 2015. 111: p. 300-311.
+21.	Whalley, H.C., et al., Polygenic risk and white matter integrity in individuals at high risk of mood disorder. Biological psychiatry, 2013. 74(4): p. 280-286.
+22.	Chen, G., et al., Disorganization of white matter architecture in major depressive disorder: a meta-analysis of diffusion tensor imaging with tract-based spatial statistics. Scientific reports, 2016. 6(1): p. 21825.
+23.	Van Velzen, L.S., et al., White matter disturbances in major depressive disorder: a coordinated analysis across 20 international cohorts in the ENIGMA MDD working group. Molecular psychiatry, 2020. 25(7): p. 1511-1525.
+24.	Vulser, H., et al., Early variations in white matter microstructure and depression outcome in adolescents with subthreshold depression. American Journal of Psychiatry, 2018. 175(12): p. 1255-1264.
+25.	Zalsman, G., et al., Fibre tract analysis using diffusion tensor imaging reveals aberrant connectivity in a rat model of depression. The World Journal of Biological Psychiatry, 2017. 18(8): p. 615-623.
+26.	van der Marel, K., et al., Functional and structural neural network characterization of serotonin transporter knockout rats. PLoS One, 2013. 8(2): p. e57780.
+27.	Seewoo, B.J., et al., White matter changes following chronic restraint stress and neuromodulation: a diffusion magnetic resonance imaging study in young male rats. Biological Psychiatry Global Open Science, 2022. 2(2): p. 153-166.
+28.	Rutten-Jacobs, L.C., et al., Genetic study of white matter integrity in UK Biobank (N= 8448) and the overlap with stroke, depression, and dementia. Stroke, 2018.
+29.	Lussier, A.A., et al., Genetic susceptibility for major depressive disorder associates with trajectories of depressive symptoms across childhood and adolescence. Journal of Child Psychology and Psychiatry, 2021. 62(7): p. 895-904.
+30.	Halldorsdottir, T., et al., Polygenic risk: predicting depression outcomes in clinical and epidemiological cohorts of youths. American Journal of Psychiatry, 2019. 176(8): p. 615-625.
+31.	Zhou, T., et al., Effective feature learning and fusion of multimodality data using stage‐wise deep neural network for dementia diagnosis. Human brain mapping, 2019. 40(3): p. 1001-1016.
+32.	Mirabnahrazam, G., et al., Machine learning based multimodal neuroimaging genomics dementia score for predicting future conversion to alzheimer’s disease. Journal of Alzheimer's Disease, 2022. 87(3): p. 1345-1365.
+33.	Guo, W., J. Wang, and S. Wang, Deep multimodal representation learning: A survey. Ieee Access, 2019. 7: p. 63373-63394.
+34.	Koppe, G., A. Meyer-Lindenberg, and D. Durstewitz, Deep learning for small and big data in psychiatry. Neuropsychopharmacology, 2021. 46(1): p. 176-190.
+35.	Ricard, J., et al., Confronting racially exclusionary practices in the acquisition and analyses of neuroimaging data. Nature Neuroscience, 2023. 26(1): p. 4-11.
+36.	Casey, B.J., et al., The adolescent brain cognitive development (ABCD) study: imaging acquisition across 21 sites. Developmental cognitive neuroscience, 2018. 32: p. 43-54.
+37.	Calamante, F., et al., A generalised framework for super-resolution track-weighted imaging. Neuroimage, 2012. 59(3): p. 2494-2503.
+38.	Tournier, J.-D., et al., MRtrix3: A fast, flexible and open software framework for medical image processing and visualisation. Neuroimage, 2019. 202: p. 116137.
+39.	Calamante, F., Track-weighted imaging methods: extracting information from a streamlines tractogram. Magnetic Resonance Materials in Physics, Biology and Medicine, 2017. 30(4): p. 317-335.
+40.	Willats, L., et al., Quantification of track-weighted imaging (TWI): characterisation of within-subject reproducibility and between-subject variability. Neuroimage, 2014. 87: p. 18-31.
+41.	Achenbach, T.M., Manual for ASEBA school-age forms & profiles. University of Vermont, Research Center for Children, Youth & Families, 2001.
+42.	Townsend, L., et al., Development of three web-based computerized versions of the kiddie schedule for affective disorders and schizophrenia child psychiatric diagnostic interview: preliminary validity data. Journal of the American Academy of Child & Adolescent Psychiatry, 2020. 59(2): p. 309-325.
+43.	Romer, A.L., B. Ren, and D.A. Pizzagalli, Brain structure relations with psychopathology trajectories in the ABCD study. Journal of the American Academy of Child & Adolescent Psychiatry, 2023. 62(8): p. 895-907.
+44.	Holt-Gosselin, B., et al., Familial risk for depression moderates neural circuitry in healthy preadolescents to predict adolescent depression symptoms in the Adolescent Brain Cognitive Development (ABCD) Study. Dev Cogn Neurosci, 2024. 68: p. 101400.
+45.	Loughnan, R.J., et al., Unique prediction of developmental psychopathology from genetic and familial risk. Journal of Child Psychology and Psychiatry, 2022. 63(12): p. 1631-1643.
+46.	Radloff, L.S., The use of the Center for Epidemiologic Studies Depression Scale in adolescents and young adults. Journal of youth and adolescence, 1991. 20(2): p. 149-166.
+47.	이미숙, 한국판 CES-D 척도 (The Center for Epidemiologic Studies-Depression Scale) 의 요인구조분석에 대한 재검토. 보건과 사회과학, 2002. 12: p. 43-62.
+48.	Oh, K.-J. and Y.-A. Kim, Manual for the ASEBA school-age forms. Seoul: Huno, 2010.
+49.	Vilagut, G., et al., Screening for depression in the general population with the Center for Epidemiologic Studies Depression (CES-D): a systematic review with meta-analysis. PloS one, 2016. 11(5): p. e0155431.
+50.	Henry, S.K., M.M. Grant, and K.L. Cropsey, Determining the optimal clinical cutoff on the CES-D for depression in a community corrections sample. Journal of affective disorders, 2018. 234: p. 270-275.
+51.	Joo, Y.Y., et al., Polygenic architecture of brain structure and function, behaviors, and psychopathologies in children. bioRxiv, 2024: p. 2024.05.22.595444.
+52.	Ruan, Y., et al., Improving polygenic prediction in ancestrally diverse populations. Nature genetics, 2022. 54(5): p. 573-580.
+53.	Meisner, A., et al., Combined utility of 25 disease and risk factor polygenic risk scores for stratifying risk of all-cause mortality. The American Journal of Human Genetics, 2020. 107(3): p. 418-431.
+54.	Jukarainen, S., et al., Genetic risk factors have a substantial impact on healthy life years. Nature medicine, 2022. 28(9): p. 1893-1901.
+55.	Raza, A., et al., Enhancing brain tumor classification with transfer learning: Leveraging DenseNet121 for accurate and efficient detection. International Journal of Imaging Systems and Technology, 2024. 34(1): p. e22957.
+56.	Geng, L. Multi-classification on the diagnosis of four early stages of Alzheimer’s disease by transfer learning models. in Third International Conference on Artificial Intelligence and Computer Engineering (ICAICE 2022). 2023. SPIE.
+57.	Sundararajan, M., A. Taly, and Q. Yan. Axiomatic attribution for deep networks. in International conference on machine learning. 2017. PMLR.
+58.	Smilkov, D., et al., Smoothgrad: removing noise by adding noise. arXiv preprint arXiv:1706.03825, 2017.
+59.	Vickers, A.J. and F. Holland, Decision curve analysis to evaluate the clinical benefit of prediction models. The Spine Journal, 2021. 21(10): p. 1643-1648.
+60.	Tatham, E.L., et al., The 5-HTTLPR and BDNF polymorphisms moderate the association between uncinate fasciculus connectivity and antidepressants treatment response in major depression. European archives of psychiatry and clinical neuroscience, 2017. 267: p. 135-147.
+61.	Tatham, E.L., et al., White matter integrity in major depressive disorder: implications of childhood trauma, 5-HTTLPR and BDNF polymorphisms. Psychiatry Research: Neuroimaging, 2016. 253: p. 15-25.
+62.	Choi, S., et al., Effects of a polymorphism of the neuronal amino acid transporter SLC6A15 gene on structural integrity of white matter tracts in major depressive disorder. PloS one, 2016. 11(10): p. e0164301.
+63.	Hayashi, K., et al., COMT Val158Met, but not BDNF Val66Met, is associated with white matter abnormalities of the temporal lobe in patients with first-episode, treatment-naive major depressive disorder: a diffusion tensor imaging study. Neuropsychiatric disease and treatment, 2014: p. 1183-1190.
+64.	Shyn, S.I. and S.P. Hamilton, The genetics of major depression: moving beyond the monoamine hypothesis. Psychiatric Clinics, 2010. 33(1): p. 125-140.
+65.	Cole, J., et al., White matter abnormalities and illness severity in major depressive disorder. The British Journal of Psychiatry, 2012. 201(1): p. 33-39.
+66.	Huang, H., et al., White matter changes in healthy adolescents at familial risk for unipolar depression: a diffusion tensor imaging study. Neuropsychopharmacology, 2011. 36(3): p. 684-691.
+67.	Murphy, M.L. and T. Frodl, Meta-analysis of diffusion tensor imaging studies shows altered fractional anisotropy occurring in distinct brain areas in association with depression. Biology of mood & anxiety disorders, 2011. 1: p. 1-12.
+68.	Vestergaard, M., et al., White matter microstructure in superior longitudinal fasciculus associated with spatial working memory performance in children. Journal of cognitive neuroscience, 2011. 23(9): p. 2135-2146.
+69.	Maldonado, I.L., et al., The human cingulum: from the limbic tract to the connectionist paradigm. Neuropsychologia, 2020. 144: p. 107487.
+70.	Lichenstein, S.D., T. Verstynen, and E.E. Forbes, Adolescent brain development and depression: a case for the importance of connectivity of the anterior cingulate cortex. Neuroscience & Biobehavioral Reviews, 2016. 70: p. 271-287.
+71.	Kaess, M., et al., Advancing a temporal framework for understanding the biology of nonsuicidal self-injury: An expert review. Neuroscience & Biobehavioral Reviews, 2021. 130: p. 228-239.
+72.	Radoeva, P.D., et al., Systematic Review: White Matter Microstructural Organization in Adolescents With Depression. JAACAP open, 2023.
+73.	Won, E., et al., Association between reduced white matter integrity in the corpus callosum and serotonin transporter gene DNA methylation in medication-naive patients with major depressive disorder. Translational Psychiatry, 2016. 6(8): p. e866-e866.
+74.	Olivier, J.D., et al., A study in male and female 5-HT transporter knockout rats: an animal model for anxiety and depression disorders. Neuroscience, 2008. 152(3): p. 573-84.
+75.	Bleys, D., et al., Gene-environment interactions between stress and 5-HTTLPR in depression: A meta-analytic update. Journal of affective disorders, 2018. 226: p. 339-345.
+76.	Rice, M.E. and G.T. Harris, Comparing effect sizes in follow-up studies: ROC Area, Cohen's d, and r. Law and human behavior, 2005. 29: p. 615-620.
+77.	Schmaal, L., et al., Cortical abnormalities in adults and adolescents with major depression based on brain scans from 20 cohorts worldwide in the ENIGMA Major Depressive Disorder Working Group. Molecular psychiatry, 2017. 22(6): p. 900-909.
+78.	Najman, J.M., et al., Screening in early childhood for risk of later mental health problems: A longitudinal study. Journal of psychiatric research, 2008. 42(8): p. 694-700.
+79.	Toenders, Y.J., et al., Neuroimaging predictors of onset and course of depression in childhood and adolescence: A systematic review of longitudinal studies. Developmental cognitive neuroscience, 2019. 39: p. 100700.
+80.	Parker, G., et al., Distinguishing early and late onset non-melancholic unipolar depression. Journal of Affective Disorders, 2003. 74(2): p. 131-138.
+81.	Rheault, F., et al., Common misconceptions, hidden biases and modern challenges of dMRI tractography. J Neural Eng, 2020. 17(1): p. 011001.
+82.	Filipiak, P., et al., Towards linking diffusion MRI based macro- and microstructure measures with cortico-cortical transmission in brain tumor patients. Neuroimage, 2021. 226: p. 117567.
+83.	Pascual-Diaz, S., et al., Default Mode Network structural alterations in Kocher-Monro trajectory white matter transection: A 3 and 7 tesla simulation modeling approach. PloS one, 2019. 14(11): p. e0224598.
+84.	Heo, E.-H., et al., Validation of the center for epidemiological studies depression scale among Korean adolescents. Psychiatry investigation, 2017. 15(2): p. 124.
+
+Figures & Tables
+Figure 1. Analysis Flows. 
+This study integrates Track-Weighted FA (TW-FA) and PGS to enhance youth depression prediction. The model is pretrained on white matter imaging and depression-related PGS using a 3D convolutional neural network. The model is then fine-tuned for cross-sectional classification (using  TW-FA taken at age 9-10 to predict concurrent depression at age 9-10). This fine-tuned model is subsequently utilized in two ways: (1) as a zero-shot prediction of 2-year follow-up depression (using TW-FA taken at age 9-10 to predict future outcomes), and (2) for generalizability in an independent Korean cohort. Figure 2. Depression Classification Task Performance using Composite PGS. (A) F1 score comparison for cross-sectional MDD classification, showing statistically significant performance differences across models. (B) Receiver operating characteristic (ROC) curves displaying AUROC values for cross-sectional MDD classification models. (C) F1 score comparison for 2-year follow-up MDD prediction, highlighting model performance differences. (D) ROC curves for 2-year follow-up MDD prediction. (E) ROC curves for 2-year follow-up MDD and suicidal active ideation prediction. (F) ROC curves for 2-year follow-up MDD and suicidal attempt prediction. (A-F) ABCD cohort. (G) ROC curves for depression classification in the independent Korean cohort, demonstrating external validation performance (H) AUROC comparison for depression classification, highlighting statistical significance in generalizability across models. (G-H) Korean cohort.   (*: p-value < 0.05, **: p-value <0.01, ***p-value <0.001) . 
+
+Figure3. Machine Learning Interpretations Reveal Reduced White Matter FA Associated with Youth MDD in ABCD Cohort. (A) Cross-sectional (9-10y) MDD classification explainable AI (XAI) map. Voxel-wise t-tests were performed with FDR correction (p < 0.001, cluster threshold = 100). Blue regions indicate voxels where lower fractional anisotropy (FA) values are associated with a higher probability of MDD. (B) Fasciculus-level contributions of voxels with significantly lower FA in the MDD group. Normalized contribution was calculated as the proportion of significant voxels (negative associations) within each fasciculus. (C) Fasciculus-level contributions of voxels where higher FA is associated with a higher probability of MDD, using the same normalization method as in (B). (D) Variability map of individual attribute score within True Positive participants. (E) XAI map for MDD prediction at 2-year follow-up in individuals with suicidal active ideation. Voxel-wise t-tests with FDR correction (p < 0.001, cluster threshold = 100) were applied. (F) Fasciculus-level contributions of voxels where lower FA is associated with a higher probability of MDD+SIA at 2-year follow-up, following the same analysis as (B). (G) Fasciculus-level contributions of voxels where higher FA is associated with a higher probability of MDD+SIA at 2-year follow-up, following the same analysis as (C). (H) Variability map of individual attribute score within True Positive participants. 
+Table 1 – Cross-sectional MDD Classification 10-fold CV Average TEST Performance Comparison with Modalities
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+model 
+input
+ACC
+AUROC
+F1 score
+stdACC
+stdAUROC
+std F1
+ONLY composite PGS
+Composite PGS 
+0.473
+0.5
+0.444
+0.086
+0.118
+0.149
+Only TW-FA
+TW-FA
+0.496
+0.586
+0.278
+0.06
+0.133
+0.212
+from-scratch 3DCNN
+TW-FA + composite PGS
+0.503
+0.562
+0.449
+0.071
+0.118
+0.217
+Composite PGS pretrained 3DCNN
+TW-FA
+0.577
+0.62
+0.636
+0.094
+0.121
+0.072
+Composite PGS pretrained 3DCNN
+TW-FA + composite PGS
+0.564
+0.6
+0.638
+0.033
+0.127
+0.052
+ 
+Table 2– 2-Year-Follow-up MDD Prediction 10-fold CV Average TEST Performance Comparison with Modalities
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+model 
+input
+ACC
+AUROC
+F1 score
+stdACC
+stdAUROC
+std F1
+ONLY composite PGS
+composite PGS 
+0.536
+0.562
+0.474
+0.009
+0.011
+0.016
+from-scratch 3DCNN
+TW-FA
+0.575
+0.589
+0.534
+0.01
+0.012
+0.016
+from-scratch 3DCNN
+TW-FA + composite PGS
+0.577
+0.596
+0.604
+0.008
+0.008
+0.011
+composite PGS pretrained 3DCNN
+TW-FA
+0.566
+0.597
+0.593
+0.013
+0.013
+0.017
+composite PGS pretrained 3DCNN
+TW-FA + composite PGS
+0.585
+0.61
+0.652
+0.006
+0.011
+0.007
+
+Table 3. Korean Independent Set Depression Classification 10-fold CV Average TEST Performance
+model 
+input
+ACC
+AUROC
+F1
+stdev ACC
+stdevAUROC
+stdev F1
+from-scratch 3DCNN
+TW-FA
+0.574
+0.532
+0.5
+0.119
+0.127
+0.215
+ABCD_fromscratch_ Pretrained 3DCNN
+TW-FA
+0.615
+0.64
+0.627
+0.18
+0.189
+0.235
+ABCD_DEP PGS_ Pretrained 3DCNN
+TW-FA
+0.59
+0.688
+0.488
+0.145
+0.141
+0.295
+ABCD_composite PGS_ Pretrained 3DCNN
+TW-FA
+0.636
+0.673
+0.61
+0.12
+0.154
+0.227
+

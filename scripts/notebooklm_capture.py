@@ -11,7 +11,8 @@ USER_DATA_DIR = os.path.join(SCRIPT_DIR, "chrome_user_data_clean_2")
 
 FALLBACK_URLS = [
     "https://notebooklm.google.com/notebook/644472d6-3a23-45a7-8d7c-7f218e7c14b4",
-    "https://notebooklm.google.com/notebook/7acc2737-c783-43ff-af4c-e360ad02cf2c"
+    "https://notebooklm.google.com/notebook/7acc2737-c783-43ff-af4c-e360ad02cf2c",
+    "https://notebooklm.google.com/notebook/1220dd04-2eb8-4e2a-a281-eb9cbc172248"
 ]
 
 def ensure_login(page):

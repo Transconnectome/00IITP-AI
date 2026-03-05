@@ -1,0 +1,47 @@
+인공지능과제 – 김성연 교수연구진 연구제안내용
+
+연구목표
+본 연구의 궁극적 목표는 위장 팽창으로 대표되는 interoceptive 내부 자원 신호의 신경학적 구현 원리를 명확히 규명하고, 이를 내부 변수를 갖는 인공지능 학습 구조로 확장함으로써 항상성 기반 적응형 지능의 설계 원리를 제시하는 것임. 특히 위장 팽창 interoceptive 신호가 어떤 형태로 뇌에 표현되고, 어떻게 누적·변환되어 행동 모드를 전환하는지는 아직 충분히 규명되지 않은 상태임. 본 연구는 이러한 근본적 공백을 해소한 뒤, 그 생물학적 원리를 인공지능 모델로 일반화하는 것을 목표로 함.
+
+연구배경
+Interoception(내수용감각)은 시각·청각·촉각과 같은 외부 감각과 달리, 환경을 인식하기보다는 생체의 내부 작동 상태를 직접 조절하는 신호에 가깝다 [1–4]. Interoceptive 입력은 자극의 정체성이나 위치보다 valence와 지속성을 우선적으로 인코딩하며, 순간적인 사건이 아니라 내부 상태를 시간에 따라 누적하는 slow integrator로 작동한다 [1–4]. 이러한 신호는 특정 행동을 직접 지시하기보다, 탐색(exploration)–활용(exploitation) 간 전환과 같은 상위 수준의 행동 모드를 조절하는 기능적 특성을 갖는다 [3,5]. 이러한 interoceptive 정보는 특히 insular cortex를 포함한 중추 회로에서 통합되어, 동기 상태와 행동 전략의 기준선을 설정하는 데 기여하는 것으로 제안되어 왔다 [12].
+  위장 팽창(gastric distension)은 이러한 interoceptive 특성을 잘 보여주는 대표적 사례이다 [6,14,15]. 위장 팽창은 음식의 종류나 위치가 아니라 위 내부 용적의 증가를 반영하여 신체의 자원 포화도를 하나의 연속 변수로 함축한다 [6]. 이 신호는 위 팽창량과 지속 시간을 중심으로 통합되며, 이를 바탕으로 개체는 서로 다른 행동 상태를 취한다 [6,14]. 인간을 대상으로 한 연구에서도 위 내부 용적을 점진적으로 증가시키는 water load test를 통해 위장 팽창에 대한 주관적 interoceptive 감각이 누적적으로 변화함이 보고되었으며, 이는 위장 팽창 신호가 순간적 자극이 아닌 지속적 내부 상태 신호임을 시사한다 [6]. 또한 최근 신경회로 연구들은 위장 기계적 신호가 뇌간–시상하부 축을 통해 섭식 조절에 관여함을 보여주었으나, 이 신호가 시간적으로 어떻게 누적·변환되어 내부 상태 변수로 표현되는지에 대해서는 아직 충분히 규명되지 않았다 [14,15].
+  한편, 공복(fasted)과 포만(sated) 상태에 따라 행동 전략이 변화한다는 사실은 다양한 종에서 비교적 잘 확립되어 있다. 선충에서는 내부 영양 상태에 따라 섭식과 이동 행동이 재구성되며, 포만 관련 유전자 조절이 행동 상태 전환에 기여함이 보고되었다 [17]. 초파리에서는 대사 상태와 감각 입력의 가치가 탐색(exploration)과 보존(exploitation) 간의 균형을 조절함이 정량적으로 규명되었고, 내부 상태가 행동 선택의 기준선을 이동시킨다는 개념이 제시되었다 [5,16]. 또한 지브라피시 및 조류 모델에서도 섭식 상태에 따라 자극 처리 방식과 행동 선택이 체계적으로 변화함이 관찰되었으며 [7,18], 포유류에서는 음식 제한이나 공복 상태가 활동성, 탐색 행동, 자발적 운동 및 예측 행동을 증가시키는 반면, 포만 상태에서는 보다 보수적인 행동 패턴이 나타난다는 보고가 축적되어 있다 [8,9].
+  그러나 이러한 기존 연구들은 대부분 공복과 포만이라는 전신적 섭식 상태의 차이를 중심으로 행동 변화를 해석해 왔으며, 위장 팽창이라는 구체적인 interoceptive 신호를 연속적인 내부 변수로 정의하여 탐색–보존 행동 전환과 직접적으로 연결한 연구는 아직 보고되지 않았다. 다시 말해, 배고픔 상태(실험적으로는 fasted vs sated) 상태에서 탐색성과 활동성이 변화한다는 현상은 잘 확립되어 있으나, 그 과정에서 위 내부 용적 변화가 어떤 신경학적·계산적 형태로 표현되고, 어떻게 행동 모드 전환에 기여하는지에 대해서는 실험적으로 규명되지 않은 상태이다. 따라서 위장 팽창을 내부 자원 상태의 정량적 지표로 설정하고, 그 신경학적 구현과 행동적 기능을 체계적으로 분석하는 접근은 전무하며 매우 유망하다. 
+  한편 현재 대부분의 인공지능 시스템은 외부 보상을 중심으로 설계되어, 자신의 내부 자원 상태나 과부하 정도를 명시적으로 반영하기 어렵다. 그 결과 탐색률과 같은 핵심 정책 요소는 고정되거나 외부에서 정해진 규칙에 의존하는 경우가 많다. 최근에는 내부 상태를 행동 조절 변수로 도입하는 항상성 기반 강화학습(homeostatic reinforcement learning) 모델이 제안되었으며, 내부 자원 상태가 탐색–보존 전략을 조절할 수 있음을 계산적으로 보여주고 있다 [5,10,11]. 그러나 이러한 모델들은 실제 생물학적 interoceptive 신호의 신경 구현 원리를 직접 반영하지는 못하고 있다.
+  위장 팽창은 이러한 내부 변수 기반 인공지능을 설명하는 직관적인 생물학적 모델을 제공한다. 위가 비어 있을 때는 탐색이 촉진되고, 포만 상태에 가까워질수록 보수적 모드로 전환되는 것처럼, 인공지능에서도 내부 자원 변수가 정책의 탐색성을 자동으로 조절할 수 있다 [3,5,10,11]. 이러한 구조의 에이전트는 단순히 보상을 추적하는 시스템을 넘어, 자신의 내부 상태를 지속적으로 감지하며 참여와 보존 사이의 균형을 동적으로 조정하는 항상성 기반 지능으로 확장될 수 있다.
+  본 연구진은 위 팽창 interoceptive 신호 전달 메커니즘과 관련된 연구를 2020년 Nature지에 발표한 “A neural circuit mechanism for mechanosensory feedback control of ingestion”(2021년 국가연구개발 우수성과 100선 선정)을 시작으로 계속하고 있으며, 현재는 이를 확장하여 위장 부피를 실제로 tracking하는 신경회로를 NTSDbh → PVH 및 aIC 축을 중심으로 규명하는 시도를 하고 있다. 향후 이 회로에서의 위장 팽창 신호 전달 원리를 인공지능 기반 모델링에 적용함으로써, 내부 상태를 반영하는 학습 구조가 인공지능의 적응성과 효율성을 어떻게 향상시킬 수 있는지를 검증하는 것은 중요한 학문적·계산적 확장을 제공할 것으로 기대된다.
+
+연구내용
+위장 팽창 interoceptive 신호 인코딩 신경회로 동정 및 메커니즘 규명: 위장 팽창이 어떤 신경 신호로 변환되며, 해당 신호가 순간적 자극이 아닌 누적형(slow integrator) 내부 변수로 작동하는지를 규명한다. 특히 위 팽창의 크기와 지속 시간이 어떻게 신경 활동에 반영되고 통합되는지를 정량화함으로써, 위장 팽창 interoception의 기본 표현 형식을 명확히 한다.
+위장 팽창 신호가 탐색(exploration)–보존(exploitation) 행동 모드를 전환하는 기능적 역할 규명: 위장 팽창 정도를 연속적 내부 자원 변수로 정의하고, 해당 변수가 탐색(exploration)과 보수적 활용(exploitation) 간 전환에 어떻게 기여하는지를 행동 실험을 통해 검증한다. 이를 통해 위장 팽창이 단순한 식사 종료 신호가 아니라, 내부 자원 상태에 따라 전체 행동 전략을 재구성하는 핵심 interoceptive 변수임을 입증한다.
+Interoceptive 내부 변수(위장팽창신호 기반 모델) 도입을 통한 인공지능 학습 효율 및 환경 적응성 향상 메커니즘 연구: 앞선 목표에서 규명한 위장 팽창 interoceptive 신호의 동역학과 기능적 특성을 인공지능 에이전트의 내부 변수로 번역하고, 이를 통해 탐색성 및 정책 안정성이 자동 조절되는 학습 구조를 설계한다. 기존 외부 보상 중심 모델과 비교하여, 내부 상태를 반영하는 interoceptive AI가 과도한 탐색을 줄이고 장기적 학습 효율과 환경 적응성을 향상시킬 수 있음을 정량적으로 검증한다.
+
+Method / 데이터 셋 구조
+모델링 등에 활용하실 수 있도록, 현재 확보된 저희 신경활성 측정 데이터를 아래와 같이 공유드립니다. 다음 주에 raw data도 보내드리려 합니다. 저희는 신경활성 측정을 위해 두 가지 기법, Two-photon microscopy와 fiber photometry를 주로 활용하고 있습니다.
+아마 잘 아시겠으나.. Two-photon 이미징은 특정 뇌 영역에 GCaMP 발현 바이러스를 주입하여, 뉴런 내 칼슘 신호(신경 활성의 지표로 가정됨)를 형광 변화로 검출함으로써 단일 뉴런 해상도(single-neuron resolution)에서 실시간 활동을 관찰하는 방법입니다. 각 뉴런은 ROI 단위로 분리되며, ROI별 시간에 따른 형광 세기 변화가 저장된 형태의 데이터셋을 보유하고 있습니다.
+Fiber photometry는 특정 뇌 영역 내 뉴런 집단의 bulk fluorescence를 기록하는 방식으로, 해당 영역의 전반적인 신경 활성 변화를 측정할 수 있습니다. 다양한 센서를 사용할 수 있으며, 본 연구에서는 calcium이 아닌 norepinephrine (NE) 농도를 측정하는 센서를 사용하였습니다.
+아래 그림은 저희 2020년 Nature 논문(https://www.nature.com/articles/s41586-020-2167-2)의 Figure 3인데요, 후뇌 부완핵 PB Pdyn 뉴런 집단의 2-photon 이미징 결과로, gastric distension에 따른 단일 뉴런 수준의 반응을 보여줍니다.
+
+다음 아래 그림은 후뇌 고립로핵 cNTS Dbh 뉴런으로부터 NE 신호 입력을 받을 것으로 예상되는 섬엽피질 aIC 및 시상하부 PVH 영역에서, 위장 팽창에 따른 NE 신호 변화를 fiber photometry로 측정한 결과입니다. 이 예비결과는 뇌 안에서 최초로 sustained-state 위 부피를 인코딩하는 뉴런을 찾았다는 의의가 있습니다(unpublished). 1-2년 후쯤 서브밋 가능해지지 않을까 싶은데요, 본 과제 제안 모델링 내용으로 강화되면 CNS 본지급 논문 낼 수 있지 않을까 기대해봅니다.
+
+
+References
+1.  Berntson, G. G., & Khalsa, S. S. Neural circuits of interoception. Trends in Neurosciences, (2021). https://doi.org/10.1016/j.tins.2020.09.011 
+2.  Wang, F.-B., & Chang, R. B. The coding logic of interoception. Annual Review of Physiology, (2024). https://doi.org/10.1146/annurev-physiol-042222-023455 
+3.  Tsakiris, M., & Critchley, H. Interoception beyond homeostasis: affect, cognition and mental health. Philosophical Transactions of the Royal Society B: Biological Sciences, (2016). https://doi.org/10.1098/rstb.2016.0002
+4.  Singer, J., & Damasio, A. The physiology of interoception and its adaptive role in consciousness. Philosophical Transactions of the Royal Society B: Biological Sciences, (2025). https://doi.org/10.1098/rstb.2024.0305 
+5.  Corrales-Carvajal, V. M., Faisal, A. A., & Ribeiro, C. Internal states drive nutrient homeostasis by modulating exploration–exploitation trade-off. eLife, (2016). https://doi.org/10.7554/eLife.19920 
+6.  Van Dyck, Z., Vögele, C., Blechert, J., Lutz, A. P. C., & Herbert, B. M. The Water Load Test as a measure of gastric interoception: Development of a two-stage protocol and application to a healthy female population. PLOS ONE, (2016). https://doi.org/10.1371/journal.pone.0163574 
+7.  Filosa, A., Barker, A. J., Dal Maschio, M., & Baier, H. Feeding state modulates behavioral choice and processing of prey stimuli in the zebrafish tectum. Neuron, (2016). https://doi.org/10.1016/j.neuron.2016.03.014 
+8.  Tezenas du Montcel, C., Cao, J., Mattioni, J., Hamelin, H., Lebrun, N., Ramoz, N., Gorwood, P., Tolle, V., & Viltart, O. Chronic food restriction in mice and increased systemic ghrelin induce preference for running wheel activity. Psychoneuroendocrinology, (2023). https://doi.org/10.1016/j.psyneuen.2023.106311 
+9.  Gabloffsky, T., Gill, S., Staffeld, A., Salomon, R., Power Guerra, N., Joost, S., Hawlitschka, A., Kipp, M., & Frintrop, L. Food restriction in mice induces food-anticipatory activity and circadian-rhythm-related activity changes. Nutrients, (2022). https://doi.org/10.3390/nu14245252 
+10. Yoshida, N., Sprekeler, H., & Gutkin, B. S. Linking homeostasis to reinforcement learning: internal state control of motivated behavior. Current Opinion in Behavioral Sciences, (2025). https://doi.org/10.1016/j.cobeha.2025.101611 
+11.  Yoshida, N., et al. Modeling long-term nutritional behaviors using deep learning / homeostatic reinforcement learning. PNAS Nexus, (2024). https://doi.org/10.1093/pnasnexus/pgae540 
+12.  Livneh, Y., Ramesh, R., Burgess, C. et al. Homeostatic circuits selectively gate food cue responses in insular cortex. Nature, (2017). https://doi.org/10.1038/nature22375 
+13.  Kamath, T., Lodder, B., Bilsel, E., et al. Hunger modulates exploration through suppression of dopamine signaling in the tail of striatum. Neuron, (2025). https://doi.org/10.1016/j.neuron.2025.09.009 
+14.  Kim, D.-Y., Heo, G., Kim, M., et al. A neural circuit mechanism for mechanosensory feedback control of ingestion. Nature, (2020). https://doi.org/10.1038/s41586-020-2167-2 
+15.  Cai, H., Schnapp, W. I., Mann, S., et al. Neural circuits regulation of satiation. Appetite, (2024). https://doi.org/10.1016/j.appet.2024.107512 
+16.  Whitehead, S. C., Sahai, S. Y., Stonemetz, J., & Yapici, N. Exploration–exploitation trade-off is regulated by metabolic state and taste value in Drosophila. bioRxiv (preprint), (2024). https://doi.org/10.1101/2024.05.13.594045 
+17.  Handley, A., & Pocock, R. Transcriptional control of satiety in Caenorhabditis elegans. Communicative & Integrative Biology, (2017). https://doi.org/10.1080/19420889.2017.1325978 
+18.  Srivastava, A., Malik, S., Yadav, G., & Rani, S. Intermittent food absence motivates reallocation of locomotion and feeding in spotted munia (Lonchura punctulata). Journal of Circadian Rhythms, (2015). https://doi.org/10.5334/jcr.af 
