@@ -4,6 +4,17 @@
 > **Core Strategy**: Two-Part Model (Sensory Encoder + Titans Memory SSM)  
 > **Status**: 🟢 Phase 3: Scientific Validation (In Progress)
 
+## 📌 핵심 산출물 (Key Deliverables)
+
+| 문서 | 파일 | 설명 |
+| :--- | :--- | :--- |
+| **📋 제안서 (최종 제출본)** | [`_proposal_[제출]1_신청용연구개발계획서(기술개발사업)_[표지][요약][본문1][본문2]_FN.pdf`](_proposal_%5B%EC%A0%9C%EC%B6%9C%5D1_%EC%8B%A0%EC%B2%AD%EC%9A%A9%EC%97%B0%EA%B5%AC%EA%B0%9C%EB%B0%9C%EA%B3%84%ED%9A%8D%EC%84%9C%28%EA%B8%B0%EC%88%A0%EA%B0%9C%EB%B0%9C%EC%82%AC%EC%97%85%29_%5B%ED%91%9C%EC%A7%80%5D%5B%EC%9A%94%EC%95%BD%5D%5B%EB%B3%B8%EB%AC%B81%5D%5B%EB%B3%B8%EB%AC%B82%5D_FN.pdf) | IITP 2026 기술개발사업 신청용 연구개발계획서 최종본 (표지+요약+본문1+본문2) |
+| **🎤 발표자료 (최신)** | [`presentation_ver3.pdf`](presentation_ver3.pdf) | 과제 발표용 프레젠테이션 최신 버전 (v3) |
+| **🎤 발표자료 (이전)** | [`_presentation_ver2.pdf`](_presentation_ver2.pdf) | 과제 발표용 프레젠테이션 이전 버전 (v2) |
+| **📝 제안서 소스 (LaTeX)** | [`tex/main.tex`](tex/main.tex) | Overleaf 연동 LaTeX 소스 (실시간 편집 가능) |
+
+---
+
 ## 🔗 Quick Access (즐겨찾기)
 
 | Item | Link | Description |
