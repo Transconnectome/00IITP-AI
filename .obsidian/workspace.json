@@ -11,10 +11,14 @@
             "id": "aeca1f8a6b31de8b",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "docs/qa_prep_차지욱_20260309.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "qa_prep_차지욱_20260309"
             }
           }
         ]
@@ -74,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "a18a838b3c4116a8",
@@ -164,6 +169,8 @@
   },
   "active": "aeca1f8a6b31de8b",
   "lastOpenFiles": [
+    "claudedocs/qa_neural_field_diffusion_speed.md",
+    "claudedocs",
     "그랜트아이디어.md",
     "README.md"
   ]
