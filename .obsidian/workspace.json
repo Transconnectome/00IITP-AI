@@ -164,11 +164,13 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "bases:Create new base": false,
+      "github-sync:Sync with Remote": false
     }
   },
   "active": "aeca1f8a6b31de8b",
   "lastOpenFiles": [
+    "presentation.mp4",
     "claudedocs/qa_neural_field_diffusion_speed.md",
     "claudedocs",
     "그랜트아이디어.md",
