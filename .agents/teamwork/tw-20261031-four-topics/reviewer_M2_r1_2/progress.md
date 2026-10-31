@@ -1,0 +1,3 @@
+- 2026-10-31T11:17:49Z started; DISPATCH appended; launching tests
+- 2026-10-31T11:25:41Z C1 rc0 67 OK; output/addendum02 hashes OK; code freeze OK except launcher (disclosed). Full rerun in copied tree (alpha, family A, family B, provenance): 0 value diffs. ID scan full-form 0 hits. ver11 + zoo depth claims verified. Reviewer mutant R1 (replication ignores sign) SURVIVES (test gap; code correct). R2 killed. Waiting: pytest topic3/old86/topic1, mutants R3/R4.
+- 2026-10-31T11:29:35Z tests 54/86/88 pass; C1 end rc0; outputs rc0; mutants R2-R4 killed, R1 survived; handoff written; verdict APPROVE

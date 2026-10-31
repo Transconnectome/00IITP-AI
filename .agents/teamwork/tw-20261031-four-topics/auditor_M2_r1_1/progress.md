@@ -1,0 +1,4 @@
+- 11:17Z start: dispatch appended, briefing created.
+- 11:25Z hashes C1/card/output/code verified; sacct 217845 node2 CPU-only after freeze; remote npz+code hashes match.
+- 11:40Z Family A/B rerun in copy: 0 value diffs; tests 54 pass in copy; mutants launched (pid 1370169).
+- 11:55Z T3.1 + alpha calibration rerun in copy: 0 value diffs (path fields only). IDs: 0 full/standalone hits. VRABES clean. Run-level finding: auto checkpoint commits by root session.
