@@ -39,7 +39,7 @@
 - The independent review is incomplete: the Trinity log is truncated and codex failed. **A fresh native auditor must still review `scripts/topic1_cohort_stats.py` (33e27576…) and the result.** See deviations addendum item 1.
 - The E1 approximate 95 % CI for d is [0.015, 0.212] (derived, descriptive), so the kill is not evidence of no effect. The §9 latency/global-signal confound cannot be ruled out: there are no motion data and the preprocessing is unknown.
 - Acceptance includes no-ops. The acceptance-stratified refit is post-freeze and descriptive.
-- I observed PID 732435 `git push -u snuprivate feature/topic1-lag-motif-v2` running from this repo at 10:54Z. It was not mine, I did not touch it, and it later exited. Results may therefore exist on a remote; the ID scan is clean.
+- I observed PID 732435 `git push -u snuprivate feature/topic1-lag-motif-v2` running from this repo at 10:54Z. It was not mine, I did not touch it, and it later exited. M1 made no commits. A push sends committed objects only, so M1's uncommitted outputs were not sent by it. Whether another process committed these paths was not checked: no `git log --stat` was run, to avoid exposing participant IDs. The ID scan of all M1 outputs is clean.
 - The first part of this assignment (08:10–09:10Z) was done in an earlier context. Its receipts are kept (v1/v2 mutation receipts, `stats_validation.json`).
 
 ## 4. Conclusion

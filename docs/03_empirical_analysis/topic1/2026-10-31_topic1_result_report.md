@@ -5,7 +5,11 @@
   - the frozen card `2026-10-30_topic1_analysis_card.md` (sha256 `1e589f0ba5a866088a3ce93ed049163860f222edb148acc044254275d5bb75aa`, unchanged);
   - the frozen pre-label addendum `2026-10-31_topic1_prelabel_addendum.md` (sha256 `7ccb983ed9dedd50d9c74b433e2578a7007b11ee5397a276832382a39f55e90e`);
   - the deviations addendum `2026-10-31_topic1_deviations_addendum.md`.
-- Every number below comes from `results/topic1/2026-10-31/`. None is taken from `EMPIRICAL_ANALYSIS_REPORT.md` (C8).
+- Every **result** number below comes from this run's dated outputs in `results/topic1/2026-10-31/`. None is taken from `EMPIRICAL_ANALYSIS_REPORT.md` (C8).
+- Some figures are quoted for context and labelled as such. They come from the frozen card or from the 2026-10-30 run:
+  - the operating characteristic "p_Holm < 0.05 ↔ |d| ≳ 0.11" (card §5);
+  - the spurious-direction values (card §9; `results/topic1/2026-10-30/spurious_direction.json`);
+  - the external MBBN baselines (card §6).
 
 ## 1. Verdict (card §5, applied exactly)
 
@@ -73,7 +77,35 @@ The primary unit is broadband@0.10: n = 1,706 (869 OCD, 837 HC), 23 sites, 0 exc
 - No subject is below the 100-sample (200 s) floor.
 - The two Bellvitge 1.5T sites sit at the floor (median 100).
 
-**Site × group cells.** There are 46 cells, ranging from 10 to 189 subjects.
+**Per site, at the primary unit broadband@0.10** (`descriptives_primary_unit.by_site`):
+
+| Site | n | Acceptance mean | Acceptance p10 | Grid length median | Gradient share mean | Degenerate E1 | Degenerate E2 |
+|---|---|---|---|---|---|---|---|
+| Amsterdam-VUmc | 57 | 0.590 | 0.486 | 157 | 0.256 | 0.0% | 0.0% |
+| Bangalore-NIMHANS | 358 | 0.638 | 0.541 | 133 | 0.226 | 0.0% | 0.0% |
+| Barcelona-HCPB | 64 | 0.660 | 0.569 | 220 | 0.224 | 0.0% | 0.0% |
+| Barcelone-Bellvitge-ANTIGA-1.5T | 137 | 0.669 | 0.578 | 100 | 0.203 | 0.0% | 0.0% |
+| Barcelone-Bellvitge-PROV-1.5T | 64 | 0.678 | 0.600 | 100 | 0.186 | 0.0% | 0.0% |
+| Barcelone-Bellvitge-RESP-CBT-3T | 57 | 0.637 | 0.525 | 220 | 0.181 | 0.0% | 0.0% |
+| Bergen | 53 | 0.586 | 0.474 | 124 | 0.243 | 0.0% | 0.0% |
+| Braga-UMinho-Braga-1.5T | 46 | 0.743 | 0.696 | 160 | 0.133 | 0.0% | 0.0% |
+| Braga-UMinho-Braga-1.5T-act | 96 | 0.649 | 0.515 | 160 | 0.267 | 0.0% | 0.0% |
+| Braga-UMinho-Braga-3T | 59 | 0.573 | 0.363 | 340 | 0.293 | 0.0% | 0.0% |
+| Brazil | 93 | 0.687 | 0.628 | 110 | 0.135 | 0.0% | 0.0% |
+| Cape-Town-UCT-Skyra | 39 | 0.532 | 0.347 | 238 | 0.335 | 0.0% | 0.0% |
+| Dresden | 35 | 0.486 | 0.322 | 316 | 0.340 | 0.0% | 0.0% |
+| Kyoto-KPU-Kyoto3T | 70 | 0.689 | 0.647 | 174 | 0.117 | 0.0% | 0.0% |
+| NYSPI-Columbia-Adults | 70 | 0.613 | 0.491 | 206 | 0.204 | 0.0% | 0.0% |
+| NYSPI-Columbia-Pediatric | 34 | 0.613 | 0.523 | 206 | 0.199 | 0.0% | 0.0% |
+| New-York | 60 | 0.484 | 0.264 | 220 | 0.369 | 0.0% | 0.0% |
+| UCLA | 51 | 0.680 | 0.606 | 188 | 0.194 | 0.0% | 0.0% |
+| Vancouver-BCCHR | 45 | 0.645 | 0.566 | 130 | 0.178 | 0.0% | 0.0% |
+| Yale-Gruner | 29 | 0.617 | 0.435 | 130 | 0.201 | 0.0% | 0.0% |
+| Yale-Pittinger-HCP-Prisma | 61 | 0.570 | 0.419 | 288 | 0.251 | 0.0% | 0.0% |
+| Yale-Pittinger-HCP-Trio | 43 | 0.539 | 0.326 | 155 | 0.278 | 0.0% | 0.0% |
+| Yale-Pittinger-Yale-2014 | 85 | 0.586 | 0.417 | 279 | 0.258 | 0.0% | 0.0% |
+
+**Site × group cells.** There are 46 cells, ranging from 10 to 189 subjects. Per-cell rates are in `descriptives_primary_unit.by_site_group`, and per-cell exclusion counts in `exclusions_primary_unit.by_site_group`.
 
 ## 3. Secondary analyses (card §6)
 

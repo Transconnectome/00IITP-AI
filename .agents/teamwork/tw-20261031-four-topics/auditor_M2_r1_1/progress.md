@@ -2,3 +2,5 @@
 - 11:25Z hashes C1/card/output/code verified; sacct 217845 node2 CPU-only after freeze; remote npz+code hashes match.
 - 11:40Z Family A/B rerun in copy: 0 value diffs; tests 54 pass in copy; mutants launched (pid 1370169).
 - 11:55Z T3.1 + alpha calibration rerun in copy: 0 value diffs (path fields only). IDs: 0 full/standalone hits. VRABES clean. Run-level finding: auto checkpoint commits by root session.
+- CORRECTION (written 11:37Z): the three entries above stamped 11:25Z/11:40Z/11:55Z carry estimated times, not clock readings; actual work spanned 11:17Z–11:37Z. Entries kept, not backdated.
+- 11:37Z mutants done (control pass; worker 9/9 killed; mine 12/16 killed, survivors X06/X09/X12/X13 classified non-blocking). Card blob at commit 24fe976 (08:46:25Z) = frozen hash. snuprivate has the branch at 3bdbc9c (push happened; run-level C4 item for root). handoff.md written. Verdict CLEAN.

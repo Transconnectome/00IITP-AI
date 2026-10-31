@@ -17,3 +17,5 @@ Last visited: 2026-10-31T11:06Z
 - DONE. No process of mine running.
 Last visited: 2026-10-31T11:30Z
 - 2026-10-31T11:31Z analyze reproduced on a copy (verification/worker_M1_r1/repro_analyze, removed after): stats_results.json identical except elapsed_s.
+- 2026-10-31T11:40Z final edits (report provenance line + per-site table; handoff push caveat corrected); validation diff confirmed timings-only; ID scan 0/0, RESULTS_SHA256SUMS ok, C1 rc0, card12 rc0, lint 0 findings. Result report sha 1542055d…
+Last visited: 2026-10-31T11:40Z

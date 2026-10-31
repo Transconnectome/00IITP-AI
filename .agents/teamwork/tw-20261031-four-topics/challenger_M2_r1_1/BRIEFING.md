@@ -27,9 +27,9 @@ Empirically challenge M2 (Topic 3 layerwise PR / spectral rerun, ACCEPTANCE T3.1
 - Recompute from saved raw outputs and pinned npz with independent code; mutation tests in a copied tree.
 
 ## Attack Surface
-- Hypotheses tested: [in progress]
-- Vulnerabilities found: [TBD]
-- Untested angles: [TBD]
+- Hypotheses tested: estimator reimplementation (pass), Family A/B recompute (pass), freeze order (pass), rule from scratch (pass), 28 mutants (8 survive), token structure (rank 7, time-invariant)
+- Vulnerabilities found: verdict-logic untested (N05 flips H1b); Family B estimand mis-described (ceiling 7 not 1119); pseudo-replication ratio ~13
+- Untested angles: subsampling-SE coverage; why tokens are time-invariant; old 86 suite rerun
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md (read in place, not copied: methodology reference only)
