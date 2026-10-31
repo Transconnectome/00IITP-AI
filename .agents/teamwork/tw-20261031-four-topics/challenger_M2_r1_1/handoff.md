@@ -4,13 +4,23 @@ Probes and logs: `/home/juke/git/00IITP-AI/verification/challenger_M2_r1_1/`. No
 
 ## Challenge Summary
 
-**Overall risk: MEDIUM.**
+**Verdict: REFUTED, scoped.**
+
+What holds, so nothing needs rerunning:
 - Every headline number reproduces independently.
 - The card was frozen before every real-data result.
 - Every verdict follows the card's rules.
-- Two weaknesses are new and not disclosed anywhere:
-  - the test suite does not guard the verdict logic;
-  - the token-level data are structurally degenerate, which the card and report describe incorrectly.
+
+What is refuted:
+- (i) **The Family B estimand description**:
+  - card §5 "1120×1536 (ceiling 1119)";
+  - report §3 "about 6 of a possible 1119" and "2–5% increase in within-window dimensionality";
+  - the worker handoff "Token PR is about 6 of a 1119 ceiling".
+
+  The token matrices have rank 7 (8 spatial positions) and are time-invariant to 1e-6–1e-5.
+- (ii) **The claim that the fixtures guard the verdict logic.** Six verdict-path mutants survive (N05, N06, N08, N09, N10, N11), and N05 flips the real H1b verdict.
+
+**Overall risk: MEDIUM.** Both fixes are additive: a dated addendum 03, and new rule tests whose hashes are recorded in an addendum.
 
 ## 1. Observation
 
@@ -116,7 +126,7 @@ Probes and logs: `/home/juke/git/00IITP-AI/verification/challenger_M2_r1_1/`. No
 2. **Verdicts.** By O3 and O5, the from-scratch D1, D3 and H1 rules reproduce every verdict. "Verdict follows card" is CONFIRMED.
 3. **Rule logic is untested (O7).** The suite does not protect the decision logic. Six verdict-path mutants survive, and one (N05) would silently flip a real verdict. The production code is correct today, as shown by O5. But C3/T3.3's "fixtures that fail on the targeted defect" is not met for the replication, D1 and D3 rules or for the H1a wiring.
    - The worker's "Mutants 9/9 killed" is true for its own set. That set targets estimators and IO, not decisions.
-4. **Family B measures spatial-position geometry (O8).** Family B's token matrices have at most 8 distinct directions per frame, one per spatial position, and are constant over time to 1e-6–1e-5. So the token PR at L2/LN0L2/L3 is the PR of 8 spatial-position embedding vectors, and its ceiling is **7, not 1119**. The observed PR of 5.4–6.1 is 77–87% of what this data can reach.
+4. **Family B measures spatial-position geometry (O8).** Family B's token matrices have at most 8 distinct directions per frame, one per spatial position, and are constant over time to 1e-6–1e-5. So the token PR at L2/LN0L2/L3 is the PR of 8 spatial-position embedding vectors, and its ceiling is **7, not 1119**. In the primary, the observed PR of 5.4–6.1 is 77–87% of that ceiling. Every checkpoint sits near the rank-7 ceiling; the deep checkpoints are at about 3.2–4.8 (H4 table).
    - Several statements are therefore factually wrong about the data:
      - card §5 "1120×1536 (ceiling 1119)";
      - report §3 "about 6 of a possible 1119";
@@ -124,7 +134,13 @@ Probes and logs: `/home/juke/git/00IITP-AI/verification/challenger_M2_r1_1/`. No
      - the dynamic-range fixture's planted ranks 12 and 40, which are unattainable here.
    - "7 frames concatenated" adds essentially no information over a single frame. H4's "removes token-count dependence" does nothing at L2/L3, where each frame already has 160 tokens.
 5. **The precise p-values do not show generalisation (O9).** Subject-level p = 0.0002 and CIs of about ±0.002 measure how precisely each checkpoint's quantity is estimated. The between-checkpoint spread is about 13× the between-subject variance, so the informative replication unit is the checkpoint: n = 3 zoo checkpoints, confounded by depth and training family (addendum 02). This does not change the card verdict, which is a rule outcome. It does limit what "H1a holds" can mean.
-6. **Severity.** Points 3–5 change no frozen number or rule outcome, so they are not a REFUTATION of M2's reported verdicts. Point 3 is a fixture gap on verdict paths. Point 4 is a mis-description of the estimand, and it needs a dated addendum.
+6. **Severity and scope.** Points 3–5 change no frozen number or rule outcome, so the computations and rule outcomes stand. But two things are refuted:
+   - Point 4 refutes a stated headline, the token-PR ceiling and "within-window dimensionality".
+   - Point 3 refutes the fixture-coverage claim for decision logic: a silent mutation flips a real verdict.
+
+   Hence the verdict is REFUTED (scoped), and both points are blocking until the additive fixes land. Point 5 is non-blocking.
+7. **Jackknife check.** The jackknife SEs used in report R1 reproduce exactly with my SVD leave-one-out (`probe_jackknife.log`: L1 3.5767, L2 1.2955, L3 0.2856). The surviving N17 therefore does not affect a cited number; it is LOW.
+   - Nuance: L1's SE comes from a **single** subject. Leaving that subject out raises PR from 2.78 to 6.39. Report §2 says "a few subjects".
 
 ## 3. Caveats
 
@@ -137,11 +153,17 @@ Probes and logs: `/home/juke/git/00IITP-AI/verification/challenger_M2_r1_1/`. No
 
 ## 4. Conclusion
 
-**CONFIRMED (with MEDIUM non-blocking findings) for:**
+**REFUTED (scoped).**
+
+Confirmed, no rerun needed:
 - T3.1: J1 is an artefact, reproduced exactly.
 - T3.2: the card was frozen before results, verified by hash and time.
-- T3.3: known-rank PR, α and centering fixtures are present, and the corresponding mutants are killed.
-- T3.4: the numbers and the rule outcomes, including H1a "holds" and H1b "not replicated".
+- T3.3 for the PR, α and centering fixtures.
+- T3.4: the numbers and rule outcomes, including H1a "holds" and H1b "not replicated".
+
+Refuted:
+- (i) The Family B estimand description, in the card §5 ceiling statement, report §3 and the worker handoff.
+- (ii) Fixture coverage of the verdict logic: N05, N06, N08, N09, N10 and N11 survive, and N05 flips real H1b.
 
 **Fixes recommended to root** (all additive; nothing frozen needs editing):
 - (a) Add rule-logic fixtures, then record the new test hashes in an addendum, because the tests are pinned in `code_sha256_at_freeze.txt`. Cases:
@@ -151,8 +173,10 @@ Probes and logs: `/home/juke/git/00IITP-AI/verification/challenger_M2_r1_1/`. No
   - a D1 null with hi > 0 and lo < 0;
   - D3 with one contrast failing;
   - H1a pair wiring.
-- (b) Write addendum 03 that corrects the Family B estimand description. Token PR at L2/LN0L2/L3 is the PR of the 8 spatial-position vectors: ceiling 7, time-invariant to 1e-6 (primary) and 1e-5 (HCP). Restate H1a as "the stage-3 blocks make the 8 spatial-position embeddings slightly more isotropic (+2–5%) in 3 of 4 checkpoints", not as "within-window dimensionality".
-- (c) State in that addendum that the replication evidence is n = 3 confounded checkpoints, with between-checkpoint variance about 13× the between-subject variance.
+- (b) Write addendum 03 that corrects the Family B estimand. Token PR at L2/LN0L2/L3 is the PR of the 8 spatial-position vectors: ceiling 7, time-invariant to 1e-6 (primary) and 1e-5 (HCP). Restate H1a as "the stage-3 blocks make the 8 spatial-position embeddings slightly more isotropic in 3 of 4 checkpoints", not as "within-window dimensionality".
+- (c) In that addendum, also state:
+  - the replication evidence is n = 3 confounded checkpoints, with between-checkpoint variance about 13× the between-subject variance;
+  - the L1 jackknife SE is driven by one subject.
 
 ## 5. Verification Method
 

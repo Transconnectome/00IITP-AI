@@ -15,3 +15,4 @@ Last visited: 2026-10-31T11:43:47Z
 - connectome probe done (srun node2, stdin only, no files there); squeue empty.
 - cleanup: tree/ and scratch mutant trees removed; C1 rc0 after; pins OK after; ID grep no hits; layout lint findings [].
 - handoff.md written.
+Last visited: 2026-10-31T11:46:38Z — jackknife probe matches; handoff revised to scoped REFUTED; final C1 rc0.

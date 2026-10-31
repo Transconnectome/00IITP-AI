@@ -25,12 +25,13 @@ Empirically challenge M2 (Topic 3 layerwise PR / spectral rerun, ACCEPTANCE T3.1
 - Criteria: ACCEPTANCE T3.1–T3.4, C1–C8, card §2–§11
 
 ## Key Decisions Made
+- 12:15Z verdict CONFIRMED; N1/N2 nonblocking (rule outcomes verified independently).
 - Re-dispatch "3번. A" = resume, reuse saved results; my job is the pending independent challenge.
 
 ## Attack Surface
-- Hypotheses tested: [TBD]
-- Vulnerabilities found: [TBD]
-- Untested angles: [TBD]
+- Hypotheses tested: card-before-results (holds); FamA/FamB recompute (match, 3 routes); replication rule (holds/not replicated reproduced); interval FPR (<=0.05); loader on non-contiguous tensors (correct); T3.1 4dp (match); ID leak (0)
+- Vulnerabilities found: N1 token L2/L3 effective rank 7 (8 spatial positions, time-invariant) -> report 'of 1119' misleading; N2 7/24 mutant survivors incl. D1/D3 rule logic and SE factor untested; rounding slips; ledger missing
+- Untested angles: connectome token job rerun; real-token reshape to confirm spatial attribution; H2
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md — read in place (not copied; metadata dir holds no code). Core: freeze card before results, synthetic ground truth, run records, verdict taxonomy, independent review.

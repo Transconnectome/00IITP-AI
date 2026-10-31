@@ -29,15 +29,17 @@ Empirically challenge M1 (Topic 1 hardening + full-cohort step 5, ACCEPTANCE T1.
 - Criteria: correctness vs card, freeze ordering, reproducibility of headline numbers.
 
 ## Key Decisions Made
-- [TBD]
+- Verdict CONFIRMED (kill per card §5 holds; computation reproduced independently). 12:00Z
+- Card §12 pre-execution review: unmet (post-hoc audit only) -> uncovered requirement.
 
 ## Attack Surface
-- Hypotheses tested: [TBD]
-- Vulnerabilities found: [TBD]
-- Untested angles: [TBD]
+- Hypotheses tested: saved features reproduce (10/10 bit-identical); d/p/Holm independent recompute; FL calibration on real outcomes (pooled E1 0.052); freeze order via git checkpoint commits; T1.1 mutant rerun; 15 src + 28 stats mutants; secondary families recompute.
+- Vulnerabilities found: 7 stats-script test-coverage gaps (no production defect); wording 'before any label was read'; auto checkpoint commits (C4 observation).
+- Untested angles: §9 confound; Trinity log; V2b at B=9999 not rerun.
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md — Local copy: none (read in place; metadata dir is not for copies of code) — Core: 9 gates incl. frozen card before results, synthetic fixtures, run records, verdict taxonomy.
 
 ## Artifact Index
 - DISPATCH.md, BRIEFING.md, progress.md, handoff.md (this dir)
+- /home/juke/git/00IITP-AI/verification/challenger_M1_r1_2/ — probes and outputs

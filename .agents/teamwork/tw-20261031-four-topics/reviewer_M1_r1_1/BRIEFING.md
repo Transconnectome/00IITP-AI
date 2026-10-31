@@ -29,17 +29,19 @@ Independent review of M1 (Topic 1 hardening + full-cohort step 5) vs ACCEPTANCE 
 - Criteria: ACCEPTANCE C1–C8, T1.1–T1.5
 
 ## Key Decisions Made
-- [pending]
+- Verdict APPROVE; card §12 pre-exec review = nonblocking (independent reimplementation reproduces verdict exactly)
+- analyze_copy deleted after use (participant-level copy)
 
 ## Review Checklist
-- Items reviewed: [in progress]
-- Verdict: pending
-- Unverified claims: all worker claims
+- Items reviewed: stats script, run_cohort, tests, results dir, 3 dated docs, worker probes, Trinity bundle
+- Verdict: APPROVE
+- Unverified claims: stats mutants 24/24 (not rerun); full validate (targeted probe instead)
 
 ## Attack Surface
-- Hypotheses tested: [TBD]
-- Vulnerabilities found: [TBD]
-- Untested angles: [TBD]
+- Hypotheses tested: pre-freeze label join (none found); FPR inflation at B=9999 (no, 0.0558 R=1200); d bias (no, R=20000); ID leak (0 true hits); C6 via Trinity bundle (code+card only)
+- Vulnerabilities found: none blocking
+- Untested angles: other 1696 subjects' extraction (sample of 10 only)
 
 ## Artifact Index
 - DISPATCH.md, BRIEFING.md, progress.md, handoff.md (this dir)
+- probes: /home/juke/git/00IITP-AI/verification/reviewer_M1_r1_1/
