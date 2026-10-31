@@ -1,3 +1,83 @@
+# explorer_M2_r1_1 — RE-DISPATCH handoff (Hard), 2026-10-31T10:54Z–11:10Z
+The original 08:10Z handoff is kept verbatim below the line, and a byte copy is in `verification/explorer_M2_r1_1/redispatch_2026-10-31T1054Z/handoff_0810Z_snapshot.md`. This section supersedes its §4 strategy for the purpose of the next action.
+
+**Summary**
+- M2 (T3.1–T3.4) has already been delivered by worker_M2_r1. The card was frozen at 08:48:29Z, and every pin I re-checked is intact.
+- The gate actually pending is **independent review**. reviewer_M2_r1_1/_2, auditor_M2_r1_1 and challenger_M2_r1_1/_2 have only DISPATCH or BRIEFING files and no handoff. Re-implementation is not pending.
+- One new finding weakens the wording of the H1a "holds" verdict, but not the verdict itself: the replication checkpoints are not architecture-matched (R2 below).
+
+## R1. Observation (re-dispatch)
+- **C1:** `LC_ALL=C sha256sum -c sentinel/PROTECTED_HASHES.txt` → 0 non-OK lines, rc 0.
+- **Card:** sha256 `683374565d80…b1d8e0`, equal to `results/topic3/2026-10-31/card_sha256.txt`.
+- **`output_sha256.txt`:** all entries OK.
+- **`code_sha256_at_freeze.txt`:** only `scripts/topic3_launch_connectome.py` fails, which matches addendum #2.
+- **Tests:** `pytest tests/topic3_spectral -q` → 54 passed, 215.5 s.
+- **Mutants:** the worker receipt `verification/worker_M2_r1/mutants.out.json` has control 53 passed, M1–M9 killed and survivors `[]`. I did not re-run it: the harness writes into its own directory, so a re-run would overwrite that receipt.
+- **ID grep:** `grep -rlE "sub-[A-Za-z0-9]" results/topic3 docs/03_empirical_analysis/topic3` → rc 1 (no hits).
+- **Connectome:** `squeue -u $USER` is empty (rc 0). The zoo directories contain only `VRABES/` and no config files.
+- **Relayed human message:** "3번. A". No file in the run directory says what option 3 or choice A refers to (grep over the run metadata). Both sibling explorers received the same string.
+- **Zoo provenance** (`VRABES/RemissionAnalysis/extract_vrabes_swift_zoo.sh` lines 40–57; record in `verification/explorer_M2_r1_1/redispatch_2026-10-31T1054Z/probe_zoo_checkpoint_independence.txt`):
+
+| Checkpoint | Training family | Depth | Checkpoint file | LR |
+|---|---|---|---|---|
+| primary NewUAH_newE192_TP1_SL20 (`extract_vrabes_swift_E192.sh:82`) | NewUAH | `2 2 18 2` | best.pt | 1e-4 |
+| HCP_N400_T2400_E192 (`:48`) | HCP subject-scaling | `2 2 18 2` | **last.pt** | 2e-5 |
+| NewUAH_deepE192_L1e-4 (`:54`) | NewUAH | **`2 2 42 4`** | **EP10.pt** | 1e-4 |
+| NewUAH_deepE192_L5e-5 (`:55`) | NewUAH | **`2 2 42 4`** | best.pt | 5e-5 |
+
+## R2. Logic chain
+1. The pins, tests, mutant receipt and ID grep all hold, so the delivered artefacts are the ones the card governs. Nothing needs re-running.
+2. Under card §5, H1a "holds" when the primary is significant and ≥ 2 of 3 zoo checkpoints agree.
+   - The two agreeing zoo checkpoints are both deepE192, with 4 stage-3 blocks (not 2) and 42 stage-2 blocks, and they share the NewUAH family with the primary.
+   - The only zoo checkpoint with the primary's architecture (HCP_N400 E192) **reverses** H1a, with a log ratio of −0.137 against +0.023 for the primary, and it reverses H1b too.
+   - So the verdict is mechanically correct, but the "replication" is across depth and LR within one training family, not across data at fixed architecture.
+3. The result report's wording "the 2 stage-3 blocks" (§2 A1b, §4 R2) is literally true only for the primary and HCP_N400. In the deep checkpoints, stage 3 has 4 blocks.
+4. A1b (the subject-level LN-matched drop) is negative in all 4 checkpoints, including HCP_N400. The subject-level finding is therefore robust to this issue. Only the token-level H1a interpretation ("stage-3 blocks increase within-window dimensionality") is fragile.
+5. `docs/.../2026-10-31_topic3_addendum.md` and `_result_report.md` are both pinned in `output_sha256.txt`. Editing either one breaks the receipt chain, so any note must go in a **new** dated file.
+
+## R3. Corrections to my 08:10Z handoff (explicit; the original text below is not edited)
+
+| 08:10Z recommendation | What actually happened |
+|---|---|
+| sbatch on node4 | node4 lacks numpy, and node1 and node3 are GPU-only (sbatch refusal quoted in the worker addendum). The job ran on node2. |
+| project-local torch venv on connectome | Not needed. The worker used a restricted torch-free unpickler with system python3.8 and numpy 1.22.3. |
+| H1b = PR(LN0 L2) vs PR(L2) | The card made H1b covPR(L3) vs covPR(L2) and moved the norm effect to secondary H1c. This was the card author's choice, not an error. |
+| "Three more complete E192 checkpoints give a CPU-only replication across checkpoints" | Two of the three are a different depth (`2 2 42 4`), so this was not a like-for-like replication (R2). |
+
+## R4. Caveats
+- The depth and checkpoint-file attributions come from the extraction script's MODEL ZOO table. I did not see the NERSC run logs proving the dumps on connectome were produced by this script version. The zoo directory names and dump byte sizes are consistent with it.
+- "NewUAH" vs "HCP" as the training data is read from names and from one log line (`EXPERIMENT_LOG_E192_ROI.md:22` says the primary checkpoint is "HCP 사전학습"). The primary's actual pretraining dataset is therefore ambiguous and was not resolved.
+- I did not reinterpret "3번. A".
+
+## R5. Conclusion: recommended next steps (for root and any next worker)
+1. **Resolve "3번. A" with the human first.** If it selects running the random-init control (H2), follow step 4. If it selects accepting M2 as is, go to step 2. Anything else: no M2 worker action.
+2. **Complete independent review** of the existing deliverable before dispatching any new M2 worker. Give the reviewers R2 as a point to check, not as a verdict.
+3. **Wording fix, append-only.** Write a new file `docs/03_empirical_analysis/topic3/2026-10-31_topic3_addendum_2.md`. Do not edit the card, the report or addendum 1. It should state:
+   - The H1a "holds" verdict stands under card §5.
+   - The architecture-matched zoo checkpoint reverses H1a and H1b.
+   - The agreeing checkpoints are depth `2 2 42 4` from the same training family.
+   - The "2 stage-3 blocks" wording applies to depth `2 2 18 2` only.
+   - Suggested reading: "H1a holds by the card's rule; the direction is not replicated at matched architecture (n = 1 matched checkpoint)."
+4. **Optional H2 (random-init control).** This is the only open control. T3.2's "such as shuffled/random-init" is already partly met by the column-permutation null, so H2 is a gap, not a failed criterion. If it is run:
+   - freeze a **new** card first (e.g. `2026-10-31_topic3_H2_card.md`) and write results to `results/topic3/2026-10-31/H2/`;
+   - run on connectome A5000 or dgx1 V100 only, never B300 (VRABES frames are patient data, C6);
+   - log every GPU-hour in `results/gpu_ledger_2026-10-31.md`;
+   - replicate `extract_vrabes_swift_E192.sh:82` exactly (depth `2 2 18 2`, patch `6 6 6 1`, window `4 4 4 tW`, `znorm_minback`, `img 96 96 96 20`), with `simmim_swin4d_ver11` from `VRABES/swift_extraction_code` copied per C7;
+   - verify the extraction preprocessing by checking that a **trained**-checkpoint forward pass reproduces one existing frame dump to atol 1e-4. The checkpoint is only on NERSC, so if that check is impossible, report H2 as "untestable here".
+5. **Cleanup decision for root:** `~/iitp4_topic3_m2_20261031` on connectome node1 and node2 (code plus position-keyed summaries, kept for audit).
+
+## R6. Verification (re-dispatch)
+```
+cd /home/juke/git/00IITP-AI
+LC_ALL=C sha256sum -c .agents/teamwork/tw-20261031-four-topics/sentinel/PROTECTED_HASHES.txt | grep -vc ': OK$'   # 0
+sha256sum -c results/topic3/2026-10-31/output_sha256.txt | grep -v ': OK$\|성공$'                                  # empty
+sed -n 40,57p /home/juke/git/VRABES/RemissionAnalysis/extract_vrabes_swift_zoo.sh                                 # depth column
+```
+**Invalidation conditions:**
+- NERSC logs show the zoo dumps were produced with different depths;
+- any pin above fails on re-check.
+
+---
 # explorer_M2_r1_1 — handoff (Hard). M2 Topic 3 strategy, T3.1–T3.4
 Written 2026-10-31 (~17:45 KST). Read-only. No production code. Probes and outputs: /home/juke/git/00IITP-AI/verification/explorer_M2_r1_1/
 

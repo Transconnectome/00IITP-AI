@@ -8,7 +8,7 @@
   - The label-free primary extraction was still running (`results/topic1/2026-10-31/extract_primary.log`).
   - No feature value had been looked at. The only things seen were per-subject run status (ok/error) and timings.
   - The degeneracy fallback had not yet been decided.
-- Status at freeze (2026-10-31, about 11:30Z; the lines above are kept as written at 08:39Z):
+- Status at freeze (2026-10-31T11:15Z; the lines above are kept as written at 08:39Z):
   - The primary extraction had finished: 1,706 rows, all ok, all with the frozen params hash.
   - Still no feature value had been inspected, and no label had been joined to any feature.
   - `decide` had not been run. It runs after this file's sha256 is recorded.
@@ -199,10 +199,21 @@ A Trinity review was run on the stats script, code only, from a bundle of script
 
 **D5.** The large static-FC array lives under `results/topic1/2026-10-31/derived/`, with a `.gitignore`.
 
-## Hashes recorded with this addendum
+## Hashes recorded with this addendum (freeze, 2026-10-31T11:15Z)
 
-These are filled in at freeze time, before `analyze`:
+These were computed before `decide` and `analyze` ran:
 
-- stats script: see `results/topic1/2026-10-31/stats_script_sha256.txt`
-- validation output: same file
-- manifest: `063513c99122e849407c598b95dda24b2f946493095b7ed11d27bf15beb537f6`
+```
+33e2757690c1dd948cf82478efbe067aa37296a05db0ab081a2073113b396e02  scripts/topic1_cohort_stats.py   (the bytes analyze must match)
+ae69aee21938922a13b276deeb06c670c06fa2c4fb6b54243caa64e70e60c2f0  scripts/topic1_run_cohort.py
+891f83eb0eddf8a7e28cd0869e0ba20b457267ac0e7557c58ab2384859f11f89  tests/topic1_lagmotif/test_cohort_stats.py
+9d7121e49e324e2b4d7aa64f1f39d7e45d4d0f4afe35aa586e93cf97aff61ad2  tests/topic1_lagmotif/test_extract_contract.py
+88aec0ac2c653c95438136930a6fedf746a43af0cf6179576d979c575bfa4d18  results/topic1/2026-10-31/stats_validation_final.json   (all_pass true, binds 33e27576…)
+a5decc1834d089b84590660eef2ee8f7699a3c9155701c5907c49edfbffcf476  results/topic1/2026-10-31/stats_validation.json   (history: binds f2589105…)
+1078aae5001fb50779bcf9ce3a967239a730fb5b4ef1929bf9e4885357c1da31  results/topic1/2026-10-31/t1_1_mutation/v3_final_tree/SHA256SUMS.txt
+063513c99122e849407c598b95dda24b2f946493095b7ed11d27bf15beb537f6  results/topic1/2026-10-31/manifest.json
+948961c84a371709b562424ddbe15eefaf9d659bd2bb17415c286e335888518e  results/topic1/2026-10-31/extract_primary.jsonl
+672fd77a6c2f7945a88d3f24c0e500c378d7f011a8b3b197038107f3859c9745  results/topic1/2026-10-31/derived/static_fc_upper_f32.npy
+```
+
+The sha256 of this file is in `results/topic1/2026-10-31/prelabel_addendum_sha256.txt`.

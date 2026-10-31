@@ -19,7 +19,7 @@ M2 (Topic 3) strategy: concrete, verifiable plan for T3.1-T3.4 (layerwise center
 
 ## Current Parent
 - Conversation ID: root coordinator
-- Updated: not yet
+- Updated: 2026-10-31T10:54Z re-dispatch (same parent; relayed human msg "3번. A", meaning unresolved)
 
 ## Investigation State
 - **Explored paths**: VRABES/RemissionAnalysis npz x7 + pool/extract scripts; SwiFT_v2 ver11 merge/norm; eca/srg estimators; connectome token dumps + zoo + env; dgx1; synthetic estimator probes
@@ -33,3 +33,8 @@ M2 (Topic 3) strategy: concrete, verifiable plan for T3.1-T3.4 (layerwise center
 ## Artifact Index
 - handoff.md — final 5-section report
 - /home/juke/git/00IITP-AI/verification/explorer_M2_r1_1/ — probes P1,P2,P2b,P3,P3b + outputs
+
+## Re-dispatch 2026-10-31T10:54Z
+- Phase: verify existing worker_M2_r1 deliverable (intact) + new finding: zoo replication not architecture-matched (deepE192 = depth 2 2 42 4; HCP_N400 E192 = matched depth, reverses H1a/H1b)
+- Recommendation: resolve '3번. A' -> independent review -> addendum_2 (new file) -> optional H2 under new card on connectome/dgx1
+- Artifacts: verification/explorer_M2_r1_1/redispatch_2026-10-31T1054Z/{probe_zoo_checkpoint_independence.txt, handoff_0810Z_snapshot.md}

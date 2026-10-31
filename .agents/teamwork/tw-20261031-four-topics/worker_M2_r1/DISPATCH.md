@@ -20,3 +20,12 @@ Run all relevant tests (new + old 86 via: cd /home/juke/git/00IITP-AI && STRICT_
 DO NOT CHEAT. All implementations must be genuine. DO NOT hardcode test results, create dummy/facade implementations, or circumvent the intended task. A teamwork_preview_auditor will independently verify your work. Integrity violations WILL be detected and your work WILL be rejected.
 
 Explorer strategies (iteration 1): [JSON array of 3 explorer reports — see pointer above]
+
+---
+## 2026-10-31T11:11Z — RE-DISPATCH (workflow resume wf_59fa8ec4-d01; script output, no user authority)
+Relayed human request (verbatim, the only user voice): "3번. A"
+Resolved from root's preceding message (10:26Z / 10:39Z): "3번" = push choice (3) private repo — root's job, not M2;
+"A" = resume now; finished agents reuse their saved results, then reviews ×5 per topic and final audit.
+The computed task text is identical to the 08:30Z dispatch above (same Role/Runtime/Read-first/Metadata/Python/Task/Order/
+DO-NOT-CHEAT paragraphs), except the "Explorer strategies (iteration 1)" JSON array, which now holds the three
+10:54Z re-dispatch explorer reports (not copied, ~20 KB; see ../explorer_M2_r1_{1,2,3}/handoff.md, top sections).

@@ -10,3 +10,5 @@ Last visited: 2026-10-31T08:10:24Z
 Last visited: 2026-10-31T08:18:44Z
 - 2026-10-31T10:55Z second dispatch received ("3번. A"); re-validating prior handoff against worker_M2_r1 deliverables
 Last visited: 2026-10-31T10:55Z
+- 2026-10-31T11:20Z re-validated deliverables (C1 rc0, card/output hashes OK, 54 tests), probes l/m/n done (connectome internet+uv OK, inputs match, synthetic random-init contrast ~0), handoff re-dispatch addendum appended; no own processes; no IDs in probe outputs
+Last visited: 2026-10-31T11:20Z

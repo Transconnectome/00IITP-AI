@@ -1,3 +1,33 @@
+# worker_M2_r1 — handoff, RE-DISPATCH 2026-10-31T11:11Z (resume wf_59fa8ec4-d01)
+
+## R.1 Observation
+- Relayed human message "3번. A". Root's 10:26Z/10:39Z message defines it: (3) = private-repo push (root's job); (A) = resume now, finished agents reuse saved results, then reviews and final audit. So M2 was **not rebuilt, re-frozen or rerun**.
+- Re-verified at 11:12Z: C1 rc 0; card sha 683374565d80…26d1b8e0 = card_sha256.txt; output_sha256.txt all OK; code_sha256_at_freeze.txt all OK except scripts/topic3_launch_connectome.py (addendum 01 item 2). No topic3 file changed since 09:08Z.
+- Tests (logs in verification/worker_M2_r1/redispatch_2026-10-31T1111Z/): topic3 54 passed (135 s); topic1_lagmotif 88 passed (M1 added tests since 09:08Z: 84 → 88); old suite 86 passed (154 s).
+- Verified the 10:54Z explorers' new finding against the VRABES zoo script (lines 48, 54–55; read-only): the 2 agreeing zoo checkpoints have depth `2 2 42 4` (4 stage-3 blocks); the only depth-matched one (HCP_N400_T2400_E192, `2 2 18 2`) reverses H1a and H1b. H1/H1b values re-read from family_B_token_level.json match.
+- New additive files: docs/03_empirical_analysis/topic3/2026-10-31_topic3_addendum_02.md (sha 2e8d164f…3bac43), receipt results/topic3/2026-10-31/addendum_02_sha256.txt. Nothing frozen or pinned was edited.
+
+## R.2 Logic Chain
+1. "A" = reuse saved results → no new real-data quantity is computed; the frozen card governs unchanged.
+2. The zoo-architecture fact is a reading limit, not a deviation: card §5 did not require matched architecture, so H1a "holds" stands; addendum 02 says it is not replicated at matched architecture (n = 1, reversed) and corrects the scope of "2 stage-3 blocks".
+3. topic3_common.py:12 hardcodes OUT, so in-place reruns overwrite pinned outputs; addendum 02 §2 replaces report §6 / handoff §5 with copy-tree reproduction.
+
+## R.3 Caveats
+- Depth/LR/file attributions come from the extraction scripts, not NERSC logs.
+- H2 random-init still untested (not started: "A" means reuse, and weekly budget is near its limit).
+- Independent review stage (reviewer/challenger/auditor dispatched 09:10Z) still has no handoffs — root's dispatch.
+- GPU ledger file does not exist; M2 used 0 GPU-h (reported to root, ledger not created since it is not an M2 path).
+- connectome leftovers (node1/node2 ~/iitp4_topic3_m2_20261031) kept for audit; cleanup is root's decision.
+
+## R.4 Conclusion
+M2 T3.1–T3.4 delivered as at 09:08Z; verdicts unchanged (table in §4 below). Addendum 02 adds the architecture-matching limit on H1a and safe reproduction.
+
+## R.5 Verification Method
+Use addendum 02 §2 (read-only checks in place; reruns only in a copied tree). Plus: `sha256sum -c results/topic3/2026-10-31/addendum_02_sha256.txt`.
+
+---
+(09:08Z handoff below, unchanged)
+
 # worker_M2_r1 — handoff (Hard), M2 Topic 3 (T3.1–T3.4)
 
 ## 1. Observation

@@ -329,3 +329,102 @@ Never edit old src/*.py. Import them read-only only inside fixtures.
   - any VRABES npz sha256 differs from O1;
   - the zoo subject sets differ;
   - the random-init output shapes differ from the dumps.
+
+---
+
+# Re-dispatch addendum — 2026-10-31T10:55Z (relayed user request "3번. A")
+
+**Summary.** M2 was already delivered by worker_M2_r1 (card frozen 08:48:29Z, sha 683374565d80…). All pins re-verify today, and nothing should be rebuilt or re-frozen. The one open item in T3.2 is the random-init control (card §6 H2, "deferred → untested"). It is now feasible on connectome, and probe M shows it would discriminate. I could not find what "3번. A" refers to anywhere on disk. "3번" is probably Topic 3 (M2), but option A is unknown, so root should confirm it. The H2 recipe below is useful whichever option A turns out to be.
+
+## R-1 Observation (this re-dispatch)
+
+- **Integrity (re-verified):**
+  - C1 `sha256sum -c PROTECTED_HASHES.txt` gives rc 0.
+  - Card sha256 is 683374565d80…26d1b8e0, matching `results/topic3/2026-10-31/card_sha256.txt`.
+  - `output_sha256.txt`: all OK.
+  - `code_sha256_at_freeze.txt`: all OK except `scripts/topic3_launch_connectome.py`, which is disclosed in addendum #2.
+  - `pytest tests/topic3_spectral`: 54 passed in 203 s.
+  - No files under the topic3 paths are newer than the worker handoff (09:08Z).
+- **Review stage incomplete.** reviewer/challenger/auditor_M2_r1_* (09:10Z) contain only DISPATCH/BRIEFING/progress, with no handoffs. reviewer_M2_r1_2 left `verification/reviewer_M2_r1_2/old_suite.log` = 86 passed.
+- **Family B rules re-checked against `family_B_token_level.json`:**
+  - H1a: primary +0.0228, CI [0.0207, 0.0248], p_holm 0.0002. Zoo: HCP −0.137, L1e-4 +0.038, L5e-5 +0.049, all p_holm 0.0002. Two of three zoo checkpoints share the sign, so the card rule gives HOLDS.
+  - H1b: primary +0.045; zoo −0.113 / −0.033 / +0.079. Only 1 of 3 shares the sign, so NOT REPLICATED.
+  - Both match the worker's report.
+- **Random-init readiness on connectome (probe_l, probe_n; booleans and counts only):**
+  - pypi.org and download.pytorch.org/whl/cpu return HTTP 200, and `~/.local/bin/uv` exists. System python is 3.8.10.
+  - Slurm: node1 mix 20/96 CPU, 8 rtx GPUs; node2 mix 2/96; node3 down; node4 idle 96 CPUs. The card says node4 lacks numpy, so the venv must supply it.
+  - Login lands on node1. Home is node-local `/dev/sda2` with 916 GB free, so the venv must be built on the node that runs the job.
+  - `03_MNI_to_TRs/ses-01/img` has 57 subjects. Their set and sorted order equal the E192 dump directories (salted-hash comparison, booleans printed). Every subject has 150 `frame_*.pt` and a `global_stats.pt`.
+  - Bounded search: no trained E192 `best.pt`/`.ckpt` under /storage/bigdata (maxdepth 6). The checkpoint path in the extraction script is NERSC `/pscratch/...`.
+- **Windows.** `stride_between_seq` defaults to 1.0, so stride = 20 and session_duration = 131. Start frames are 0, 20, …, 120, giving 7 windows of 20 TRs. This equals the dump names `frame0 … frame120`. The `pl_classifier_extraction.py:220` hook gets no MIM mask (`_forward_hook_embedding` has no masking), and precision is 32.
+- **Preprocessing source.** `/home/juke/git/VRABES/swift_extraction_code/` (commit 94c2bf4, 2026-10-18) is a snapshot of the NERSC perlmutter extraction code.
+  - Its `class VRABES` (datasets.py:887) pads (2,3,0,0,2,3) with `y.flatten()[0]` and center-crops dim 3 to 96.
+  - Its `BaseDataset.scale_input` differs from local SwiFT_v2's. It was ported 2026-10-17 (PR #69/#70) and does `znorm_minback` as a plain global z-score, which leaves the background at −mean/std. It also adds a `_check_minback_contract`.
+  - Local SwiFT_v2 `fMRINormalizer` instead caps the background at min_brain − 1 (normalization.py:345-350).
+  - The E192 dumps are dated 2026-08-10, before the 10-17 port. Which scale_input produced them is therefore UNVERIFIED.
+  - The snapshot contains no model files, so the ver11 equality between the NERSC fork and local is still not diffed. Shapes match (probe_h).
+- **Probe M** (`verification/explorer_M2_r1_2/redispatch_2026-10-31T1055Z/probe_m_*`). Synthetic input only. Setup: random-init ver11 E192 (VRABES config), seeds 0–2, two smooth masked raw-valued synthetic windows, the worker's estimators, single window 160×1536.
+  - Mean H1a log ratio (corrPR L3 vs LN0 L2): minback −0.0040 (sd 0.0062), zeroback −0.0076 (sd 0.0030), minback with std×1.5 −0.0041. All |values| ≤ 0.012.
+  - H1b ranges −0.006 to −0.001.
+  - Forward pass: 2.3–3.6 s per window at 12 threads.
+  - Trained real values for comparison: H1a +0.023 (primary), −0.137 (HCP).
+
+## R-2 Logic chain
+
+1. All pins, tests and rules re-verify, so the delivered M2 stands. Rebuilding or re-freezing would create a second card *after* real results exist, which violates the C3 order. The only legitimate extension is a new, dated, pre-registered H2 addendum card frozen before any random-init real-data run.
+2. T3.2 asks for "null/controls such as shuffled/random-init". Shuffled is present (column-permutation, iid), but by the card's own text it is non-discriminating. Checkpoint replication is a discriminating control. Random-init is the control that separates "learned" from "architecture or input". Leaving it untested is the only soft gap a strict reviewer could cite.
+3. Probe M: on synthetic input, the random-init contrast sits near 0 (|d| ≤ 0.012), and the trained contrasts are outside that band. H2 is therefore expected to discriminate. This is not shown on real input, and probe M used a per-window unit, not the 7-frame concatenation.
+4. Changing the background rule moved PR *levels* by about 15% but the *contrast* by ≤ 0.004. The std×1.5 change is absorbed by the network and tests nothing. So the preprocessing ambiguity in R-1 matters for levels but probably not for the H1a/H1b contrast. Probe M's absolute PR levels (6–7, near the trained ~6) come from the low-dimensional synthetic field and must not be compared with trained levels.
+5. The blockers are now resolved: connectome has internet, uv, idle node4, a matching subject set and all frames. What remains is engineering, about 30 min of CPU per seed for 399 windows.
+
+## R-3 Caveats
+
+- Probe M is synthetic, uses 2 inputs and 3 seeds, and works per window, so it does not predict the real-input random-init value.
+- No trained checkpoint was found on connectome. A replay check (trained ckpt + replicated preprocessing → dump) is therefore impossible, and preprocessing fidelity is bounded by a sensitivity analysis, not proven.
+- The torch build for python 3.8 caps at torch ≤ 2.4. Getting a newer Python through uv needs the python-build-standalone download, which I did not verify. The pypi/pytorch HTTP 200 checks were index pages only; no wheel was downloaded.
+- monai is required (ver11 imports `monai.networks`).
+- Random-init weight draws depend on the torch version. Record the state_dict sha256 on connectome.
+- Model-code equality between the NERSC fork and local ver11 is still unverified.
+- I did not interpret "3번. A".
+
+## R-4 Recommendation (H2 random-init closure; worker, not explorer, executes)
+
+1. **Ask root first** what option A is. If A means "stop / accept as delivered", skip to step 6.
+2. **Write and freeze, before any random-init real-data computation,** `docs/03_empirical_analysis/topic3/2026-10-31_topic3_H2_randinit_card.md` (or a dated addendum section with its own sha256 in `results/topic3/2026-10-31/H2_card_sha256.txt`). Never edit the frozen main card. Its contents:
+   - **Seeds:** ≥ 3, e.g. 20261031 + {0, 1, 2}. Model built from local SwiFT_v2 ver11 with the extraction-script config.
+   - **Unit:** the same as Family B, a per-subject 7-frame concatenation (L2 / LN0L2 / L3 1120×1536).
+   - **Estimand:** per subject i, Δ_i = d_i(trained) − mean_seed d_i(random). Compute it for H1a (corrPR L3 vs LN0 L2) and H1b (covPR L3 vs L2), using the trained d_i already in `token_job/*.npz`.
+   - **Test:** paired sign-flip B = 9,999 plus a subject-bootstrap 95% CI of the mean Δ. Holm over {H1a, H1b} within each checkpoint.
+   - **Verdict "attributable to training"** iff the primary CI excludes 0 in the trained direction. Otherwise "not distinguishable from architecture/input". For the zoo checkpoints, apply the same rule to the same random-init values and report it descriptively.
+   - **Sensitivity:** run both preprocessing variants, (a) snapshot plain global-z `znorm_minback` and (b) local `fMRINormalizer` minback-capped. A verdict requires agreement across variants; disagreement gives "preprocessing-sensitive / inconclusive".
+   - **Label:** pre-specified, not blind (the trained values are known).
+   - Report random-init PR *levels* beside the trained levels, descriptive only. The H4 profile can then say whether PR ≈ 6 is a learned property.
+3. **Code.** Put it in `src/topic3_spectral/randinit.py` and `scripts/topic3_randinit_job.py`.
+   - Window loader: copy the snapshot's `class VRABES` pad/crop and both scale_input variants into the project, because C7 makes external code read-only. Read `frame_*.pt` and `global_stats.pt` in place on connectome.
+   - Build the model by loading SwiFT_v2 ver11 read-only, or vendor a copy into the project with a recorded sha256.
+   - Write the per-(position, window, layer) token PR summaries in the existing token_job npz schema, keyed by position.
+4. **Fixtures before freezing the H2 card:**
+   - the loader output is (1, 1, 96, 96, 96, 20) and the pad/crop matches a hand-computed toy example;
+   - both scale variants match their reference formulas on a toy volume;
+   - window starts = [0, 20, …, 120];
+   - the restricted state_dict sha256 is recorded;
+   - a synthetic run reproduces probe M's near-zero contrast, as a smoke test.
+5. **Run on connectome only.** Build a project-local uv venv (CPU torch + monai + numpy) in `~/iitp4_topic3_m2_20261031/venv` *on node4*, because homes are node-local.
+   - Submit a Slurm CPU array: 3 seeds × 2 variants, nice, about 16 threads each. Expect ≈ 399 × 2.5–4.4 s ≈ 20–30 min per job.
+   - The job asserts the salted-hash subject-set equality and 7 windows per subject.
+   - Only position-keyed summaries come back. GPU-h = 0; nothing goes to B300 (C6). Log the run in the addendum.
+   - If the venv cannot be built (wheels fail) → H2 stays "untested", with that reason recorded. Never substitute synthetic input.
+6. **Then** run the M2 review stage that was interrupted at 09:10Z (reviewer, challenger, auditor) on the delivered artefacts, plus H2 if it was done.
+
+## R-5 Verification
+
+```
+cd /home/juke/git/00IITP-AI
+LC_ALL=C sha256sum -c .agents/teamwork/tw-20261031-four-topics/sentinel/PROTECTED_HASHES.txt   # rc 0
+sha256sum -c results/topic3/2026-10-31/output_sha256.txt                                         # all OK
+PYTHONDONTWRITEBYTECODE=1 nice -n 10 /home/juke/superclaude-env/bin/python3 -I verification/explorer_M2_r1_2/redispatch_2026-10-31T1055Z/probe_m_randinit_h1_sensitivity.py   # ~2 min, synthetic
+```
+
+- `cat verification/explorer_M2_r1_2/redispatch_2026-10-31T1055Z/probe_n_connectome_inputs.out.txt` should show sets_equal True and frames 150/150.
+- `diff <(sed -n '/class BaseDataset/,/class S1200/p' /home/juke/git/SwiFT_v2/project/module/utils/data_preprocess_and_load/datasets.py) <(sed -n '/class BaseDataset/,/class S1200/p' /home/juke/git/VRABES/swift_extraction_code/module/utils/data_preprocess_and_load/datasets.py)` should be non-empty, which is the scale_input divergence.
+- Invalidation: the trained E192 checkpoint is found, in which case do a replay check instead of the sensitivity pair. Also invalidating: the subject set changes, or the main card hash changes.

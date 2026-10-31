@@ -28,6 +28,9 @@ M1: Topic 1 hardening (T1.1 tests + mutants) and full-cohort step 5 (T1.2 stats 
 - 200 s truncation = native floor(200/TR+1e-9) after head trim, assert grid_len==100.
 - Variants passed as modified PARAMS dicts (hash reflects variant).
 
+- 2026-10-31T11Z (resumed context): final stats bytes 33e27576 re-validated (stats_validation_final.json) before freeze; v3 mutation receipts on final tree; addendum corrected (V4 gradient row = LMM; P14-P17 guards; D4 Trinity truncated). Order: freeze (script sha + addendum sha) -> decide -> analyze -> variants only if survive -> report.
+- Observed foreign process: `git push -u snuprivate feature/topic1-lag-motif-v2` (PID 732435), not mine; not touched; disclose.
+
 ## Artifact Index
 - verification/worker_M1_r1/ — probes, mutant harness copies
 - results/topic1/2026-10-31/ — receipts and results

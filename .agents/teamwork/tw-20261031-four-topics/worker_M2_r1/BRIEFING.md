@@ -47,3 +47,6 @@ M2 Topic 3: rerun layerwise PR / spectral diagnostics (ACCEPTANCE T3.1–T3.4) u
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md (read in place; no local copy) — gates G1–G9: frozen card before results, synthetic ground truth, run records, verdict taxonomy.
+
+## Re-dispatch 2026-10-31T11:11Z
+Human "3번. A" → A = resume, reuse saved results. Action: verify existing M2 deliverable, rerun tests, add additive addendum 02 (zoo architecture not matched; safe reproduction). No re-freeze, no rerun, no H2, 0 GPU-h.

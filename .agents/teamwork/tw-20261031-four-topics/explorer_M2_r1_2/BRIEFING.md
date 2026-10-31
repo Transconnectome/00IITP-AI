@@ -28,6 +28,10 @@ Recommend a concrete, verifiable worker strategy for M2 (Topic 3 layerwise PR / 
 - Key findings: handoff.md O1–O13 (repro exact; MLE biased at N57; LN needs corrPR on tokens; row bootstrap biased; graph metrics track rank; dumps re-pool to npz; numpy loader works on connectome; link ~0.3 MB/s)
 - Unexplored: dgx1 env; swift_zoo_ses-02; VRABES extraction preprocessing; internet on connectome for uv venv
 
+## Re-dispatch 2026-10-31T10:55Z ("3번. A")
+- M2 already delivered by worker_M2_r1 (card 683374565d80); re-verified intact. Open: H2 random-init (now feasible on connectome), review stage interrupted at 09:10Z. "3번. A" meaning unknown -> ask root.
+- New probes: verification/explorer_M2_r1_2/redispatch_2026-10-31T1055Z/ (l,m,n)
+
 ## Key Decisions Made
 - Probes synthetic-only except exact reproduction of public report/json numbers and schema reads.
 

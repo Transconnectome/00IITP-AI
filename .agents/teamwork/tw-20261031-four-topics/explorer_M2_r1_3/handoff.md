@@ -1,3 +1,162 @@
+# handoff — explorer_M2_r1_3 (M2 / Topic 3) — SECOND DISPATCH, 2026-10-31T10:54Z ("3번. A")
+
+**Summary.** A complete M2 deliverable already exists on disk. worker_M2_r1 froze a card (sha256 683374565d80…, 08:48:29Z), ran Families A and B, and wrote the provenance note, result report and addendum. The review, challenge and audit agents dispatched at 09:10Z left no handoffs.
+
+I checked the deliverable independently:
+- C1 gives rc 0.
+- The card hash and every output pin match.
+- The only code pin that differs is the launcher, which the addendum discloses as deviation #2.
+- topic3 tests: 54 passed.
+- My own numpy code reproduces Family A, A1b and Family B exactly (probe E).
+
+**Recommendation:** continue and verify. Do not rebuild. T3.1–T3.4 need no new real-data compute. Send the existing artifacts to a fresh review and audit, giving them the safe-reproduction instructions in §4. H2 (random-init) is optional and does not block; it needs its own frozen card.
+
+The first-dispatch report further down is **history (superseded; not a plan)**. Its §4 would have a new worker freeze a second card on top of results that are already exposed.
+
+## 1. Observation (second dispatch)
+
+S1. **State on disk.**
+- worker_M2_r1/handoff.md (09:08Z) says DONE.
+- reviewer_M2_r1_{1,2}, challenger_M2_r1_{1,2} and auditor_M2_r1_1 hold DISPATCH.md files (09:10Z) and no handoff. reviewer_M2_r1_1/progress.md shows "started" only.
+- Artifacts:
+  - src/topic3_spectral/ (6 files)
+  - tests/topic3_spectral/ (11 files)
+  - scripts/topic3_*.py (7)
+  - docs/03_empirical_analysis/topic3/{provenance, analysis_card, addendum, result_report}.md
+  - results/topic3/2026-10-31/: card_sha256.txt, code_sha256_at_freeze.txt, output_sha256.txt, 4 result json files, token_job/ (4 × npz + json), logs/
+- mtimes: card written 17:43:40 KST, hash recorded 17:48:29, Family A json 17:49:44, Family B json 18:02:23. Pre-freeze files are t3_1_provenance_repro.json (17:31, public numbers) and alpha_calibration_synthetic.json (17:40, synthetic).
+
+S2. **Integrity checks, run at about 10:56Z.**
+- `LC_ALL=C sha256sum -c …/sentinel/PROTECTED_HASHES.txt` gives rc 0.
+- The card's sha256 is 683374565d806454800a0d9ccfb2b49a7bb43d699f81ad86cb6090fb26d1b8e0, equal to card_sha256.txt.
+- `sha256sum -c output_sha256.txt`: every file OK.
+- `sha256sum -c code_sha256_at_freeze.txt`: everything OK except scripts/topic3_launch_connectome.py (addendum #2).
+- `pytest tests/topic3_spectral -q`: 54 passed in 271 s. Load average was 21–27 on 20 CPUs, so tests run slowly at present.
+- `grep -rlE 'sub-[A-Za-z0-9]'` over results/topic3, docs/…/topic3 and verification/worker_M2_r1 returns no hits.
+- The token npz keys are positions plus PR, eigenvalue and pooled arrays, with no ids.
+
+S3. **Independent recomputation** (probe E: `verification/explorer_M2_r1_3/probe_e_r2_independent_recompute.py` and `.log`). It uses my own numpy code and does not import src/topic3_spectral.
+- **E1:** covPR and corrPR of all 7 matrices equal the worker's values to 4 dp, for example L2 11.0202 / 13.1879 and L3 3.5786 / 4.7793.
+- **A1, L2−L3 at m = 28:** with an independent seed (7, S = 2000), covPR 5.355 [3.220, 7.490] and corrPR 6.053 [4.272, 7.833], 100% of subsets > 0. The worker's points are 5.344 and 6.039.
+- **New: leave-one-subject-out influence** on the full-n covPR(L2) − covPR(L3) of 7.442. The LOO range is [7.242, 8.388] and no deletion flips the sign, so no single subject drives the drop.
+- **Family B from the token npz:**
+  - eigenvalue-to-PR relative error ≤ 2.4e-8;
+  - H1a is +0.0228 / −0.1368 / +0.0378 / +0.0489, with 57 / 0 / 51 / 54 of 57 subjects > 0;
+  - H1b is +0.0447 / −0.1130 / −0.0330 / +0.0792;
+  - unadjusted sign-flip p = 1e-4 everywhere (the permutation floor).
+
+  These equal the report. The full-n A1b ΔcorrPR is negative in all 4 checkpoints (−8.44, −10.59, −1.58, −3.76). pooled__L2 in the primary npz equals pinned layer_2 at the stored positions (max |Δ| 1.7e-7).
+- These recomputed values (seed-7 subsampling, LOO influence, full-n A1b) are new real-data quantities from after the freeze. They go in the exposure log of any later card.
+
+S4. **Verdict rules applied correctly.**
+- D1: both interval lower bounds > 0.
+- D3: both covPR lower bounds > 0 (0.77 and 1.72).
+- H1a "holds": the primary is positive with a CI excluding 0, and 2 of 3 zoo checkpoints are positive with Holm p 2e-4. The HCP_N400 checkpoint goes the other way, with an effect 3–6× larger in magnitude. The report says so.
+- H1b "not replicated": only 1 of 3 zoo checkpoints shares the sign.
+
+S5. **Hazards in the existing instructions.**
+- `scripts/topic3_common.py:12` hardcodes `OUT = results/topic3/2026-10-31`, and `dump()` writes there. The run records hold `started_utc` and `runtime_s`.
+- worker_M2_r1/handoff.md §5 and result_report §6 both tell people to rerun `topic3_subject_level.py` and `topic3_token_stats.py` in place. That overwrites the frozen outputs and breaks output_sha256.txt.
+- `verification/worker_M2_r1/mutants.py:5` writes `verification/worker_M2_r1/mutants.out.json`.
+
+S6. **New provenance fact (local code only; NERSC fork unverified).**
+- Extraction calls `self.model._forward_hook_embedding(fmri)` (`SwiFT_v2/project/module/pl_classifier_extraction.py:220`).
+- In ver11 (`:1382-1411`) that path has no mask argument. The SimMIM mask (`forward_encoder`, `:1311-1321`) is not applied, although the sbatch passes `--use_mim --mask_ratio 0.8`.
+- So the dumped representations are of unmasked inputs.
+- The VRABES snapshot `swift_extraction_code/` does not contain the model file, so the fork diff is still open.
+
+S7. **Feasibility of H2 (random-init), checked at about 11:0xZ.**
+- connectome node1 (`gpu:rtx:8`) showed 6 idle A5000s; GPUs 0–1 were busy at 92–99%. Driver 550.144.03.
+- System Python 3.8.10, pip 20.0.2, ensurepip OK. pypi.org and download.pytorch.org answer HTTP 200.
+- node2 and node4 are CPU-only. /storage is 97% full.
+- ver11 imports torch and monai (MLPBlock, DropPath, trunc_normal_). patchembedding.py imports torch only.
+- Extraction arguments (`extract_vrabes_swift_E192.sh:71-90`):
+  - embed_dim 192, depth 2 2 18 2, heads 6 12 24 48;
+  - patch 6 6 6 1, window 4 4 4 10;
+  - img 96 96 96 20, c_multiplier 2, last_layer_full_MSA True;
+  - znorm_minback;
+  - VRABES pad/crop in snapshot `datasets.py` (README).
+- No E192 checkpoint is reachable (first-dispatch O5).
+- `results/gpu_ledger_2026-10-31.md` does not exist.
+
+S8. **Connectome leftovers.** `~/iitp4_topic3_m2_20261031/{code,logs,out,t3_tokspec.sbatch}` exists. According to the worker these are on node1 and node2, and they hold code and position-keyed summaries.
+
+## 2. Logic chain
+
+1. From S2–S4: the frozen card, its outputs and its verdict mapping are intact and independently reproducible. A rebuild would add no evidence.
+2. Every real-data quantity in card §4–§5 is now exposed, and so is S3. A new card on the same questions could only be REPLICATION or post hoc. It would also collide with the frozen paths: the card filename, `results/topic3/2026-10-31/*`, and the hardcoded OUT. So redoing T3.2–T3.4 is a dead end, unless the human asks for it with those costs stated.
+3. From S5: the main remaining risk is procedural. A reviewer or worker who follows the in-place reproduction instructions destroys receipts. Fixing it by adding an output-dir argument to `topic3_common.py` would change a pinned file and break the freeze record. The safe routes are a temp copy of the tree or an independent recompute.
+4. T3.2 says "null/controls **such as** shuffled/random-init". The column-permutation null (Family A), the iid reference and the 3-checkpoint replication satisfy that wording. The card pre-specifies H2 and declares it untested. So H2 does not block. Doing it would strengthen R2's interpretation: is the subject-level drop learned, or does it come from architecture plus input?
+5. H2 is feasible within the cap (S7). But with no trained checkpoint, the preprocessing match can only be established by reading the code. H2 therefore answers only "architecture + declared preprocessing", and it needs its own frozen card before any forward pass.
+
+## 3. Caveats
+
+- I did not rerun the old 86-test suite or the topic1 tests (C2). The worker's logs (`results/topic3/2026-10-31/logs/old_suite_86.log`, `topic1_tests.log`) are claims that still need checking. The reviewer must rerun them, allowing for the load.
+- I did not rerun the mutants, which would mean 9 suite runs under load.
+- I did not verify the connectome leftovers myself; I saw the listing on node1 only.
+- I do not know what "3번. A" selects; nothing on disk records the question.
+- The H2 cost is a 추정: I have not timed a forward pass at E192 size on an A5000.
+- The local SwiFT_v2 and pl_classifier_extraction may differ from the perlmutter fork that was actually used.
+
+## 4. Conclusion: strategy for the M2 step of this workflow run
+
+**Default (holds whatever "3번. A" means): VERIFY AND HAND TO REVIEW. No new real-data compute.**
+
+1. The worker for this round must not reuse the identity or metadata folder `worker_M2_r1`. It must not write to the frozen card, the provenance note, the existing addendum rows, or any existing file in `results/topic3/2026-10-31/`.
+2. Verification commands for the worker, reviewers and auditor. All are read-only.
+   - Run `sha256sum -c` on PROTECTED_HASHES, card_sha256, output_sha256.txt and code_sha256_at_freeze.txt. Expect only the launcher to differ.
+   - Run the topic3 tests, the old 86, and topic1. Budget about 5 + 4 + 3 min under the current load.
+   - Reproduce through a temp copy of the tree (`cp -r src scripts tests docs/03_empirical_analysis/topic3 results/topic3` into `$TMPDIR/tree`, then run there), or with an independent recompute like probe E. **Never rerun `scripts/topic3_*.py` from the repo root.**
+   - For the mutants, use an adapted copy with the output path inside the reviewer's own `verification/<id>/` folder.
+3. If the worker has write duties at all, they are additive only. A dated addendum-02 (new file, e.g. `2026-10-31_topic3_addendum_02.md`) records:
+   - the safe-reproduction instruction, superseding report §6 and worker handoff §5;
+   - the S6 provenance fact (local code only);
+   - the S3 recomputation as post-freeze exposure;
+   - the connectome leftovers and their cleanup decision;
+   - M2 GPU-h = 0, for the ledger owner.
+4. Optional H2, only if the root and budget allow it. It does not block T3.1–T3.4.
+   - **Card first:** a new dated card `2026-10-31_topic3_H2_randinit_card.md`, frozen with its hash, outputs in `results/topic3/2026-10-31_H2/`. Pre-specify:
+     - init seeds, e.g. 3 torch seeds using ver11's default init;
+     - the same 57 subjects × 7 windows;
+     - the estimands: Family A D1/A1b and Family B H1a/H1b on random-init dumps;
+     - the decision: "subject-level L2>L3 drop present under random init" means it is not learned;
+     - the exposure log: S3 plus everything already seen.
+   - **Compute:** connectome node1 only (C6: frames stay on lab machines; never B300 or local).
+     - Project-local py3.8 venv under the project home: torch 2.4.1+cu121, which is the last line supporting py3.8 and fits driver 550, plus monai 1.3.x and numpy < 1.25.
+     - Copy ver11 + patchembedding.py and the snapshot `datasets.py` VRABES pad/crop + znorm_minback into scripts/topic3_* (C7).
+     - Gates: (i) dump shapes equal the trained dumps; (ii) window count 7 per subject; (iii) scaling code byte-equal to the snapshot.
+     - Process in place, as Family B was.
+     - Estimate (추정): 1–3 GPU-h. Log node, GPUs and start/end in `results/gpu_ledger_2026-10-31.md`. The root decides who creates that shared file.
+   - **State the limit:** no trained checkpoint is reachable, so the preprocessing match rests on code reading, and the fork is not diffed.
+5. **If the root meant a full redo:** confirm with the human first. Every new quantity would be post-exposure, and the frozen paths collide. If it goes ahead anyway, use a new card name, `results/topic3/2026-10-31_r2/`, an OUT patched only in the copied scripts, and full exposure logging.
+
+**Does not block:** missing GPU ledger file (M2 = 0 GPU-h); connectome leftovers; high local load; the old-86 and mutant reruns, which I did not do; the token effects being tiny and checkpoint-dependent (already stated in the report).
+
+## 5. Verification method
+
+```bash
+cd /home/juke/git/00IITP-AI
+LC_ALL=C sha256sum -c .agents/teamwork/tw-20261031-four-topics/sentinel/PROTECTED_HASHES.txt >/dev/null; echo $?   # 0
+sha256sum docs/03_empirical_analysis/topic3/2026-10-31_topic3_analysis_card.md; cat results/topic3/2026-10-31/card_sha256.txt
+sha256sum -c results/topic3/2026-10-31/output_sha256.txt | grep -v ': \(OK\|성공\)$'      # empty
+sha256sum -c results/topic3/2026-10-31/code_sha256_at_freeze.txt | grep -v ': \(OK\|성공\)$'   # launcher only
+PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=2 nice -n 10 /home/juke/superclaude-env/bin/python3 verification/explorer_M2_r1_3/probe_e_r2_independent_recompute.py   # writes nothing; compare with .log
+sed -n 1382,1411p /home/juke/git/SwiFT_v2/project/module/models/simmim_swin4d_transformer_ver11.py   # hook: no mask
+sed -n 218,222p /home/juke/git/SwiFT_v2/project/module/pl_classifier_extraction.py
+```
+
+**Invalidation conditions:**
+- any pin fails;
+- probe E disagrees with the frozen jsons;
+- the perlmutter fork's extraction applies a mask or differs in `_forward_hook_embedding`;
+- someone reruns `scripts/topic3_*` in place, after which output_sha256 fails and the receipts are compromised.
+
+---
+
+# HISTORY — first dispatch (07:54Z) report, SUPERSEDED; NOT A PLAN
+
+Kept verbatim for audit. Its §4 "recommended strategy" was written before worker_M2_r1 existed, and the worker has since carried it out. Do not follow it as a build plan.
+
 # handoff — explorer_M2_r1_3 (M2 / Topic 3), 2026-10-31
 
 **Summary.** The core of T3.1–T3.4 fits in CPU-seconds on the 7 local pooled matrices. No B300, no GPU and no regeneration are needed. The real risks are about how to read the numbers, not about compute:
