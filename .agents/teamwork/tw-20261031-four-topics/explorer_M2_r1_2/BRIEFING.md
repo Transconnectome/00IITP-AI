@@ -25,8 +25,8 @@ Recommend a concrete, verifiable worker strategy for M2 (Topic 3 layerwise PR / 
 
 ## Investigation State
 - Explored: old estimators (spectral_rg_flow_diagnostic.py, empirical_connectome_ablation.py), VRABES pooled npz (keys/shapes/hashes, ID alignment as booleans), pool_E192_layersweep.py, SwiFT ver11 hook, connectome frame dumps + zoo, connectome env.
-- Key findings: see handoff.md
-- Unexplored: dgx1 env; random-init forward cost; within-window token correlation
+- Key findings: handoff.md O1–O13 (repro exact; MLE biased at N57; LN needs corrPR on tokens; row bootstrap biased; graph metrics track rank; dumps re-pool to npz; numpy loader works on connectome; link ~0.3 MB/s)
+- Unexplored: dgx1 env; swift_zoo_ses-02; VRABES extraction preprocessing; internet on connectome for uv venv
 
 ## Key Decisions Made
 - Probes synthetic-only except exact reproduction of public report/json numbers and schema reads.

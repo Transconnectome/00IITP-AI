@@ -121,7 +121,40 @@ Result:
 
 The real input frames, 03_MNI_to_TRs (55 GB of patient images), exist only on connectome.
 
-O9 Throughput from DGX-Spark to connectome over ssh (probe_g): one 21.6 MB frame took 48.7 s end to end. That figure includes `ls` and `sort` on the remote side. Splitting connection latency from bandwidth is in `probe_g_throughput.out.txt`, if it completed before this handoff (see Caveats).
+O9 Throughput between DGX-Spark and connectome over ssh (probe_g, probe_e; the link may have been shared with other agents):
+
+| Transfer | Size | Time | Rate |
+|---|---|---|---|
+| No-op ssh | — | 6.8 s | — |
+| One frame | 21.6 MB | 48.7 s | — |
+| /dev/zero | 45.9 MB | 200 s (timeout before 64 MB) | ≈0.23 MB/s |
+| 7-frame tar | ≈150 MB | 452 s | ≈0.33 MB/s |
+
+- At these rates 8.1 GB per checkpoint would take 7–10 h.
+- 29 GB of ses-01 input frames would take more than a day.
+- Streaming bulk data to DGX-Spark is therefore not viable.
+
+O12 Provenance re-pool (probe_e run 2, `probe_e_repool_run2.out.json`).
+- Method: I took the 7 frames of subject position 0 (sorted dir order) from the connectome E192 dump and re-pooled them exactly as `pool_E192_layersweep.py` does.
+- Result: they match row 0 of the local npz for all 4 layers. The max absolute difference is 8.9e-8, 1.8e-7, 3.6e-7 and 0.0 respectively, and allclose(1e-5) is true for every layer.
+- So the connectome dumps are the source of the local pooled matrices, at least for position 0.
+- Timing: token-level eigendecompositions for all 4 layers × 7 frames took 1.8 s in total (local CPU, 4 threads).
+
+O13 Reading .pt dumps without torch (probe_j).
+- `verification/explorer_M2_r1_2/probe_j_numpy_pt_loader.py` reads the torch zip format with zipfile plus a restricted Unpickler. Only `_rebuild_tensor_v2`, the Storage types and OrderedDict are allowed; anything else raises.
+- Synthetic check: on a synthetic .pt with the dumps' structure, including a non-contiguous tensor, the result is equal to torch.load.
+- Real-data check on connectome: system python 3.8.10 with numpy 1.22.3, no torch. On one REAL frame it gives sha256 prefixes of the array bytes that are identical to torch.load of the same file run locally:
+
+| Layer | sha256 prefix |
+|---|---|
+| layer_0 | f11aef61… |
+| layer_1 | 5141ae32… |
+| layer_2 | 6bb55449… |
+| layer_3 | 7d8fc238… |
+
+- Consequence: token-level spectra can run in place on connectome, CPU only, with no venv and no data movement. Only eigenvalue spectra and summaries, keyed by position, come back.
+- connectome also has `~/.local/bin/uv`, pip 20.0.2 and ensurepip, and 916 GB free in home (`/` 73%; `/storage` 97%). A project-local venv for the random-init control is possible. Internet access for wheels is unverified.
+- Input frames: `03_MNI_to_TRs/ses-01` is 29 GB and ses-02 is 26 GB.
 
 O10 Architecture (confirmed from the code, consistent with survey 2):
 - ver11 `_forward_hook_embedding` (lines 1382-1412) records layer_i after stage i. The stage includes the PatchMergingV2 merge (pre-norm LN(8C) followed by Linear) for i < 3.
@@ -130,6 +163,19 @@ O10 Architecture (confirmed from the code, consistent with survey 2):
 - The pooling script `pool_E192_layersweep.py` takes the token mean for layers 0–2 and the mean over (D,H,W,T) for layer_3. Both are means over 160 positions for L2 and L3, then a mean over the 7 frames.
 
 O11 Protected files: `src/spectral_rg_flow_diagnostic.py` (71536af2…) and `src/empirical_connectome_ablation.py` (d49105794…) are listed in PROTECTED_HASHES. Survey 1's must_fix "replace the silent fallback at spectral_rg_flow_diagnostic.py:229-239 with an error" would therefore break C1.
+
+O14 Dynamic range of corrPR after LN0 (probe_k, synthetic). Setup: low-rank r plus noise, with lognormal(0, 1.5) per-dimension scales.
+- corrPR tracks rank and does not saturate, at either 160×1536 or 1120×1536:
+
+| Rank | corrPR at 160×1536 | corrPR at 1120×1536 |
+|---|---|---|
+| 3 | 2.7–3.4 | 2.9–3.3 |
+| 12 | 9.2–9.6 | 8.3–9.3 |
+| 40 | 13.6–19.9 | 18–21.7 |
+
+- covPR after LN0 is dominated by the per-dimension scale. At 1120 rows, rank 12 with noise 0.3 gives covPR 2.0 against corrPR 8.3, which is the γ confound.
+- A variance floor of 0.1×median SD removed at most 50 columns.
+- Saturation near the ceiling does occur for broad spectra: 139 of 159 in probe_f, where a=1 over all 1536 dimensions. A dynamic-range fixture at the exact analysis shape is therefore needed. Concatenating frames (ceiling 1119) adds headroom.
 
 ## 2. Logic Chain
 
@@ -158,8 +204,11 @@ O11 Protected files: `src/spectral_rg_flow_diagnostic.py` (71536af2…) and `src
 ## 3. Caveats
 
 - Probe A computed real-data values, limited to exact reproduction of numbers already published in the report and json. I computed no token-level PR, no corrPR, no α under the new estimators and no null values on real data.
-- **The re-pooling provenance check (probe_e) is not complete.** The first run was killed by its 300 s timeout. A second run (`probe_e_repool_run2.out.json`) may or may not have finished when this handoff was written; see progress.md. Until frames are shown to re-pool to npz row 0 within allclose, the link between the connectome dumps and the local npz (made at the NERSC path) is inferred from identical shapes, subject sets and checkpoint names. The worker must run this check first.
-- Throughput is the main logistics risk. The first measurement is ≈0.44 MB/s end to end. If bandwidth really is that low, 8.1 GB takes about 5 h per checkpoint. The fallback is a project-local CPU venv on connectome node4. C4 permits this, but torch and monai on py3.8 are unverified. I did not create it.
+- **Re-pooling provenance is shown for subject position 0 only (O12).** The first attempt was killed by a 300 s timeout. The second run passed. The worker should extend the check to all 57 positions on connectome using the numpy loader.
+- **The link is slow (O9), so compute must go to the data.**
+  - Token-level spectra can use connectome's system python with the numpy loader (O13).
+  - The random-init control needs torch and monai on connectome, through a uv venv or Slurm node4. C4 allows a project-local venv on remote servers. Wheel download and internet access on connectome are unverified, and I created nothing there.
+  - Run on node4 under Slurm, not on the login node.
 - The random-init forward pass was timed only on synthetic input with 8 threads. Real windows also need the VRABES dataloader's normalization, which I did not inspect. The worker must replicate the extraction script's input preprocessing (`VRABES/RemissionAnalysis/extract_vrabes_swift_E192.sh` and its python entry point).
   - The random-init weights use the model's own initializer at a fixed seed.
   - The 474 M parameter count looks large for E192. I did not reconcile it with the trained checkpoint, and the trained checkpoint itself was not checked.
@@ -198,9 +247,10 @@ Never edit old src/*.py. Import them read-only only inside fixtures.
   - Expected from O3: N ≥ ~1000 passes and N = 57 fails.
 - F4 (LN invariance): corrPR(LN0(X)) == corrPR(LN0(X)·γ+β) within 1e-10. Covariance PR differs.
 - F5 (data contract):
-  - a missing file, a sha256 mismatch, or `ids` access via `allow_pickle=True` raises;
-  - the loader never returns `ids`;
-  - no silent synthetic fallback.
+  - a missing file or a sha256 mismatch raises;
+  - the loader uses `allow_pickle=False` and returns only `X`, never `ids`;
+  - no silent synthetic fallback;
+  - the restricted Unpickler in the .pt loader raises on any class outside its allowlist.
 - F6 (uncertainty): show that the row bootstrap is biased on synthetic data, and that the jackknife is used for subject-level PR.
 - F7 (orientation): the layer_3 reshape from (C,D,H,W,T) to (DHWT, C) gives 160×1536.
 
@@ -210,7 +260,12 @@ Never edit old src/*.py. Import them read-only only inside fixtures.
   - E2 (primary): token-level PR per (subject, frame, layer), averaged over 7 frames, for covPR and corrPR.
   - E3: α only at the shapes that pass F3, using the Clauset KS-xmin MLE on eigenvalues. The method, xmin rule and minimum tail size are stated in the card. The rank slope is secondary over a fixed window [2, 50].
 - Hypotheses:
-  - H1 (primary, LN-matched): mean over subjects of log corrPR(L3 tokens) − log corrPR(LN0(L2 tokens)) < 0. Paired sign-flip permutation (B = 9,999, seed fixed) plus a subject-bootstrap 95% CI on the mean log ratio.
+  - H1 (primary, LN-matched): the mean over subjects of log corrPR(L3 tokens) − log corrPR(LN0(L2 tokens)) is < 0.
+    - Compute it per subject on the 7 frames concatenated (1120×1536, ceiling 1119). The per-frame values (160×1536) are secondary.
+    - Apply a column variance floor before standardization; the card fixes it, e.g. SD > 0.1×median SD.
+    - Report covPR beside it, with the γ confound labelled (O5, O14).
+    - Test: paired sign-flip permutation over subjects (B = 9,999, seed fixed), plus a subject-bootstrap 95% CI on the mean log ratio. Resample subjects, not rows.
+    - A dynamic-range fixture must pass at 1120×1536: low-rank synthetic tokens after LN0 give corrPR ≈ rank, well below the ceiling. If it fails, H1 is "not measurable".
   - H2: the trained − random-init difference in the H1 contrast is ≠ 0. Random-init uses ≥ 3 seeds, the model's default initializer and the same frames.
   - H3: the sign of the H1 effect replicates in ≥ 2 of the 3 other E192 checkpoints (HCP_N400, deepE192 L1e-4, deepE192 L5e-5).
   - H4 (descriptive): the L0→L1→L2 profile, with tokens subsampled to a common n_tok = 160 per frame and seeded. This removes the N-dependence in O5.
@@ -222,15 +277,24 @@ Never edit old src/*.py. Import them read-only only inside fixtures.
   - No HTSR regime labels, no OOD score.
 - State that the direction was suggested by data already seen.
 
-**Step 3: data path.**
-- Stream frames from connectome into memory on DGX-Spark, with nothing written at rest. Map subject dirs to sorted positions in memory and check that the order equals the npz order.
-- Store only per-(position, frame, layer) eigenvalue spectra and summaries in results/topic3/2026-10-31.
-- If O9 bandwidth makes streaming infeasible, set up a project-local CPU venv on connectome node4 under the project's own directory. Never write to B300; C6 rules it out because these are patient-derived.
+**Step 3: data path. Compute goes to the data, because the link is ≈0.3 MB/s (O9).**
+- Put the numpy-only loader in src/topic3_spectral/io_frames.py, with probe_j as the design. It must:
+  - be py3.8- and numpy-1.22-compatible, with no torch import;
+  - use a restricted Unpickler that raises on any class outside the allowlist;
+  - have a fixture comparing it against torch.load on a synthetic .pt locally.
+- Ship scripts/topic3_token_spectra.py plus the module to a project-owned directory in connectome home (code only), and run it under Slurm on node4 with nice.
+- Inside the job:
+  - map subject dirs to sorted positions in memory;
+  - assert that the order equals the pooled npz order through an in-memory salted-hash comparison, not by printing;
+  - re-pool all 57 positions and assert allclose against the npz.
+- Output: only per-(position, frame, layer, estimator) eigenvalue spectra and summaries, keyed by position, no names. Copy them back (they are small) to results/topic3/2026-10-31/.
+- Never write to B300. C6 rules it out because these are patient-derived.
 
-**Step 4: random-init.**
-- Model built as in probe_h. Inputs: the same VRABES windows, preprocessed exactly as the extraction script does.
-- Run on connectome CPU (node4, 96 cores) with a venv, or stream input windows to DGX-Spark CPU. The local GPU is last resort, and no GPU is actually needed: ≈30 CPU-min per seed.
-- If the preprocessing cannot be replicated, H2 is declared inconclusive in an addendum. Do not substitute synthetic input.
+**Step 4: random-init (H2).**
+- Model built as in probe_h (O8). Inputs are the same VRABES ses-01 windows on connectome, preprocessed exactly as the extraction entry point does. Read that code first.
+- Needs torch and monai on connectome: a project-local `uv venv` in connectome home, with CPU torch enough. Expect ≈4.4 s per window, about 30 min per seed for 399 windows.
+- Run as a Slurm node4 CPU job. A connectome A5000 GPU is optional and needs no B300 GPU-h.
+- If the venv cannot be built (no internet) or the preprocessing cannot be replicated, H2 is declared inconclusive in an addendum. Do not substitute synthetic input or move frames off connectome.
 
 **Step 5 (T3.4).** Run the analysis. Results go in results/topic3/2026-10-31/: raw log, params hash, input hashes, card hash. The dated report gives the claim table a–g with a verdict for each (holds / fails / untestable / not comparable) and the deviations addendum. Do not cite EMPIRICAL_ANALYSIS_REPORT numbers as results (C8). The reproduction is labelled as a reproduction.
 
@@ -248,6 +312,17 @@ Never edit old src/*.py. Import them read-only only inside fixtures.
   ```
 
   Probe_h takes about 15 s.
+- Probe_k: `PYTHONDONTWRITEBYTECODE=1 /home/juke/superclaude-env/bin/python3 verification/explorer_M2_r1_2/probe_k_corrpr_range.py`
+- Probe_e re-pool (about 8 min at the current link speed; prints only booleans and differences):
+
+  ```
+  cd verification/explorer_M2_r1_2 && ssh connectome 'B=/storage/bigdata/VRABES/04_embedding/swift_E192/NewUAH_newE192_TP1_SL20_MR_0p8_L1e-4/VRABES; s=$(ls $B | sort | head -1); cd $B/$s && tar cf - frame*.pt' | PYTHONDONTWRITEBYTECODE=1 /home/juke/superclaude-env/bin/python3 -I probe_e_provenance.py
+  ```
+
+- Probe_j:
+  - Synthetic check: `python3 -I probe_j_numpy_pt_loader.py make /tmp/x.pt && python3 -I probe_j_numpy_pt_loader.py check /tmp/x.pt`, using superclaude-env and removing /tmp/x.pt afterwards.
+  - Remote real-frame half: `ssh connectome '...; python3 - "$f"' < probe_j_remote_half.py`, with `$f` = the first sorted frame of the first sorted subject.
+  - Compare its sha256 prefixes with `probe_j_local_torch.out.txt`.
 - C1: `cd /home/juke/git/00IITP-AI && LC_ALL=C sha256sum -c .agents/teamwork/tw-20261031-four-topics/sentinel/PROTECTED_HASHES.txt` must give rc 0.
 - Invalidation conditions:
   - frames do not re-pool to npz rows;
