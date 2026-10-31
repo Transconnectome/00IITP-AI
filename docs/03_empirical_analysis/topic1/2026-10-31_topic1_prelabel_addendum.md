@@ -8,6 +8,10 @@
   - The label-free primary extraction was still running (`results/topic1/2026-10-31/extract_primary.log`).
   - No feature value had been looked at. The only things seen were per-subject run status (ok/error) and timings.
   - The degeneracy fallback had not yet been decided.
+- Status at freeze (2026-10-31, about 11:30Z; the lines above are kept as written at 08:39Z):
+  - The primary extraction had finished: 1,706 rows, all ok, all with the frozen params hash.
+  - Still no feature value had been inspected, and no label had been joined to any feature.
+  - `decide` had not been run. It runs after this file's sha256 is recorded.
 
 ## M. Manifest and data floor
 
@@ -95,6 +99,26 @@ These are given for the primary unit and, by group, for all six units.
 
 The §9 spurious-direction limitation and the degeneracy rates are reported beside the verdict.
 
+The following items were added after the code review in D4. Each of them can only stop the run or add a report; none of them changes the estimator, the p-value or the decision rule.
+
+**P14. Card count stop rule.** `analyze` stops for review unless the metadata joined to the 1,706 on-disk positions reproduces the card §3/§6 counts exactly: 1,706 on disk, 869 code 1, 837 code 2, 23 sites, 856 non-null Y-BOCS in code 1, and medication codes 1 and 2 in code 1 at 203 and 212 (`card_count_check`). This protects against a changed or mis-typed metadata file, for example Medication read as text.
+
+**P15. NaN and degeneracy flag stop rule.** Card §3 excludes a subject as "degenerate (Z NaN)", while P2 defines degeneracy by null SD = 0. For each primary endpoint at each analysed density, the non-finite endpoint values must coincide exactly with the P2 flags; otherwise the run stops (`check_nan_flag_agreement`).
+
+**P16. Exclusions by group and site (card §3).** Every exclusion class is counted in total, by group, by site and by site × group, at the primary unit (`exclusions_by`):
+- extraction failure, which covers data-contract errors;
+- a missing covariate (dx, age, sex or log duration);
+- degenerate for E1;
+- degenerate for E2.
+
+P2's fallback denominator (all successful extractions) and the analysed set coincide here, because no subject has a missing covariate (D2).
+
+**P17. Reported beside the verdict, descriptive.**
+- The MixedLM `converged` flag for each endpoint.
+- Whether the same §5 rule, applied with d_FE instead of d_LMM, gives the same survival.
+
+Neither of them changes the verdict.
+
 ## V. Card §7 extraction variants
 
 These run only for surviving endpoints, at the decided primary density, on the broadband channel.
@@ -112,7 +136,7 @@ These run only for surviving endpoints, at the decided primary density, on the b
 
 **V4. Other §7 rows.** These come from the primary extraction:
 - the other two densities;
-- gradient share as a covariate. This row is fitted by FE OLS only; its d uses the FE σ and is labelled so;
+- gradient share as a covariate. This row is fitted with the card's MixedLM, with gradient share added both as a regressor and as its own Mundlak site mean. The same 0.01·SE equality stop applies, and d = β_LMM/√scale as in the primary row. The FE OLS model behind the Freedman–Lane p gets gradient share as an extra nuisance column;
 - curl, descriptive;
 - the rank-inverse-normal outcome;
 - MixedLM without Mundlak terms. This row is known to be biased under aligned site effects (explorer_M1_r1_3);
@@ -145,11 +169,33 @@ These run only for surviving endpoints, at the decided primary density, on the b
 - `topic1_cohort_stats.py validate` read the real metadata design (dx, age, sex and site) and the manifest durations, and combined them with synthetic outcomes only. ACCEPTANCE T1.2 requires the real site × diagnosis structure.
 - No imaging feature was read.
 - A smoke run with small R was also done (`verification/worker_M1_r1/smoke_stats/`).
-- The analyze-path smoke probe (`verification/worker_M1_r1/probe_analyze_smoke.py`) used a fully synthetic design and fabricated features. It read no real file.
+- The analyze-path smoke probe (`verification/worker_M1_r1/probe_analyze_smoke.py`) used a fully synthetic design and fabricated features. It read no real file. It ran on the final script bytes (`33e27576…`), with `card_count_check` stubbed out.
+- Because the smoke probe stubbed that check, `verification/worker_M1_r1/probe_card_counts_labels_only.py` then ran `load_design` and `card_count_check` on the real metadata.
+  - It read labels only: no imaging feature, and no extraction output.
+  - It printed aggregate counts only. All seven card counts matched, Medication was read as float64, and no age or sex value was missing, so the complete-case design is all 1,706.
+  - Its output is `probe_card_counts_labels_only.out.json` in the same folder.
 
 **D3. The across-site permutation defect is checked structurally.** Every permutation must keep each index within its site, and the vectorised t* must equal a statsmodels refit. It is not checked by null FPR, because that defect stays near nominal on this design (explorer_M1_r1_2).
 
-**D4. Review.** No native independent agent was available to the worker, because nested spawning is not provided. A Trinity review was run on the stats script, code only, and its log is in `verification/worker_M1_r1/`. The script's own validation and mutation receipts are listed in the hash file.
+**D4. Review.** No native independent agent was available to the worker, because nested spawning is not provided.
+
+A Trinity review was run on the stats script, code only, from a bundle of script bytes `fcf5480a…`. Its log is `verification/worker_M1_r1/trinity_review.log`.
+- **The review is incomplete.** The codex provider failed twice. Only the claude and antigravity providers answered, and the saved log stops partway through the claude provider's round-1 answer, so any later findings are lost.
+- These findings in the saved part led to script changes before the freeze:
+  - convergence cannot be checked through the Mundlak identity → P17 (flags reported beside the verdict);
+  - the gradient-share row skipped the LMM → V4 (card LMM with a Mundlak mean);
+  - exclusions were not reported by group and site → P16;
+  - the NaN rule and the flag rule could disagree → P15;
+  - there was no cardinality check → P14;
+  - family-1 features sat at the decided primary unit rather than the literal 0.10 → P7 (the literal 0.10 result is reported too).
+- The findings did not change the primary t, the p-value or the decision rule. The review itself confirmed these against statsmodels (`multipletests`) and an explicit refit.
+
+**Script versions and validation.**
+- Validation run 2 (`stats_validation.json`) bound bytes `f2589105…`, before the review amendments.
+- The final bytes were therefore validated again, into `stats_validation_final.json`.
+- The mutation receipts were also rerun on the final scripts and tests (v3, with 4 extra mutants for P14–P16 and V4).
+- Both runs and their sha256 values are listed in `results/topic1/2026-10-31/stats_script_sha256.txt`.
+- An independent review by a fresh native agent is still owed to the parent coordinator (no nested spawning was available).
 
 **D5.** The large static-FC array lives under `results/topic1/2026-10-31/derived/`, with a `.gitignore`.
 

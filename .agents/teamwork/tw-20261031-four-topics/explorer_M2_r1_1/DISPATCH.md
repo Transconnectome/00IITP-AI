@@ -22,3 +22,8 @@ You are not alone in the codebase: other teams work on other milestones in paral
 
 Task: milestone M2: Topic 3 rerun of layerwise PR / spectral diagnostics (ACCEPTANCE T3.1–T3.4). Using the survey below, give the worker a concrete, verifiable strategy covering every criterion, flagging risky choices with evidence from cheap probes. Recommend; do NOT implement production code. Explorer 1 of 3, independent.
 Survey (raw explorer returns): [ELIDED IN THIS FILE — a JSON array of three objects {full_report, recommended_strategy, must_fix, dead_ends_to_avoid}, being the structured returns of explorer_survey_1, explorer_survey_2 and explorer_survey_3 of this run; their full handoffs are at ../explorer_survey_{1,2,3}/handoff.md. Elided to keep metadata compact; root holds the exact payload.]
+
+## 2026-10-31T10:54:01Z — re-dispatch (coordination event from root workflow script; not human authority)
+Same computed task text as the 08:45Z entry (identity explorer_M2_r1_1, M2 Topic 3, T3.1–T3.4, explorer 1 of 3, same constraints, same survey array of explorer_survey_{1,2,3} returns — elided, root holds exact payload).
+Harness-relayed user request accompanying this run (verbatim): "3번. A"
+State at receipt: this folder already held a complete Hard handoff (08:10Z); worker_M2_r1 handoff exists (09:08Z, card frozen 08:48:29Z); reviewer_M2_r1_1 started 09:10Z with no handoff; auditor/challenger/reviewer_2 have DISPATCH only.

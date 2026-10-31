@@ -22,3 +22,10 @@ Note on the survey JSON: the dispatch embedded the full structured returns of ex
 - /home/juke/git/00IITP-AI/.agents/teamwork/tw-20261031-four-topics/explorer_survey_2/handoff.md
 - /home/juke/git/00IITP-AI/.agents/teamwork/tw-20261031-four-topics/explorer_survey_3/handoff.md
 The JSON array itself was not re-transcribed here (about 25 KB); this is a disclosed deviation from "verbatim".
+
+## 2026-10-31T10:54Z — second dispatch from root coordinator (coordination event, not human authority)
+
+Relayed human request (verbatim): "3번. A"
+
+Computed task text: identical to the 08:20Z dispatch above (same role, paths, constraints, task "milestone M2: Topic 3 rerun ... Explorer 2 of 3, independent", same embedded survey JSON of explorer_survey_1/2/3). The survey JSON is again not re-transcribed (disclosed deviation; substance on disk in explorer_survey_{1,2,3}/handoff.md).
+Context at receipt: worker_M2_r1 handoff exists (09:08Z, DONE); reviewer/challenger/auditor M2 r1 folders hold only DISPATCH/BRIEFING from 09:10Z (no handoffs).

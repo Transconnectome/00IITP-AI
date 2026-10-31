@@ -8,3 +8,5 @@ Last visited: 2026-10-31T07:59:19Z
 Last visited: 2026-10-31T08:10:24Z
 - 2026-10-31T08:18:44Z probe_e run2 PASS (re-pool allclose 4/4), bandwidth ~0.23-0.33 MB/s, probe_j numpy-only .pt loader byte-identical on connectome; handoff updated; synthetic .pt removed; C1 rc=0; lint 0 findings; no own processes left
 Last visited: 2026-10-31T08:18:44Z
+- 2026-10-31T10:55Z second dispatch received ("3번. A"); re-validating prior handoff against worker_M2_r1 deliverables
+Last visited: 2026-10-31T10:55Z
