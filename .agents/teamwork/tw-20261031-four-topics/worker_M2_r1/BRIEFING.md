@@ -1,4 +1,4 @@
-# BRIEFING — 2026-10-31T09:00Z
+# BRIEFING — 2026-10-31 (hand-typed stamp; approx. 08:55Z)
 
 ## Mission
 M2 Topic 3: rerun layerwise PR / spectral diagnostics (ACCEPTANCE T3.1–T3.4) under C1–C8.

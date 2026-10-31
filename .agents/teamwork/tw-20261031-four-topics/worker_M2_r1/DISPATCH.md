@@ -1,4 +1,4 @@
-## 2026-10-31T08:40:00Z — dispatch from root coordinator (workflow script output, no user authority)
+## 2026-10-31 (approx. 08:30Z, hand-typed) — dispatch from root coordinator (workflow script output, no user authority)
 Verbatim except the "Explorer strategies (iteration 1)" JSON array, which is not copied here (deviation, ~25 KB);
 its three entries are the handoffs at ../explorer_M2_r1_1/handoff.md, ../explorer_M2_r1_2/handoff.md, ../explorer_M2_r1_3/handoff.md
 (their full_report / recommended_strategy / must_fix / dead_ends fields were received inline in the dispatch).
