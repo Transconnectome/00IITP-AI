@@ -68,7 +68,7 @@ Two new files, written **after** the real-data results existed. They guard again
   - the descriptive formulas: jackknife (n−1)/n factor and bias correction; subsampling SE √(m/(n−m)) at m ≠ n/2; the sign-flip 1/(B+1) floor; LN eps; the rank-slope window; the iid reference as Gaussian draws;
   - a regression on the pinned `family_B_token_level.json`: the shipped rule reproduces "H1a holds" (2 of 3 zoo checkpoints agree) and "H1b not replicated" (1 of 3), and all 3 zoo checkpoints are Holm-significant for H1b, so only the sign condition keeps H1b from "holds";
   - the effective-ceiling fixture of item 1: 8 cell vectors × 140 copies plus 1e-6 noise give PR ≤ 7, equal to the PR of one static copy.
-- `tests/topic3_spectral/test_outputs_scanned_nonempty.py`: 1 test. The pinned `test_outputs_no_ids.py` ends with `assert n >= 0`, which also passes on an empty tree. This companion requires a non-empty scan (the family B JSON and ≥ 4 npz files present) and repeats the `sub-` prefix check on the text files.
+- `tests/topic3_spectral/test_outputs_scanned_nonempty.py`: 1 test. The pinned `test_outputs_no_ids.py` ends with `assert n >= 0`, which also passes on an empty tree. This companion requires a non-empty scan (the family B JSON and ≥ 4 npz files present) and repeats the BIDS subject-ID prefix check on the text files.
 
 Mutation evidence (verifier harnesses rerun from copies in `verification/worker_M2_r2/mutants/`) is recorded in that folder's `MUTANTS_SUMMARY.json` and in the worker_M2_r2 handoff.
 
