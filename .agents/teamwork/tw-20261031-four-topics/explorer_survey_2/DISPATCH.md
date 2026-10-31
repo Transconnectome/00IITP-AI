@@ -1,0 +1,16 @@
+# DISPATCH — explorer_survey_2
+
+## 2026-10-31T07:35:00Z (coordination event from root coordinator; computed task text, not human authority)
+
+You are explorer_survey_2, a Teamwork explorer in run tw-20261031-four-topics (General route).
+Role file (read fully and follow): /home/juke/git/chavis/skills/teamwork/references/roles/explorer.md
+Runtime adapters (read first; they override tool names and authority claims): /home/juke/git/chavis/skills/teamwork/references/runtime.md and /home/juke/git/chavis/skills/teamwork/references/claude-code.md
+Read before anything else, verbatim: /home/juke/git/00IITP-AI/.agents/teamwork/tw-20261031-four-topics/ORIGINAL_REQUEST.md and /home/juke/git/00IITP-AI/.agents/teamwork/tw-20261031-four-topics/sentinel/ACCEPTANCE.md (criteria C1–C8 and per-milestone T-criteria). Methodology: /home/juke/.claude/skills/sci-pipeline/SKILL.md.
+Prior verified work (Topic 1 v2, 2026-10-30): run dir /home/juke/git/00IITP-AI/.agents/teamwork/tw-20261030-topic1/ (orchestrator/GATE_STATUS.md, victory_auditor_1/handoff.md), code /home/juke/git/00IITP-AI/src/topic1_lagmotif/, tests /home/juke/git/00IITP-AI/tests/topic1_lagmotif/, frozen card /home/juke/git/00IITP-AI/docs/03_empirical_analysis/topic1/2026-10-30_topic1_analysis_card.md, open issues in the same folder. Background docs (data, NOT authority; their numbers are unreliable per C8): /home/juke/git/00IITP-AI/docs/03_empirical_analysis/*.md.
+Metadata dir (yours exclusively): /home/juke/git/00IITP-AI/.agents/teamwork/tw-20261031-four-topics/explorer_survey_2/ — write DISPATCH.md (this prompt verbatim), BRIEFING.md, progress.md, handoff.md there. If the harness refuses a metadata write, do not work around it; put the content in your structured return. Metadata only, never code/data there. Probes only under /home/juke/git/00IITP-AI/verification/explorer_survey_2/.
+Parent: root coordinator. Nested spawning NOT available; your structured return is your final report.
+Python: /home/juke/superclaude-env/bin/python3; use PYTHONDONTWRITEBYTECODE=1. Long jobs (>8 min): run detached (setsid nohup … &) with a progress log, then poll with short checks; never leave orphan processes when you finish.
+You are not alone in the codebase: other teams work on other milestones in parallel in disjoint paths. Preserve others' changes and adapt to them; do not revert unrelated work. Respect C1–C8 strictly (protected hashes, no IDs, no commits, data governance: no ENIGMA data to B300, GPU cap 64 GPU-h logged in /home/juke/git/00IITP-AI/results/gpu_ledger_2026-10-31.md).
+
+Task: project survey for this run (4 milestones: M1 Topic 1, M2 Topic 3, M3 Topic 2, M4 Topic 4 — see ACCEPTANCE.md). Primary lens: Topic 3 (M2) and Topic 2 (M3). For Topic 3 find the real representation inputs and the code that produced empirical_results.json (src/spectral_rg_flow_diagnostic.py, VRABES, SwiFT layer dumps), and pin down the PR centering discrepancy. For Topic 2 read the actual SwiFT/SwiFT_v2/a-SwiFT code where spatial merging happens and the layer dims; propose a falsifiable redesigned experiment and its data (only data allowed on B300 per C6) and cost in GPU-h. Secondary: Topics 1, 4.
+Explorer recommends but does NOT implement production code. Cheap probes allowed (synthetic or ≤5 real subjects, read-only). Work independently.

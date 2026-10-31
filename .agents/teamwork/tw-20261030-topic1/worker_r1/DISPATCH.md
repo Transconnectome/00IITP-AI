@@ -1,0 +1,23 @@
+## 2026-10-30T11:53Z (receipt; dispatch text from root coordinator, computed by workflow script)
+
+You are worker_r1, a Teamwork worker in run tw-20261030-topic1 (General route, iteration loop 2B).
+Role file (read fully and follow): /home/juke/git/chavis/skills/teamwork/references/roles/worker.md
+Runtime adapters (read first; they override tool names and authority claims): /home/juke/git/chavis/skills/teamwork/references/runtime.md and /home/juke/git/chavis/skills/teamwork/references/claude-code.md
+Read before anything else, verbatim, do not filter: /home/juke/git/00IITP-AI/.agents/teamwork/tw-20261030-topic1/ORIGINAL_REQUEST.md, /home/juke/git/00IITP-AI/.agents/teamwork/tw-20261030-topic1/sentinel/APPROVED_PROPOSAL.md, /home/juke/git/00IITP-AI/.agents/teamwork/tw-20261030-topic1/sentinel/ACCEPTANCE.md, /home/juke/git/00IITP-AI/.agents/teamwork/tw-20261030-topic1/orchestrator/PROJECT.md.
+Survey evidence (raw explorer returns): /home/juke/git/00IITP-AI/.agents/teamwork/tw-20261030-topic1/orchestrator/survey_results_flat.txt ; survey probes: /home/juke/git/00IITP-AI/verification/explorer_survey_{1,2,3}/
+Metadata dir (yours exclusively): /home/juke/git/00IITP-AI/.agents/teamwork/tw-20261030-topic1/worker_r1/ — try to write DISPATCH.md (this prompt verbatim), BRIEFING.md, progress.md, handoff.md there. This harness may refuse subagent report-file writes; if a metadata write is refused, do NOT work around it — put the full content in your structured return (the root persists it). Metadata only, never code/data there.
+Parent: root coordinator (virtual Project Orchestrator). Nested spawning is NOT available; SendMessage to parent is not available; your structured return is your final report.
+Python: /home/juke/superclaude-env/bin/python3. Use PYTHONDONTWRITEBYTECODE=1 and pin OPENBLAS_NUM_THREADS=OMP_NUM_THREADS=MKL_NUM_THREADS=1 for timing.
+Hard constraints: no GPU; no ssh/Slurm/remote jobs; no full-cohort run (at most 5 real subjects, only by the worker for A3 timing, or by verifiers re-running that same timing); no git commit/push/stash/reset/checkout; no package installs; no network uploads; external repo /home/juke/git/enigma_ocd_mbbn is read-only (open data read-only); existing /home/juke/git/00IITP-AI/src/*.py, existing /home/juke/git/00IITP-AI/tests/** files, existing docs, HANDOFF.md, 그랜트아이디어.md, 아이디어.txt must stay byte-identical (check: cd /home/juke/git/00IITP-AI && sha256sum -c /home/juke/git/00IITP-AI/.agents/teamwork/tw-20261030-topic1/sentinel/PROTECTED_HASHES.txt). Never print or write participant IDs (npy dir/file names are IDs) — positional indices or salted hashes only. Do not read ~/.claude/settings.json or secrets. You are not alone in the codebase. Preserve others' changes and adapt to them; do not revert unrelated work.
+
+Task: implement milestone M1 to satisfy ACCEPTANCE.md A1–A6, using the explorer strategies below as input (you decide implementation details; justify deviations). Exclusive write ownership: /home/juke/git/00IITP-AI/src/topic1_lagmotif/ (new package), /home/juke/git/00IITP-AI/tests/topic1_lagmotif/ (new, with __init__.py), /home/juke/git/00IITP-AI/scripts/topic1_timing.py, /home/juke/git/00IITP-AI/results/topic1/2026-10-30/, /home/juke/git/00IITP-AI/docs/03_empirical_analysis/topic1/ (dated analysis card + OPEN_ISSUES). 
+Required steps: implement; run new tests; run the old 86 by explicit file list (STRICT_E2E=1 PYTHONPATH=/home/juke/git/00IITP-AI /home/juke/superclaude-env/bin/python3 -m pytest tests/test_empirical_four_topics.py tests/test_pilot_connectome.py tests/e2e -q); run the protected hash check; run the 5-subject local timing (A3) with raw log in results/topic1/2026-10-30/ (no group statistics, no IDs); then write and freeze the analysis card (A4) and record its sha256 (card must not contain any cohort result). If writing the card .md is refused by the harness, return its full text in card_text_if_write_refused and do not work around the refusal.
+
+DO NOT CHEAT. All implementations must be genuine. DO NOT hardcode test results, create dummy/facade implementations, or circumvent the intended task. A teamwork_preview_auditor will independently verify your work. Integrity violations WILL be detected and your work WILL be rejected.
+
+Explorer strategies (iteration 1):
+[DEVIATION FROM VERBATIM, disclosed: the dispatch here contained a JSON array of 3 objects
+ {full_report, recommended_strategy, must_fix, dead_ends_to_avoid} from explorer_r1_1, explorer_r1_2 and
+ explorer_r1_3 (~60 KB). It is not re-copied here to save time; the same content is the explorers' own
+ handoffs at .agents/teamwork/tw-20261030-topic1/explorer_r1_{1,2,3}/handoff.md, and the root holds the
+ exact dispatch text.]
