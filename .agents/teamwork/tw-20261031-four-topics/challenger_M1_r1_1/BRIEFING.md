@@ -25,12 +25,13 @@ Empirically challenge M1 (Topic 1 hardening + full-cohort step 5, ACCEPTANCE T1.
 - Contracts: card 2026-10-30 (1e589f0b), pre-label addendum (7ccb983e), ACCEPTANCE.md
 
 ## Key Decisions Made
+- Verdict CONFIRMED (12:07Z); handoff.md written.
 - Priority (advisor): join integrity + bit-exact re-extraction > structural checks on all rows > independent d/p > freeze provenance > tests/mutants > optional FPR.
 
 ## Attack Surface
-- Hypotheses tested: (pending)
-- Vulnerabilities found: (pending)
-- Untested angles: (pending)
+- Hypotheses tested: label/position misalignment (refuted: P1 all 1706 + P2 10/10 bit-exact); wrong d/p (refuted: P3 independent LMM/FL); analyze irreproducible (refuted: P4 identical); FL miscalibration at B=9999 (refuted: P8 0.044/0.047); T1.1 claims (confirmed); freeze order (supported, no git anchor for script hash)
+- Vulnerabilities found: N1 analyze-path wiring untested (9/17 new mutants survive); N2 no external pre-join anchor for script sha/final addendum bytes; N3 future-dated worker progress entries
+- Untested angles: other 1696 subjects re-extraction (structural only); independent re-impl of bootstrap/PCA classification; §9 confound (interpretive)
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md; Local copy: none (read in place; metadata dir must not hold copies of code); Core: 9 gates, frozen card before results, synthetic fixtures, verdict taxonomy.
