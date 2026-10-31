@@ -33,8 +33,10 @@ M1: Topic 1 hardening (T1.1 tests + mutants) and full-cohort step 5 (T1.2 stats 
 - results/topic1/2026-10-31/ — receipts and results
 
 ## Change Tracker
-- Files modified: (none yet)
+- Files created: tests/topic1_lagmotif/test_extract_contract.py (byte copy of explorer_M1_r1_2 proposal, sha 9d7121e4), tests/topic1_lagmotif/test_cohort_stats.py, scripts/topic1_run_cohort.py, scripts/topic1_cohort_stats.py, docs/.../2026-10-31_topic1_prelabel_addendum.md (draft until frozen), results/topic1/2026-10-31/*
+- src/topic1_lagmotif: untouched
 ## Quality Status
-- not yet run
+- tests/topic1_lagmotif: 84 passed (08:37Z); T1.1 mutants 19/19+4/4 killed (v1 and v2 receipts); stats mutants 20/20 killed (pre-amend bytes)
+- lint: ruff E501 line-length only
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md — gates G1–G9; implement mode (fixtures first, run records, independent review).
