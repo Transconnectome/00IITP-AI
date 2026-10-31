@@ -18,12 +18,12 @@ M1 (Topic 1) strategy for the worker: T1.1–T1.5, with cheap-probe evidence on 
 
 ## Current Parent
 - Conversation ID: root coordinator
-- Updated: not yet
+- Updated: 2026-10-31T08:07Z (handoff written)
 
 ## Investigation State
 - **Explored paths**: card, pipeline/data/motifs/flow/preprocess, mutants*.py
-- **Key findings**: [in progress]
-- **Unexplored areas**: stats probes, mutant-kill probe
+- **Key findings**: 24/24 mutants killed by draft tests; kw-override params-hash trap; floor(200/TR) truncation gives 100 grid samples (ceil gives 101 at 4 TRs); Mundlak beta equality exact but MixedLM ML never 'converges'; FL within site calibrated (S1/S2/S4), across-site conservative in S2; S5 all conservative
+- **Unexplored areas**: real extraction timing; Y-BOCS/medication subsets; informative-exclusion scenario
 
 ## Key Decisions Made
 - Follow peer convention: survey JSON omitted from DISPATCH copy for length (disclosed)
