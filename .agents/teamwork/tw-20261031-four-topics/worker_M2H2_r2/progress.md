@@ -14,3 +14,4 @@ Last visited: 2026-11-01T17:58Z
 - 18:09Z Ledger: 2 UTC correction rows appended under flock (.lock) for jobs 218063/218064; prior bytes in verification/worker_M2H2_r2/prev_snapshot/.
 - 18:10Z Descriptive probes: delta_sensitivity (C1 TE+<0.1575, INC to 1.0175; C2 0.458/1.1115; C3 0.5483/1.2912; C4 0.6636/1.2057), single_seed_labels (C1 EQ s1,5,8; TE+ s4,7,9,10; INC s2,3,6), trunc_normal clamp probe (23 of 4e8 draws exactly -2.0).
 Last visited: 2026-11-01T18:12Z
+- 18:43Z union harness: baselines green in both trees (shipped 71 passed, extended 167 passed); first 13 r1-survivor edits all new=KILLED ext=KILLED shipped=SURVIVED. Last visited: 2026-11-01T18:44Z
