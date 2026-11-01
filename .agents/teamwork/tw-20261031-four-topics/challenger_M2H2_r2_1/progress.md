@@ -8,3 +8,9 @@ Last visited: 2026-11-01T20:35Z
 - 20:25Z Report number audit vs h2_results.json: all checked numbers match.
 - 20:30Z Copied trees tree_a/tree_b built; baseline 167 (after adding scripts/topic3_* + tests/topic3_spectral copies needed by a receipt test).
 - next: fresh mutation harness.
+- (time correction: the clock read 20:15Z when the harness launched; the 20:35Z header above was an estimate)
+- 20:15Z fresh-mutant harness launched detached (run_fresh.sh tree_a 0 / tree_b 1); baselines 167 passed in both trees (20:21Z).
+- 20:17Z E1/E8 independently checked (single_seed_and_delta.py): E8 exact; E1 boundaries exact, but E1's "label closest to frozen δ is C3" is wrong: C2 (f 0.4580, distance 0.042) is closer than C3 (0.5483, distance 0.048).
+- 20:19Z guard probe (tree_c): `final` does not check that the random job used the card index sets (record flag/hash ignored; permuted R subsets accepted). Shipped hashes equal card J -> nonblocking.
+- 20:20Z ID scan clean; ledger append-only vs worker snapshot (prefix sha 9f9843eb); M2H2 GPU sum 0.819 verified.
+Last visited: 2026-11-01T20:22Z

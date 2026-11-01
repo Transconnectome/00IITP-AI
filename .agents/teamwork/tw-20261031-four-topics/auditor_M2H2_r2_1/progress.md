@@ -10,3 +10,4 @@ Last visited: 2026-11-01T20:05Z
 - 20:10Z addendum 08 E1/E2/E3/E8 numbers independently recomputed: match. Layout lint findings [].
 - 20:09Z replay harness (3 r1 survivors + 4 novel mutants) running detached.
 Last visited: 2026-11-01T20:11Z
+- 20:25Z replay DONE (R_N26/R_W4/R_N55 shipped SURVIVED + new KILLED; 4 novel KILLED; prod unchanged); old86 86 passed, lagmotif 88 passed; post-run C1 + receipts rc 0. Verdict CLEAN. Last visited: 2026-11-01T20:26Z

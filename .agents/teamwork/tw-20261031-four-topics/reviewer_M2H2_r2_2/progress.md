@@ -8,3 +8,7 @@
 - 20:06Z errata probe (probes/errata_check.py): E1, E2, E3, E8 reproduced independently
 - 20:07Z fresh mutant harness (mut/fresh_mutants.py, 15 mutants) and topic3_spectral/topic1/old86 suites launched detached
 Last visited: 2026-11-01T20:07Z
+- tests/topic3_spectral 138 passed; tests/topic1_lagmotif 88 passed; old suite (STRICT_E2E=1) 86 passed — all rc 0
+- layout lint whole run: PASS, findings [] (571 files)
+- fresh mutants: copied-tree baseline 167 passed; F03 SURVIVED (gate: G2 record missing defaults ok); F04 KILLED
+Last visited: 2026-11-01T20:22:51Z

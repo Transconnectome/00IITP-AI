@@ -20,12 +20,12 @@ FU_C iteration 2: analyze why the r1 gate failed (C4 literal in tests/topic2_fu_
 
 ## Current Parent
 - Conversation ID: root 5fddb83e
-- Updated: not yet
+- Updated: 2026-11-01T20:32Z (handoff written)
 
 ## Investigation State
 - **Explored paths**: run docs, workflow_C_script (r2 worker inherits r1 paths, must snapshot prev bytes)
-- **Key findings**: [TBD]
-- **Unexplored areas**: receipts.build_context, copies of the literal across repo, git tracking
+- **Key findings**: see handoff.md O1–O15 (naive edit → suite 108/109 + CLI no_verdict; derived-view reproduction byte-identical; kill matrix identical; new sha 7b915eb7…; prev_snapshot and daemon-commit hazards; FU-A same pattern)
+- **Unexplored areas**: full-cohort HCP membership (only 1,084 staged), old/topic2_rgpool suites not rerun
 
 ## Key Decisions Made
 - DISPATCH.md elides the 60 KB gate JSON by reference (disclosed), as worker_FU_C_r1 did.

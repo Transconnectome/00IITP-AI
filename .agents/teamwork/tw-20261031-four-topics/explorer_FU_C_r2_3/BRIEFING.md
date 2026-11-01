@@ -20,15 +20,16 @@ FU_C iteration 2, explorer 3 of 3 (adversarial pre-mortem): analyse the r1 gate 
 
 ## Current Parent
 - Conversation ID: root 5fddb83e
-- Updated: not yet
+- Updated: 2026-11-01T21:12Z (handoff delivered)
 
 ## Investigation State
 - **Explored paths**: run docs (ORIGINAL_REQUEST, ACCEPTANCE, PI_DECISIONS, GATE_STATUS, RESUME); src/topic2_fu_c/receipts.py; scripts/topic2fu_c_verdict.py; tests/topic2_fu_c/test_perms_receipts_c4.py; card §8–§14; addendum 01; result report outline
-- **Key findings**: see progress.md / handoff.md
-- **Unexplored areas**: TBD
+- **Key findings**: receipt chain re-verifies tests (edit => no_verdict + 1 failing test + 2 receipts fail); CLI default --out overwrites verdict.json; supplementary receipt via build_context(code_receipt=) reproduces verdict (only code_receipt_utc differs); shipped SIXDIGIT tripwire leaks; recoverability residual from immutable sha
+- **Unexplored areas**: full S1200 membership; agent transcripts (off-repo)
 
 ## Key Decisions Made
 - DISPATCH.md summarises the ~60 KB gate-record JSON instead of re-typing it (same deviation as worker_FU_C_r1, explorer_FU_D_r2_3)
 
 ## Artifact Index
 - verification/explorer_FU_C_r2_3/probes/ — count-only probes
+- /home/juke/git/00IITP-AI/.agents/teamwork/tw-20261031-four-topics/explorer_FU_C_r2_3/handoff.md — final report
