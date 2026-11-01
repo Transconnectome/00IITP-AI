@@ -1,4 +1,4 @@
-# BRIEFING — 2026-11-01T22:40Z
+# BRIEFING — 2026-11-01T23:26Z (handoff written)
 
 ## Mission
 FU_D iteration 3 explorer (lens: feasibility and failure modes): analyse the FU_D r2 gate failure (challenger_FU_D_r2_2 REFUTED: B1 C12 step-7 mutant, B2 aliased run dirs) and recommend a fix strategy. Recommend only; no production code.
@@ -20,7 +20,7 @@ FU_D iteration 3 explorer (lens: feasibility and failure modes): analyse the FU_
 
 ## Current Parent
 - Conversation ID: root 5fddb83e
-- Updated: not yet
+- Updated: 2026-11-01T23:26Z (unchanged parent)
 
 ## Investigation State
 - **Explored paths**: src/topic2_fu_d/{verdict,records,design}.py, scripts/topic2fu_d_verdict.py, card §8–9, addendum_01, tests/topic2_fu_d/{helpers,test_verdict,test_verdict_script,test_fud_r2_guards}.py, r2 verifier handoffs + mutant lists

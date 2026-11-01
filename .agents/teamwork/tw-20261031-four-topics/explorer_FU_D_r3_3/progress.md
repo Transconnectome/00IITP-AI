@@ -10,3 +10,6 @@ Last visited: 2026-11-01T22:24:36Z
 - sweep3 (758 AST mutants) started then stopped by me to reorder (log kept *_ABORTED_reorder.log); first proposal run INVALID (file not collected: proposed_ prefix) — log kept *_INVALID_*; runner fixed to strip prefix
 - targeted vs current+proposal: control 224 passed (35 proposal tests green on frozen code); running
 - rm of work_s/work_t leftovers denied by harness; not worked around
+Last visited: 2026-11-01T22:46:52Z
+- targeted 30 vs current+proposal: 30/30 KILLED (control 224 passed)
+- sweep3 (758) vs current+proposal running; interim survivors are output-structure deletions (sens category None, n_seeds, fminus_gate, stage1 dict entry) + needs_fminus bool drops
