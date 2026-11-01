@@ -41,3 +41,4 @@ Last visited: 2026-11-01T10:32:16Z (union v3ff running)
 - 10:14-10:37Z union v3ff (failfast, fast-first, gate 15.5): 29 valid records, then stopped (5-min gate stalls; runs/EVID_union_r4_v3ff_STOPPED_README.txt). 10:38Z launched v3c for the 122 pending (gate 14.0 GiB).
 Last visited: 2026-11-01T10:40Z
 Last visited: 2026-11-01T10:59:13Z (union v3c running)
+Last visited: 2026-11-01T11:09:02Z (union v3c running)
