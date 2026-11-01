@@ -5,10 +5,10 @@ Status: DONE. All four fixed-scope classes are closed by additive tests. All 26 
 Deliverables (production):
 - `tests/topic3_spectral/test_regression_r4.py`, sha256 `ecceb13422531ee5a41e48b04763f02607b9427d242a3b1baface17ed2e0fbed`: 7 tests, classes (a) and (d).
 - `tests/topic3_spectral/test_token_level_r4.py`, sha256 `ab99b2b152515ea6ad8a5e0cb05d65af61d84ce4ca8c3efd36eab4b73e4a68d1`: 10 tests, classes (b) and (c).
-- `docs/03_empirical_analysis/topic3/2026-11-01_topic3_addendum_06.md`, sha256 `46527e6a47b66fa7c96ce3c627fa75f62938fc7911567b5994e7cf62ed7c1143` (v2; see O7).
-- `results/topic3/2026-10-31/addendum_06_sha256.txt`, sha256 `db88f54366bb17be0ec3ae31d230d00a934af7d6bc9f865fb27780133e434a63` (v2). It pins the three files above.
+- `docs/03_empirical_analysis/topic3/2026-11-01_topic3_addendum_06.md`, sha256 `19b6218ffdd57fc9293e3659e78de9abbb717e14a7545dfd3715c597cd312756` (v3; see O7).
+- `results/topic3/2026-10-31/addendum_06_sha256.txt`, sha256 `6191bd5acb77f77cf8bbbcbd3555d838d8c73b2121a614355dc66314ff05d510` (v3). It pins the three files above.
 
-Evidence: `/home/juke/git/00IITP-AI/verification/worker_M2_r4/`, with subfolders `bin/`, `runs/`, `probes/`, `logs/` and `final/`. The manifest is `EVIDENCE_MANIFEST_sha256.txt`.
+Evidence: `/home/juke/git/00IITP-AI/verification/worker_M2_r4/`, with subfolders `bin/`, `runs/`, `probes/`, `logs/` and `final/`. The manifest is `EVIDENCE_MANIFEST_final_sha256.txt` (657 files; the earlier `EVIDENCE_MANIFEST_sha256.txt` predates addendum v3 and fc6, see `EVIDENCE_MANIFEST_README.txt`).
 
 ## 1. Observation
 
@@ -51,7 +51,9 @@ O5. **Final checks before the addendum existed** (`final/fc1_summary.txt`).
   - fc3: topic3 and the old suite were SIGTERMed by earlyoom (rc 143, INVALID; `final/fc3_INVALID_README.txt`).
   - fc4 (`bin/final_checks_v2.sh`, memory gate): old suite 86 passed; topic1 88 passed; C1 67 OK; receipts output 42 / ad02 1 / ad03 3 / ad04 2 / ad05 3 / ad06 3 OK; pyc unchanged. Its topic3 run was SIGTERMed again (INVALID; `final/fc4_topic3_INVALID_README.txt`).
   - fc5: topic3 138 passed, 0 skipped (`final/fc5_topic3.*`), with addendum v2 and receipt v2 in place; pyc unchanged.
-  - Final layout lint PASS (270 files). `EVIDENCE_MANIFEST_sha256.txt` covers 637 files (self-check OK).
+  - Addendum v3 corrected two now-inaccurate v2 §7 statements: the rerun-log pointer and the identifier-scan hit list. v2 is kept in `superseded/`. The receipt was regenerated.
+  - **fc6, with v3 in place (`final/fc6_summary.txt`), is the final valid run:** topic3 138 passed, 0 skipped; old suite 86 passed; topic1 88 passed; C1 67 OK; receipts output 42 / ad02 1 / ad03 3 / ad04 2 / ad05 3 / ad06 3 OK; pyc unchanged.
+  - Final layout lint PASS (270 files, `logs/audit_layout_final2.log`). `EVIDENCE_MANIFEST_final_sha256.txt` covers 657 files (self-check OK).
 
 O6. **Host memory pressure.** Other workloads held MemAvailable at about 7–15% of 120 GiB.
 - 19 of my pytest attempts ended with rc −15, at times when `journalctl -u earlyoom` logged SIGTERMs. 17 were in v1 and 2 in v2b. All are INVALID and were rerun.
@@ -61,7 +63,7 @@ O6. **Host memory pressure.** Other workloads held MemAvailable at about 7–15%
 O7. **A C4 guard caught a defect in my own addendum.**
 - The first post-receipt run (`final/fc2_*`) had 2 failures in topic3: the shipped `test_outputs_no_ids.py` and `test_outputs_scanned_nonempty.py`.
 - Cause: addendum 06 v1 §7 quoted the synthetic subject names of the shipped driver test with the literal BIDS prefix, which those guards forbid in every Topic 3 doc.
-- No identifier was involved, but the guards were right. I kept the v1 bytes in `verification/worker_M2_r4/superseded/` (addendum v1 `af805513…`, receipt v1 `4c1df35e…`, with a README), removed the prefix, disclosed the incident in §7, regenerated the receipt and reran everything (`final/fc3_*`).
+- No identifier was involved, but the guards were right. I kept the v1 bytes in `verification/worker_M2_r4/superseded/` (addendum v1 `af805513…`, receipt v1 `4c1df35e…`; later also v2 `46527e6a…` / `db88f543…`; with a README), removed the prefix, disclosed the incident in §7, regenerated the receipt and reran everything (`final/fc3_*`).
 - The checkpoint loop or the daemon may have committed v1 in between. That would be a root or daemon commit, not my git write.
 
 ## 2. Logic Chain
@@ -101,7 +103,7 @@ cd /home/juke/git/00IITP-AI
 LC_ALL=C sha256sum -c .agents/teamwork/tw-20261031-four-topics/sentinel/PROTECTED_HASHES.txt          # 67 OK
 for r in output addendum_02 addendum_03 addendum_04 addendum_05 addendum_06; do LC_ALL=C sha256sum -c results/topic3/2026-10-31/${r}_sha256.txt; done
 PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=2 PYTHONPATH=$PWD timeout 900 nice -n 10 /home/juke/superclaude-env/bin/python3 -m pytest -p no:cacheprovider -q tests/topic3_spectral   # 138 passed
-V=verification/worker_M2_r4; (cd $V && LC_ALL=C sha256sum -c --quiet EVIDENCE_MANIFEST_sha256.txt)            # evidence intact
+V=verification/worker_M2_r4; (cd $V && LC_ALL=C sha256sum -c --quiet EVIDENCE_MANIFEST_final_sha256.txt)      # evidence intact
 # reproduce named kills (fresh output names; the runner refuses to overwrite):
 cd $V/bin && /home/juke/superclaude-env/bin/python3 -B run_jobs_v3.py --set named --base ../tree_base_r4 --logs ../runs/CHECK_$(date +%s)_logs --out ../runs/CHECK_$(date +%s).json --expect-tests 138 --jobs 2 --min-avail-gib 14 --only N001,N012,N013,N022,N023,N024,N025
 #   expect KILLED with failing_other == [] for every job

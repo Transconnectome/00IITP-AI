@@ -56,3 +56,6 @@ Last visited: 2026-11-01T11:56:02Z (fc4 gated final checks)
 - dev_history/README_fixture_change_after_first_dev_failure.txt: reconstructed (from Edit tool inputs) record of the pre-freeze fixture change.
 - Final: layout lint PASS (270), EVIDENCE_MANIFEST_sha256.txt (637 files) OK. handoff.md written. Next: advisor check, then structured return.
 Last visited: 2026-11-01T12:10Z
+- 12:15Z addendum v3 (19b6218f...) corrects two v2 §7 statements (rerun-log pointer; identifier-scan hit list); v2 kept in superseded/; receipt v3 6191bd5a... (sha256 -c OK).
+- 12:20Z fc6 (gated, v3 in place): topic3 138 passed/0 skipped, old 86, topic1 88, C1 67, receipts 6/6 OK, pyc unchanged. Scan: 3 synthetic-name files (2 tree copies + superseded v1). Lint PASS 270. EVIDENCE_MANIFEST_final_sha256.txt (657 files) OK. handoff.md final. DONE.
+Last visited: 2026-11-01T12:22Z
