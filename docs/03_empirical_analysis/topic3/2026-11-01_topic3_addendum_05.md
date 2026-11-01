@@ -66,7 +66,94 @@ The dispatch asked to close cheaply the classes named by two or more verifiers. 
 | A1b orientation; script seed shift | U082: reviewer_1 A05 = challenger_2 A21; U138: challenger_2 S02 | the full-value comparison in `test_token_stats_script_reproduces_pinned_family_b_…` |
 | Card §9 refusals of `topic3_token_stats.py` | U117: challenger_1 V25 and U140: challenger_2 S05 (`verify_card` bypassed); U141: challenger_2 S06 (npz hash guard off); U119: challenger_1 V27 = challenger_2 S07 (re-pool halt removed) | `test_token_stats_refuses_an_edited_card`, `…_a_spectra_hash_mismatch`, `…_a_failed_repool_provenance_check` (each in a full copied tree, so that a bypassed guard leads to rc 0 and a written output, which the test rejects) |
 
-[[SECTION_4]]
+## 4. Union mutation run
+
+**What was run.** The union of every mutant set named in the iteration-3 dispatch, read directly from the harness source files by `verification/worker_M2_r3/mutants/union_specs.py`. That script parses each file with `ast` and evaluates only its string constants and the mutant literal, with no builtins except `dict`; no harness is imported or executed.
+
+| Set | Harness file (sha256 prefix) | Rows |
+|---|---|---|
+| worker_M2_r2b's 67: C | `verification/challenger_M2_r1_1/mutants_challenger.py` (`4a63b8b6f5a5`) | 28 |
+| worker_M2_r2b's 67: MM | `verification/explorer_M2_r2_2/mini_mutants.py` (`8f899e6fa700`) | 18 |
+| worker_M2_r2b's 67: KD | `verification/explorer_M2_r2_3/kill_demo.py` (`869b0b581db5`) | 21 |
+| reviewer_M2_r2b_1 | `verification/reviewer_M2_r2b_1/mutants/run_my_mutants.py` (`5f2cf23b24e9`) | 35 |
+| reviewer_M2_r2b_1, run 2 (challenger replay) | `verification/reviewer_M2_r2b_1/mutants/run_my_mutants_run2.py` (`b501813e2106`) | 8 |
+| reviewer_M2_r2b_2 | `verification/reviewer_M2_r2b_2/mutants/run_mutants_rev2.py` (`b983133993e5`) | 25 |
+| challenger_M2_r2b_1 | `verification/challenger_M2_r2b_1/mutants/mutant_specs.py` (`b9d5d099fcb8`) | 29 |
+| challenger_M2_r2b_2 (own set; its re-check set W is read from the C and MM files above) | `verification/challenger_M2_r2b_2/run_mutants_c2.py` (`724a36a89e32`) | 34 |
+| auditor_M2_r2b_1 | `verification/auditor_M2_r2b_1/scripts/run_own_mutants.py` (`1f1a1893d8aa`) | 23 |
+
+That is 221 rows. Identical (file, old, new) patches are merged into one job that keeps every source id, which leaves **151 unique patches**. (reviewer_M2_r2b_1's handoff says its set has 36 mutants; the harness file defines 35, and its `MY_MUTANTS_RUN1.json` records `n_mutants` 35.)
+
+**How.** `verification/worker_M2_r3/mutants/run_union.py`. Each job runs in a fresh copy of the base tree `verification/worker_M2_r3/tree_base_v3`, a byte copy of production built by `make_tree.sh` with its manifest checked. The job applies one patch (the old string must occur exactly once), then runs the topic3 suite with no `-x` under `timeout 900`, 2 jobs at a time, with `PYTHONDONTWRITEBYTECODE=1`. The runner counts a job as KILLED only when rc = 1 and the JUnit report lists at least one failing test. A timeout, a signal or a crash would count as INVALID; none occurred. Two passes were made:
+- **s88**: the shipped 88-test suite (the r3 files `--ignore`d). Run 2026-11-01T03:38:59Z–04:03:23Z, `runs/S88_v2.json` (sha256 `34da3012…`). Controls: 88 passed at start and end.
+- **full**: the shipped 88 + the 33 r3 tests. Run 04:31:41Z–05:56:06Z, `runs/FULL_v2.json` (sha256 `e222e7f2…`), with the base tree's r3 files at sha256 `58c64ccb…` and `b091b0b8…` (= the pinned files). Controls: 121 passed at start and end, 0 skipped.
+
+| Pass | KILLED | SURVIVED | INVALID | NOT_APPLIED |
+|---|---|---|---|---|
+| s88 (shipped 88) | 101 | 50 | 0 | 0 |
+| full (88 + r3) | 150 | 1 | 0 | 0 |
+
+All 50 s88 survivors are survivors that the r2b verifiers reported, so each was reproduced from the verifier's own harness. 49 of them are killed by r3 tests, and in every one of the 49 at least one r3 test is among the failing tests. The table lists them; the 101 patches killed in both passes are omitted here and listed in `verification/worker_M2_r3/mutants/MUTANTS_SUMMARY.json` (sha256 `fa7017ac…`), which also holds each job's raw-log path and log sha256 (raw logs in `runs/S88_v2_logs/` and `runs/FULL_v2_logs/`).
+
+| Job | Source ids (harness:id) | File | Shipped 88 | 88 + r3 | Killing r3 tests |
+|---|---|---|---|---|---|
+| U091 | RV1:X02_script_primary_label | scripts/topic3_token_stats.py | SURVIVED | KILLED | test_token_stats_script_uses_the_card_primary_when_every_choice_gives_a_different_verdict |
+| U057 | RV1:V01_primary_uses_raw_p; RV2:V01_primary_uses_raw_p; CH1:V01_primary_uses_raw_p | analysis.py | SURVIVED | KILLED | test_primary_holm_rule_end_to_end_at_card_resolution, test_primary_raw_p_below_alpha_but_holm_p_not_is_not_significant |
+| U059 | RV1:V03_ci_lo_ge0; CH1:V03_primary_ci_lo_ge0 | analysis.py | SURVIVED | KILLED | test_primary_ci_touching_zero_does_not_exclude_zero |
+| U060 | RV1:V04_ci_hi_le0 | analysis.py | SURVIVED | KILLED | test_primary_ci_touching_zero_does_not_exclude_zero |
+| U065 | RV1:V09_zoo_zero_mean_agrees | analysis.py | SURVIVED | KILLED | test_zoo_with_zero_mean_does_not_share_the_primary_sign |
+| U066 | RV1:V10_zoo_also_needs_ci; CH1:V05_zoo_also_requires_ci | analysis.py | SURVIVED | KILLED | test_computed_zoo_with_ci_covering_zero_counts_end_to_end, test_zoo_with_holm_p_below_alpha_counts_even_if_its_ci_covers_zero |
+| U068 | RV1:V12_primary_is_first_key | analysis.py | SURVIVED | KILLED | test_primary_is_taken_by_label_not_by_dict_order |
+| U070 | RV1:P01_ci_on_ratio_scale; CH1:V07_ci_on_ratio_scale | analysis.py | SURVIVED | KILLED | test_computed_zoo_with_ci_covering_zero_counts_end_to_end, test_paired_log_contrast_ci_and_p_are_the_card_statistics_of_the_log_ratio, test_primary_with_computed_ci_straddling_zero_is_killed_end_to_end, test_token_stats_script_reproduces_pinned_family_b_with_card_primary_and_all_zoo |
+| U071 | RV1:P02_ci_level_050_call_site | analysis.py | SURVIVED | KILLED | test_computed_zoo_with_ci_covering_zero_counts_end_to_end, test_paired_log_contrast_ci_and_p_are_the_card_statistics_of_the_log_ratio, test_primary_with_computed_ci_straddling_zero_is_killed_end_to_end, test_token_stats_script_reproduces_pinned_family_b_with_card_primary_and_all_zoo |
+| U072 | RV1:P03_ci_bounds_swapped; CH1:V06_ci_bounds_swapped; CH2:A07_ci95_order_swapped | analysis.py | SURVIVED | KILLED | test_computed_zoo_with_ci_covering_zero_counts_end_to_end, test_paired_log_contrast_ci_and_p_are_the_card_statistics_of_the_log_ratio, test_primary_with_computed_ci_straddling_zero_is_killed_end_to_end, test_token_stats_script_reproduces_pinned_family_b_with_card_primary_and_all_zoo |
+| U073 | RV1:P04_p_on_ratio_minus_one | analysis.py | SURVIVED | KILLED | test_paired_log_contrast_ci_and_p_are_the_card_statistics_of_the_log_ratio, test_token_stats_script_reproduces_pinned_family_b_with_card_primary_and_all_zoo |
+| U077 | RV1:S01_signflip_ties_excluded | resampling.py | SURVIVED | KILLED | test_sign_flip_p_counts_ties_with_the_observed_statistic |
+| U078 | RV1:A01_ns_alignment_first_rows; CH1:V13_A2_rows_first_25; CH2:A06_A2_first25_rows_not_ns_positions | analysis.py | SURVIVED | KILLED | test_a2_d3_use_the_neurostorm_positions_not_the_first_rows |
+| U079 | RV1:A02_D1_cov_lo_ge0; RV2:V03_D1_cov_lo_ge; CH1:V11_D1_cov_lo_ge0; AU:A10_D1_cov_lo_ge | analysis.py | SURVIVED | KILLED | test_d1_interval_touching_zero_is_not_robust |
+| U080 | RV1:A03_D3_lo_ge0; RV2:V04_D3_lo_ge; CH2:A04_D3_lo_ge | analysis.py | SURVIVED | KILLED | test_d3_needs_both_lower_bounds_strictly_above_zero |
+| U081 | RV1:A04_D2_threshold_005; CH1:V14_D2_threshold_005 | analysis.py | SURVIVED | KILLED | test_d2_is_p_low_strictly_below_0_025 |
+| U082 | RV1:A05_A1b_orientation; CH2:A21_A1b_orientation_swapped | analysis.py | SURVIVED | KILLED | test_token_stats_script_reproduces_pinned_family_b_with_card_primary_and_all_zoo |
+| U088 | RV1:J02_subsample_seed_no_frame | token_job.py | SURVIVED | KILLED | test_h4_subsample_is_160_tokens_seeded_by_seed_position_frame |
+| U090 | RV1:X01_script_drops_hcp_zoo; CH1:V29_token_stats_zoo_drops_one; CH2:S04_stats_drops_HCP | scripts/topic3_token_stats.py | SURVIVED | KILLED | test_token_stats_script_reproduces_pinned_family_b_with_card_primary_and_all_zoo, test_token_stats_script_uses_the_card_primary_when_every_choice_gives_a_different_verdict |
+| U093 | RV2:V02_primary_ci_closed; CH2:A01_primary_ci_boundary_ge; AU:A09_primary_ci_closed | analysis.py | SURVIVED | KILLED | test_primary_ci_touching_zero_does_not_exclude_zero |
+| U104 | CH1:V04_primary_ci_hi_le0 | analysis.py | SURVIVED | KILLED | test_primary_ci_touching_zero_does_not_exclude_zero |
+| U105 | CH1:V08_ci_level_50 | analysis.py | SURVIVED | KILLED | test_computed_zoo_with_ci_covering_zero_counts_end_to_end, test_paired_log_contrast_ci_and_p_are_the_card_statistics_of_the_log_ratio, test_primary_with_computed_ci_straddling_zero_is_killed_end_to_end, test_token_stats_script_reproduces_pinned_family_b_with_card_primary_and_all_zoo |
+| U108 | CH1:V12_D3_lo_ge0 | analysis.py | SURVIVED | KILLED | test_d3_needs_both_lower_bounds_strictly_above_zero |
+| U109 | CH1:V15_param_m57_29 | analysis.py | SURVIVED | KILLED | test_params_equal_frozen_card, test_token_stats_script_reproduces_pinned_family_b_with_card_primary_and_all_zoo |
+| U110 | CH1:V16_param_bootstrapB_999; CH2:A11_PARAMS_bootB_999 | analysis.py | SURVIVED | KILLED | test_paired_log_contrast_ci_and_p_are_the_card_statistics_of_the_log_ratio, test_params_equal_frozen_card, test_primary_with_computed_ci_straddling_zero_is_killed_end_to_end, test_token_stats_script_reproduces_pinned_family_b_with_card_primary_and_all_zoo |
+| U111 | CH1:V17_param_S_200; CH2:A10_PARAMS_S_200 | analysis.py | SURVIVED | KILLED | test_params_equal_frozen_card, test_token_stats_script_reproduces_pinned_family_b_with_card_primary_and_all_zoo |
+| U112 | CH1:V18_param_seed; CH2:A12_PARAMS_seed | analysis.py | SURVIVED | KILLED | test_params_equal_frozen_card, test_token_stats_script_reproduces_pinned_family_b_with_card_primary_and_all_zoo |
+| U113 | CH1:V19_param_m25_13; CH2:A13_PARAMS_m25_13 | analysis.py | SURVIVED | KILLED | test_params_equal_frozen_card |
+| U114 | CH1:V21_bootstrap_never_draws_last | resampling.py | SURVIVED | KILLED | test_paired_log_contrast_ci_and_p_are_the_card_statistics_of_the_log_ratio, test_primary_with_computed_ci_straddling_zero_is_killed_end_to_end, test_token_stats_script_reproduces_pinned_family_b_with_card_primary_and_all_zoo |
+| U115 | CH1:V22_signflip_tie_tolerance_1e-3 | resampling.py | SURVIVED | KILLED | test_computed_zoo_with_ci_covering_zero_counts_end_to_end, test_paired_log_contrast_ci_and_p_are_the_card_statistics_of_the_log_ratio, test_primary_holm_rule_end_to_end_at_card_resolution, test_primary_with_computed_ci_straddling_zero_is_killed_end_to_end, test_token_stats_script_reproduces_pinned_family_b_with_card_primary_and_all_zoo |
+| U117 | CH1:V25_verify_card_bypassed | scripts/topic3_common.py | SURVIVED | KILLED | test_token_stats_refuses_an_edited_card |
+| U118 | CH1:V26_token_stats_wrong_primary; CH2:S01_stats_primary_label_HCP | scripts/topic3_token_stats.py | SURVIVED | KILLED | test_token_stats_script_reproduces_pinned_family_b_with_card_primary_and_all_zoo, test_token_stats_script_uses_the_card_primary_when_every_choice_gives_a_different_verdict |
+| U119 | CH1:V27_token_stats_repool_gate_removed; CH2:S07_stats_repool_guard_disabled | scripts/topic3_token_stats.py | SURVIVED | KILLED | test_token_stats_refuses_a_failed_repool_provenance_check |
+| U120 | CH1:V28_subject_script_wrong_positions | scripts/topic3_subject_level.py | SURVIVED | KILLED | test_subject_level_script_passes_the_neurostorm_alignment_positions |
+| U122 | CH2:A03_D1_cov_lo_ge | analysis.py | SURVIVED | KILLED | test_d1_interval_touching_zero_is_not_robust |
+| U123 | CH2:A05_D1_corr_lo_ge | analysis.py | SURVIVED | KILLED | test_d1_interval_touching_zero_is_not_robust |
+| U124 | CH2:A08_primary_is_first_checkpoint | analysis.py | SURVIVED | KILLED | test_primary_is_taken_by_label_not_by_dict_order |
+| U125 | CH2:A09_PARAMS_m57_27 | analysis.py | SURVIVED | KILLED | test_params_equal_frozen_card, test_token_stats_script_reproduces_pinned_family_b_with_card_primary_and_all_zoo |
+| U126 | CH2:A14_D2_threshold_0p05 | analysis.py | SURVIVED | KILLED | test_d2_is_p_low_strictly_below_0_025 |
+| U127 | CH2:A15_direction_label_le | analysis.py | SURVIVED | SURVIVED | **equivalent**: changes only the 'direction' label of a primary whose mean log ratio is exactly 0 ('L3 higher' -> 'L3 lower'). Card §5 defines no direction for a zero mean, so no card-defined output changes; through the shipped producer an exactly-zero mean has raw sign-flip p = 1, so primary_significant, the agreement count and the verdict ('killed') are the same either way. challenger_M2_r2b_2 classified it 'expected equivalent'. Not tested, because any expected label for a zero mean would be invented. |
+| U128 | CH2:A16_agree_sign_not_opposite | analysis.py | SURVIVED | KILLED | test_zoo_with_zero_mean_does_not_share_the_primary_sign |
+| U131 | CH2:R01_bootstrap_level_0p99 | resampling.py | SURVIVED | KILLED | test_paired_log_contrast_ci_and_p_are_the_card_statistics_of_the_log_ratio, test_primary_holm_rule_end_to_end_at_card_resolution, test_primary_with_computed_ci_straddling_zero_is_killed_end_to_end, test_token_stats_script_reproduces_pinned_family_b_with_card_primary_and_all_zoo |
+| U133 | CH2:R03_signflip_strict_ties | resampling.py | SURVIVED | KILLED | test_sign_flip_p_counts_ties_with_the_observed_statistic |
+| U134 | CH2:R04_holm_no_cap | resampling.py | SURVIVED | KILLED | test_holm_adjusted_p_is_a_probability |
+| U137 | CH2:T01_H4_never_subsample | token_job.py | SURVIVED | KILLED | test_h4_subsample_is_160_tokens_seeded_by_seed_position_frame |
+| U138 | CH2:S02_stats_seed_shift | scripts/topic3_token_stats.py | SURVIVED | KILLED | test_token_stats_script_reproduces_pinned_family_b_with_card_primary_and_all_zoo |
+| U139 | CH2:S03_subject_level_wrong_ns_positions | scripts/topic3_subject_level.py | SURVIVED | KILLED | test_subject_level_script_passes_the_neurostorm_alignment_positions |
+| U140 | CH2:S05_verify_card_disabled | scripts/topic3_common.py | SURVIVED | KILLED | test_token_stats_refuses_an_edited_card |
+| U141 | CH2:S06_stats_npz_hash_guard_disabled | scripts/topic3_token_stats.py | SURVIVED | KILLED | test_token_stats_refuses_a_spectra_hash_mismatch |
+| U143 | AU:A11_D3_lo_ge | analysis.py | SURVIVED | KILLED | test_d3_needs_both_lower_bounds_strictly_above_zero |
+
+**The one survivor.** U127 (challenger_2 A15, `"L3 lower" if sign < 0` → `if sign <= 0`) is **equivalent** with respect to every card-defined output. It changes only the direction label of a primary whose mean log ratio is exactly 0. Card §5 defines no direction for a zero mean. Through the shipped producer an exactly-zero mean has raw sign-flip p = 1, so `primary_significant`, the agreement count and the verdict ("killed") are the same either way. challenger_M2_r2b_2 already classified it as "expected equivalent". It is not tested, because any expected label for a zero mean would have to be invented. No survivor is classified as measure-zero: every closed-boundary sibling is killed by a constructed fixture (§3).
+
+**Runs not used as evidence** (kept unchanged, each with a README in `runs/`):
+- `S88_v1` was aborted at about 03:33Z by a runner bug. The runner wrote the literal `<job tree>` into the JUnit XML, which made it malformed at U022; the main thread then stopped recording while the pool kept running. The fixed runner reran everything as S88_v2.
+- `FULL_v1` (base tree with an earlier version of the r3 files) was stopped at about 04:30Z after its 50 priority jobs. In it X02 survived (§2, class 5), the second wiring test was added, and FULL_v2 reran all 151 jobs on the final test files.
+- `SMOKE_v2` is a 2-job runner check.
 
 ## 5. Corrections found by the r2b verifiers in addenda 03/04 and the report
 
