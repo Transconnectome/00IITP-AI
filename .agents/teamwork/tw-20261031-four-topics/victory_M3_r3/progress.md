@@ -8,3 +8,5 @@ Last visited: 2026-11-01T17:16:29Z
 - v02 salt scan done (0 hits, 0/5 brute force w/o salt, 5/5 control). Local leg A stopped (too slow, load 64); moved legs A/C to connectome job 218070 (CPU debug). leg B local running.
 Last visited: 2026-11-01T17:25:33Z
 - leg B done (V01-V11 all killed by new file). old86/topic1 pass. waiting on connectome job 218071.
+Last visited: 2026-11-01T18:05:51Z
+- legs A/C done on connectome (218071); all 24 inherited specs match worker claims (0 diffs). handoff.md written. VERDICT VERIFIED_COMPLETE.

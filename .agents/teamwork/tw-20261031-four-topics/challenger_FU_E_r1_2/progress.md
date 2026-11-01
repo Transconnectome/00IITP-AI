@@ -12,3 +12,4 @@ Last visited: 2026-11-01T17:47:20Z
 - [x] old 86 + rgpool 116 + FU-E 71 pass
 - [ ] job 558 pending (QOSMaxGRESPerUser) since 17:45:31Z
 Last visited: 2026-11-01T17:55:07Z
+Last visited: 2026-11-01T18:16:40Z (job 558 still PENDING, QOSMaxGRESPerUser)

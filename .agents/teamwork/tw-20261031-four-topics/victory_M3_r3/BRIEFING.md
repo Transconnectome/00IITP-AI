@@ -31,7 +31,7 @@ Victory audit of M3 (Topic 2) r3 gate repair: ACCEPTANCE T2.4 (+C1–C8, PI deci
 - **Audit type**: victory audit
 
 ## Audit Progress
-- **Phase**: testing (connectome legs A/C pending, job 218071)
+- **Phase**: reporting — VERDICT VERIFIED_COMPLETE (handoff.md written)
 - **Checks completed**: C1 67/67; receipts (addendum_06 31/31, code freeze 33/33, output_r2 156/156, c4_sanitized 19/19; old card 2 / old output 16 expected failures); frozen paths fully pinned; local full topic2 suite 116 passed; old86 86 passed (needs PYTHONPATH=repo); topic1 88 passed; leg B (new file alone) 41 specs: V01-V11 all KILLED; salt scan v02 clean; verdict rerun byte-identical + independent recomputation = stop; layout lint PASS
 - **Checks remaining**: legs A (shipped) and C (union) on connectome; final report
 - **Findings so far**: no blocking issue yet; new survivors X03/X05/X06/X07/X09/X11/X13/X14/X15/X18 vs new file alone (union pending)
@@ -44,7 +44,7 @@ Victory audit of M3 (Topic 2) r3 gate repair: ACCEPTANCE T2.4 (+C1–C8, PI deci
 
 ## Attack Surface
 - **Hypotheses tested**: 17 extra verdict-path mutants (X01-X18) beyond the 24 inherited specs
-- **Vulnerabilities found**: pending union leg
+- **Vulnerabilities found**: union survivors only W09 (equivalent) and X18 (E4 duplicate-key domain, equivalent on unique keys); X06 etc. killed only by shipped suite
 - **Untested angles**: B300 plain-text HCP-name scan (needs off-repo listing)
 
 ## Loaded Skills
