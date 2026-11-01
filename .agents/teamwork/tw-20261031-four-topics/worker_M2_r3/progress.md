@@ -21,3 +21,6 @@ Last visited: 2026-11-01T04:35Z
 - Added zero-mean zoo sign test (kills A16/V09) before FULL_v1. FULL_v1 (tree_base_v2) priority jobs: 48/50 killed, survivors U091 (X02) and U127 (A15). X02 is output-identical on the pinned spectra -> added re-signed-spectra wiring test. FULL_v1 stopped/superseded (README).
 - Frozen r3: test_verdict_rules_r3.py 58c64ccb..., test_token_stats_wiring_r3.py b091b0b8... (33 tests). Pass on shipped code (dev_tree_2 wiring 6 passed).
 - 04:3xZ launched FULL_v2 (tree_base_v3, 151 jobs, X02 first).
+Last visited: 2026-11-01T05:16Z
+- FULL_v2 control: 121 passed. 80/151 done; all 50 shipped-suite survivors processed: 49 KILLED (incl. X02 by the re-signed wiring test), 1 SURVIVED (U127 A15, classified equivalent). No INVALID so far.
+- addendum_05 §1-§3, §5, §6 drafted; §4 (mutant table) and §7 (checks) pending the run.
