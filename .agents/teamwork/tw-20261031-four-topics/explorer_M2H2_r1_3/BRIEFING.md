@@ -27,13 +27,18 @@ M2-H2 (Topic 3 random-init control, card §6; ACCEPTANCE H1'-H3'): recommend a c
 
 ## Investigation State
 - **Explored paths**: role/runtime files; ORIGINAL_REQUEST; ACCEPTANCE (incl. addenda); PI_DECISIONS 1-8; GATE_STATUS; RESUME
-- **Key findings**: [TBD]
-- **Unexplored areas**: topic3 card §6, provenance, result report, addenda 01-06, victory_M2; src/topic3_spectral; connectome VRABES copy
+- **Key findings**: fork ver11 5bc44469 (git 63367643) + snapshot preprocessing reproduces stored trained dumps rel_fro<=7.8e-7 (job 218007, 0.017 GPU-h); local ver11 de132387 defaults fail (0.05-0.51); +1 TR shift moves PR only ~1e-5 rel -> element-wise gate needed; token_job ships pooled__ per-subject vectors; random linear map PR ~ D/2 not isotropic
+- **Unexplored areas**: full 399-frame replication (worker); PTL/deepspeed entrypoint equivalence (only via output match)
 
 ## Key Decisions Made
 - Independence: do not read peer explorer handoffs before forming own conclusion
 
+- Recommend: addendum_07 with code identity, seed semantics, element-wise replication gate, delta + seed rule, consequence map; stats on connectome
+- Handoff written 2026-11-01T15:50Z (Hard)
+
 ## Artifact Index
+- handoff.md — final report
+- /home/juke/git/00IITP-AI/verification/explorer_M2H2_r1_3/ — probes (smoke + local theory)
 - DISPATCH.md — dispatch verbatim
 - progress.md — heartbeat
 - handoff.md — final 5-component report

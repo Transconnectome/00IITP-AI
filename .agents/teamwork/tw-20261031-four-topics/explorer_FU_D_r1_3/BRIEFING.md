@@ -20,12 +20,12 @@ Explorer 3/3 for FU-D (Topic 2 follow-up D: SwiFT ver11 E192 d2-2-18-2, 140k sam
 
 ## Current Parent
 - Conversation ID: root 5fddb83e
-- Updated: not yet
+- Updated: not yet (final structured return 2026-11-01T15:27Z)
 
 ## Investigation State
 - Explored: run docs (ORIGINAL_REQUEST, ACCEPTANCE, PI_DECISIONS, GATE_STATUS, RESUME); topic2 card/arch/report/addenda 01-05; src/topic2_rgpool model/merge/train/data/metrics/stats; scripts topic2_verdict/train/launch_wave/ledger; b300_env; M3_r2 gate record (challenger_M3_r2_2); B300 Slurm state
 - Key findings: see handoff.md (budget gap: §7 estimate omits the E192 fixture gate; data node-local on b300-01; run.json writes test_pseudonyms; CONFIGS lacks E192; frozen verdict script hard-codes 5 seeds)
-- Unexplored: real E192 bs16 throughput/memory (needs Slurm smoke)
+- Measured: E192 bs16 0.4776 s/step, 198 GiB peak (job 430); §7 estimate omits gate → r1 design ≈33 GPU-h > 25
 
 ## Key Decisions Made
 - Smoke (if any) uses synthetic data only, after nothing real is computed; ≤0.25 GPU-h
@@ -34,3 +34,4 @@ Explorer 3/3 for FU-D (Topic 2 follow-up D: SwiFT ver11 E192 d2-2-18-2, 140k sam
 - DISPATCH.md — verbatim dispatch
 - progress.md — heartbeat
 - handoff.md — 5-component report
+- handoff.md — Hard handoff (final)

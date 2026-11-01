@@ -11,3 +11,6 @@ Last visited: 2026-11-01T14:36Z
 - 14:45Z P2 (local CPU, synthetic) done: frozen topic2_verdict.py gives no_verdict for 3 seeds, no_verdict for F+ fail, keep with F- absent, and a stale duplicate record flips stop->inconclusive.
 - 14:55Z P3 Slurm job 418 submitted (debug, 1 GPU, 15 min limit, synthetic only); ledger started row appended. B300 sshd banner timeouts make polling slow.
 Last visited: 2026-11-01T15:10Z
+- 15:14Z job 418 FAILED in 1 s on b300-02 (node-local scratch); resubmitted pinned (job 430) → COMPLETED 00:02:09: 0.4776 s/step bs16, peak 198.3/267.7 GiB, projected 1.19 h/run. Ledger rows closed (total 0.037 GPU-h). Own B300 dir removed.
+- 15:27Z handoff.md written (Hard, sha256 65a146a9…802c). Whole-run layout lint: findings []. No leftover processes/jobs.
+Last visited: 2026-11-01T15:28Z
