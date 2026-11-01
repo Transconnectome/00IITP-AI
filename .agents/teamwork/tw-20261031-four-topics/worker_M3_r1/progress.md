@@ -15,3 +15,5 @@ Last visited: 2026-11-01T03:18Z
 - 03:42Z wave 1 done (3.41 GPU-h). F+ gate PASS: seed-mean test NMSE E 0.6786, C 0.6578, S 0.6777 -> C vs E +3.07%, C vs S +2.94% (>= delta 1%). Fminus s0: E 0.2379, C 0.2409. 03:44Z wave 2 launched (4 Fminus + hcp E,C,S s0 + E s1). Last visited: 2026-11-01T03:45:08Z
 - 03:5xZ wave 2 running (HCP val@2188 0.994-1.000; Fminus ok). addendum_02 written (Stage-0 metric ambiguity; implicit settings; early near-floor NMSE observation). Mid-run layout lint rc 0 (191 files, 0 findings). Last visited: 2026-11-01T03:55:59Z
 - 04:11Z wave 2 done (3.43 GPU-h); F- gate computable: E 0.2393, C 0.2435, S 0.2437 (C not better: pass). 04:14:54Z wave 3 launched (8 hcp runs). Last visited: 2026-11-01T04:15:22Z
+- 04:2xZ report sections 1,2,4-8 drafted; waiting wave 3 (ETA 04:41Z). Last visited: 2026-11-01T04:18:16Z
+- 04:2xZ ID-scan pass 1 on B300 (1084 names in memory, 91 text files): 0 hits. Adjudication rule fixed beforehand. Wave-4 auto-launcher running locally (verification/worker_M3_r1/auto_wave4.sh). Last visited: 2026-11-01T04:23:40Z
