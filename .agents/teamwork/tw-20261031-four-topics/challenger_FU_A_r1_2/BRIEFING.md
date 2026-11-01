@@ -29,12 +29,15 @@ Empirically challenge worker_FU_A_r1's FU-A (Topic 2 follow-up A) result: verdic
 - CPU-first: recompute headline numbers, receipts, timestamps, independent verdict reimplementation, own mutants, fixture-path probes
 
 ## Attack Surface
-- Hypotheses tested: [TBD]
-- Vulnerabilities found: [TBD]
-- Untested angles: [TBD]
+- Hypotheses tested: card frozen before results; records genuine; fixture wiring/noise/partitions; calibration constants; verdict = card rule; verdict/data-path mutants
+- Vulnerabilities found (nonblocking): untested guards X23/X24 (F+ gate), C01-C04 (calib formulas), X08-X10 (Stage-1 checks), X18; F+ noise share misreported (0.248 pooled vs 0.219 F+)
+- Untested angles: GPU reproduction / seed variance of the gate (0 GPU-h used); alternative noise calibration
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md — gates G1–G9 (frozen card before results, synthetic fixtures, run records, verdict taxonomy); read in place, no local copy needed (metadata dir is metadata only)
 
 ## Artifact Index
 - verification/challenger_FU_A_r1_2/ — probes and outputs
+
+## Status (17:55Z)
+- DONE: handoff.md written, verdict CONFIRMED

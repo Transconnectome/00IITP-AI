@@ -1,5 +1,5 @@
 # progress — challenger_FU_A_r1_2
-Last visited: 2026-11-01T17:13Z
+Last visited: 2026-11-01T17:55Z
 (Correction 17:01Z: an earlier version of this file carried estimated timestamps up to "17:10Z" that were ahead of the clock; times below are from `date -u`.)
 
 - 16:47Z start (date -u). Read role/runtime/adapter, ORIGINAL_REQUEST, ACCEPTANCE (+addenda), PI_DECISIONS, GATE_STATUS, RESUME, sci-pipeline SKILL; DISPATCH.md, BRIEFING.md written
@@ -14,3 +14,6 @@ Last visited: 2026-11-01T17:13Z
 - ~17:00Z p05 CPU Slurm step (job 540, b300-01, debug, no GPU): independent Q/kappa/NF on 64 TRAIN = identical to design_stats_train.json; pad alignment check passes
 - 0 GPU-h used (B300 gpu queue heavily congested; no GPU probe needed)
 - 17:13Z mutation harness 13/47 done (host load ~65): survivors so far X01, X02 (NaN/non-positive test_nmse guard untested), X08, X09, X10 (Stage-1 num/den tolerance, length and empty-order guards untested)
+- ~17:45Z mutation harness done: 35/47 killed, control passes; survivors X01 X02 X08 X09 X10 X18 X23 X24 C01-C04; p06 witnesses: no verdict mutant changes the shipped verdict
+- ~17:48Z old suite 86 passed; C1 end 67/67; FU-A receipts OK; ssh master closed; no orphan processes
+- ~17:55Z handoff.md written: CONFIRMED (nonblocking: untested guards X23/X24/C01-C04/X08-X10; F+ noise share 0.219 vs card 0.248 pooled)

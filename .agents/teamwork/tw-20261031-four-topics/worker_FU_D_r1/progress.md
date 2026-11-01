@@ -18,3 +18,5 @@ Last visited: 2026-11-01T16:14Z
 - 16:39-16:41Z share-check clean; F+ gate jobs submitted: Fplus_E_s0=534, Fplus_C_s0=535, Fplus_S_s0=536 (cost guard c=1.31).
 Last visited: 2026-11-01T16:42Z
 Last visited: 2026-11-01T17:04:20Z (F+ gate jobs queued, QOSMaxGRESPerUser)
+Last visited: 2026-11-01T17:36:48Z (F+ gate queued)
+- 17:45Z gate jobs 534 (Fplus_E_s0), 535 (Fplus_C_s0) RUNNING after ~65 min queue; 536 pending (QOSMaxGRESPerUser). No g3t-G-E0 jobs seen. Last visited: 2026-11-01T17:47:53Z

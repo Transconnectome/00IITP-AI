@@ -31,17 +31,21 @@ Independent review (reviewer + critic) of milestone FU_A (Topic 2 follow-up A: 1
 - Criteria: correctness, completeness, card-before-result, verdict rule, compute, C4
 
 ## Key Decisions Made
-- [TBD]
+- Did not rerun worker mutation harness in place (writes pinned results.json); own harness in verification dir
+- 0 GPU-h used (no rerun needed; records byte-identical to B300, sacct confirms)
+- Verdict APPROVE (escape outcome inconclusive per card, evidenced and costed)
 
 ## Review Checklist
-- Items reviewed: [pending]
-- Verdict: pending
-- Unverified claims: all worker claims
+- Items reviewed: card, report, src/tests/scripts, results, ledger, B300 runs+sacct
+- Verdict: APPROVE (5 nonblocking)
+- Unverified claims: NF value (needs HCP data on B300; relied on jobs 492/510)
 
 ## Attack Surface
-- Hypotheses tested: [pending]
-- Vulnerabilities found: [pending]
-- Untested angles: [pending]
+- Hypotheses tested: eval path uses rebound source (yes); hidden runs (none); card-before-result (git 35d10a5); 30 new mutants
+- Vulnerabilities found: calib.py untested (C01-C03 survive); 0.248 noise share is pooled F+/F- (F+ ~0.22); index_records doesn't check sigma_v/perm
+- Untested angles: GPU rerun determinism; NF recomputation
 
 ## Artifact Index
 - DISPATCH.md — dispatch record
+- handoff.md — final review report
+- /home/juke/git/00IITP-AI/verification/reviewer_FU_A_r1_2/ — c1.txt, pytest_*.txt, layout_lint_run_root.txt, mutants/

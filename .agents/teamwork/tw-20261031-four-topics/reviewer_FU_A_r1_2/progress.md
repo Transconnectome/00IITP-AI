@@ -1,5 +1,5 @@
 # progress — reviewer_FU_A_r1_2
-Last visited: 2026-11-01T17:08Z
+Last visited: 2026-11-01T17:46Z
 - 16:48Z read role/runtime/claude-code adapters, ORIGINAL_REQUEST, ACCEPTANCE (+addenda), PI_DECISIONS 1-8, GATE_STATUS, RESUME; created DISPATCH/BRIEFING.
 - C1 rc 0 (67/67). FU-A receipts card 8/8, code 21/21, output 21/21 OK; r1 code pins 33/33 OK.
 - pytest tests/topic2_fu_a: 69 passed 1 skipped (rc 0); old suite (STRICT_E2E=1) 86 passed.
@@ -12,3 +12,6 @@ Last visited: 2026-11-01T17:08Z
 - tests/topic2_rgpool 116 passed (r1 suite; earlier FU-B-card failure no longer present).
 - C4 count-only scan of FU-A paths: only synthetic test literals; sub- token is a 1-letter word.
 - Calibration recomputed: kappa, sigma_v exact. F+-only realized noise share ≈0.22 (3 seeds, win 20), not 0.248 (0.248 is pooled F+/F- Q_fix) -> descriptive mislabel, nonblocking.
+- 17:4xZ mutation probe done: 27/30 killed, control passes; survivors C01-C03 (calib.py). Waiter loops stopped (TaskStop); no orphan processes; ssh master closed.
+- End recheck: C1 0 non-OK; FU-A output receipts 0 non-OK. Whole-run layout lint PASS (428 files).
+- Verdict APPROVE; handoff.md written.

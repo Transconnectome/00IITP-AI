@@ -26,3 +26,5 @@ Last visited: 2026-11-01T16:38Z
 - 16:36Z report renderer pinned (code_sha256_presentation_before_results.txt).
 - 16:38Z rolling driver (scratchpad driver.sh) started: close finished jobs; submit next planned run only if g3t check + cap admission pass; polls 5 min apart; never reruns.
 - Scanner controls (B300): positive 2/2 detected, negative 0, pre-freeze artifacts 0 hits.
+Last visited: 2026-11-01T17:38Z
+- 17:37Z driver: 8 Stage-1 jobs closed COMPLETED (0.431-0.434 GPU-h each; run.json status completed checked for the first 4), 10 submitted after wave1/2a; no g3t-G-E0-* block so far.
