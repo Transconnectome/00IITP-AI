@@ -1,0 +1,4 @@
+# progress — explorer_M3_r1_2
+
+- 2026-11-01T00:38Z started; read ORIGINAL_REQUEST, ACCEPTANCE, RESUME, role/runtime, sci-pipeline, surveys. Last visited: 2026-11-01T00:38Z
+- 2026-11-01T00:50Z orientation done: ver11 code read (merge :41-88, stage loop :1038-1080, decoder mlp :1111-1148, hook :1382-1412); B300 32/32 idle at 00:40Z, /scratch/iitp4 absent; permitted fMRI on B300: .98 HCP REST1_LR hp2000_clean (88 complete files), .101 OpenNeuro fMRIPrep ds000228 (155), ds000001 (16), ds000114 (10). Next: advisor, then probes. Last visited: 2026-11-01T00:50Z
