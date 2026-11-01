@@ -36,3 +36,7 @@ Last visited: 2026-11-01T09:54:12Z (named v2b finishing)
 - 09:57Z all 26 REQUIRED named ids have valid KILLED records (v1 partial + v2b partial). Stopped v2b (only EXTRA N029-N032 left) and the waiting v3 driver; no leftovers (runs/EVID_named_r4_v2b_STOPPED_README.txt).
 - 09:59Z launched bin/run_evidence_v3b.sh: named EXTRA N029-N032 full mode, then the 151 union with runner v3 --failfast and the 16 test files in fast-first order (estimated union test time ~19 min vs ~2.3 h alphabetical; survivors still run all 138).
 Last visited: 2026-11-01T10:00Z
+Last visited: 2026-11-01T10:32:16Z (union v3ff running)
+- 10:14Z named v3 (N029-N032, full mode): all 4 SURVIVED (138 passed); controls OK. Named set complete: 32/32 valid; 24 KILLED (all r4-only, 0 pre-existing failures; covers all 26 REQUIRED ids), 8 SURVIVED (all EXTRA).
+- 10:14-10:37Z union v3ff (failfast, fast-first, gate 15.5): 29 valid records, then stopped (5-min gate stalls; runs/EVID_union_r4_v3ff_STOPPED_README.txt). 10:38Z launched v3c for the 122 pending (gate 14.0 GiB).
+Last visited: 2026-11-01T10:40Z
