@@ -15,3 +15,11 @@ Last visited: 2026-11-01T13:31Z
 - ID scan: 0 real-ID hits over 2383 files; prefix+alnum hits only synthetic SYN names.
 - Layout lint PASS (281 files).
 - Running: own in-class extra probes (10) on full suite; shipped-only sample (5 named).
+Last visited: 2026-11-01T13:47Z
+- Own in-class probes (10, full suite, control 138/138): 8 KILLED; VX04 (prim_ok reads max Holm p of both primaries) and VX06 (concatenated corr floor 1e-2 at call site) SURVIVE — nonblocking (not named; inactive on real data / unknowable without frames).
+- Shipped-suite sample (control 121/121): N01, CR3_T01, CR3_T02, VA01, B_A2_iid_at_n25 all SURVIVE shipped 121 → r4 tests are what kill them.
+- Post snapshot: code/tests/docs/results/pyc unchanged; C1 67 OK; receipts OK; git status change = root checkpoint commits 55576fb, c622609 (not mine).
+- Cleanup: pytest basetemps (666 MB real-data-derived temp), copied trees deleted; manifests + rerun JSONs kept.
+- After verdict formed: r4 gate reviewer APPROVE / auditor CLEAN (consistent).
+- handoff.md written. Verdict VERIFIED_COMPLETE.
+Last visited: 2026-11-01T13:55Z — npz dtype scan: 0 real-ID hits; handoff caveats updated; returning StructuredOutput.

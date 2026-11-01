@@ -22,7 +22,7 @@ Independent victory audit of M2 (Topic 3 rerun of layerwise PR / spectral diagno
 
 ## Current Parent
 - Conversation ID: root coordinator
-- Updated: not yet
+- Updated: 2026-11-01T13:47Z
 
 ## Audit Scope
 - **Work product**: src/topic3_spectral, tests/topic3_spectral, scripts/topic3_*.py, results/topic3/2026-10-31, docs/03_empirical_analysis/topic3 (card, provenance, report, addenda 01–06), verification/worker_M2_r2b, r3, r4
@@ -30,18 +30,18 @@ Independent victory audit of M2 (Topic 3 rerun of layerwise PR / spectral diagno
 - **Audit type**: victory audit
 
 ## Audit Progress
-- **Phase**: investigating
-- **Checks completed**: read role/adapters/request/acceptance/resume/PI decisions/gate status/sci-pipeline
-- **Checks remaining**: Phase A timeline; Phase B integrity; Phase C tests + reruns; T3.1–T3.4; classes a–d
-- **Findings so far**: TBD
+- **Phase**: reporting (verdict formed: VERIFIED_COMPLETE)
+- **Checks completed**: Phase A timeline/provenance; Phase B integrity (code hashes, evidence hashes, ID scan, layout lint); Phase C suites 138/86/88, copied-tree rerun exact, independent recompute, 26/26 named mutants killed, extra probes, shipped sample
+- **Checks remaining**: none
+- **Findings so far**: CLEAN for the PI-fixed scope; nonblocking: H2 untested, VX04/VX06 survive (not named, inactive on real data), addendum 06 §5 open items
 
 ## Key Decisions Made
 - Integrity mode: Development (no "from scratch" constraints in ORIGINAL_REQUEST)
 
 ## Attack Surface
-- **Hypotheses tested**: TBD
-- **Vulnerabilities found**: TBD
-- **Untested angles**: TBD
+- **Hypotheses tested**: real producer swapped cov/corr (excluded by eig identities); src/scripts drift (excluded by hashes); fabricated worker logs (399/399 hashes match); r4 tests self-certifying (no: independent numpy re-derivation + receipt-checked regression)
+- **Vulnerabilities found**: VX04 cross-key primary significance; VX06 call-site floor 1e-2 — both survive 138 tests, nonblocking
+- **Untested angles**: connectome token job not rerun; union not rerun (hash-checked only); full-suite attribution checked for 5/26
 
 ## Loaded Skills
 - **Source**: /home/juke/.claude/skills/sci-pipeline/SKILL.md
