@@ -16,3 +16,8 @@ Last visited: 2026-11-01T09:58Z
 - 09:51Z unpinned outputs (27 train_log/stdout, logs, partitions, 12 fixture run.json) == B300 worker_M3_r1 originals; only the 15 hcp run.json differ (sanitized) -> r2 changed only the 19 files.
 - 09:52Z PI_DECISIONS first commit a06f435 03:01:27Z < card 51609c1 03:16:27Z; ledger 36 lines, first 35 = auditor snapshot 0e1b3f7f (append-only), 0 worker_M3_r2 rows, total 11.99 GPU-h; vendored ver11/patchembedding = SwiFT_v2 f0dc7aca; errata 4/5/7 numbers verified; frozen docs unchanged; whole-run audit_layout rc0 264 files 0 findings.
 - 09:55Z Slurm 217940: 12 reviewer-designed mutants running.
+Last visited: 2026-11-01T10:03Z
+- 10:00Z DISPATCH.md: appended the exact dispatch text (user messages 0/1 extracted byte-for-byte from my transcript, sha256 recorded; token-shape count 0); the earlier summarised section kept.
+- 10:00Z Slurm 217940 node4: 12 reviewer-designed mutants, baseline 92 passed, 12/12 KILLED, 0 INVALID.
+- 10:01Z sealed manifest/split hashes == values quoted in the card text committed in 51609c1 (git anchor, card sha c9bfc60a).
+- 10:02Z git-history numeric scan (HCP IDs / file sizes / voxel counts; count-only, masked) running.

@@ -33,3 +33,6 @@ Last visited: 2026-11-01T09:29:08Z (v2b named running)
 - 09:27Z gated rate measured at ~2.4 min/job (memory hovering 13.5-15.5 GiB) -> full-mode union would take ~6 h. Union switched to runner v3 fail-fast (-x; SURVIVED still needs all 138 tests; skipped must be 0); v2b union step cancelled by pre-creating runs/EVID_union_r4_v2b_logs/README_CANCEL.txt. bin/run_evidence_v3.sh waits for v2b, then runs the union (EVID_union_r4_v3ff).
 Last visited: 2026-11-01T09:33Z
 Last visited: 2026-11-01T09:54:12Z (named v2b finishing)
+- 09:57Z all 26 REQUIRED named ids have valid KILLED records (v1 partial + v2b partial). Stopped v2b (only EXTRA N029-N032 left) and the waiting v3 driver; no leftovers (runs/EVID_named_r4_v2b_STOPPED_README.txt).
+- 09:59Z launched bin/run_evidence_v3b.sh: named EXTRA N029-N032 full mode, then the 151 union with runner v3 --failfast and the 16 test files in fast-first order (estimated union test time ~19 min vs ~2.3 h alphabetical; survivors still run all 138).
+Last visited: 2026-11-01T10:00Z

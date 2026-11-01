@@ -11,3 +11,12 @@ Last visited: 2026-11-01T09:45Z
 - 09:39-09:41Z count-only working-tree scans: 0 files with pseudonym/hash (176 patterns), 0 with file sizes (88), 0 paths; positive control 19 sealed files.
 - 09:43Z git history scan v2 running (57 commits incl. reflog, 264 patterns, positive-control marker).
 - connectome Slurm job 217934 (topic2 suite) running.
+- 09:47Z git history scan v2: 0 token hits / 57 commits (refs+reflog), positive control 101.
+- 09:48Z HCP-ID scan v1 INVALID (wrong dir depth, 1 name) -> kept labelled; v2 09:50Z: 1084 names, 716 M3 files, 0 hits.
+- 09:38Z connectome job 217934: tests/topic2_rgpool 92 passed rc0. 09:51Z job 217936 own mutants: 6/7 KILLED, R1 SURVIVED (non-equivalent).
+- 09:52Z ledger 11.99 GPU-h, unchanged since 06:12Z; C7 vendored ver11 == f0dc7aca; layout lint PASS.
+- 09:55Z explorer salt exposure: salt + 5 burned hashes absent from 143 commits; present in untracked explorer dir + B300 copy.
+- 09:56Z worker mutation receipts consistent (v2 baseline 91, 101/102; v3 baseline 92, m18 killed).
+- 09:57Z cleanup: connectome dir removed (parent kept, holds reviewer_M3_r2_2), B300 /scratch/iitp4/reviewer_M3_r2_1 removed; local invalid run relabelled.
+- 09:58Z DISPATCH.md restored verbatim. 10:00Z handoff.md written (APPROVE).
+Last visited: 2026-11-01T10:01Z

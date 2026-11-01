@@ -1,4 +1,4 @@
-# BRIEFING — 2026-11-01T09:35Z
+# BRIEFING — 2026-11-01T09:35Z (updated 10:01Z: review complete, Hard handoff written, verdict APPROVE)
 
 ## Mission
 Independent gate review of M3 (Topic 2) iteration r2 (worker_M3_r2): verify B1 (C4) remediation and that
@@ -36,17 +36,25 @@ C1–C8 + T2.1–T2.3 still hold with evidence; verdict APPROVE / REQUEST_CHANGE
 - 92 tests pass; 102/102 mutants killed.
 
 ## Key Decisions Made
-- DISPATCH.md abridges only the embedded worker JSON (disclosed in file).
+- DISPATCH.md: worker JSON first abridged, restored verbatim 09:58Z (disclosed).
+- Full topic2 suite on connectome Slurm (node4) with project-local /storage venv, not B300 off-Slurm; local run INVALID (earlyoom).
+- Explorer salt: non-blocking for this gate (not in history, outside worker ownership) but blocks M3 closure.
 
 ## Review Checklist
-- Items reviewed: (pending)
-- Verdict: pending
-- Unverified claims: all above
+- Items reviewed: C1 67/67; freeze 33/33; r2 pins 156/156; old pins fail 2+16 as designed; seal repo all_ok; own B300 seal compare all_ok
+  (sealed == r1 B300 originals 19/19; sanitized == originals after map, 0 diff leaves); verdict byte-identical + independent recompute stop;
+  old86 86, topic1 88, topic2 92 (connectome Slurm); token scans 0 (tree 16,265 files, git 57 commits, positive controls OK); HCP-ID scan 0 (716 files);
+  own mutants 6/7 killed (R1 survives, non-equivalent, unreachable branch); worker mutation receipts consistent; layout lint PASS.
+- Verdict: APPROVE (no blocking); nonblocking N1-N7 in handoff §4 (N1 explorer salt blocks M3 closure)
+- Unverified claims: none material; GPU re-eval not repeated (r2 changed no model)
 
 ## Attack Surface
-- Hypotheses tested: (pending)
-- Vulnerabilities found: (pending)
-- Untested angles: (pending)
+- Hypotheses tested: sanitization altered values (no); sealed originals fabricated (no: = r1 B300 outputs + git-anchored pins);
+  tokens left in tree/history/paths/file sizes (no); verdict changed (no); tests tautological (no: oracles, 6/7 own mutants killed)
+- Vulnerabilities found: explorer salt beside reversible hashes (untracked, not in history); preprocess.log order ~ sorted-ID order (holder-only);
+  R1 keep/modify boundary untested; C4 guard scope excludes .agents/verification; worker ran CPU off-Slurm on fully allocated b300-01
+- Untested angles: GPU checkpoint re-eval (not needed); actual re-linkage (deliberately not performed)
 
 ## Artifact Index
-- verification/reviewer_M3_r2_1/ — my probe outputs
+- verification/reviewer_M3_r2_1/ — my probe outputs (see handoff §1 table)
+- handoff.md — Hard handoff, verdict APPROVE
