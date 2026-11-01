@@ -8,3 +8,9 @@ Last visited: 2026-11-01T14:27Z
 - 14:25Z m02: shipped verdict.json byte-identical under baseline + V01-V11 (stop).
 - 14:22Z m01 attributable-kill matrix running (detached).
 - Found: FU teams write docs/03_empirical_analysis/topic2/2026-11-02_topic2_fu_*.md, which the shipped C4 scanners (test_c4_tokens_r2, test_outputs_no_ids) scan -> cross-team failure mode.
+Last visited: 2026-11-01T14:45Z
+- 14:31Z m01 v1 done: V01-V11 A SURVIVED / B KILLED, each attributed.
+- 14:36Z m03 sweep: W04-W08, W12 survived shipped+proposed -> 6 guards added -> only W09 (equivalent, proof) survives.
+- 14:40Z m01 v2 with the extended file (20 tests): V01-V11 attribution unchanged; baseline 14/20 pass.
+- 14:42Z draft addendum_06 passes the shipped C4 scanners; old 86 passed; C1 rc0; pins unchanged; audit_layout rc0; work dir removed; no procs.
+- 14:45Z handoff.md written (Hard). DONE.
