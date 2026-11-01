@@ -19,7 +19,10 @@ Empirically challenge M2H2 iteration 2 (Topic 3 H2 random-init control): worker_
 - GPU: <=1 GPU-h on connectome Slurm, ledgered under flock (decided: not needed; r1 reran 5 seeds already).
 
 ## Current Parent
-- root coordinator 5fddb83e; Updated: not yet
+- root coordinator 5fddb83e; Updated: 2026-11-01T21:32Z (unchanged)
+
+## Status
+- DONE: handoff.md written; verdict CONFIRMED
 
 ## Review Scope
 - Files: src/topic3_h2/*, scripts/topic3h2_stats.py, scripts/topic3h2_connectome.py, tests/topic3_h2/test_h2r2_*.py, results/topic3/2026-11-02_h2/**, addendum 07 (card), addendum 08, result report
@@ -29,9 +32,9 @@ Empirically challenge M2H2 iteration 2 (Topic 3 H2 random-init control): worker_
 - No GPU rerun (r1 verifiers reran seeds 1,3,4,7,8; marginal value low). Focus: independent recompute, test-the-test (oracle mutation), new mutants outside the 115 r1 edits.
 
 ## Attack Surface
-- Hypotheses tested: [in progress]
-- Vulnerabilities found: [TBD]
-- Untested angles: [TBD]
+- Hypotheses tested: verdict follows card (24/24 labels, independent recompute 1.8e-15); card frozen before results (receipt + git 35d10a5 16:05:25Z < 16:22Z); decide() vs oracle 400k fuzz 0 mismatches; regression comparator discriminates (6/6 oracle corruptions killed); errata E1/E2/E3/E8 reproduce.
+- Vulnerabilities found (nonblocking): 19/44 new mutants survive: S2 (G2-missing default ok -> gate PASS), S4 (stats _dump ID guard), S6, P3, C1, C3, driver D2-D5/D8/D10-D12, Mo2, Da1, launcher L1-L3; report §3 L2-cov seed-count error (5 seeds, not 1).
+- Untested angles: no GPU rerun (r1 reran 5 seeds; code hashes match); did not rerun worker's 115-edit union.
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md (read in place; no local copy needed — metadata dir is metadata-only)

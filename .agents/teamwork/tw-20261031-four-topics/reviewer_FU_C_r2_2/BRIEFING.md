@@ -28,8 +28,8 @@ Independent gate review (reviewer + critic) of milestone FU_C iteration 2 (worke
 
 ## Review Checklist
 - Items reviewed: card, addendum 02, C1, FU-C pytest (180 pass)
-- Verdict: pending (leaning REQUEST_CHANGES on residual C4)
-- Unverified claims: verdict_r2 byte-identity, receipt supersession, c4scan, mutation union, other suites, ledger total
+- Verdict: REQUEST_CHANGES (single blocking: recoverable near-copy, root-side fix)
+- Unverified claims: none material (B300 /scratch copies not inspected)
 
 ## Attack Surface
 - Hypotheses tested: near-copy + old sha recovers literal → CONFIRMED
@@ -40,3 +40,4 @@ Independent gate review (reviewer + critic) of milestone FU_C iteration 2 (worke
 - verification/reviewer_FU_C_r2_2/c1_start.out — C1 at start (rc 0)
 - verification/reviewer_FU_C_r2_2/pytest_fu_c.out — 180 passed
 - verification/reviewer_FU_C_r2_2/probes/recoverability_nearcopy.{py,out.json} — boolean-only recovery probe
+- 21:27Z all worker claims reproduced (verdict byte-identical, receipts, mutants 146/149, suites, ledger, numbers); wide + git-history membership 0 hits; handoff.md written.

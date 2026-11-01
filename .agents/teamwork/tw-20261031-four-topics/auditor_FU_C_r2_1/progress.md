@@ -10,3 +10,6 @@ Last visited: 2026-11-01T21:17:12Z
 - sacct: no FU-C jobs after 577 (20:03Z); B300 fu_c no new files; ledger no r2 rows
 - report diff = banner/§4/§6 only; addendum numbers reproduce
 - mutation rerun in progress
+Last visited: 2026-11-01T21:23:18Z
+- mutation rerun 146/150 killed, identical to worker; 52 r1 survivors killed
+- handoff.md written; verdict INTEGRITY_VIOLATION (narrow C4 recoverability, peer artifact)

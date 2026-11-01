@@ -23,7 +23,10 @@ Empirically challenge worker_FU_C_r2 (FU-C iteration 2, C4 remediation) and the 
 
 ## Current Parent
 - Conversation ID: root 5fddb83e
-- Updated: not yet
+- Updated: 2026-11-01T21:35Z (unchanged)
+
+## Status
+- DONE 2026-11-01T21:35Z; verdict REFUTED (single root-actionable C4 containment item); handoff.md written
 
 ## Review Scope
 - Files: src/topic2_fu_c/, tests/topic2_fu_c/, scripts/topic2fu_c_*.py, results/topic2/2026-11-02_fu_c/, docs/03_empirical_analysis/topic2/2026-11-02_topic2_fu_c_*.md
@@ -41,9 +44,9 @@ Empirically challenge worker_FU_C_r2 (FU-C iteration 2, C4 remediation) and the 
 - DISPATCH.md references embedded worker JSON instead of re-typing (precedent of worker_FU_C_r1/r2)
 
 ## Attack Surface
-- Hypotheses tested: [TBD]
-- Vulnerabilities found: [TBD]
-- Untested angles: [TBD]
+- Hypotheses tested: verdict recompute (holds, 0 diff); freeze order (holds); supersession exactness (holds); C4 in FU-C paths (0 hits, broad); repo-level recoverability (FAILS: 1 match via peer near-copy); union mutants 146/149 (holds); r2-surface mutants (15/28 survive behaviour-only)
+- Vulnerabilities found: B1 literal recoverable via verification/explorer_FU_C_r2_2/tree near-copy + pinned sha (root containment); N: check_receipts/driver/c4scan logic only hash-guarded; c4scan leading-1 control gap (C413)
+- Untested angles: full HCP cohort membership (only 1,084 staged); GPU re-eval; FU-A fixtures
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md — Core: frozen card before results, synthetic ground truth, run records, verdict taxonomy (read in place; no local copy)

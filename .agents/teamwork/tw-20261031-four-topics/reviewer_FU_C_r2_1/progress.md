@@ -1,5 +1,5 @@
 # progress — reviewer_FU_C_r2_1
-Last visited: 2026-11-01T21:40Z
+Last visited: 2026-11-01T21:23Z (correction: an earlier 21:40Z stamp was an estimate, not the clock)
 
 - [x] Read role/runtime/claude-code adapters, ORIGINAL_REQUEST, ACCEPTANCE (+addenda), PI_DECISIONS, GATE_STATUS, RESUME
 - [x] Read FU-C card, addenda 01/02, result report (r2)
@@ -11,5 +11,6 @@ Last visited: 2026-11-01T21:40Z
 - [x] C4: literal in 0 git blobs; 0 real HCP IDs in FU-C prod/verification/metadata (B300 count-only, controls valid)
 - [x] C4: peer near-copy verification/explorer_FU_C_r2_2/tree/... STILL PRESENT; original bytes recoverable from in-repo content (boolean probe) -> blocking residual (root/owner action)
 - [x] ledger 10.684 GPU-h FU-C, 0 r2 rows; layout lint 0 findings; flake8 clean; addendum 02 numbers reproduce
-- [ ] mutation union rerun (running in background, 2 jobs)
-- [ ] handoff.md + structured return
+- [x] mutation union rerun: 150 entries, 146 killed, survivors baseline/V07c/V12/F11, 0 invalid
+- [x] own mutant on check_receipts: killed only by hash pin (nonblocking N1)
+- [x] handoff.md written; verdict REQUEST_CHANGES (B1: peer near-copy recoverability)

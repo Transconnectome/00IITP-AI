@@ -29,17 +29,19 @@ Independent review of FU-C iteration 2 (worker_FU_C_r2, C4 remediation) vs ACCEP
 - Criteria: correctness, C4 closure, receipt integrity, verdict reproduction, no regression
 
 ## Review Checklist
-- Items reviewed: governing docs, card, addenda 01/02, result report, receipts
-- Verdict: pending
-- Unverified claims: test counts, mutation union, byte-identical verdict, C4 0-hit claims
+- Items reviewed: governing docs, card, addenda 01/02, result report, receipts, new src/tests/scripts, worker probes
+- Verdict: REQUEST_CHANGES (single blocker B1, root/owner action)
+- Unverified claims: none material; GPU re-evaluation not repeated (r1 verifiers did it; r2 changed no science)
 
 ## Attack Surface
-- Hypotheses tested: (pending)
-- Vulnerabilities found: (pending)
-- Untested angles: (pending)
+- Hypotheses tested: retired literal recoverable from in-repo content (YES via peer near-copy); literal in git history (NO, 0/2091 blobs); real HCP IDs in FU-C scopes (NO, 0 hits, controls valid); check_receipts mutant (killed only by hash pin)
+- Vulnerabilities found: B1 peer near-copy verification/explorer_FU_C_r2_2/tree/...; N1 check_receipts untested behaviourally; N2 c4scan '.'-prefix and hex-run masking gaps
+- Untested angles: GPU checkpoint re-evaluation; transcripts outside repo
 
 ## Key Decisions Made
 - No GPU use planned (r2 is a C4/provenance remediation; science unchanged)
+- B1 is blocking per run precedent (M3 r1/r2 gate failures on recoverable IDs; T2.4 wording)
+- Self-incident: a probe counter encoding the value was printed once; output file rewritten within ~1 min (disclosed in handoff)
 
 ## Artifact Index
 - DISPATCH.md, progress.md, handoff.md (this folder)

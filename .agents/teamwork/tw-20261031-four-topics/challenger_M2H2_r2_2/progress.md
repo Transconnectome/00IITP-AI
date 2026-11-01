@@ -12,3 +12,8 @@ Last visited: 2026-11-01T20:13Z
 - 20:20Z gate/random job records: code_sha256 of all 20 files equals the repo code now (the code that ran = code under test). Card in git 35d10a5 (16:05:25Z) with hash 09b45220...; first random forward 16:32Z.
 - 20:51Z new_mutants: so far KILLED S1 S3 S5 S7 S9 H1 H4 H5 H6 H7 H13 C2 C4 C5 D1 D6 D7 D9; SURVIVED S2 S4 S6 C1 C3 D2 D3 D4 D5 (all outside the r1 classes; no shipped-verdict impact). Harness still running.
 Last visited: 2026-11-01T20:52Z
+- 21:25Z new_mutants DONE: 44 mutants, 25 KILLED, 19 SURVIVED (S2 S4 S6 P3 C1 C3 D2 D3 D4 D5 D8 D10 D11 D12 Mo2 Da1 L1 L2 L3); 6/6 oracle mutations KILLED; production outputs unchanged; trees deleted.
+- 21:26Z old suite 86 passed; topic1_lagmotif 88 passed; C1 rc 0; 3 H2 receipts rc 0.
+- 21:30Z handoff.md written. Verdict CONFIRMED (nonblocking: S2/S4 contradict "every stats-script guard tested"; report §3 L2-cov seed count erratum; 17 untested in-job/launcher guards).
+- A copied-tree S2 probe command was denied by the permission system; I did not work around it. The in-memory check gave shipped FAIL ['G2'] and the mutant PASS.
+Last visited: 2026-11-01T21:32Z

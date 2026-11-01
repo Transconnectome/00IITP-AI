@@ -11,3 +11,8 @@ Last visited: 2026-11-01T21:18:19Z
 - wide B300 membership (v2, controls valid): 279 unique 6-digit runs over 1,313 FU-C files/verif/metadata → 0 hits. v1 run INVALID (positive control failed; kept as *_v1_INVALID).
 - independent recompute from 24 run.json matches report + addendum 02 numbers.
 - mutation union rerun in progress (detached).
+- mutation union rerun: 150 entries, 146 killed, survivors baseline/V07c/V12/F11, 0 invalid; identical to worker table; work dir cleaned, no processes left.
+- git-history membership: 354 runs / 115 commits → 0 hits (controls valid).
+- C1 end rc 0. Near-copy still present 21:26Z.
+- 21:27Z handoff.md written. Verdict REQUEST_CHANGES (one blocking C4 residual, root-side).
+Last visited: 2026-11-01T21:27Z

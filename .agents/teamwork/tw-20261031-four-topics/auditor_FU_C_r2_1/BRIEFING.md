@@ -31,18 +31,18 @@ Forensic integrity audit of FU-C iteration 2 (worker_FU_C_r2 C4 remediation) for
 - **Audit type**: forensic integrity check
 
 ## Audit Progress
-- **Phase**: investigating
+- **Phase**: reporting (done 2026-11-01T21:25Z)
 - **Checks completed**: C1 rc0; receipts (card 36/0, code 2 fail = lines 13,16; presentation 1/0; output 3 fail = 141,162,164; r2 27/0; seal 1/0)
-- **Checks remaining**: literal footprint (tree, git, near-copies, digests); code review of supersession/check_receipts/verdict_r2/c4scan/new tests; tests; verdict recompute; ledger/sacct; git authors; layout
-- **Findings so far**: TBD
+- **Checks remaining**: none
+- **Findings so far**: INTEGRITY VIOLATION (narrow C4): literal recoverable via verification/explorer_FU_C_r2_2/tree near-copy + in-repo old pin; all worker r2 checks PASS
 
 ## Key Decisions Made
 - Literal derived in memory from the sealed copy (sha = old pin) for count-only scans; never printed.
 
 ## Attack Surface
-- **Hypotheses tested**: TBD
-- **Vulnerabilities found**: TBD
-- **Untested angles**: TBD
+- **Hypotheses tested**: literal in tree/git/archives/digests (none); runtime-constructed literal (AST fold: none); near-copy brute force (explorer_FU_C_r2_2: recoverable); verdict-path drift (none); weakened repaired test (stricter); mutation claims (reproduced exactly)
+- **Vulnerabilities found**: recoverable participant ID via peer near-copy
+- **Untested angles**: /tmp copies (find timed out); copies created after 21:13Z
 
 ## Loaded Skills
 - **Source**: /home/juke/.claude/skills/sci-pipeline/SKILL.md (methodology reference) — not dumped; read in place
