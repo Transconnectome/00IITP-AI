@@ -31,9 +31,18 @@ Empirically challenge worker_M3_r2's M3 (Topic 2) iteration-2 claims: C4 remedia
 - GPU not needed: r2 changed no governed computation
 
 ## Attack Surface
-- Hypotheses tested: [TBD]
-- Vulnerabilities found: [TBD]
-- Untested angles: [TBD]
+- Hypotheses tested (09:30–10:05Z):
+  - C1 67/67, code freeze 33/33, r2 pins 156/156, sanitized pins 19/19, old pins fail exactly 2+16 — HOLDS
+  - verdict reproduction (frozen script, byte-identical) and independent recomputation (own t quantile/rules) — HOLDS (stop)
+  - sanitizer semantics vs sealed originals on B300 (own token map, all 19 files, num/den order) — HOLDS
+  - token/content-hash/file-size/partial-token digests over worktree + 1,482 git blobs — 0 hits; HCP-name hits all coincidences
+  - card freeze before results (git 51609c1 03:16:27Z < first HCP partition 03:17:08Z, runs 03:44Z+); PI items 2–3 at a06f435 03:01:27Z — HOLDS
+- Vulnerabilities found:
+  - C4: 5 burned dev-subject salted hashes + salt in repo (verification/explorer_M3_r1_1, untracked) reversible 5/5 in 0.37 s (p04) — BLOCKING (owner root/explorer)
+  - 11 new verdict-path mutants survive the two stats/verdict test files (p05); full-suite re-check on connectome pending (p07)
+  - frozen topic2_verdict.py returns no_verdict (not inconclusive) when F+ fails and Stage 1 is not run (p06 case A); F- missing -> keep (case D, disclosed erratum 8)
+  - sanitized split.json salt no longer reproduces the split from positional tokens (p02) — nonblocking
+- Untested angles: /tmp/claude-1000 scratchpads (46 GB) not scanned; unreachable git objects not scanned; B300 GPU re-run not done (not needed: r2 changed no governed computation)
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md (read in place, no local copy: metadata dir is .md-only and copy not needed)
