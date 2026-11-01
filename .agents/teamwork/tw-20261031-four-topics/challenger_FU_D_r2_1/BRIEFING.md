@@ -26,12 +26,13 @@ Empirically challenge FU_D iteration 2 (worker_FU_D_r2 gate repair): verdict `in
 - Criteria: card frozen before results; verdict per card §8; headline recompute; tests kill verdict-path mutants; equivalence proofs
 
 ## Key Decisions Made
+- Final verdict CONFIRMED with nonblocking carry-forward (2026-11-01T22:09:18Z)
 - No GPU use planned: r1 verifiers (jobs 574–576) already re-scored the checkpoints; r2 is a test-only repair.
 
 ## Attack Surface
-- Hypotheses tested: see progress.md
-- Vulnerabilities found: TBD
-- Untested angles: TBD
+- Hypotheses tested: freeze order, gate recompute, X45/X22 closure, 8 equivalence proofs, errata E1/E2/E4, C4 (sealed cross-check), 65 own mutants
+- Vulnerabilities found: 14 own-mutant survivors, 0 change shipped output; CV09/CP01/CP02 flip a Stage-1 category (stall path; unreachable under this card) -> nonblocking
+- Untested angles: GPU checkpoint re-eval (done by r1 verifiers); test_e192_model mutation
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md — not copied (read in place); methodology: frozen card before results, synthetic ground truth, run records, verdict taxonomy.

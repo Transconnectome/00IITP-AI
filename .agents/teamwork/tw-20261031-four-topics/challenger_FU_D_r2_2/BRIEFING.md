@@ -27,12 +27,13 @@ Empirically challenge milestone FU_D (Topic 2 follow-up D, E192 scale) after wor
 - Criteria: verdict follows card; headline numbers recompute from raw; card frozen before results; tests kill mutants; equivalence proofs valid
 
 ## Key Decisions Made
-- CPU-only verification first; GPU only if a checkpoint re-eval is needed
+- CPU-only verification; 0 GPU-h used
+- Final: REFUTED (r2 claims) with shipped verdict CONFIRMED; handoff.md written 2026-11-01T22:45Z
 
 ## Attack Surface
-- Hypotheses tested: [TBD]
-- Vulnerabilities found: [TBD]
-- Untested angles: [TBD]
+- Hypotheses tested: freeze before results (holds); headline recompute exact (holds); provenance/argv/receipts (holds); C4 (0 hits); 8 equivalence proofs (hold); 62 own mutants (53 killed, 9 survived); X45/X22 killed
+- Vulnerabilities found: B1 C12 step-7 stall rule stop->inconclusive flip untested (verdict flip, suite green); B2 alias run dirs (s00 / unicode digits) silently override canonical record, can flip gate fail->pass, not in errata; nonblocking R07,S11,S05,S07,S08,S09,C23,P3,P4,P5
+- Untested angles: B300 checkpoint re-score (done thrice by r1 verifiers); full rerun of worker's 423 union
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md — read in place (no local copy; metadata dir is metadata-only)

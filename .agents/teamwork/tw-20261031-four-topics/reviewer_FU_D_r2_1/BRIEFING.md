@@ -25,17 +25,18 @@ Independent review of FU_D iteration 2 (worker_FU_D_r2 gate repair) vs ACCEPTANC
 - Criteria: ACCEPTANCE C1–C8, F1–F3; r1 blocking X45, X22
 
 ## Key Decisions Made
-- [TBD]
+- No B300 use (r1 verifiers already re-scored checkpoints; r2 changed no data)
+- Own 44-mutant harness; verdict APPROVE with nonblocking N1–N4
 
 ## Artifact Index
 - verification/reviewer_FU_D_r2_1/ — probes
 
 ## Review Checklist
-- Items reviewed: [TBD]
-- Verdict: pending
-- Unverified claims: all worker claims
+- Items reviewed: test_fud_r2_guards.py, addendum_01, receipts, verdict path, worker mutation evidence
+- Verdict: APPROVE
+- Unverified claims: none material
 
 ## Attack Surface
-- Hypotheses tested: [TBD]
-- Vulnerabilities found: [TBD]
-- Untested angles: [TBD]
+- Hypotheses tested: δ/joint/gate/stage1/records mutants (44)
+- Vulnerabilities found: R31, R34 (nonblocking, unreachable on shipped data)
+- Untested angles: seed-noise of 1-seed F+ gate (pre-registered)
