@@ -1,4 +1,4 @@
-# Topic 2 card — addendum 06 (2026-11-02 KST = 2026-11-01 ~15:xxZ, worker_M3_r3, written AFTER all results)
+# Topic 2 card — addendum 06 (2026-11-02 KST = 2026-11-01 ~15:45Z, worker_M3_r3, written AFTER all results)
 
 Everything below is post hoc. No governed computation changed: no training, Stage 0, preprocessing, partition or
 verdict computation was rerun to produce a new governed output, and no frozen file was edited (card, architecture
@@ -121,7 +121,40 @@ Legs:
 - **B, new file only**: local DGX-Spark, one pytest at a time.
 - **C, union**: shipped + new, connectome as in A.
 
-<<MUTATION_TABLE>>
+Summary (`verification/worker_M3_r3/mA_shipped_only.out.json`, `m01_new_file_only.out.json`, `mC_union.out.json`,
+`m02_shipped_verdict_invariance.out.json`): the unmutated baseline passes every leg (A 92 passed, B 24, C 116).
+All 20 non-control mutants SURVIVE the full shipped suite (leg A). The new file alone KILLS 19 of them (V01–V11, K1,
+K2, W04–W08, W12), each by the named tests; W09 survives every leg and is equivalent (below). The 3 positive controls
+are killed by the shipped suite (A) and change the shipped verdict bytes, so legs A and D can detect a change. The
+union (C) kills 22 of 24 specs: every non-equivalent mutant plus the 3 controls; only the baseline and W09 survive.
+0 INVALID, 0 malformed edits. Code on connectome = local repo (sha256 of all 40 .py files equal).
+
+| mutant | A shipped 12 files | B new file alone (killing tests) | C union | shipped verdict.json |
+|---|---|---|---|---|
+| _baseline | SURVIVED | SURVIVED | SURVIVED | byte-identical |
+| V01_keep_i1_lo_ge0 | SURVIVED | KILLED: test_i1_lower_bound_must_be_strictly_positive, test_verdict_matches_card_table_on_exhaustive_boundary_grid | KILLED | byte-identical |
+| V02_keep_i2_lo_ge0 | SURVIVED | KILLED: test_i2_lower_bound_zero_gives_modify_not_keep, test_verdict_matches_card_table_on_exhaustive_boundary_grid | KILLED | byte-identical |
+| V03_i1_mean_gt_delta | SURVIVED | KILLED: test_i1_mean_equal_to_delta_qualifies, test_verdict_matches_card_table_on_exhaustive_boundary_grid | KILLED | byte-identical |
+| V04_fminus_le | SURVIVED | KILLED: test_fminus_gate_is_strict_at_delta | KILLED | byte-identical |
+| V05_fplus_strict | SURVIVED | KILLED: test_fplus_gate_is_inclusive_at_delta | KILLED | byte-identical |
+| V06_fminus_downgrades_modify | SURVIVED | KILLED: test_fminus_failure_downgrades_only_keep, test_verdict_matches_card_table_on_exhaustive_boundary_grid | KILLED | byte-identical |
+| V07_missing_fplus_counts_as_pass | SURVIVED | KILLED: test_script_failed_fixture_run_is_not_counted, test_script_missing_fplus_runs_do_not_count_as_a_pass | KILLED | byte-identical |
+| V08_failed_hcp_runs_counted | SURVIVED | KILLED: test_script_failed_hcp_run_blocks_stage1 | KILLED | byte-identical |
+| V09_no_test_order_check | SURVIVED | KILLED: test_script_rejects_differing_test_subject_order | KILLED | byte-identical |
+| V10_failed_fixture_runs_counted | SURVIVED | KILLED: test_script_failed_fixture_run_is_not_counted | KILLED | byte-identical |
+| V11_stop_ignored_when_fplus_fails | SURVIVED | KILLED: test_fplus_failure_is_inconclusive_whatever_i1_shows, test_script_fplus_failure_with_stop_like_stage1_is_inconclusive, test_verdict_matches_card_table_on_exhaustive_boundary_grid | KILLED | byte-identical |
+| CTRL_t_df_n | KILLED | SURVIVED | KILLED | differs (still stop) |
+| CTRL_boot_arm_draws | KILLED | SURVIVED | KILLED | differs (still stop) |
+| CTRL_hcp_4_seeds | KILLED | KILLED: test_script_rejects_differing_test_subject_order | KILLED | differs (still stop) |
+| K1_fminus_gate_uses_C_vs_S | SURVIVED | KILLED: test_fminus_gate_uses_only_the_c_vs_e_contrast | KILLED | byte-identical |
+| K2_keep_uses_I2_mean_not_lower | SURVIVED | KILLED: test_i2_lower_bound_zero_gives_modify_not_keep, test_keep_uses_the_i2_lower_bound_not_its_mean, test_verdict_matches_card_table_on_exhaustive_boundary_grid | KILLED | byte-identical |
+| W04_fminus_also_requires_cs | SURVIVED | KILLED: test_fminus_gate_uses_only_the_c_vs_e_contrast | KILLED | byte-identical |
+| W05_gate_median_not_mean | SURVIVED | KILLED: test_fixture_gates_average_the_seeds | KILLED | byte-identical |
+| W06_i2_flag_ge0 | SURVIVED | KILLED: test_i2_flag_is_strict, test_verdict_matches_card_table_on_exhaustive_boundary_grid | KILLED | byte-identical |
+| W07_fminus_is_False_check | SURVIVED | KILLED: test_fminus_gate_not_known_to_pass_downgrades_keep | KILLED | byte-identical |
+| W08_t_interval_n_lt_1 | SURVIVED | KILLED: test_t_interval_needs_at_least_two_seeds | KILLED | byte-identical |
+| W09_keep_before_stop_order | SURVIVED | SURVIVED | SURVIVED | byte-identical |
+| W12_fminus_pass_none_counts_fail | SURVIVED | KILLED: test_erratum_e3_missing_fminus_runs_leave_keep, test_script_failed_fixture_run_is_not_counted | KILLED | byte-identical |
 
 **W09 is equivalent** on the reachable domain. W09 changes the stop rule to `hi < δ and not I1_survives`.
 `t_interval` returns lo = m − q·se and hi = m + q·se with se ≥ 0 and q > 0, so lo ≤ m ≤ hi (or NaN, where every
@@ -139,8 +172,8 @@ possible verdict-path mutant is killed.
 - The sealed salt `~/.local/share/00IITP-AI_sealed/topic2/dev_subject_salt.txt` matches root's recorded sha256
   (7e5434ab…d02e); mode 0400, directory 0700, parent 0700; not inside any git work tree. The old repo path is gone.
 - The salt, its first and last 12 characters, its upper-case form, base64 and hex encodings: 0 hits in
-  <<N_FILES>> working-tree files (<<N_GB>> GB) and 0 hits in all <<N_BLOBS>> git blobs (`git cat-file --batch-all-objects`,
-  <<N_OBJ>> objects, unreachable ones included).
+  18,301 working-tree files (2.31 GB) and 0 hits in all 1,730 git blobs (`git cat-file --batch-all-objects`,
+  3,212 objects, unreachable ones included; scan run after this addendum was written).
 - The 5 burned hashes occur only in 3 files under `verification/explorer_M3_r1_1/` and in 0 git blobs.
 - Without the sealed salt, 0 of the 5 are recovered over all 10⁶ six-digit names (sha256, sha1, md5 of the bare
   name; sha256 with the public split salt as prefix or suffix, with or without a newline). Positive control: the
@@ -153,7 +186,7 @@ through unsalted or public-salt hashes of six-digit names.
 
 **Residual, disclosed, not closed.** `verification/explorer_M3_r1_1/dev_subjects_BURNED.md` states that the 5 dev
 subjects are "positions 0-4 of the sorted listing" of the B300 staging directory. That statement occurs in
-<<N_POS_FILES>> working-tree files and in <<N_POS_BLOBS>> committed git blobs. Anyone holding the B300 HCP directory listing can
+7 working-tree files (this addendum included) and in 4 git blobs (committed run metadata). Anyone holding the B300 HCP directory listing can
 therefore name the 5 dev subjects without any salt (explorer_M3_r3_3 checked this on B300, in memory). This needs
 off-repo data, as does the positional-token residual of addendum_05 §3 (and the preprocess.log line-order route
 raised by reviewer_M3_r2_1 N2 and auditor_M3_r2_1 N2). It cannot be removed from history without a forbidden git
@@ -163,7 +196,22 @@ challenger_M3_r2_2 p03, found only numeric coincidences).
 
 ## 6. No regression
 
-<<REGRESSION>>
+Outputs in `verification/worker_M3_r3/` (r01–r05, `connectome/`):
+- `tests/topic2_rgpool` full suite with the new file, connectome `srun -p debug`, CUDA hidden: 116 passed (92 shipped
+  + 24 new) before this addendum existed (`connectome/s0_full_suite.log`); it was run once more after this addendum
+  and its receipt were final (`r05_connectome_final_suite.log`; result in the worker_M3_r3 handoff, because this
+  file is pinned before that run). Locally the light files run directly: the new file 24 passed;
+  `test_c4_tokens_r2.py` + `test_outputs_no_ids.py` 11 passed with this addendum present.
+- Old suite 86 (`tests/test_empirical_four_topics.py`, `tests/test_pilot_connectome.py`, `tests/e2e`, STRICT_E2E=1):
+  86 passed. `tests/topic1_lagmotif`: 88 passed.
+- C1 (`sentinel/PROTECTED_HASHES.txt`): 67/67 OK, rc 0.
+- Receipts: `code_sha256_at_freeze.txt` 33/33, `output_sha256_r2.txt` 156/156, `c4_sanitized_sha256.txt` 19/19;
+  `c4_sealed_originals_sha256.txt` 19/19 against root's durable sealed copy
+  (`~/.local/share/00IITP-AI_sealed/topic2/sealed_c4_from_b300`); the old `card_sha256.txt` fails on exactly 2 lines
+  (`hcp_manifest.json`, `split.json`) and the old `output_sha256.txt` on exactly 16 (`stage0_hcp.json` and the 15
+  hcp `run.json`), the expected set disclosed in addendum_05 §2.
+- Shipped verdict: the frozen script rerun on the shipped records writes `verdict.json` byte-identical
+  (59af05e5…af68), verdict `stop`.
 
 ## 7. Carried forward from the r2 verifiers (nonblocking, not changed here)
 
@@ -172,7 +220,7 @@ challenger_M3_r2_2 p03, found only numeric coincidences).
 - addendum_05 §5 says "all 103 mutants"; the count is 102 plus the baseline (challenger_M3_r2_1 N4,
   auditor_M3_r2_1 N5).
 - auditor_M3_r2_1 N3: three training-loop guard tests in `test_pipeline_guards_r2.py` skip when CUDA is visible.
-  Every r3 suite run here hid CUDA.
+  The r3 full-suite runs (connectome) hid CUDA.
 - reviewer_M3_r2_1 N6 / challenger_M3_r2_2: `test_c4_tokens_r2.py` scans only `results/topic2/2026-11-01` and this
   directory, not `verification/` or the run metadata; the whole-tree count scan of §5 stands in for it.
 - `scripts/topic2_c4_sanitize.py` and `scripts/topic2_c4_seal_check.py` are not run by any test.

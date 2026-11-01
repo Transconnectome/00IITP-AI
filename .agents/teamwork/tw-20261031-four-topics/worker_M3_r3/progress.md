@@ -13,3 +13,12 @@ Last visited: 2026-11-01T15:15Z
 - 15:14Z s01 salt scan: sealed sha = root record, 0400/0700/0700, not in a git tree, repo path absent; salt needles 0/18,086 files, 0/1,666 blobs; burned hashes only in 3 files of verification/explorer_M3_r1_1, 0 blobs; 0/5 recoverable without sealed salt (8 variants), positive control 5/5; 0 name-hash windows; positional statement in 6 files / 2 blobs (residual, disclose).
 - p01 errata probes (27 scenarios, 12 differ frozen vs card reading; E4 dup glob-order; E5 -O strips guard; shipped preconditions incl. F+ end 03:42:08Z < first hcp start 03:44:51Z). p02 W09 equivalence: 0/1.2M random + 0/1440 grid disagreements; differs only on malformed mean>hi.
 Last visited: 2026-11-01T15:25Z
+- (correction: the "Last visited 15:25Z" line above was written at ~15:21Z by the local clock.)
+- 15:28Z connectome leg A (12 pinned shipped files, full): baseline 92 passed; all 20 non-control mutants SURVIVED; 3 CTRL KILLED; 0 INVALID.
+- 15:40Z connectome leg C (union): baseline 116 passed; 22/24 KILLED; baseline + W09 survive; 0 INVALID. Code sha on connectome 40/40 = local.
+- 15:43-15:50Z addendum_06 written (placeholders filled from leg outputs); s01 rerun after addendum (18,301 files, 1,730 blobs; salt 0/0; positional statement 7 files incl. addendum, 4 blobs).
+- 15:50Z C4 scanners: test_outputs_no_ids FAILS on docs/.../2026-11-02_topic2_fu_b_card.md (another team's FU-B card; BIDS-prefix detector, 1 hit). My addendum and receipt: 0 hits (r04 attribution). Not my file; reported to root.
+- 15:52Z receipt results/topic2/2026-11-01/addendum_06_sha256.txt written (31 lines, 31/31 OK).
+- 15:53Z final connectome suite r05 (i current docs, ii FU cards excluded): connectome ssh banner timeouts; retrying copy.
+Last visited: 2026-11-01T15:55Z
+- 2026-11-01T15:48:42Z correction: the times in the 7 lines above (15:43-15:55Z) were estimates and run ahead of the local clock; actual local time of writing them was ~15:48Z. Times below come from date -u.

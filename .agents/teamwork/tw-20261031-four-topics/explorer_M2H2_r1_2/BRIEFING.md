@@ -27,14 +27,19 @@ Explorer 2 of 3 for milestone M2H2 (Topic 3 random-init control H2; ACCEPTANCE H
 ## Investigation State
 - **Explored paths**: card, provenance, result report, addenda 01-06; VRABES/RemissionAnalysis/extract_vrabes_swift_E192.sh; VRABES/swift_extraction_code (snapshot of perlmutter extraction code); SwiFT_v2 commit cd87338 (seungju_perlmutter tip); connectome /storage/bigdata/VRABES/{03_MNI_to_TRs,04_embedding,05_pooled_embedding}; Slurm/QoS on connectome; scripts/topic3_token_job.py; src/topic3_spectral.
 - **Key findings**: (1) local SwiFT_v2 HEAD ver11 is NOT the extraction function (default flags differ by O(1); legacy flags still differ ~1e-3 rel in attention); use cd87338 ver11. (2) trained ckpt has all 567 encoder keys (17 missing = decoder/mask only). (3) random-init on time-static synthetic input already gives token PR <= 7 at L2/L3 (~5.8-6.3), near the trained real medians -> ceiling/input-structure confound for token-level H2. (4) frozen token job writes per-subject pooled vectors into its npz -> must not be copied back under the H2 rule. (5) node1 is the only up GPU node (8xA5000), limit_qos 4 GPU/user, homes node-local.
-- **Unexplored areas**: GPU timing for a full 57-subject pass (peers measured 0.27 s/window); uv/py3.12 venv build outcome.
+- **Unexplored areas**: full 57x7 replication (worker gate); deep-arch random init; peers' handoffs (not read, independence).
 
 ## Key Decisions Made
-- No own GPU smoke: peers explorer_M2H2_r1_1 (job 218004) and _r1_3 already ran the trained-dump replication smoke on connectome; a third would duplicate. CPU synthetic probes instead.
+- Ran one distinct GPU smoke (job 218041, 0.021 GPU-h): 3 positions x 7 windows via DataLoader + frozen subject_summary stats-level replication (peers did dump-level at 1-2 windows).
+- Probe venv on connectome deleted after use; recipe kept in verification/explorer_M2H2_r1_2/smoke/build_env_connectome.sh.
+- Handoff complete: handoff.md (Hard).
 
 ## Artifact Index
 - verification/explorer_M2H2_r1_2/probes/probe_ver11_cpu.py (+ .out.json, .log) — random-init ver11 on synthetic input; code-version equivalence
 - verification/explorer_M2H2_r1_2/probes/probe_ver11_localize.py (+ .out.txt) — where local HEAD ver11 departs
 - verification/explorer_M2H2_r1_2/probes/probe_fixtures_cpu.py (+ .out.json) — fixture margins
 - verification/explorer_M2H2_r1_2/probe_pkg/swift_cd87338/ — git archive of cd87338 project/module/models (read-only copy)
-- connectome:/home/connectome/connectome1/iitp4_m2h2/explorer_M2H2_r1_2/ — probe venv build (to be removed)
+- connectome:/home/connectome/connectome1/iitp4_m2h2/explorer_M2H2_r1_2/ — only build_env.sh + logs left (venv removed)
+- verification/explorer_M2H2_r1_2/smoke/{h2x2_smoke.py,h2x2_smoke.sbatch,smoke_218041.json,pinned_primary_scalars.npz,build_env_connectome.sh}
+- verification/explorer_M2H2_r1_2/probes/probe_bgz_connectome.py (+ .out.txt)
+- .agents/.../explorer_M2H2_r1_2/handoff.md — final report
