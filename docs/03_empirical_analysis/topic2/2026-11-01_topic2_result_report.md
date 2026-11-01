@@ -1,11 +1,29 @@
 # Topic 2 (M3) result report: connectome box grouping at SwiFT ver11's first merge
 
-Date: 2026-11-01. Author: worker_M3_r1, run tw-20261031-four-topics. Governing card: `2026-11-01_topic2_card.md` (sha256 `c9bfc60a…41f5`, frozen 03:14:34Z, before any real-data statistic). Deviations and post-freeze additions: `2026-11-01_topic2_addendum_01.md` and `_02.md`.
+Date: 2026-11-01. Author: worker_M3_r1, run tw-20261031-four-topics. Governing card: `2026-11-01_topic2_card.md` (sha256 `c9bfc60a…41f5`, frozen 03:14:34Z, before any real-data statistic). Deviations and post-freeze additions: addenda `_01` (files added after freeze), `_02` (under-specifications, written before Stage 1 finished), `_03` (joint-reading ambiguity, after partial results) and `_04` (post hoc, after all results).
 All numbers below come from this run's dated outputs in `results/topic2/2026-11-01/` (C8). None are taken from `EMPIRICAL_ANALYSIS_REPORT.md`.
 
 ## 0. Verdict
 
-STAGE1_VERDICT_PLACEHOLDER
+**`stop` (killed) under the frozen card.** At SwiFT ver11 E36 (SimMIM, 140k samples, HCP-YA REST1_LR, 64 train / 16 test subjects, 5 seeds), replacing PatchMergingV2's 2×2×2 cubes at M0 with connectome boxes does **not** give a practically relevant reduction in held-out masked NMSE.
+
+**Practical claim, I1 = (E−C)/E.**
+- Mean +0.15 %, 95 % t interval [−0.07 %, +0.36 %] (df 4).
+- The upper bound is below δ = 1 %. δ was set by the worker, not the PI.
+- The hierarchical bootstrap gives [+0.02 %, +0.29 %]. It resolves a gain that is positive but sub-δ; this does not change the category.
+
+**Connectome-specific claim, I2 = (S−C)/S.**
+- Mean +0.47 %, interval [+0.001 %, +0.95 %].
+- Connectome boxes beat the distance-binned FC-shuffle null, but only by a small margin.
+- Addendum 04: one S run (seed 2) never left the trivial solution. Without it, I2 = +0.31 % [+0.16 %, +0.45 %] (post hoc), and the verdict is unchanged.
+
+**Gates.** Both training-loop fixture gates passed (§2.2).
+
+**What "stop" covers.** It applies to this pilot's target, model size and budget. Every arm reconstructs only about 1 % of the masked per-voxel variance (NMSE ≈ 0.987–0.992; §3, addendum 02 §3). "Stop" means that within this setting the M0 grouping is worth less than 1 % of NMSE. It does not show that connectome grouping can never help. §7 gives costed options for a more sensitive test.
+
+**Readings that agree with the kill.**
+- Stage 0 (descriptive): C keeps about as much mean within-box correlation as the cubes, but a clearly smaller 2-component share (§4).
+- The dev-subject exploratory evidence predicted this outcome (card §0).
 
 ## 1. T2.1 — where ver11 merges space (code, not docs)
 
@@ -44,7 +62,7 @@ The full text is in `2026-11-01_topic2_architecture.md`; tests pin it.
 - Boxes are placed on output cells by Hungarian matching of centroids; cells go to child slots by a canonical Hungarian slot order.
 - C uses dense-core, mean-linkage balanced growth in correlation distance on the train-only group FC. This is a named deviation from Song 2005 box covering: a fixed size instead of a fixed diameter.
 
-**Tests:** `tests/topic2_rgpool/`, TESTCOUNT_PLACEHOLDER tests.
+**Tests:** `tests/topic2_rgpool/`, 55 tests (54 pass and 1 runs only once the B300 ID scan file is present; it passed after the final scan, see §5).
 - Shapes and stage table.
 - Bijection and octant locality.
 - Box content and slot order, permutation equivariance, time locality, gradient flow.
@@ -91,7 +109,56 @@ Twelve runs on B300: arms E, C and S × seeds 0 and 1 × fixtures F+ and F−. E
   - **The gate says nothing about sensitivity on real 2 mm BOLD.** Voxel noise dominates the reconstruction target there (§3), and that gap is a limit of the G6 design.
 - **F−.** With FC that is a function of distance only, connectome boxes do *worse* than PatchMergingV2's cubes, by 1.7 %, and tie with the null. The pipeline therefore does not manufacture an advantage for C.
 
-STAGE1_PLACEHOLDER
+## 3. T2.3 — Stage 1 pilot on B300 (card §5–§8)
+
+There were 15 runs: arms E, C and S × seeds 0–4. Every run used the same constructor path, the same data order, the same training and evaluation masks, and the same budget. Records are in `results/topic2/2026-11-01/runs/hcp_*/run.json`; the verdict file is `results/topic2/2026-11-01/verdict.json`, produced by `scripts/topic2_verdict.py` (frozen).
+
+### 3.1 Primary: test NMSE per seed (16 test subjects × 60 windows, fixed masks)
+
+| seed | E | C | S | I1 = (E−C)/E | I2 = (S−C)/S |
+|---|---|---|---|---|---|
+| 0 | 0.99087 | 0.98855 | 0.99096 | +0.23 % | +0.24 % |
+| 1 | 0.98759 | 0.98690 | 0.98982 | +0.07 % | +0.29 % |
+| 2 | 0.99262 | 0.98862 | 1.00000 | +0.40 % | +1.14 % |
+| 3 | 0.98669 | 0.98704 | 0.98949 | -0.03 % | +0.25 % |
+| 4 | 0.98685 | 0.98623 | 0.99060 | +0.06 % | +0.44 % |
+| mean | 0.98892 | 0.98747 | 0.99218 | +0.15 % | +0.47 % |
+
+| contrast | mean | 95 % t interval (df 4) | hierarchical bootstrap 95 % | δ |
+|---|---|---|---|---|
+| I1 (C vs E, practical) | +0.15 % | [-0.07 %, +0.36 %] | [+0.02 %, +0.29 %] | +1.00 % |
+| I2 (C vs S, connectome-specific) | +0.47 % | [+0.00 %, +0.95 %] | [+0.26 %, +0.82 %] | > 0 |
+
+Absolute differences in seed-mean NMSE: E − C = +0.00146; S − C = +0.00471.
+
+**Verdict rule applied (card §8):** `stop`. upper 95% bound of I1 < delta: practical gain over PatchMergingV2 excluded (killed)
+
+### 3.2 Validation learning curves (8 VAL subjects; mean over 5 seeds; health check only)
+
+| step | 2188 | 4375 | 6562 | 8750 |
+|---|---|---|---|---|
+| E | 0.9962 | 0.9921 | 0.9912 | 0.9910 |
+| C | 0.9935 | 0.9911 | 0.9900 | 0.9898 |
+| S | 0.9980 | 0.9949 | 0.9939 | 0.9936 |
+
+### 3.3 Joint reading with Stage 0 (card §9; the readings are given for all combinations, see addendum 03)
+
+| Stage-0 metric (C>E?) | Stage-1 reading (C>E?) | reading |
+|---|---|---|
+| r (True) | point estimate (C NMSE < E NMSE: True) | supported |
+| r (True) | verdict category keep/modify (False) | mechanism not exploited by training |
+| pca2 (False) | point estimate (C NMSE < E NMSE: True) | effect without the stated mechanism |
+| pca2 (False) | verdict category keep/modify (False) | consistent with killed |
+
+### 3.4 Post hoc re-expression (not part of the card; does not change the verdict)
+
+Explained masked variance 1 − NMSE (seed mean): E 0.0111, C 0.0125, S 0.0078. In these units C − E = +0.0015 (absolute), which is +13.1 % of E's explained variance. The card's δ is defined on NMSE, not on explained variance; the absolute ΔNMSE above is the governed quantity.
+
+
+**Stalled run.** `hcp_S_s2` stayed at the trivial solution for the whole budget (test NMSE 1.0000). Under card §5 it is a valid run, not a software failure. Addendum 04 gives the post hoc sensitivity without seed 2:
+- I1 = +0.08 % [−0.10 %, +0.26 %];
+- I2 = +0.31 % [+0.16 %, +0.45 %];
+- verdict: still `stop`.
 
 ## 4. Stage 0 (descriptive only; card §9, Option B)
 
@@ -129,13 +196,15 @@ Paired-subject bootstrap 95 % CIs (16 subjects):
 - No other user's process was touched.
 - The environment is project-local at `/scratch/iitp4/worker_M3_r1/venv`; recipe and lock: `scripts/b300_env/`.
 
-**Ledger.** Every launch has a "started" and a "completed" row in `results/gpu_ledger_2026-10-31.md`. GPU_TOTAL_PLACEHOLDER
+**Ledger.** Every launch has a "started" and a "completed" row in `results/gpu_ledger_2026-10-31.md`. worker_M3_r1 used **11.73 GPU-h**: smoke 0.04, fixture gate and Stage-1 waves 3.41, 3.43, 3.50 and 1.35 (`results/topic2/2026-11-01/gpu_hours_m3.txt`). This is within the M3 sub-cap of 14 GPU-h and the run cap of 64. All ledger rows across the run total 11.87 GPU-h, which includes the two explorers' 0.14.
 
 **Data movement.**
 - HCP never left B300.
 - Only aggregate results came back: run records with per-subject pseudonymous error terms, partitions, and Stage-0 summaries.
 - No ENIGMA data or ENIGMA-derived file was used, and `~/enigma_ocd` was never listed or read.
 - The B300 node-time comes out of the SwiFT-7T allocation.
+
+**C4 leak scan** (`scripts/topic2_id_scan.py`, run on B300). The 1,084 HCP directory names were held in memory only. The scan covered 175 text files: all of `results/topic2/2026-11-01/`, `docs/03_empirical_analysis/topic2/`, `verification/worker_M3_r1/`, the worker metadata, and the Topic 2 code and tests. **0 hits** (`results/topic2/2026-11-01/id_scan_b300.json`). The adjudication rule was fixed before the first scan (addendum 01).
 
 ## 6. Limitations and caveats
 
