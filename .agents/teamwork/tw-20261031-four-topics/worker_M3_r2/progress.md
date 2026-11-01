@@ -1,5 +1,5 @@
 # progress — worker_M3_r2
-Last visited: 2026-11-01T09:09:37Z
+Last visited: 2026-11-01T09:20:43Z
 - 07:15Z DISPATCH.md written byte-for-byte from own transcript (count scan: 1 six-digit = 48^3 constant, 4 hex16 = float digits).
 - 07:20Z read role/runtime/adapter, ORIGINAL_REQUEST, ACCEPTANCE, orchestrator (no R1/R2 ruling, no durable sealed dir), explorer r2 handoffs, code.
 - 07:24Z advisor consulted: R1 positional, fail-closed sequence (preflight -> seal -> sanitize in scratch -> verify -> replace).
@@ -24,3 +24,6 @@ Last visited: 2026-11-01T09:09:37Z
 - 08:52Z output_sha256_r2.txt (156 lines) written; seal_check repo all_ok (R1-R5); audit_layout PASS 249 files; C1 67/67; freeze 33/33.
 - 09:01Z final B300 CPU run on final bundle: 92 passed; frozen ID scan 1084 names, 193 files, 0 hits; B300 code = repo.
 - 09:06Z scratchpad removed; B300 stale copies removed (sealed_c4, check, final, mutout, pydeps kept); no leftover processes.
+- 09:15Z prev_versions recovered from tool-input bytes; b300_final.sh and v3 JSON fetched; C5 CPU-placement deviation recorded (handoff + addendum §7).
+- 09:20Z addendum_05 last edit; output_sha256_r2.txt regenerated (bc55fa0e…); r2 pins 156/156; seal_check repo OK; light local tests 25 passed.
+- 09:22Z closing checks (audit_layout, C1, code freeze) run as the final actions.

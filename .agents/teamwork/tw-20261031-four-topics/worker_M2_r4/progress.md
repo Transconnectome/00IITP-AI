@@ -29,3 +29,4 @@ Last visited: 2026-11-01T08:56Z
 - 09:06Z launched v2b (gate 15.5 GiB, same runner v2, new log names): 18 pending named, then 151 union.
 - Pre-checks (non-pytest): C1 67 OK; receipts output 42 / ad02 1 / ad03 3 / ad04 2 / ad05 3 OK; code_sha256_at_freeze: only topic3_launch_connectome.py differs (pre-existing, addendum 01 item 2).
 Last visited: 2026-11-01T09:07Z
+Last visited: 2026-11-01T09:29:08Z (v2b named running)

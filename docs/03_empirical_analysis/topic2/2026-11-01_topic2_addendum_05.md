@@ -1,4 +1,4 @@
-# Topic 2 card — addendum 05 (2026-11-01, worker_M3_r2, written ~08:20Z, AFTER all results)
+# Topic 2 card — addendum 05 (2026-11-01, worker_M3_r2, written ~08:20Z, last edited ~09:20Z, AFTER all results)
 
 Everything below is post hoc. No governed computation changed: no training, no Stage 0, no preprocessing and no
 partition was rerun, no frozen file was edited (card, architecture note, result report, addenda 01–04,
@@ -223,8 +223,11 @@ all killed by `test_c4_tokens_r2.py`.
 ## 7. Compute, and items for root
 
 - r1's four training waves (03:16–05:09Z, 11.7 GPU-h) were launched directly on idle GPUs before B300 ran Slurm
-  (RESUME addendum 3). r2 used 0 GPU-h; B300 CPU was used for the sealed-root check and the mutation run (CUDA
-  hidden, nice, 6 processes on a 224-core node).
+  (RESUME addendum 3). r2 used 0 GPU-h. B300 .98 CPU (CUDA hidden, nice, at most 6 processes on a 224-core node,
+  no Slurm job) was used for the sealed-root check, the mutation runs v2/v3, the final 92-test suite and the final
+  ID scan. This departs from ACCEPTANCE C5's placement of CPU jobs (local DGX-Spark or connectome): local runs were
+  SIGTERMed by earlyoom under host memory pressure from other workloads, and connectome did not answer at the
+  time. pytest 8.4.2 was added in a project-local `--target` directory (`scripts/b300_env/mutation_pytest_pydeps.sh`).
 - Root actions: (1) a durable copy of `/scratch/iitp4/worker_M3_r2/sealed_c4` outside every git repository before
   the VM stops; (2) the explorer salt `verification/explorer_M3_r1_1/dev_subject_salt.txt` (outside this worker's
   ownership, untouched; a copy also sits in `/scratch/iitp4/worker_M3_r1/code/scripts/`); (3) a ruling on this

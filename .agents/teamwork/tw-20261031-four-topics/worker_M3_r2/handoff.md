@@ -1,6 +1,6 @@
 # handoff — worker_M3_r2 (M3 / Topic 2, iteration 2 = last iteration) — Hard
 
-Written 2026-11-01 ~09:00Z. Parent: root coordinator. Host: claude-code subagent (agent id a1d166b45da8b59da,
+Written 2026-11-01 ~09:00Z, last edited ~09:23Z. Parent: root coordinator. Host: claude-code subagent (agent id a1d166b45da8b59da,
 workflow wf_5bb8fefb-ae0). GPU used: 0 GPU-h (no ledger row). Git writes: none. Installs on DGX-Spark: none.
 No subject token, content hash, file size, salt or HCP ID is written in any file of mine (count-only scans).
 
@@ -22,7 +22,7 @@ No subject token, content hash, file size, salt or HCP ID is written in any file
   Before overwriting: in a scratchpad mirror the frozen `scripts/topic2_verdict.py` reproduced `verdict.json`
   byte-identically (59af05e5…caf68) and stdout = `logs/verdict_stdout.txt`; the 55 shipped tests passed.
 - **Replace** (07:33Z) via same-dir temp + `os.replace`. New pins `results/topic2/2026-11-01/c4_sealed_originals_sha256.txt`
-  (sha 18d661bf…7570), `c4_sanitized_sha256.txt` (7a4cceab…b87ca), `output_sha256_r2.txt` (f463fbe7…0876, 156 lines).
+  (sha 18d661bf…7570), `c4_sanitized_sha256.txt` (7a4cceab…b87ca), `output_sha256_r2.txt` (bc55fa0e…616d, 156 lines; regenerated after the last addendum edit).
 - **Seal checker** `scripts/topic2_c4_seal_check.py`: repo mode all_ok (R1 19/19; R2 33 old-pin lines pass, exactly 18
   fail and each equals its sealed-original hash; R3 embedded provenance = originals; R4 tokens consistent, manifest
   fields [T, pseudonym, qc]; R5 output_sha256_r2 passes) → `verification/worker_M3_r2/final_seal_check_repo.json`.
@@ -58,7 +58,10 @@ No subject token, content hash, file size, salt or HCP ID is written in any file
 - **Final ID scan on B300** (frozen `scripts/topic2_id_scan.py`, 1084 HCP directory names in memory) over the final
   results/docs/scripts/tests/src copies plus my verification and metadata dirs: 193 text files, 0 hits
   (`final_b300_id_scan_r2.json`).
-- **Addendum** `docs/03_empirical_analysis/topic2/2026-11-01_topic2_addendum_05.md` (pinned in output_sha256_r2.txt).
+- **Addendum** `docs/03_empirical_analysis/topic2/2026-11-01_topic2_addendum_05.md` (sha aa07dd54…c6e5, last edited ~09:20Z,
+  pinned in output_sha256_r2.txt). After that edit: r2 pins 156/156 rc 0; seal_check repo rc 0; the docs-scanning and
+  verdict tests run locally (test_c4_tokens_r2, test_outputs_no_ids, test_verdict_path_guards_r2, test_stats): 25 passed
+  (`final_tests_topic2_light_local.txt`).
 - Facts used in it, re-measured: PI_DECISIONS first commit a06f435 2026-11-01T03:01:27Z; card first commit 51609c1
   03:16:27Z (freeze 03:14:34Z); SOURCE.md:12 cites a nonexistent test; hcp_S_s2 100-step loss means 1.0561 at step
   100, 0.9978–1.0036 after; dispersion E 0.784, G 1.112, C 1.469, S 1.557–1.674, R 2.457 (recomputed = json);
@@ -101,8 +104,18 @@ No subject token, content hash, file size, salt or HCP ID is written in any file
   were terminated (exit 143/144), nothing else.
 - The explorer salt (`verification/explorer_M3_r1_1/dev_subject_salt.txt`, and its B300 copy under
   `/scratch/iitp4/worker_M3_r1/code/scripts/`) is outside my ownership/scope and untouched.
-- B300 CPU use (sealed check, mutation run v2/v3, final suite + ID scan) was direct, niced, CUDA hidden, ≤ 6
-  processes on a 224-core node; no GPU, no Slurm job (RESUME addendum 3 restricts GPU use only).
+- **C5 deviation (CPU placement).** ACCEPTANCE C5 puts CPU jobs on local DGX-Spark or connectome. The mutation runs
+  v2/v3, the final 92-test suite, the dispersion recompute, the sealed-root check and the final ID scan ran directly
+  on the B300 .98 CPU instead (niced, CUDA hidden, ≤ 6 processes on a 224-core node; 0 GPU-h; no Slurm job). Reasons:
+  local runs were SIGTERMed by earlyoom (host memory, other workloads; `local_topic2_suite_earlyoom_journal.txt`);
+  `ssh connectome` timed out in my own attempt at ~08:5xZ; explorer_M3_r1_1 reported that connectome node1 rejects
+  CPU-only jobs and node4 lacks numpy (not re-verified by me). The sealed-root check has to run next to the
+  originals anyway. For the test runs I installed pytest 8.4.2 into a project-local `--target` dir
+  (`/scratch/iitp4/worker_M3_r2/pydeps`, recipe `scripts/b300_env/mutation_pytest_pydeps.sh`) and used the
+  existing project-local venv `/scratch/iitp4/worker_M3_r1/venv` unchanged.
+- **Prior versions** of my own files changed after a failed/incomplete run are in `verification/worker_M3_r2/prev_versions/`
+  (recovered from my tool-input bytes, sha256 listed): c4_token_scan.py v1, test_verdict_path_guards_r2.py v1 (byte-
+  wise verdict test that failed on B300), test_pipeline_guards_r2.py v1 (suite used by mutation v2).
 
 ## 4. Conclusion
 
@@ -135,6 +148,9 @@ CUDA_VISIBLE_DEVICES="" STRICT_E2E=1 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=$PWD /
 # B300 61.107.201.98 (pins are tokenless; copies are in /scratch/iitp4/worker_M3_r2/check/pins):
 cd /scratch/iitp4/worker_M3_r2/check && python3 -B scripts/topic2_c4_seal_check.py sealed --sealed /scratch/iitp4/worker_M3_r2/sealed_c4 --pins pins
 # mutation (CPU, B300): scripts/b300_env/mutation_pytest_pydeps.sh, then verification/worker_M3_r2/mutation/run_mutants_r2.py
+# full suite + ID scan on B300 (CPU, CUDA hidden): verification/worker_M3_r2/b300_final.sh (bundle = tokenless repo copy at
+#   /scratch/iitp4/worker_M3_r2/final/repo; venv /scratch/iitp4/worker_M3_r1/venv; pytest from /scratch/iitp4/worker_M3_r2/pydeps)
+# NOTE: a local full-suite run ending with rc 143 / 'Terminated' is earlyoom (check journalctl -u earlyoom), not a test failure.
 ```
 Invalidated if: any of the 19 sanitized files, the new pins, the frozen code or verdict.json changes; the sealed
 files on B300 change or disappear; a commit containing an original token appears.
