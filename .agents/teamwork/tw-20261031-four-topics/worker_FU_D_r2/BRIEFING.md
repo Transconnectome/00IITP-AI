@@ -32,3 +32,16 @@ FU_D iteration 2: close the r1 gate failure (X45 δ unpinned, X22 joint-reading 
 
 ## Artifact Index
 - DISPATCH.md, progress.md, handoff.md (this dir)
+
+## Change Tracker
+- NEW tests/topic2_fu_d/test_fud_r2_guards.py (66 tests) — δ pins, joint-reading pins, shipped-verdict regression, shipped invariants, record/verdict/wrapper guards, belt.
+- NEW docs/03_empirical_analysis/topic2/2026-11-02_topic2_fu_d_addendum_01.md — errata E1–E4, W1–W3, tests, mutation evidence, no-regression.
+- NEW results/topic2/2026-11-02_fu_d/addendum_01_sha256.txt (23 lines).
+- NEW verification/worker_FU_D_r2/{mutation/*, final/*, c4_scan_r2.py, c4scan_r2_paths_after_receipt.json}.
+- No existing file changed (prev_snapshot empty).
+
+## Quality Status
+- All suites green (see progress.md). Mutation: 0 non-equivalent survivors after final rerun.
+
+## Loaded Skills
+- sci-pipeline (/home/juke/.claude/skills/sci-pipeline/SKILL.md): not dumped; applied its rules (frozen card governs, deviations in dated addenda, verdict taxonomy unchanged).

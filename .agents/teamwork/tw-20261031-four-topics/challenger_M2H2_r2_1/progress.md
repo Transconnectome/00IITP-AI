@@ -17,3 +17,8 @@ Last visited: 2026-11-01T20:22Z
 - 20:25Z gate record numbers (G1-G5) re-read: match report §1.
 - 21:02Z fresh mutants 34/51 done; survivors so far are guard/defensive or in-job descriptive paths (F06, F07, F20, F21, F22, F42, F53, F55, ...). Waiting.
 Last visited: 2026-11-01T21:03Z
+- 21:35Z fresh mutants done: 45 fresh -> 20 KILLED / 25 SURVIVED (guards, in-job flags, governance filters; none label-changing on shipped code); r1 sample 6/6 survive shipped8 and killed by new4.
+- 21:37Z production-tree suites: tests/topic3_h2 167 passed, tests/topic3_spectral 138 passed; git status unchanged; output_sha256 rc 0; C1 rc 0.
+- 21:38Z copied trees deleted; probe hashes logged; audit_layout findings [] (613 files).
+- 21:40Z handoff.md written. Verdict CONFIRMED with nonblocking N1-N3.
+Last visited: 2026-11-01T21:40Z

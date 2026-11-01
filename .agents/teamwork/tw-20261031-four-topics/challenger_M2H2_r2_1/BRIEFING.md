@@ -23,7 +23,7 @@ Empirically challenge the M2H2 (Topic 3 H2 random-init control) iteration-2 work
 
 ## Current Parent
 - Conversation ID: root 5fddb83e
-- Updated: not yet
+- Updated: 2026-11-01T21:40Z (handoff written; verdict CONFIRMED)
 
 ## Review Scope
 - Files: src/topic3_h2/*, scripts/topic3h2_*.py, tests/topic3_h2/* (4 new r2 files), results/topic3/2026-11-02_h2/** incl. r2/addendum_08, docs topic3 addendum_07 + result report
@@ -34,9 +34,9 @@ Empirically challenge the M2H2 (Topic 3 H2 random-init control) iteration-2 work
 - Prioritise local recomputation + fresh mutants over GPU rerun (r1 verifiers already reran seeds 1,3,4,7,8)
 
 ## Attack Surface
-- Hypotheses tested: [TBD]
-- Vulnerabilities found: [TBD]
-- Untested angles: [TBD]
+- Hypotheses tested: freeze-before-results (holds); verdict follows §6 (holds, 24/24 independent); numbers (hold); r1 class closure (holds, 6/6 sample); fresh mutants 45 (20 killed)
+- Vulnerabilities found: N1 two stats-script guards untested (F20, F24) + job/launcher guards; N2 E1 'closest label' wrong (C2 nearer); N3 final lacks index-set identity guard — all nonblocking
+- Untested angles: GPU rerun of seeds 2,5,6,9,10; trunc_normal clamp effect; old86/topic1 suites
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md — read in place (no local copy; metadata dir holds md only)

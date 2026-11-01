@@ -18,7 +18,7 @@ Empirically challenge worker_FU_C_r2 (FU-C iteration 2, C4 remediation): verify 
 
 ## Current Parent
 - Conversation ID: root 5fddb83e
-- Updated: not yet
+- Updated: 2026-11-01T21:40Z (unchanged)
 
 ## Review Scope
 - Files: src/topic2_fu_c/, tests/topic2_fu_c/, scripts/topic2fu_c_*.py, results/topic2/2026-11-02_fu_c/, docs/03_empirical_analysis/topic2/2026-11-02_topic2_fu_c_*.md
@@ -26,12 +26,14 @@ Empirically challenge worker_FU_C_r2 (FU-C iteration 2, C4 remediation): verify 
 - Criteria: C4 closure, receipt supersession integrity, verdict reproducibility, test strength
 
 ## Key Decisions Made
-- No GPU planned (verdict recomputation from saved run records is CPU-only)
+- No GPU used (0 GPU-h, no ledger rows)
+- Verdict REFUTED (narrow): worker product confirmed; C4 not closed in repo until root contains explorer_FU_C_r2_2/tree
+- Copied tree removed after mutation runs
 
 ## Attack Surface
-- Hypotheses tested: [TBD]
-- Vulnerabilities found: [TBD]
-- Untested angles: [TBD]
+- Hypotheses tested: receipt supersession exactness; derived view = orig minus 13/16; byte-identical verdict; independent I1/I2; errata numbers; literal footprint (worktree+git); near-copy recoverability; wide B300 membership; union mutants; 25 own r2-code mutants; driver fail-closed; tripwire edge cases
+- Vulnerabilities found: peer near-copy verification/explorer_FU_C_r2_2/tree/... recoverable (C4, root action); r2 test gaps S07/S01/D01/D02, c4scan blind spots (nonblocking)
+- Untested angles: transcripts/off-repo copies; unrelated binary blobs in git
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md — read in place (no local copy needed: metadata-only folder); core: frozen card before results, synthetic ground truth, run records, verdict taxonomy
