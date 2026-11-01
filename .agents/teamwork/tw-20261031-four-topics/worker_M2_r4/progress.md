@@ -18,3 +18,7 @@ Last visited: 2026-11-01T08:02Z
 - 08:19Z tree_base_r4 built (123 files, manifest OK vs production); union list == FULL_v2 (151 ids, identical triples, same source sha). Evidence batch launched (bin/run_evidence.sh): named set then union, full 138-test suite, 2 jobs.
 Last visited: 2026-11-01T08:20Z
 Last visited: 2026-11-01T08:27:53Z (evidence batch running: named set)
+Last visited: 2026-11-01T08:38:30Z (named set running; earlyoom INVALIDs to rerun later)
+- 08:27–08:38Z earlyoom (host memory ~9-10% available, other workloads: agy 19.6 GB etc.) SIGTERMed 5 named jobs (rc -15) -> INVALID, never counted as kills. journalctl -u earlyoom shows the SIGTERMs.
+- 08:42Z wrote bin/retry_invalid.py + bin/run_retries_after_batch.sh (waits for "union rc=" then reruns INVALID jobs per set, up to 4 rounds, new log names per round); launched in background.
+Last visited: 2026-11-01T08:43Z
