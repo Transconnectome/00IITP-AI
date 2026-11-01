@@ -23,3 +23,8 @@ Last visited: 2026-11-01T17:36:48Z (F+ gate queued)
 Last visited: 2026-11-01T18:05:19Z (gate running, ~1.19 h/run projected)
 Last visited: 2026-11-01T18:26:25Z (gate running)
 Last visited: 2026-11-01T18:57:55Z (gate running)
+- 19:04Z gate jobs 534/535/536 COMPLETED (1.175/1.180/1.180 GPU-h), closed + copied back (C4 scan 0 hits).
+- 19:08Z verdict.json: INCONCLUSIVE (F+ gate failed at E192: (E-C)/E=+0.363%, (S-C)/S=+0.655% < delta 1%). Stage 1 not run (card §8 step 2); no seed plan; no F-.
+- 19:20Z result report written; output_sha256.txt (34 files) rc 0; FU-D tests 129 passed; old 86 passed; C1 rc 0; local C4 scan 0 hits; handoff.md written.
+- No FU-D jobs open on B300; /scratch/iitp4/fu_d kept (venv, view, 3 gate checkpoints).
+Last visited: 2026-11-01T19:26Z — DONE

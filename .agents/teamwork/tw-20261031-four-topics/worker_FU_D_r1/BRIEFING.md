@@ -1,4 +1,4 @@
-# BRIEFING — 2026-11-01T16:20Z
+# BRIEFING — 2026-11-01T19:26Z
 
 ## Mission
 FU_D: Topic 2 follow-up D — SwiFT ver11 E192 (d2-2-18-2) at the r1 budget (140k samples), arms E/C/S, new dated
@@ -44,11 +44,14 @@ frozen card, own code/tests/verdict, Slurm runs on B300 within the 25 GPU-h cap,
 - Positional hard-link view /scratch/iitp4/fu_d/hcp (88 subj, 176 links, same inode).
 - Order: smoke job (equiv + HCP cost) -> F+ gate (3 jobs) -> seed_plan.json -> Stage 1 (3n) -> F- if would-be keep -> verdict -> report.
 - QoS: whole Slurm user capped at 8 GPUs; queue is crowded (FU-A/B/C, GARD, t3).
+- OUTCOME: F+ gate failed at E192 (+0.36% / +0.65% < 1%) -> verdict inconclusive (measurement capacity); Stage 1 not run; 3.672 GPU-h FU-D total. Handoff written.
 
 ## Artifact Index
 - DISPATCH.md — assignment verbatim
 - progress.md — heartbeat
-- handoff.md — final report (pending)
+- handoff.md — final report (Hard, written)
+- docs/03_empirical_analysis/topic2/2026-11-02_topic2_fu_d_{card,result_report}.md
+- results/topic2/2026-11-02_fu_d/ (receipts, runs, verdict.json, logs)
 
 ## Change Tracker
 - Files created: src/topic2_fu_d/* (8), scripts/topic2fu_d_*.py (9), tests/topic2_fu_d/* (11), card, results/topic2/2026-11-02_fu_d/{card_sha256.txt,code_sha256_at_freeze.txt,logs/}
@@ -56,9 +59,9 @@ frozen card, own code/tests/verdict, Slurm runs on B300 within the 25 GPU-h cap,
 - Pending issues: none
 
 ## Quality Status
-- Build/test result: n/a
-- Lint status: n/a
-- Tests added/modified: n/a
+- Build/test result: FU-D 129 passed; old 86 passed; C1 rc 0
+- Lint status: layout lint findings []
+- Tests added/modified: tests/topic2_fu_d (11 files); mutants 62/62 killed
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md (methodology; frozen card before results, fixtures, run

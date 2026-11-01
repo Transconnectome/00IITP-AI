@@ -18,3 +18,6 @@ Last visited: 2026-11-01T18:44:24Z (polling job 558)
 Last visited: 2026-11-01T18:51:34Z (polling job 558)
 Last visited: 2026-11-01T19:00:00Z (polling job 558, rank 5)
 Last visited: 2026-11-01T19:05:15Z (polling job 558)
+- [x] job 558 COMPLETED (56 s, 0.016 GPU-h), ledger closed; recheck reproduces job 524
+- [x] audit_layout PASS; handoff.md written (CONFIRMED)
+Last visited: 2026-11-01T19:07:55Z

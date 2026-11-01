@@ -32,7 +32,8 @@ Empirically challenge FU-E (Topic 2 follow-up E: frozen r1 encoder split-half id
 ## Attack Surface
 - Hypotheses tested: freeze-before-results (git+mtime+receipts) OK; verdict recompute independent OK (inconclusive; counterfactual still inconclusive); C4 strings/6-digit scan OK; ledger rows OK
 - Vulnerabilities found: worker mutant M24 'KILLED' was an IndentationError (invalid kill); job 551 ledger claim wrong but 551 was CPU-only (no row needed); E_s2 F+ margin 0.29 (RNG-fragile, verdict unaffected); surviving mutants I05,R06(equiv),R08(equiv),PV02 so far
-- Untested angles: extract script has no CPU test (needs CUDA) -> covered by B300 recheck job 558
+- Untested angles: TRAIN-64/surrogate/subjmask only from saved matrices; explorer OA label counts not re-verified
+- Final: CONFIRMED (handoff.md 2026-11-01T19:10Z); B300 job 558 0.016 GPU-h ledgered
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md — frozen card before results, synthetic ground truth, run records, verdict taxonomy (read in place, no local copy)
