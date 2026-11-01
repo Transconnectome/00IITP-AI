@@ -1,4 +1,4 @@
-# BRIEFING — 2026-11-01T02:22Z
+# BRIEFING — 2026-11-01T02:32Z (DONE)
 
 ## Mission
 Implement M4 (Topic 4 redesign): T4.1 diagnosis+fixtures → T4.2 frozen card → T4.3 local-learning implementation, fixtures, CPU run, verdict per card.
@@ -39,7 +39,7 @@ Implement M4 (Topic 4 redesign): T4.1 diagnosis+fixtures → T4.2 frozen card �
 ## Change Tracker
 - Files created: src/topic4_resu/** (12 py), tests/topic4_resu/** (14 py), scripts/topic4_{qualify,t41_counterfactual,build_split,run,analyze}.py, docs/03_empirical_analysis/topic4/{card,T41_diagnosis}.md, results/topic4/2026-11-01/*
 - Build status: new 67 passed; old 86 passed (pre-freeze)
-- Pending: confirm stage running (launched 02:07:48Z); then analyze, result report, final tests, C1, handoff.
+- Pending: none (delivered; see handoff.md)
 
 ## Quality Status
 - Build/test result: C1 rc=0 at 01:13Z; new 67/67, old 86/86 at 02:02Z
