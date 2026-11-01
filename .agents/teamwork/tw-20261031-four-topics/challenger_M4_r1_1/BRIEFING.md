@@ -29,11 +29,12 @@ Empirically challenge worker_M4_r1's Topic 4 (M4) delivery (ACCEPTANCE T4.1–T4
 
 ## Key Decisions Made
 - Freeze chronology checked from ledger + file birth times (git has no pre-result commit of these files).
+- Verdict CONFIRMED (03:25Z): no finding changes a number or verdict; F1–F4 non-blocking.
 
 ## Attack Surface
-- Hypotheses tested: (filled in progress.md / handoff.md)
-- Vulnerabilities found: TBD
-- Untested angles: TBD
+- Hypotheses tested: freeze-before-results (ledger+birth times+hash guard tamper test); reference arms + PSP arms from raw npy with independent code; independent bootstrap + card rules; determinism rerun (14 tasks); T4.1 all legacy rows; monitor threshold on real C3; planted analyze verdicts (8); 16 new full-suite mutants.
+- Vulnerabilities found: F1 output_sha256.txt analyze.log empty-hash (low); F2 9/16 mutants survive + analyze.py unfixtured (medium, coverage only); F3 C3 numerical fragility (low); F4 report wording 'recovers principal subspace' (low).
+- Untested angles: C2/C0/C4DP/MLP independent re-implementation; qualification.json recompute.
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md (read in place; no local dump needed — read-only reference)

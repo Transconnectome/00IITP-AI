@@ -1,4 +1,4 @@
-# BRIEFING — 2026-11-01T02:40Z
+# BRIEFING — 2026-11-01T03:10Z
 
 ## Mission
 Forensic integrity audit of M4 (Topic 4 redesign, ACCEPTANCE T4.1–T4.3) work product by worker_M4_r1. Verdict CLEAN or INTEGRITY_VIOLATION with evidence.
@@ -22,7 +22,7 @@ Forensic integrity audit of M4 (Topic 4 redesign, ACCEPTANCE T4.1–T4.3) work p
 - Integrity mode: Development (ORIGINAL_REQUEST has no from-scratch / no-delegation constraint)
 
 ## Current Parent
-- root coordinator; Updated: not yet
+- root coordinator; Updated: 2026-11-01T03:10Z (unchanged)
 
 ## Audit Scope
 - Work product: src/topic4_resu/, tests/topic4_resu/, scripts/topic4_*.py, results/topic4/2026-11-01/, docs/03_empirical_analysis/topic4/, verification/worker_M4_r1/
@@ -30,15 +30,15 @@ Forensic integrity audit of M4 (Topic 4 redesign, ACCEPTANCE T4.1–T4.3) work p
 - Audit type: forensic integrity check
 
 ## Audit Progress
-- Phase: investigating
-- Checks completed: orientation, timeline (mtimes)
-- Checks remaining: see progress.md
-- Findings so far: TBD
+- Phase: reporting (done)
+- Checks completed: C1, freeze hashes, timeline (mtimes+ledger+transcript), full rerun (byte-identical), independent recompute, population/split, T4.1 rerun, qualification rerun, tests 67/86/88, worker mutation replay, own 8 mutants + TR mutant, ID scan, GPU ledger/B300/env/git, layout lint
+- Checks remaining: none
+- Findings so far: CLEAN (8 nonblocking; see handoff.md section 4)
 
 ## Attack Surface
-- Hypotheses tested: TBD
-- Vulnerabilities found: TBD
-- Untested angles: TBD
+- Hypotheses tested: pre-existing real-data cache before freeze (refuted, 1.6 s fresh build); fabricated confirm outputs (refuted, byte-identical rerun); analysis facade (refuted, independent recompute); split contamination (refuted)
+- Vulnerabilities found: test gaps (site-stratification, bootstrap width), output_sha256 self-hash of open log, analyze ignores task statuses, torch version not in ledger
+- Untested angles: B300 node contents (not contacted); scientific adequacy of delta/budget (PI)
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md (read in place, not copied; metadata dir holds no copies)
@@ -50,3 +50,4 @@ Forensic integrity audit of M4 (Topic 4 redesign, ACCEPTANCE T4.1–T4.3) work p
 
 ## Artifact Index
 - DISPATCH.md, BRIEFING.md, progress.md, handoff.md (this folder)
+- /home/juke/git/00IITP-AI/verification/auditor_M4_r1_1/ (probes/, rerun/, t41/, qual/, worker_mutants_replay/, logs/)

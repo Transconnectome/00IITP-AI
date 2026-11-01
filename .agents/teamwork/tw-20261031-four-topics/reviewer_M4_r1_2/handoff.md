@@ -143,7 +143,17 @@ Non-blocking issues, all recommended for a dated addendum_02 (none changes a ver
    - Both are moot here, since there were 0 contract errors and the guard never fired. The card's wording "halts, never repairs" should match the code.
 4. **Vacuous test.** `test_vendored_source_hashes_recorded` is vacuous; this was already disclosed in addendum_01 item 7.
 5. **`split_manifest_sha256.txt` path.** It uses a path relative to the results dir, unlike the other pin files, which are relative to the repo root. `sha256sum -c` must be run from `results/topic4/2026-11-01/`.
-6. **No pre-result commit.** No commit made before the results captured the card; agents may not commit, and the root checkpoint captured it after confirm. The freeze evidence is the sidecar, the chmod, the ledger and the later commit with identical bytes. The PI may want a protocol-before-results commit policy for future cards.
+6. **No pre-result commit.** No commit made before the results captured the card; agents may not commit, and the root checkpoint captured it after confirm. The freeze evidence is the sidecar, the chmod, the ledger and the later commit with identical bytes. Two facts inside the card fit a pre-result text that was never edited afterwards:
+   - §7 predicted S3 "inferior or inconclusive", but the observed verdict is non-inferior;
+   - §8's "under 1 h" estimate was not updated to the actual 6.6 min.
+
+   The PI may want a protocol-before-results commit policy for future cards.
+
+Observation for the coordinator (not an M4 finding):
+- `src/topic4_resu/__pycache__` and `src/topic4_resu/local/__pycache__` appeared at 02:41:39Z and 02:51:22Z.
+- The times match concurrent M4 verifiers: `challenger_M4_r1_2` ran its fold-0 pipeline from 02:41:16 to 02:41:58Z, and auditor and challenger agents were active around 02:51Z.
+- Every Python run of mine used `-B` and/or `PYTHONDONTWRITEBYTECODE=1`.
+- The bytecode does not affect the freeze check, which lists `.py` files only. I left these files untouched because they are not mine.
 
 Items for the PI (not T-criteria):
 - confirm δ;

@@ -1,4 +1,4 @@
-# BRIEFING — 2026-11-01T02:36Z
+# BRIEFING — 2026-11-01T03:04Z (DONE: CONFIRMED, see handoff.md)
 
 ## Mission
 Empirically challenge worker_M4_r1's M4 (Topic 4 redesign, T4.1–T4.3) deliverable: try to break it; CONFIRMED or REFUTED with evidence.
@@ -30,9 +30,9 @@ Empirically challenge worker_M4_r1's M4 (Topic 4 redesign, T4.1–T4.3) delivera
 - Criteria: freeze-before-results, leakage, no-backprop proof, stability, fixture strength (mutants), verdict per card rules, headline recomputation
 
 ## Attack Surface
-- Hypotheses tested: [TBD]
-- Vulnerabilities found: [TBD]
-- Untested angles: [TBD]
+- Hypotheses tested: freeze-before-results (ctime/ledger/git) HOLDS; headline recompute from outputs (c1) HOLDS; independent pipeline+engine (c2, c3 all folds) HOLDS <=7e-13; T4.1 all legacy rows padded (c4) HOLDS; MLP adequacy (diag) OK; verdict rule application HOLDS.
+- Vulnerabilities found (non-blocking): 10/17 new mutants survive (c5); analyze script untested (c7); C3 perturbation-sensitive (c6); output_sha256 analyze.log empty-hash (record defect); card commit postdates confirm (provenance rests on ctime+ledger).
+- Untested angles: end-to-end topic4_run.py confirm rerun (auditor doing it); MLP re-implementation; pos-932 counterfactual rerun.
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md (read in place; metadata dir holds no copies)
@@ -42,6 +42,7 @@ Empirically challenge worker_M4_r1's M4 (Topic 4 redesign, T4.1–T4.3) delivera
 - Work on copies of results in scratchpad/probe dir; never write into worker paths.
 
 ## Artifact Index
+- /home/juke/git/00IITP-AI/verification/challenger_M4_r1_2/ — probes c1-c7 (+ .out.json, logs, mut_logs/)
 - DISPATCH.md — assignment (computed task text; worker JSON condensed)
 - progress.md — heartbeat
 - handoff.md — final 5-component report

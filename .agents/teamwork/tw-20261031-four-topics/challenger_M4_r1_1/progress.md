@@ -11,3 +11,13 @@ Last visited: 2026-11-01T02:42Z
 - 02:58Z rerun_subset.py (worker code, own outdir/cache): 14 tasks (C1,C4 x5 folds; C3 f2; C4DP f0; mlp:0 f0; refs f0) byte-IDENTICAL to saved; C3 unstable at identical steps.
 - 03:00Z indep_psp.py (own PSP via Cholesky, protected generator, own data path): C1/C4/C5 instances in folds 0,2,3 match saved per-subject R2 <=4e-11; lambda and rank identical.
 Last visited: 2026-11-01T03:01Z
+- 03:05Z T4.1: VMD rows 0-11 all 177 valid (prefix), 0 test-target rows valid, ss_tot ~1e-45 -> every legacy subject degenerate.
+- 03:10Z mutants (16 new, FULL 67-test suite, control 67 passed): 7 killed, 9 survived (stats verdict/strata variants, readout refit, C4DP 1-swap, eta schedule, lax monitor, MLP early-stop-on-train); analyze.py has no fixture.
+- 03:12Z topologies: C1/C2/C4 30 distinct each = protected; C4DP differs 82-104/138 pairs.
+- 03:15Z indep C3 monitor on real data: failures at 260/45/53 identical; FINDING (low) C3 trajectory amplifies 1.3e-12 input differences (max rho 0.862 vs 0.832), C1/C4/C5 do not.
+- 03:18Z planted analyze: 8/8 scenarios give card verdicts (keep/modify/stop/inconclusive/EI/10% boundary/inferior).
+- 03:20Z verify_integrity refuses tampered card/code/manifest hashes.
+- 03:22Z hygiene: topic4 67, old 86, topic1 88 passed; PROTECTED rc 0; freeze/docs hashes OK; no Topic 4 production file newer than my start; ID scan 334 files 0 hits; layout lint 186 files 0 findings; cache deleted; 0 processes.
+- 03:25Z handoff.md written. Verdict CONFIRMED (non-blocking F1-F4).
+- 03:30Z advisor follow-ups: analyze rerun on copy -> verdict.json byte-identical (437161ed); arithmetic fixed (6.7x); no-backprop evidence (O16) and DISPATCH deviation (O17) added to handoff.
+Last visited: 2026-11-01T03:31Z
