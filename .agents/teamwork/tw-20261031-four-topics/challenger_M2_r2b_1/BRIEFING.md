@@ -20,7 +20,7 @@ Empirically challenge M2 (Topic 3) iteration-2 deliverables (worker_M2_r2 + work
 - C1-C8 per sentinel/ACCEPTANCE.md. Others work in parallel: preserve their changes.
 
 ## Current Parent
-- root coordinator; updated: not yet
+- root coordinator; updated: 2026-11-01T02:15Z (handoff written; verdict REFUTED scoped)
 
 ## Review Scope
 - Files: src/topic3_spectral/, tests/topic3_spectral/, scripts/topic3_*.py, results/topic3/2026-10-31/, docs/03_empirical_analysis/topic3/ (card, provenance, report, addenda 01-04), verification/worker_M2_r2b/
@@ -32,9 +32,9 @@ Empirically challenge M2 (Topic 3) iteration-2 deliverables (worker_M2_r2 + work
 - Host load ~20/20 cores: mutant parallelism 4, 2 BLAS threads.
 
 ## Attack Surface
-- Hypotheses tested: [in progress]
-- Vulnerabilities found: [candidate] addendum 03 H4 "effective ceilings 383 (D-limited)" for L0 — H4 PR is per-frame on 160 tokens, so ceiling 159 (to verify)
-- Untested angles: [TBD]
+- Hypotheses tested: freeze order (holds); numbers (exact replay, 0 diffs on full rerun); verdicts per card (hold); 29 own mutants (23 survive); reachability of survivors (V01, V05-V08 flip verdicts on synthetic data; V26 flips real H1a); iteration-1 survivors (8/8 killed); worker receipts (69/69 log hashes per run).
+- Vulnerabilities found: verdict-rule coverage gaps V01 (primary raw p), V05 (zoo CI), V06-V08 (CI wiring), V26/V29 (script wiring, untested); addendum 03 H4 ceiling "383" wrong (159 / 384); test_token_job_driver mp.Pool hang under load.
+- Untested angles: connectome token job not rerun; worker's full 67 set not rerun (receipts checked, 8 survivors rerun).
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md
@@ -44,4 +44,5 @@ Empirically challenge M2 (Topic 3) iteration-2 deliverables (worker_M2_r2 + work
 ## Artifact Index
 - DISPATCH.md — dispatch record
 - progress.md — heartbeat
-- handoff.md — final report (pending)
+- handoff.md — final report (Hard, written 2026-11-01T02:1xZ)
+- /home/juke/git/00IITP-AI/verification/challenger_M2_r2b_1/ — probes, mutant runs, reruns, receipts

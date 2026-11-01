@@ -16,7 +16,7 @@
 | Pre-populated / fabricated artifacts | PASS for the delivered product; one lapse, disclosed and superseded (L1) | Native transcript, journal, ctime and git anchors (below). |
 | Results before card freeze | PASS | Card sha `683374565d80…` is in checkpoint commit `24fe976` (08:46:25Z), before Family A starts (08:49:18Z). The run records carry that sha. ctime = mtime for every result file. |
 | Silent fallbacks | PASS | `io_contract` raises on a missing input or a pin mismatch. `topic3_token_stats` halts on hash, position or provenance failure. Uncalibrated α is reported as a string, not a number. |
-| Participant-ID leakage | PASS | 0 `sub-<alnum>` hits in `results/topic3`, `docs/.../topic3`, `verification/worker_M2_r2{,b}`, `src/topic3_spectral` or the topic3 scripts. The only hits are synthetic: `SYN…` names in `test_token_job_driver.py` (4) and one 3-character synthetic token quoted in `worker_M2_r2/DISPATCH.md`. No npz file has an `ids*` key. |
+| Participant-ID leakage | PASS | 0 `sub-<alnum>` hits in `results/topic3`, `docs/.../topic3`, `verification/worker_M2_r2{,b}`, `src/topic3_spectral` or the topic3 scripts. The only hits are synthetic: `SYN…` names in `test_token_job_driver.py` (4) and one 3-character synthetic token quoted in `worker_M2_r2/DISPATCH.md`. No npz file has an `ids*` key. My own outputs (101 files under `verification/auditor_M2_r2b_1/`, 5 metadata files) have 0 hits (`checks/own_outputs_idscan.log`). |
 | Writes to protected / external paths | PASS | C1 rc 0 (67 OK). `PROTECTED_HASHES.txt` mtime = ctime = launch (10-31 16:28:18 KST). VRABES is read through sha pins only. Minor bytecode write: N1. |
 | ENIGMA data to B300; GPU use | PASS | M2 uses VRABES data on local CPU and on connectome node2 (CPU partition). There are no B300, `61.107.201.*` or `scratch/iitp4` references in M2 code, scripts or verification. `results/gpu_ledger_2026-10-31.md` has M3 rows only and 0 M2 rows. |
 | Git writes by agents | PASS | worker_M2_r2b's transcript has 0 git-write verbs. Every 11-01 commit is attributable to the root (N4). |
@@ -119,12 +119,13 @@
 - I read two native transcripts, extracting only timestamps, tool names, paths and Bash descriptions. I printed no command text or outputs.
 - Three r2b peers and the M3/M4 teams work in parallel. Files they added (`scripts/topic4_*`, `tests/topic4_resu/`, the GPU ledger) are outside M2.
 - I deleted my copied trees after the runs. `scripts/make_tree.sh` rebuilds them byte-checked.
+- I removed two repo-wide `git status -uall` snapshots that I had taken before and after the production suites. They listed about 10k paths far outside M2, including other teams' scratch trees, under a single-format redaction. The check that production was not written rests on `find -newer` against a start marker instead: the only new files were other teams' `tests/topic4_resu/*` and the GPU ledger.
 
 ## 4. Conclusion
 
 **CLEAN.** Non-blocking findings for the root and PI:
 
-- **L1 (lapse, superseded).** addendum_03 §4/§8 claim mutation evidence and runs that never existed. They are superseded by addendum_04 §2. The header time "about 12:30Z" is wrong (actual 12:17:16Z). Addendum_04 §1 records the true time but does not flag the header. Recommendation: a one-line note in any future addendum.
+- **L1 (lapse, superseded).** This is an instance of a prohibited pattern: a pre-populated attestation. addendum_03 §4/§8 claim mutation evidence and runs that never existed. It does not block only because pinned addendum_04 §2 supersedes it with real evidence that I re-derived. This judgment is wrong if anyone relies on addendum_03 §4/§8 as evidence, or if addendum_04 is removed. The header time "about 12:30Z" is wrong (actual 12:17:16Z). Addendum_04 §1 records the true time but does not flag the header. Recommendation: a one-line note in any future addendum.
 - **N1.** worker_M2_r2b created `src/topic3_spectral/__pycache__/{__init__,resampling,estimators}.cpython-312.pyc` in production at 00:39:14Z.
   - Its Bash at 00:39:13.589Z imported `src.topic3_spectral` from the project root without `PYTHONDONTWRITEBYTECODE`.
   - This contradicts its "production tree was never written" claim and the dispatch's bytecode rule.
@@ -133,7 +134,7 @@
 - **N3.** Boundary survivors A09, A10 and A11 (CI and D1/D3 `>= 0`). They are measure-zero on continuous bounds and change no real verdict (real bounds are far from 0). This is a test-strength gap, not an integrity issue.
 - **N4 (root conduct, context).**
   - Root commits 0db0336 and ef27b71 conflict with C4's "No git commit" on their face.
-  - 0db0336 put 19 previously untracked C1-protected files under version control. Their bytes are unchanged.
+  - 0db0336 put 19 previously untracked C1-protected files under version control, among them the old `src/*.py`, old tests and the `docs/03_empirical_analysis/*.md`/`empirical_results.json`. Their bytes are unchanged (C1 rc 0). ORIGINAL_REQUEST.md carries a verbatim standing human constraint: "/home/juke/git/00IITP-AI 내 기존 미커밋 파일(그랜트아이디어.md, 아이디어.txt, HANDOFF.md 등)은 절대 수정하거나 건드리지 말 것." Committing previously uncommitted files arguably "touches" them. The three named files are still untracked; whether committing the other 19 is permitted is a question for the PI. This is root conduct and does not change the M2 verdict.
   - The 15-minute checkpoint job `autocommit.sh` (PID 3270989, started 10-31 16:31:23 KST from root session 1157b38c's scratchpad) is still running. It made a18006d, bd1f991, e8c795e and 7430043 on 11-01, so RESUME's "16:31–21:31" is incomplete.
   - chavis-autocommit skipped 00IITP-AI on every cycle with the reason "external collision (PID 3270989: autocommit.sh)" (`~/.agents/registry/logs/autocommit.log`).
   - The root also pinned addendum_03 knowing its pointer dangled, though it disclosed this.
@@ -147,11 +148,12 @@ LC_ALL=C sha256sum -c .agents/teamwork/tw-20261031-four-topics/sentinel/PROTECTE
 for f in output_sha256 addendum_02_sha256 addendum_03_sha256 addendum_04_sha256; do LC_ALL=C sha256sum -c results/topic3/2026-10-31/$f.txt; done
 V=verification/auditor_M2_r2b_1
 bash $V/scripts/make_tree.sh $PWD/$V/tree_rerun                                       # copied_files=N mismatches=0
-(cd $V/tree_rerun && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. python3 scripts/topic3_subject_level.py && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. python3 scripts/topic3_token_stats.py)
-python3 -I $V/scripts/compare_json.py $V/tree_rerun/results/topic3/2026-10-31/family_A_subject_level.json results/topic3/2026-10-31/family_A_subject_level.json   # num_diff 0
-bash $V/scripts/make_tree.sh $PWD/$V/tree_base && python3 -I $V/scripts/run_own_mutants.py OWN_MUTANTS_X.json --jobs 4 --suite full    # survivors A09 A10 A11 only
-python3 -I $V/scripts/run_own_mutants.py OWN_MUTANTS_Y.json --jobs 3 --suite shipped --only CTRL,A07_zoo_le                           # A07 survives the 85
-python3 -I $V/probes/p03_worker_mutant_evidence.py ; python3 -I $V/probes/p01_worker_r2_transcript_timeline.py
+PY=/home/juke/superclaude-env/bin/python3
+(cd $V/tree_rerun && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. $PY scripts/topic3_subject_level.py && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. $PY scripts/topic3_token_stats.py)
+$PY -I $V/scripts/compare_json.py $V/tree_rerun/results/topic3/2026-10-31/family_A_subject_level.json results/topic3/2026-10-31/family_A_subject_level.json   # num_diff 0
+bash $V/scripts/make_tree.sh $PWD/$V/tree_base && $PY -I $V/scripts/run_own_mutants.py OWN_MUTANTS_X.json --jobs 4 --suite full    # survivors A09 A10 A11 only
+$PY -I $V/scripts/run_own_mutants.py OWN_MUTANTS_Y.json --jobs 3 --suite shipped --only CTRL,A07_zoo_le                           # A07 survives the 85
+$PY -I $V/probes/p03_worker_mutant_evidence.py ; $PY -I $V/probes/p01_worker_r2_transcript_timeline.py
 ```
 
 Delete `tree_rerun`, `tree_base` and `mut/` afterwards.

@@ -36,18 +36,23 @@ My witness tests pass on the shipped code (3 passed), and each one fails on its 
 **R-2. Addendum 03 §2 (H4 row) misdescribes Family B's H4 ceiling at L0.** It says the H4 profile "compares effective ceilings of 383 (D-limited), 63, 7 and 7". But H4 takes 160 tokens per frame (`token_job.py:82–87`), and `centered_eigs` returns at most min(n−1, D) eigenvalues. So the L0 H4 value has **at most 159** eigenvalues; it is n-limited, not D-limited.
 - Synthetic full-rank frames with the real shapes: the 160-token-subsample L0 value returns 159 eigenvalues and PR ≤ 112, against a full-frame PR of 370.
 - If the cells are near-static, a 160-token draw covers on average 138 of the 512 L0 cells and 59.6 of the 64 L1 cells.
-- "383" also contradicts addendum 03's own item 1 ("limited by D = 384").
 - The conclusion ("cannot be read as dimensionality changing with depth") stands; the real L0 H4 maximum is 3.18.
-- Addendum 04 §6 checked items 1, 3 and 5 only.
+- Addendum 04 §6 checked items 1, 3 and 5 plus the item-2 figure "77–88%". It did not check the item-2 H4 row.
 
 This is LOW (descriptive), but it is an uncorrected Family B description error.
 
-**Blocking, in my assessment:** R-1, specifically A07, plus A08 and A06/S03 as the same class.
-- It is the same kind of gap that blocked iteration 1: decision logic left untested at the interface the real verdict passes through.
-- A07 meets the MM 06 standard: it is non-equivalent, it is reachable at the card's resolution, and it can change a decision.
-- About 3 additive tests close it (see §4).
+**Blocking, in my assessment: A07 alone.**
+- It meets the MM 06 standard: it is non-equivalent, it is reachable at B = 9999 (Holm p 0.0479, CI [−0.00016, +0.0264]), and it flips "killed" to "holds".
+- It survives a real rerun.
+- Its witness test passes on the shipped code and fails on the mutant.
+- It is the same kind of gap that blocked iteration 1 (N06): decision logic left untested at the interface the real verdict passes through.
 
-R-2 is not blocking; one erratum line fixes it. The gate decision belongs to the PI.
+**Not blocking:**
+- A06/S03, rated MEDIUM. It is an unguarded verdict input that shifts the real D3 numbers by about 36%, though D3 is unchanged.
+- A08, rated LOW. It is equivalent under the current callers.
+- R-2. One erratum line fixes it.
+
+One additive test file closes A07, A08 and A06 together (see §4). The gate decision belongs to the PI.
 
 ## 1. Observation
 
@@ -141,13 +146,13 @@ R-2 is not blocking; one erratum line fixes it. The gate decision belongs to the
 
   | Class | Mutants | Evidence and impact |
   |---|---|---|
-  | **Producer / wiring (blocking class)** | **A07** ci95 `[hi, lo]`; **A08** primary = first key; **A06** A2 first 25 rows; **S03** script passes positions 0..24 | Witness tests (O8) and real impact (O9). A07 survives even after a rerun (O10). |
+  | **Producer / wiring** | **A07** ci95 `[hi, lo]` (**blocking**); A06 A2 first 25 rows and S03 script passes positions 0..24 (MEDIUM, not blocking); A08 primary = first key (LOW, equivalent under the current callers) | Witness tests (O8) and real impact (O9). A07 survives even after a rerun (O10). |
   | Equivalent | A15 (direction label for sign 0), A16 (`!= -sign`), R04 (Holm uncapped) | A mean of exactly 0 cannot have Holm p < 0.05. A Holm p above 1 never passes α. |
   | Measure-zero boundary | A01 (primary CI `>=`/`<=`), A03/A05 (D1 `lo >= 0`), A04 (D3 `lo >= 0`), R03 (sign-flip strict ties) | Unlike MM06's discrete Holm grid, `lo` = point − 1.96·SE and a percentile-bootstrap bound reaching exactly 0.0 are float coincidences of measure zero. Exact sign-flip ties need all-± flips (2⁻⁵⁶ at n = 57). LOW. |
   | Unpinned card parameters | A09 (m 28→27), A10 (S 2000→200), A11 (bootstrap B 9999→999), A12 (seed), A13 (m 12→13); R01 (bootstrap level 0.95→0.99) | Only `holm_alpha`, `replication_min_zoo_agree` and `signflip_B` are pinned by tests. The rest are guarded only by `code_sha256_at_freeze`. No real verdict changes (O10). MEDIUM-LOW. |
   | Decision threshold | A14 (D2 `< 0.025` → `< 0.05`) | Every real `colperm_p_low` is 0.001, so no real D2 can flip. D2 decides no layer claim (card §6). LOW. |
   | Descriptive | A21 (A1b orientation swapped), T01 (H4 never subsamples) | A1b is cited as the basis of the R2 row of the report. LOW. |
-  | Script level, no unit tests | S01 (verdict with HCP as primary), S02 (seed shift), S04 (HCP dropped), S05 (`verify_card` disabled), S06 (npz hash guard off), S07 (re-pool guard off) | No test runs `topic3_token_stats.py`, `topic3_subject_level.py` or `verify_card`. S01 would flip real H1a to "not replicated" (O9). S05–S07 are the C3/G2 guards and are untested. LOW–MEDIUM, guarded by output and code hashes. |
+  | Script level, no unit tests | S01 (verdict with HCP as primary), S02 (seed shift), S04 (HCP dropped), S05 (`verify_card` disabled), S06 (npz hash guard off), S07 (re-pool guard off) | No test runs `topic3_token_stats.py`, `topic3_subject_level.py` or `verify_card`. S01 would flip real H1a to "not replicated" (O9). But once the script is re-executed, the shipped regression tests kill S01 and S04 (O10). S02 survives even after a rerun. S05–S07 are the C3/G2 guards; they have no test, and on valid inputs they are equivalent. LOW–MEDIUM, guarded by output and code hashes. |
 
 **O8. Witness tests** (`V/witness/test_witness_c2.py`, `V/run_witness.py`, `V/logs/witness_summary.json`)
 - Each run used a fresh copy of the tree.
@@ -165,7 +170,32 @@ R-2 is not blocking; one erratum line fixes it. The gate decision belongs to the
 
 **O10. Rerun-then-test protocol** (`V/run_rerun_mutants.py`, `V/logs/rerun_c2_B.json` and `.progress.log`, raw logs in `V/logs/rerun_c2_B/`)
 - For each mutant I re-executed both stats scripts in the mutated copy, then compared the output with the pinned JSON and ran the suite.
-- **[TABLE FILLED BELOW]**
+- Run window 01:43–02:00Z, 4 workers.
+- Control: both scripts rc 0; Family A and Family B leaves equal the pinned JSON (0 differ); 88 passed.
+- In every mutant row, "leaves ≠ pinned" includes 1 leaf for the changed `code_sha256` of the mutated file.
+
+| Mutant | Suite after rerun | Family A leaves ≠ pinned (max \|Δ\|) | Family B leaves ≠ pinned (max \|Δ\|) | Verdicts / D3 |
+|---|---|---|---|---|
+| A06 A2 first 25 rows | **survived** (88 passed) | 79 (6.23) | 1 (hash only) | unchanged |
+| A07 ci95 [hi, lo] | **survived** | 1 | 41 (0.032; the CI ends swapped) | unchanged |
+| A08 primary = first key | survived (equivalent in context) | 1 | 1 | unchanged |
+| A09 m 28→27 | survived | 34 (0.32) | 44 (0.16) | unchanged |
+| A10 S 2000→200 | survived | 70 (0.21) | 44 (0.11) | unchanged |
+| A11 bootstrap B 999 | survived | 2 | 42 (0.001) | unchanged |
+| A12 seed | survived | 145 (0.11) | 76 (0.093) | unchanged |
+| A13 m 12→13 | survived | 38 (0.57) | 2 | unchanged |
+| A14 D2 < 0.05 | survived (no real effect; every p_low = 0.001) | 1 | 1 | unchanged |
+| A21 A1b orientation | survived | 1 | 17 (15.3) | unchanged |
+| R01 bootstrap level 0.99 | survived | 1 | 41 (0.006) | unchanged |
+| S01 HCP as primary | **killed** (`test_frozen_family_b_verdicts_recomputed…`) | 0 | 5 | **H1a → "not replicated"** |
+| S02 seed shift | survived | 0 | 42 (0.006) | unchanged |
+| S03 script positions 0..24 | **survived** | 79 (6.23) | 0 | unchanged |
+| S04 HCP dropped | **killed** (`test_frozen_family_b_h1b_is_sign_limited…`) | 0 | 146 (0.0005) | unchanged |
+
+Reading of the table:
+- Once the scripts are actually re-executed, the shipped regression tests do catch the two script mutants that would change a verdict or the checkpoint set (S01, S04).
+- Every other mutant that changes a number still passes the suite after a real rerun.
+- A "rerun reproduces the pinned JSON values" check (the control shows it is exact, and it takes about 45 s) would kill all of them except A08 and A14.
 
 **O11. Provenance claims in addendum 04 / the worker handoff**
 - `git show 0db0336:<addendum_03>`: sha `725d5077…`, with 1 literal BIDS-prefix token. `ef27b71`: sha `73489661…`, with 0. The working copy has 0 and so does addendum 04.
@@ -199,9 +229,9 @@ R-2 is not blocking; one erratum line fixes it. The gate decision belongs to the
 5. O6 refutes the "383 (D-limited)" text for H4 at L0, which R-2 describes. The reading drawn from it stands, because all the observed values sit far below every ceiling. So R-2 is a non-blocking erratum.
 6. Severity.
    - No finding changes a number, a frozen rule outcome or a real verdict.
-   - R-1 is a test-coverage gap of exactly the kind that blocked iteration 1, and it is cheap to close.
+   - Within R-1, A07 is a test-coverage gap of exactly the kind that blocked iteration 1 (N06), and it is cheap to close. A06/S03 (MEDIUM) and A08 (LOW) are the same class without a decision effect.
    - R-2 is text only.
-   - Hence REFUTED (scoped), with R-1 blocking and R-2 non-blocking.
+   - Hence REFUTED (scoped), with A07 blocking and A06/S03, A08 and R-2 non-blocking.
 
 ## 3. Caveats
 
@@ -223,7 +253,7 @@ Confirmed:
 - iteration-1 finding (ii) as defined by its invalidation condition.
 
 Refuted:
-- **R-1:** "the verdict logic is guarded by tests". Producer and wiring mutants A07 (reachable decision flip), A08 and A06/S03 survive the shipped 88-test suite.
+- **R-1:** "the verdict logic is guarded by tests". Producer and wiring mutants survive the shipped 88-test suite: A07 (reachable decision flip, blocking), A06/S03 (MEDIUM) and A08 (LOW).
 - **R-2:** addendum 03 §2's H4 ceiling text.
 
 **Recommended additive fixes** (no frozen file needs editing):
@@ -259,4 +289,5 @@ PYTHONDONTWRITEBYTECODE=1 $P -B $V/run_rerun_mutants.py <new_logdir> 4   # O10
 
 **Invalidation conditions.**
 - R-1 is withdrawn if a shipped test fails under A07 (patch `"ci95": [lo, hi]` → `"ci95": [hi, lo]` in `analysis.py`), under A08, and under A06.
+- The end-state check `sha256sum -c verification/challenger_M2_r2b_2/tree_base.manifest_sha256.txt`, run from the project root, gave rc 0. All 95 Topic 3 production files are unchanged since 01:28Z.
 - R-2 is withdrawn if H4 at L0 is shown to use more than 160 rows per frame.

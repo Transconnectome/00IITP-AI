@@ -19,7 +19,7 @@ Written 2026-11-01T02:05Z. Read-only investigation plus probes; no production co
 | O3 | Built at the VRABES geometry (img 96³×20, patch 6,6,6,1, window 4,4,4,10, c_mult 2), hooks give: patch grid (T,D,H,W) = (20,16,16,16). Merges M0: 81920→10240 tokens (E→2E); M1: 10240→1280; M2: 1280→160. stage3.downsample = None. layer_3 = (C,2,2,2,20) | `verification/explorer_M3_r1_1/probe_t21_shapes.py` → `.out.json` |
 | O4 | E192 merge parameters: M0 Linear 1536→384 (592,896 incl. LN); M1 3072→768 (2,365,440); M2 6144→1536 (9,449,472). Physical cell edge, at 2 mm MNI voxels × patch 6: M0 12→24 mm, M1 24→48 mm, M2 48→96 mm | same `.out.json` (`E192_merges`) |
 | O5 | `use_post_norm=True` crashes: LayerNorm(2C) is applied to the 8C input (`RuntimeError … normalized_shape=[16]`) | same `.out.json` (`use_post_norm_True_runs`) |
-| O6 | Downstream geometry is octant-aligned. Stage-1 spatial window 4³ on the 8³ grid gives 8 non-shifted windows, which are the 8 octants. Stage-2 window = the whole 4³ grid. M2 output = one token per octant. The MLP decoder expands each final token to its own 48³-voxel octant (`spatial_expansion_multiplier = 6·2³`) | ver11 `:860-871`, `:1083-1116`, `:1329-1336` |
+| O6 | Downstream geometry is octant-aligned. Stage-1 spatial window 4³ on the 8³ grid gives 8 non-shifted windows, which are the 8 octants. Stage-2 window = the whole 4³ grid. M2 output = one token per octant. The decoder actually built is `decoder_type='mlp'` (hard-coded, `:1112`). It runs a per-token MLP, then `decoder_spatial_expand` Linear(C→48³), then `PixelShuffle4D(spatial_scale=48)` (`:1118-1146`, `:91-123`). Probe: perturbing final token (0,0,0) at t=3 changes only voxels [0..47]³ at t=3 (0 voxels outside), so each final token decodes only its own octant. The `'linear'` branch at `:1113-1116` is dead code. E36-d2262 params: encoder layers 5.33 M; `decoder_spatial_expand` 31.96 M of 38.71 M total (82.6%) | ver11 `:860-871`, `:1083-1146`, `:1337-1360`; `verification/explorer_M3_r1_1/probe_decoder_params.py` → `.out.txt` |
 | O7 | The SwiFT HCP recipe crops `[7:85,7:103,0:84]`, pads X 10/8 and Z 3/9 to 96³, and uses the mask mean>0 with in-brain global z-norm | `SwiFT_v2/project/module/utils/data_preprocess_and_load/preprocessing_HCP_v2.py:20-44`; `datasets.py:191-222` |
 
 ### Data permitted and usable (C6), read-only checks at ~00:50–01:10Z
@@ -78,6 +78,8 @@ Written 2026-11-01T02:05Z. Read-only investigation plus probes; no production co
 - **The HCP set on .98 is still downloading** (one temp file). Pin a manifest at freeze.
 - **HCP Open Access terms.** Processing on NIPA cloud is assumed to be covered by C6 "public datasets". The PI may want to confirm this.
 - **Grant alignment.** The NIPA §7 grant-alignment risk (survey 2) is unchanged. B300 time is SwiFT-7T allocation.
+- **Mask in the dev probe.** The group mask (median nvox) included the held-out subject. That is label-free and exploratory, but it differs from the train-only rule prescribed for the card.
+- **Salt next to hashes (flag for root).** `verification/explorer_M3_r1_1/dev_subject_salt.txt` sits next to the salted hashes, inside a repo the host autocommit daemon may snapshot. HCP IDs live in a ~10⁶ space, so salt + hash can be brute-forced back to IDs. This is literal C4 compliance only; root should decide whether to move the salt off-repo.
 - **Independence.** explorer_M3_r1_2 used B300 GPU 7 (ledger 0.134 GPU-h). I did not read its outputs.
 - **Footprint.** My B300 env and data remain in `/scratch/iitp4/explorer_M3_r1_1/` (5.5 GB, ephemeral). It holds no participant data copies; the derived arrays were in RAM only. Delete it or let VM stop wipe it.
 - **Unverified throughput.** I did not measure SimMIM convergence speed, so whether 140k samples is enough for a meaningful pilot is unknown. The card makes the comparison at a fixed budget and adds a learning-curve secondary.
@@ -114,7 +116,9 @@ Reproduce with `probe_t21_shapes.py` (CPU, ~1 min).
   - ver11 copied into `src/topic2_rgpool/ver11_copy.py`, with the source sha recorded and `use_post_norm=False`.
   - Config: E36, depths 2,2,6,2, heads 3,6,12,24, window 4,4,4,10, patch 6,6,6,1, mask patch 6,6,6,2, mask ratio 0.8.
   - Optimisation: bf16, bs16, 8,750 steps (140k samples), AdamW lr 1e-4, wd 0.05, cosine schedule with 5% warmup. Fix all of these in the card.
-  - Seeds 0–4: the same seed gives identical init in every arm. The data-order seed and the mask seed (keyed by sample index) are shared across arms.
+  - Seeds 0–4; the data-order seed and the mask seed (keyed by sample index) are shared across arms.
+  - **Init pairing is not automatic.** Build every arm through ONE code path: the gather merge is constructed inside `RoPE4DBasicLayer` in place of PatchMergingV2, with E = identity index. The index is precomputed, so it consumes no RNG.
+  - Never swap the module after construction, as my smoke script did for its timing-only purpose. A swap consumes extra RNG, gives C a different M0 init and breaks pairing.
 - **Stage 0 (CPU mechanistic analysis, pre-registered).**
   - On test subjects, compute per-subject pca2 (primary; top-2 PCs with the basis fit on train) and r_mean (secondary) for E, C, S, G, R.
   - Contrasts C−E, C−S, C−G with a paired subject-bootstrap 95% CI (B=10,000, fixed seed).
@@ -143,6 +147,7 @@ Reproduce with `probe_t21_shapes.py` (CPU, ~1 min).
   - NMSE learning curve at 25/50/75%.
   - Split-half (first vs last 600 TRs) fingerprinting top-1 among test subjects.
   - Centered PR of M0 outputs (descriptive; links to M2).
+- **Seed count (costed option).** 5 seeds give df 4, t=2.78. 8 seeds × 3 arms = 24 runs ≈ 14 GPU-h, one node with 8 GPUs, df 7, t=2.36. Fix the count in the card before freeze.
 - **Recommended option B: run Stage 1 regardless of Stage 0.** It costs ≈9–10 GPU-h, and T2.3 requires trained evidence.
   - Option A instead makes Stage 0 a go/no-go gate (GO iff lower CI of pca2 for C−E > 0 and for C−S > 0), saving ≈9 GPU-h of SwiFT-7T time.
   - Choose A or B **in the card, before Stage 0 runs**.
@@ -159,6 +164,8 @@ Reproduce with `probe_t21_shapes.py` (CPU, ~1 min).
 7. π is unchanged when val/test data are perturbed (hash of π).
 8. π is deterministic given train data and seed.
 9. Arms share the same set of output cells.
+10. The step-0 `state_dict` is equal across arms, excluding the `index` buffer (same seed).
+11. The full E-arm model's forward is bit-identical to stock ver11 on the same weights and input. This catches layer-wiring errors that the module-level identity test cannot.
 
 **Fixtures:**
 - Stage-0 level: F+ requires C purity ≥0.95 and C−max(E,G) ≥0.1 held-out r. F− requires C not above G+0.02. NULL requires |r| ≤0.02 for every arm.
@@ -182,6 +189,7 @@ Reproduce with `probe_t21_shapes.py` (CPU, ~1 min).
   PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=2 nice /home/juke/superclaude-env/bin/python3 -B probe_t21_shapes.py
   ```
   Output begins with model prints; parse from the first `{`. Also `sed -n 41,88p;900,923p;1036,1070p /home/juke/git/SwiFT_v2/project/module/models/simmim_swin4d_transformer_ver11.py`.
+- **Decoder.** `… -B probe_decoder_params.py` should give `decoder_type mlp`, spatial multiplier 48, the changed-voxel bbox [0,0,0,3]–[47,47,47,3], and 0 voxels outside it.
 - **Gather merge.** `… -B probe_gather_merge.py` must report T1/T2 true, T3 8×true, T4 equal, and T5 three times true.
 - **Synthetic fixtures.** `… -B probe_stage0_synthetic.py` (~10 s) must reproduce `.out.json`, including the `periphery-max` F+ failure.
 - **HCP dev probes (B300 .98 CPU, read-only data).**
@@ -198,5 +206,5 @@ Reproduce with `probe_t21_shapes.py` (CPU, ~1 min).
 - **Invalidated if:**
   - ver11 differs from sha `de132387…` or the perlmutter fork differs;
   - the .98 HCP set is replaced, or is shown not to be HCP open access;
-  - real-data throughput is below about 40 samples/s, which would push 15 runs above 12 GPU-h;
+  - effective real-data throughput, including data loading and eval, is below about 50 samples/s, which would push 15 runs plus fixtures above 12 GPU-h;
   - Stage-0 C−S is not positive on the confirmatory split, which would mean the FC signal itself is absent.

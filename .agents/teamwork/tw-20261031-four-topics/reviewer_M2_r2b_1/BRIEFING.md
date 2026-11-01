@@ -1,4 +1,4 @@
-# BRIEFING — 2026-11-01T01:22Z
+# BRIEFING — 2026-11-01T02:05Z (created 01:22Z)
 
 ## Mission
 Independent review (reviewer + critic) of M2 Topic 3 iteration 2 (worker_M2_r2 interrupted + worker_M2_r2b resumed) against ACCEPTANCE C1–C8 and T3.1–T3.4, including whether both iteration-1 blocking issues (challenger_M2_r1_1: verdict logic unguarded; Family B estimand mis-described) are closed. Verdict APPROVE / REQUEST_CHANGES.
@@ -33,6 +33,7 @@ Independent review (reviewer + critic) of M2 Topic 3 iteration 2 (worker_M2_r2 i
 
 ## Key Decisions Made
 - Use my own mutant set (incl. MM 06 boundary siblings the worker did not run) in a copied tree, not just replay the worker's harness.
+- 2026-11-01T02:05Z: verdict REQUEST_CHANGES (Major). Finding (i) closed; finding (ii) closed for named mutants only (challenger N02/N05/N06/N08-N11/N17 all killed in my replay) but V01 (primary raw p), P01-P03 (CI wiring), A01 (D3 alignment) survive; demo tests kill them; no real verdict changes; reruns reproduce pinned JSON exactly.
 
 ## Artifact Index
 - DISPATCH.md — dispatch record
@@ -40,11 +41,11 @@ Independent review (reviewer + critic) of M2 Topic 3 iteration 2 (worker_M2_r2 i
 - handoff.md — final report
 
 ## Review Checklist
-- Items reviewed: (pending)
-- Verdict: pending
-- Unverified claims: worker r2b handoff (all), RESUME note facts
+- Items reviewed: card, addenda 03/04, report §3-5, analysis/resampling/estimators/token_job, all topic3 tests, worker r2b receipts, git history for topic3 paths
+- Verdict: REQUEST_CHANGES (blocking B1-B4 in handoff.md)
+- Unverified claims: root-reported interruption times 12:17:16Z/12:17:26Z; pycache writer at 00:39:14Z; attribution of commit 7430043 (pattern only)
 
 ## Attack Surface
-- Hypotheses tested: (pending)
-- Vulnerabilities found: (pending)
-- Untested angles: (pending)
+- Hypotheses tested: verdict-path mutants beyond the assigned 67 (36 own + 8 challenger replay); estimand numbers from npz; real-data rerun reproduction; A01 real impact
+- Vulnerabilities found: V01, P01, P02, P03, A01 survive (decision path); V10, A04, X01/X02 (script) survive; driver test hangs if a pool worker is OOM-killed
+- Untested angles: other iteration-1 verifiers' full harnesses; connectome token job rerun

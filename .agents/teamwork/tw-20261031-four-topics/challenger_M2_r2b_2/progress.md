@@ -20,3 +20,9 @@ Last visited: 2026-11-01T01:48:20Z
 - full shipped rerun in copied tree: Family A/B JSON identical to pinned (0 diff leaves), 43 s.
 - T3.1 check OK; git provenance of addenda checked.
 - rerun-then-test protocol (rerun_c2_B) running.
+
+Last visited: 2026-11-01T02:03:44Z
+- rerun_c2_B done (16 jobs): S01, S04 killed after rerun; A06/S03, A07, A09-A13, A21, R01, S02 survive a real rerun with outputs != pinned; A08/A14 hash-only.
+- final: C1 rc0 67 OK; pins rc0; card OK; ID grep clean; audit_layout PASS findings [].
+- cleanup: tree_base, mut, mutR, wit removed (make_tree.sh rebuilds; manifests kept); no processes left.
+- handoff.md written (REFUTED scoped: R-1 blocking producer/wiring gap; R-2 H4 L0 ceiling erratum).

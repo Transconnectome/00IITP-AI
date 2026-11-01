@@ -26,3 +26,8 @@ Last visited: 2026-11-01T02:08Z
 - 01:57Z C1 rc 0 (67/67).
 - 02:00Z dev probe v2 (same burned 5): S null held-out r .152 (C-S +.062..+.080 5/5); C_global ties E on r, loses on pca2.
 - 02:05Z handoff.md written. No leftover processes on B300/connectome; scratchpad cleaned.
+
+Last visited: 2026-11-01T02:20Z
+- 02:12Z advisor review #2: fixed O6 (decoder 'mlp' branch verified by probe_decoder_params.py: per-token, octant-only; decoder_spatial_expand 82.6% of params), added init-pairing requirement + tests 10-11, 8-seed costed option, mask and salt caveats.
+- 02:18Z handoff.md read back; audit_layout.py on whole run root: PASS, 158 files, 0 findings, rc 0. C1 rc 0.
+- DONE. Final report = StructuredOutput.

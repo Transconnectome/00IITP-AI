@@ -8,3 +8,5 @@ Last visited: 2026-11-01T01:25Z
 - 01:50Z prod suites: topic3 88, old 86, topic1 88 passed; ID scan 0 real hits; GPU ledger 0 M2 rows; commits attributed to root autocommit.sh PID 3270989; layout lint PASS.
 - 01:58Z pycache lead confirmed (worker_M2_r2b Bash 00:39:13.589Z without PYTHONDONTWRITEBYTECODE). Trees deleted; handoff written (CLEAN).
 Last visited: 2026-11-01T02:00Z
+- 02:05Z advisor fixes: own-output ID scan (0 hits / 106 files), repo-wide status snapshots deleted (disclosed), N4 quotes human constraint, verification commands use superclaude-env python.
+Last visited: 2026-11-01T02:05Z
