@@ -46,7 +46,12 @@ O5. **Final checks before the addendum existed** (`final/fc1_summary.txt`).
 - C1: 67 OK. Receipts: output 42, ad02 1, ad03 3, ad04 2, ad05 3 OK.
 - `.pyc` listing unchanged from the start. Layout lint PASS (269 files).
 - BIDS-prefix scan: only the synthetic names in the byte copies of the shipped `test_token_job_driver.py`.
-- The post-receipt reruns are `final/fc2_*` (see O7) and `final/fc3_*`; the fc3 results are in the structured return.
+- **Post-receipt final state.**
+  - fc2 failed 2 topic3 tests (O7).
+  - fc3: topic3 and the old suite were SIGTERMed by earlyoom (rc 143, INVALID; `final/fc3_INVALID_README.txt`).
+  - fc4 (`bin/final_checks_v2.sh`, memory gate): old suite 86 passed; topic1 88 passed; C1 67 OK; receipts output 42 / ad02 1 / ad03 3 / ad04 2 / ad05 3 / ad06 3 OK; pyc unchanged. Its topic3 run was SIGTERMed again (INVALID; `final/fc4_topic3_INVALID_README.txt`).
+  - fc5: topic3 138 passed, 0 skipped (`final/fc5_topic3.*`), with addendum v2 and receipt v2 in place; pyc unchanged.
+  - Final layout lint PASS (270 files). `EVIDENCE_MANIFEST_sha256.txt` covers 637 files (self-check OK).
 
 O6. **Host memory pressure.** Other workloads held MemAvailable at about 7–15% of 120 GiB.
 - 19 of my pytest attempts ended with rc −15, at times when `journalctl -u earlyoom` logged SIGTERMs. 17 were in v1 and 2 in v2b. All are INVALID and were rerun.

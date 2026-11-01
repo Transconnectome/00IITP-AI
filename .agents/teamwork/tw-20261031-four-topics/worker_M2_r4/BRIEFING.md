@@ -1,4 +1,4 @@
-# BRIEFING — updated 2026-11-01T09:20Z
+# BRIEFING — updated 2026-11-01T12:10Z
 
 ## Mission
 M2 (Topic 3) final iteration 4, PI decision 6 fixed scope: close r3 blocking classes (a) Family A full-output regression, (b) token_job producer, (c) primary-side Holm vs Bonferroni (N01), (d) D1 corr-only branch, with ADDITIVE tests + addendum_06 + receipt. No src/scripts change, no production rerun, no new estimand.
@@ -43,9 +43,9 @@ M2 (Topic 3) final iteration 4, PI decision 6 fixed scope: close r3 blocking cla
 - scratchpad addendum06_draft.md (+ sec4_method, sec5) — addendum draft (written to docs/ once, at the end)
 
 ## Change Tracker
-- Files created (production): tests/topic3_spectral/test_regression_r4.py, tests/topic3_spectral/test_token_level_r4.py (frozen 08:13:57Z). Pending: addendum_06 + receipt.
-- Build status: production tests/topic3_spectral 138 passed, 0 skipped (final/pre_topic3_b.log).
-- Pending issues: evidence runs (v2b named pending + union) in progress.
+- Files created (production): tests/topic3_spectral/test_regression_r4.py (ecceb134...), tests/topic3_spectral/test_token_level_r4.py (ab99b2b1...), docs/.../2026-11-01_topic3_addendum_06.md v2 (46527e6a...; v1 af805513... superseded, kept in verification/worker_M2_r4/superseded/), results/topic3/2026-10-31/addendum_06_sha256.txt v2 (db88f543...).
+- Build status: final: topic3 138 passed (fc5), old suite 86 + topic1 88 + C1 67 + 6 receipts OK (fc4), pyc unchanged.
+- Pending issues: none. Named 26/26 required killed (r4-only); union 150 KILLED / 1 SURVIVED (U127) = FULL_v2.
 
 ## Quality Status
 - Build/test result: 138 passed (production), smoke 26/26 required ids killed

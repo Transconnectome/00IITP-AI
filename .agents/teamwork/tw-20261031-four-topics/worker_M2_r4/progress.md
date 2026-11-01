@@ -52,3 +52,7 @@ Last visited: 2026-11-01T11:50Z
 - 11:4xZ addendum 06 v1 + receipt written; fc2: topic3 2 FAILED (C4 guards: literal BIDS prefix in addendum §7). Preserved v1 bytes (verification/worker_M2_r4/superseded/), wrote v2 (46527e6a...), regenerated receipt (db88f543...), fc3 rerun started.
 Last visited: 2026-11-01T11:50Z
 Last visited: 2026-11-01T11:56:02Z (fc4 gated final checks)
+- 11:42Z fc3: topic3 + old suite SIGTERMed by earlyoom (INVALID, final/fc3_INVALID_README.txt). fc4 (gated): old 86, topic1 88, C1 67, receipts 6/6 OK, pyc unchanged; topic3 SIGTERMed again (INVALID). fc5 topic3: 138 passed, 0 skipped.
+- dev_history/README_fixture_change_after_first_dev_failure.txt: reconstructed (from Edit tool inputs) record of the pre-freeze fixture change.
+- Final: layout lint PASS (270), EVIDENCE_MANIFEST_sha256.txt (637 files) OK. handoff.md written. Next: advisor check, then structured return.
+Last visited: 2026-11-01T12:10Z
