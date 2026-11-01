@@ -198,3 +198,11 @@ To rerun the B300 checks on node .98, use `b300/reeval_ckpt.py`, `b300/swap_all_
 - a rerun of `recompute_verdict.py` reports findings;
 - a checkpoint perm buffer differs from its run.json;
 - the frozen code under `src/topic2_rgpool` or `scripts/topic2_*.py` changes.
+
+## Addendum: final re-checks after my last writes (06:24Z)
+
+- **C2.** `tests/topic1_lagmotif`, run on CPU: 88 passed (`verification/challenger_M3_r1_1/tests_topic1_lagmotif.txt`).
+- **Hash checks.** All rc 0: C1, card, code-freeze and output. So my review left every file it touched unchanged.
+- **Layout lint.** Whole-run `audit_layout.py`: rc 0, 212 files, 0 findings (`audit_layout_run_root_final.txt`).
+- **C4 scan of my own outputs.** 69 files: 0 unexplained 6-digit tokens and 0 manifest pseudonyms.
+- **Ledger erratum.** My probe-2 "started" row gives its start as "06:1xZ", which is wrong. The matching "completed" row gives the exact launch time, 06:08:54Z. My total is 0.048 GPU-h.

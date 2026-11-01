@@ -1,0 +1,49 @@
+# BRIEFING — 2026-11-01T06:26Z
+
+## Mission
+Independent review (reviewer + critic) of M2 Topic 3 iteration 3 (worker_M2_r3) vs ACCEPTANCE C1–C8 and T3.1–T3.4; confirm every r1 and r2b blocking issue is closed; verdict APPROVE / REQUEST_CHANGES.
+
+## 🔒 My Identity
+- Archetype: reviewer (General route), roles reviewer + critic
+- Working directory: /home/juke/git/00IITP-AI/.agents/teamwork/tw-20261031-four-topics/reviewer_M2_r3_1/
+- Original parent: root coordinator (workflow harness; native ID not supplied to me)
+- Milestone: M2 (Topic 3), iteration 3
+- Instance: reviewer_M2_r3_1 (1 of 5-verifier gate; count per dispatch)
+- Host: claude-code (Opus 5.5); nested spawning NOT available; final report = StructuredOutput
+
+## 🔒 Key Constraints
+- Review-only — do NOT modify implementation code, tests, docs, receipts, or any production file
+- No git writes of any kind; 0 GPU; no participant IDs printed or written
+- Python /home/juke/superclaude-env/bin/python3 with PYTHONDONTWRITEBYTECODE=1, OMP_NUM_THREADS=2, nice
+- <=2 concurrent pytest processes; every pytest/mutant job under `timeout 900`; timeout/OOM = INVALID, rerun
+- Never run scripts/topic3_*.py in the production tree (topic3_common.py:12 hardcodes pinned OUT)
+- Probes/copied trees only under /home/juke/git/00IITP-AI/verification/reviewer_M2_r3_1/
+- Metadata only in this dir
+- Survivor blocks only if reachable on card-procedure inputs AND can change a verdict or reported number
+
+## Current Parent
+- Conversation ID: root coordinator (not supplied)
+- Updated: not yet
+
+## Review Scope
+- Files to review: tests/topic3_spectral/test_verdict_rules_r3.py, tests/topic3_spectral/test_token_stats_wiring_r3.py, docs/03_empirical_analysis/topic3/2026-11-01_topic3_addendum_05.md, results/topic3/2026-10-31/addendum_05_sha256.txt, verification/worker_M2_r3/ evidence
+- Interface contracts: sentinel/ACCEPTANCE.md, frozen card docs/03_empirical_analysis/topic3/2026-10-31_topic3_analysis_card.md
+- Review criteria: C1–C8, T3.1–T3.4, r1 + r2b blocking classes closed
+
+## Key Decisions Made
+- [pending]
+
+## Artifact Index
+- DISPATCH.md — dispatch text
+- progress.md — heartbeat
+- handoff.md — final report
+
+## Review Checklist
+- Items reviewed: [in progress]
+- Verdict: pending
+- Unverified claims: worker's 150/151 kill claim, 121 passed, C1 67 OK, receipts, wiring test fidelity, A15 equivalence
+
+## Attack Surface
+- Hypotheses tested: [pending]
+- Vulnerabilities found: [pending]
+- Untested angles: [pending]

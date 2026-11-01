@@ -29,12 +29,13 @@ Empirically challenge worker_M3_r1's M3 (Topic 2) deliverable: verdict STOP unde
 - Criteria: frozen-before-results, verdict follows card, numbers trace to real trained models, tests catch defects
 
 ## Key Decisions Made
+- 06:15Z verdict CONFIRMED (no blocking issues); handoff.md written; GPU used 0.03 GPU-h (ledger rows 06:06:32Z started / completed)
 - Plan (advisor-reviewed 05:48Z): Phase A local (gates, provenance, freeze ordering via git, independent recompute, pairing integrity, leakage read, mutation testing); Phase B B300 (code hash, checkpoint perm buffers on CPU, re-eval checkpoints <=1 GPU-h)
 
 ## Attack Surface
-- Hypotheses tested: [TBD]
-- Vulnerabilities found: [TBD]
-- Untested angles: [TBD]
+- Hypotheses tested: numbers fabricated/mislabelled (refuted: checkpoint perm buffers + independent re-score match to 1e-7); card frozen after results (refuted: third-party commit 51609c1 03:16:27Z); verdict mis-applied (refuted: hand-applied card 8 = stop, LOSO robust); pairing broken (refuted: identical test den across 15 runs); leakage (refuted by code read + killed mutant)
+- Vulnerabilities found: 19/47 surviving mutants (kill rule mean-vs-hi, I1 direction, verdict script, metric weighting, train/eval mask pairing, slot/placement); sub-delta I1 concentrated in E-stall seeds 0,2; stale 'pending PI' text; addendum 04 loss range inaccurate; unsalted content-hash pseudonyms (C4 wording); SOURCE.md cites nonexistent test file
+- Untested angles: Stage-0 recompute from data; preprocessing rerun from raw NIfTI; burned-dev-subject exclusion (needs IDs); S_s2 retraining
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md (methodology reference; read in place, no local copy needed for review)

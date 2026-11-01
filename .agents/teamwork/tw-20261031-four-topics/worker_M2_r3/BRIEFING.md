@@ -35,7 +35,7 @@ M2 (Topic 3) iteration 3: close every blocking issue of the r2b gate with ADDITI
 - verification/worker_M2_r3/pycache_baseline_start.txt — pyc listing before any work
 
 ## Change Tracker
-- Files created (owned): tests/topic3_spectral/test_verdict_rules_r3.py (58c64ccb, 27 tests), tests/topic3_spectral/test_token_stats_wiring_r3.py (b091b0b8, 6 tests), docs/03_empirical_analysis/topic3/2026-11-01_topic3_addendum_05.md (060b8c15), results/topic3/2026-10-31/addendum_05_sha256.txt (6efd73ad), verification/worker_M2_r3/*
+- Files created (owned): tests/topic3_spectral/test_verdict_rules_r3.py (58c64ccb, 27 tests), tests/topic3_spectral/test_token_stats_wiring_r3.py (b091b0b8, 6 tests), docs/03_empirical_analysis/topic3/2026-11-01_topic3_addendum_05.md (a4001f09), results/topic3/2026-10-31/addendum_05_sha256.txt (1e542da7), verification/worker_M2_r3/*
 - Build status: production topic3 121 passed; old 86; topic1 88; C1 + all pins OK
 - Pending issues: none (handoff written); root checkpoint loop committed drafts of addendum_05 (not mine)
 

@@ -29,3 +29,6 @@ Last visited: 2026-11-01T06:16Z
 - MUTANTS_SUMMARY.json (fa7017ac...) + table built; addendum_05 written (060b8c15...); receipt addendum_05_sha256.txt (6efd73ad...).
 - Post checks (final/post_*): topic3 121 passed; old suite 86 passed; topic1 88 passed; C1 67 OK; pins 42/1/3/2/3 OK; no new pyc; layout PASS; ID scan clean.
 - handoff.md written. Next: advisor review, then structured return.
+Last visited: 2026-11-01T06:35Z
+- Advisor review: reworded addendum_05 §7 ID-scan sentence (no-exclusion scan hits only tree_base_v3's copy of the shipped driver test), A15 note, draft-addendum-in-base-tree note, pyc note (removed own stray mutants/__pycache__/run_union pyc). Re-pinned: addendum_05 a4001f09..., receipt 1e542da7....
+- post2 checks: topic3 121 passed; old 86; topic1 88; C1 67 OK; pins 42/1/3/2/3 OK; 0 pyc added; layout PASS.

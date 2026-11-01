@@ -3,8 +3,8 @@
 Evidence lives in `/home/juke/git/00IITP-AI/verification/worker_M2_r3/`. The deliverables:
 - `tests/topic3_spectral/test_verdict_rules_r3.py` (27 tests, sha256 58c64ccb…)
 - `tests/topic3_spectral/test_token_stats_wiring_r3.py` (6 tests, b091b0b8…)
-- `docs/03_empirical_analysis/topic3/2026-11-01_topic3_addendum_05.md` (060b8c15…)
-- `results/topic3/2026-10-31/addendum_05_sha256.txt` (6efd73ad…)
+- `docs/03_empirical_analysis/topic3/2026-11-01_topic3_addendum_05.md` (a4001f09…)
+- `results/topic3/2026-10-31/addendum_05_sha256.txt` (1e542da7…)
 
 No `src/` or `scripts/` file was changed and no pinned file was edited. I made no git write and used 0 GPU.
 
@@ -39,7 +39,7 @@ That is 221 rows, merged into **151 unique patches**.
 - In copied trees: `logs/dev_r3_draft2_shipped.log` and `logs/dev_r3_wiring_v3_shipped.log`, plus both FULL_v2 controls.
 - On production (`final/post_pytest_topic3.log`): **121 passed**.
 
-**O6. Final checks on production** (`final/post_*`, after the receipt was written):
+**O6. Final checks on production** (`final/post2_*`, after the final receipt was written; an earlier `final/post_*` run with the same results preceded three last wording changes to addendum_05 §4/§7 and a re-pin):
 
 | Check | Result |
 |---|---|
@@ -53,7 +53,7 @@ That is 221 rows, merged into **151 unique patches**.
 | `addendum_05_sha256.txt` | 3 OK |
 | `.pyc` diff vs `pycache_baseline_start.txt` | 0 added. 7 `src/topic4_resu` pyc were removed by another team; the 3 iteration-2 pyc in `src/topic3_spectral/__pycache__` are unchanged |
 | `audit_layout.py` on the run root | PASS, findings [] |
-| ID scan (BIDS prefix) over my outputs | no hits |
+| ID scan (BIDS prefix), no exclusions (`final/post2_idscan_no_exclusions.log`) | 1 hit: `tree_base_v3/tests/topic3_spectral/test_token_job_driver.py`, the byte copy of the shipped test with synthetic names in the FULL_v2 base tree |
 | Leftover processes | none |
 
 **O7. Numeric corrections** (`probes/check_corrections.out.json`, from pinned JSON/npz only):
@@ -69,7 +69,9 @@ That is 221 rows, merged into **151 unique patches**.
 
 Both runs' files are kept unchanged and are not used as evidence. I killed only my own processes.
 
-**O10. Root checkpoint commits picked up drafts.** The root's 15-minute checkpoint loop committed four drafts of addendum_05 (`70bd178`, `6bf2de7`, `55ba1e0`, `08f7b6f`). None equals the final bytes 060b8c15…, so `git status` shows the file as modified. The receipt and the two tests are untracked. This was not my git write.
+**O10b. Bytecode in my own folder.** A `python3 -I -c 'import run_union'` helper call (-I ignores PYTHONDONTWRITEBYTECODE) wrote `verification/worker_M2_r3/mutants/__pycache__/run_union.cpython-312.pyc` (12:32 KST); I deleted it, and addendum_05 §7 says so. Nothing was written under `src/` or `scripts/`.
+
+**O10. Root checkpoint commits picked up drafts.** The root's 15-minute checkpoint loop committed four drafts of addendum_05 (`70bd178`, `6bf2de7`, `55ba1e0`, `08f7b6f`). None equals the final bytes a4001f09…, so `git status` shows the file as modified. The receipt and the two tests are untracked. This was not my git write.
 
 ## 2. Logic Chain
 
@@ -141,3 +143,15 @@ Invalidation conditions:
 - the r3 test files differ from 58c64ccb… / b091b0b8…;
 - a mutant listed as KILLED survives a rerun with the r3 tests;
 - a test fails on unmutated production.
+
+## 6. Deviations (also in the structured return)
+
+1. Timing probe (03:0xZ). I ran `scripts/topic3_token_stats.py` once in a copied tree (`verification/worker_M2_r3/probe_tree_timing`, now deleted) to measure its runtime. It wrote only into that copy. Its output equalled the pinned file in 508 of 508 non-run leaves. This is the same computation the mandated wiring test repeats in `tmp_path`, but it was a real-data script run outside a test.
+2. `S88_v1` was aborted (runner XML bug) and `FULL_v1` was superseded (X02 survived; a test was added). Both are kept unchanged with READMEs and are not used as evidence.
+3. The S88_v2 runner snapshot was reconstructed after the fact. Its hash matches the one recorded in the run.
+4. FULL_v2's base tree carried a draft addendum_05. Those bytes can only affect the shipped ID-scan tests, which pass on both versions, so FULL_v2 was not repeated.
+5. I added tests beyond the five blocking classes and the ≥2-verifier classes: one-verifier extras (P04, ties, V21, V22, R01, R04, zero-mean sign, H4 seed rule, refusals, PARAMS pin). Each is small and grounded in the card.
+6. The script-level test for `topic3_subject_level.py` (V28/S03) is in `test_token_stats_wiring_r3.py`, the second owned file.
+7. I re-pinned `addendum_05_sha256.txt` three times before handoff, after wording fixes to addendum_05 §4/§7. The final receipt is 1e542da7…. The root checkpoint loop may have committed an earlier receipt or draft addendum; that is not my git write.
+8. I deleted one stray `.pyc` in my own verification folder (O10b).
+9. Seven `src/topic4_resu` `.pyc` files listed in my start baseline were removed by another team during the run.
