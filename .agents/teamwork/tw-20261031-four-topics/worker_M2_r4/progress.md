@@ -11,3 +11,10 @@ Last visited: 2026-11-01T07:46Z
 - 07:57Z first dev run: 16 passed / 1 failed — the failure was MY fixture precondition (no-floor vs floor L3 corrPR differed by 4.4e-4 < my 1e-3 margin), before any shipped-code comparison. Fixed the fixture (near-dead L3 channel now carries its own signal: effect ~3.2%); no tolerance on shipped-vs-direct comparisons changed. Rerun: 17/17 pass. Margins in probes/margins_r4.out.json.
 - 08:01Z named_specs.py (AST extraction from the 4 r3 harnesses; 26 REQUIRED + 16 EXTRA ids -> 32 jobs) and run_jobs.py written. SMOKE run (r4 files only, dev tree, not evidence) started.
 Last visited: 2026-11-01T08:02Z
+- 08:09Z SMOKE (r4 files only, dev tree; not evidence): 26/26 REQUIRED ids KILLED; 8 EXTRA nonblocking survivors (N06, N12, VB02, FA13, FA14, GD01-03).
+- 08:12Z lint (flake8 --max-line-length 120, ruff): clean after line wraps (formatting only).
+- 08:13:57Z FROZE r4 test bytes into production: test_regression_r4.py ecceb134..., test_token_level_r4.py ab99b2b1... (logs/r4_tests_sha256_frozen.txt).
+- 08:15Z production tests/topic3_spectral: first attempt INVALID (Bash tool 120 s timeout, rc 143 at 52%, no failures; final/pre_topic3_INVALID_README.txt); rerun pre_topic3_b: 138 passed, 0 skipped, rc 0; no new .pyc.
+- 08:19Z tree_base_r4 built (123 files, manifest OK vs production); union list == FULL_v2 (151 ids, identical triples, same source sha). Evidence batch launched (bin/run_evidence.sh): named set then union, full 138-test suite, 2 jobs.
+Last visited: 2026-11-01T08:20Z
+Last visited: 2026-11-01T08:27:53Z (evidence batch running: named set)
