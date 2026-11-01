@@ -21,3 +21,19 @@ n_ic = subject i's brain voxels in padded cell c (pad96(mask.npy) reshaped 16x6 
   ellipsoid (g=16, patch 6); one sigma_v for F+ and F-. Fixture target scale kappa_fix = 1/sqrt(Q_fix) from a seeded
   fixture-train sample. If NF >= 1 the calibration is undefined -> stop and report (no tuning).
 - Descriptive only (not used for any decision): median and mean over cells of lag-1 autocorrelation of m (TRAIN).
+
+## 2026-11-01T15:30Z–15:55Z
+- B300: venv built under Slurm (srun job 489, CPU, b300-01) at /scratch/iitp4/fu_a/env/venv from scripts/b300_env/build_env.sh
+  (torch 2.15.0+cu134, numpy 2.5.4, scipy 1.18.1).
+- Positional data view + TRAIN design stats (srun job 492, CPU): checks all true (88 subjects, manifest order == sorted dirs,
+  5 burned excluded, repo split == mapped r1 split, 64/8/16 disjoint). Copied to results/topic2/2026-11-02_fu_a/design_stats_train.json
+  (copy-back attempt hung; re-copy pending -- local file was 0 bytes at 15:40Z).
+  Q 0.030780, kappa 5.6999, NF 0.20851, sigma_v 6.54593, cell lag-1 AC median 0.253 / mean 0.313.
+- Code written: src/topic2_fu_a/{__init__,target,sources,run,calib,verdict}.py; scripts/topic2fu_a_{prepare_b300,train,
+  build_fixture_perms,verdict,submit,token_scan}.py; tests/topic2_fu_a/{helpers,test_target,test_sources,test_run,
+  test_verdict,test_fixture_stage0}.py.
+- Tests so far: test_target 6/6, test_sources 9/9, test_run 6/6, test_verdict 33/33.
+- Mutation harness verification/worker_FU_A_r1/mutation/run_mutants.py: 31/31 verdict mutants killed, control passes.
+- B300 ssh: banner-exchange timeouts at the final hop since ~15:40Z (dgx1 and node1 reachable; B300 port 22 open);
+  retry loop running. Fixture-perm build moved to local CPU (synthetic only), started 15:54Z.
+Last visited: 2026-11-01T15:56Z

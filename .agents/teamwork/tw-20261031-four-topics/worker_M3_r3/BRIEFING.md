@@ -25,7 +25,7 @@ Close ACCEPTANCE T2.4 (M3 Topic 2 r3 gate repair): additive tests killing V01–
 
 ## Current Parent
 - Conversation ID: root 5fddb83e
-- Updated: not yet
+- Updated: unchanged (2026-11-01T15:58Z); phase = DONE, handoff written
 
 ## Task Summary
 - What to build: tests/topic2_rgpool/test_verdict_path_guards_r3.py; addendum_06; receipt; mutation evidence.
@@ -40,14 +40,14 @@ Close ACCEPTANCE T2.4 (M3 Topic 2 r3 gate repair): additive tests killing V01–
 - verification/worker_M3_r3/ — harnesses, logs, outputs
 
 ## Change Tracker
-- Files modified: (none yet)
-- Build status: n/a
-- Pending issues: n/a
+- Files modified: NEW tests/topic2_rgpool/test_verdict_path_guards_r3.py (24 tests); NEW docs/.../2026-11-02_topic2_addendum_06.md; NEW results/topic2/2026-11-01/addendum_06_sha256.txt (31 pins); verification/worker_M3_r3/*
+- Build status: new file 24 passed; connectome full suite 116 passed (FU cards excluded), 115+1 foreign fail with FU-B card
+- Pending issues: FU-B card trips shipped C4 scanner (root/FU-B owner)
 
 ## Quality Status
-- Build/test result: n/a
-- Lint status: n/a
-- Tests added/modified: (pending)
+- Build/test result: old86 86 passed; topic1 88 passed; C1 rc 0; receipts as expected
+- Lint status: n/a (no linter configured for tests)
+- Tests added/modified: card-§8 oracle grid, gate boundaries, script run-integrity, errata characterisation, shipped preconditions
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md (methodology reference; read, not copied)

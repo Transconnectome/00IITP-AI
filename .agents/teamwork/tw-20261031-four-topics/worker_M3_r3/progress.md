@@ -22,3 +22,5 @@ Last visited: 2026-11-01T15:25Z
 - 15:53Z final connectome suite r05 (i current docs, ii FU cards excluded): connectome ssh banner timeouts; retrying copy.
 Last visited: 2026-11-01T15:55Z
 - 2026-11-01T15:48:42Z correction: the times in the 7 lines above (15:43-15:55Z) were estimates and run ahead of the local clock; actual local time of writing them was ~15:48Z. Times below come from date -u.
+- 2026-11-01T15:58:30Z r05 final connectome suite: (i) 115 passed + 1 failed (FU-B card, foreign), (ii) FU cards excluded 116 passed. r06 integrity all as expected; r07 old86 86 passed; r08 38 passed; r09 audit_layout rc 0. connectome dir removed. handoff.md written (Hard). Next: StructuredOutput.
+Last visited: 2026-11-01T15:58:30Z

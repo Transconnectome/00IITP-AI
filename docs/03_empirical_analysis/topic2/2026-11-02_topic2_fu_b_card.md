@@ -14,6 +14,7 @@ The r1 verdict (**stop**, I1 +0.147 % [−0.068 %, +0.361 %] < δ 1 %) stays as 
   - that 300-step partial runs at the **r1 8,750-step schedule** reproduce the r1 training-loss log lines at steps 100 and 200 bit-identically (an r1 number, not an FU-B outcome);
   - that the per-subject test denominators through the positional view equal r1's (weight-independent);
   - the learning rate at step 100 of the 35,000-step schedule.
+- **FU-B worker smoke before this freeze (Slurm job 490, 0.07 GPU-h; `verification/worker_FU_B_r1/smoke_490_fetch.txt`)**, through the FU-B wrapper and the positional view: test denominators equal r1's exactly (max relative difference 0.0); 201-step anchors of hcp_E_s0, hcp_C_s0 and Fplus_E_s0 at the **r1** schedule reproduce r1's loss lines at steps 100 and 200 exactly (difference 0.0); with the FU-B defaults the run projects 1.69 h and the step-100 learning rate equals 2e-4 · 100/1750. Positional view check (`view_check.json`): 88 subjects, 176 hard links, split lists equal, 0 r1 files modified.
 - No FU-B training was run past step 300, no FU-B val or test number exists, and no FU-B contrast was computed.
 - **Prior expectation: stop.** The r1 val curves were still slowly decreasing at step 8,750 (E 0.9912 → 0.9910 between 6,562 and 8,750), which is the reason this option exists; the explorer operating-characteristic probe (r1 seed noise) gives P(stop) ≈ 1 if the true I1 at 4× stays ≤ 0.15 %.
 

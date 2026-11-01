@@ -97,3 +97,13 @@ python3 verification/worker_M3_r3/m01_mutants.py pytest $PWD verification/worker
 # shipped-only / union legs: verification/worker_M3_r3/c00_connectome_run.sh on connectome (srun -p debug)
 ```
 Invalidation: any edit to src/topic2_rgpool, scripts/topic2_*.py or the shipped tests; a mutant anchor no longer unique.
+
+## Addendum to Observation (final runs, after the receipt was written)
+- r05 connectome final full suite (srun debug, CUDA hidden): (i) current docs dir incl. FU-B/FU-D cards: 115 passed,
+  1 failed = test_outputs_no_ids (FU-B card, foreign); (ii) same tree with the 2026-11-02_topic2_fu_* cards left out
+  of the docs copy: 116 passed. Logs: verification/worker_M3_r3/connectome/r05_final_suite_{i,ii}.log.
+- r06 integrity (2026-11-01T15:57Z): C1 rc 0; code freeze 33; c4_sanitized 19; output_sha256_r2 156; addendum_06 31/31;
+  old card pins 2 FAILED / 6 OK, old output pins 16 FAILED / 27 OK (expected); sealed originals 19/19.
+- r07 old 86 rerun: 86 passed. r08 verdict-path files (new + test_stats + r2 guards): 38 passed.
+- r09 whole-run audit_layout: rc 0, 0 findings.
+- connectome work dir /storage/connectome1/iitp4_verify/worker_M3_r3 removed; no jobs or processes left; 0 GPU-h.

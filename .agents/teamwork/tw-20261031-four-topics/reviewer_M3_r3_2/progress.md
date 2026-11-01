@@ -1,0 +1,1 @@
+- 2026-11-01T16:01Z start; read role/adapters/run docs; DISPATCH+BRIEFING written. Last visited: 2026-11-01T16:01Z
