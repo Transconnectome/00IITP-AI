@@ -22,7 +22,7 @@ Empirically challenge worker_FU_C_r3 (FU-C iteration 3, final): verdict reproduc
 
 ## Current Parent
 - Conversation ID: root 5fddb83e
-- Updated: not yet
+- Updated: 2026-11-01T22:57Z (phase: handoff written, CONFIRMED)
 
 ## Review Scope
 - Files: src/topic2_fu_c/{c4scan_strict,supersession,verdict,...}.py, tests/topic2_fu_c/test_r3_guards.py, scripts/topic2fu_c_check_c4_r3.py, scripts/topic2fu_c_write_receipt_r3.py, addendum_03, output_sha256_r3.txt, verification/worker_FU_C_r3/
@@ -34,9 +34,9 @@ Empirically challenge worker_FU_C_r3 (FU-C iteration 3, final): verdict reproduc
 - Mutation mirror kept under verification/challenger_FU_C_r3_1/ and removed after use.
 
 ## Attack Surface
-- Hypotheses tested: see progress.md
-- Vulnerabilities found: [TBD]
-- Untested angles: [TBD]
+- Hypotheses tested: verdict recompute (holds), freeze order (holds), receipts (hold), worker mutation claim (reproduced), C4 counts (hold), scanner adversarial shapes, decimal-context blind spot
+- Vulnerabilities found: 12 surviving behavioural mutants (10 on r3 C4 tools, W04, W08); decimal-adjacent blind spot of identifier_context_count (1 non-FU-C file, not uniquely recoverable); addendum 03 §3/§8 count wording
+- Untested angles: public-documentation recoverability of committed r1/r2 descriptions (needs typing a candidate); no checkpoint re-evaluation on B300
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md (methodology reference; not copied)

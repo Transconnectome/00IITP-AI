@@ -31,18 +31,18 @@ Forensic integrity audit of milestone FU_C (Topic 2 follow-up C, iteration 3) �
 - **Audit type**: forensic integrity check
 
 ## Audit Progress
-- **Phase**: investigating
-- **Checks completed**: [none]
-- **Checks remaining**: C1, receipts, freeze timing, hardcoded/facade, tests, verdict repro, C4 count-only, ledger/GPU, git writes, layout
-- **Findings so far**: TBD
+- **Phase**: reporting (done 2026-11-01T23:0xZ)
+- **Checks completed**: C1, receipts, claimed hashes, freeze timing+git anchor, independent verdict, B300 sacct/hash/mtime provenance, ledger+cap, suites (210/86/116/88), verdict repro, mutant spot-check 81/85 killed (4 equivalents), C4 count-only membership (worktree+git history), git writes, layout
+- **Checks remaining**: none
+- **Findings so far**: CLEAN (FU-C scope); out-of-scope lead: verification/challenger_M3_r3_1/p06_c4_scan_r3_outputs.py L22-23 range bounds are staged HCP names
 
 ## Key Decisions Made
 - DISPATCH.md summarises the embedded worker JSON (containment rule caution) — deviation recorded.
 
 ## Attack Surface
-- **Hypotheses tested**: TBD
-- **Vulnerabilities found**: TBD
-- **Untested angles**: TBD
+- **Hypotheses tested**: fabricated records (refuted: sacct+B300 hashes); hardcoded verdict (refuted: indep recompute); tests cannot fail (refuted: mutants); pre-freeze results (refuted); ID leak FU-C (refuted, count-only)
+- **Vulnerabilities found**: none in FU-C scope
+- **Untested angles**: near-copy overlap vs sealed original (not read by choice); GPU checkpoint re-eval (relied on job 577)
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md — read in place (no local copy; metadata dir must stay metadata). Core: frozen card before results, synthetic GT, run records, verdict taxonomy.

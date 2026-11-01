@@ -97,3 +97,8 @@ Last visited: 2026-11-01T18:21:52Z
 - poll 2026-11-01T22:38:33Z: job 516 terminal tasks 4/15 (background poller). Last visited: 2026-11-01T22:38:33Z
 - poll 2026-11-01T22:43:48Z: job 516 terminal tasks 6/15 (background poller). Last visited: 2026-11-01T22:43:48Z
 - poll 2026-11-01T22:49:00Z: job 516 terminal tasks 8/15 (background poller). Last visited: 2026-11-01T22:49:00Z
+- 2026-11-01T22:52:35Z ROOT NOTICE (coordination event, not human): root placed a Slurm hold (JobHeldAdmin) on pending Stage-1 tasks 516_[12-14] under the ACCEPTANCE C5 B300-share rule (g3t-G-E0 jobs on b300-04). WAIT window starts now. I will not release, cancel or resubmit them; 516_8-11 left running; polling stays at >= 5-min intervals. Root releases after the hub reports E0 done. Not a failure (card §10).
+Last visited: 2026-11-01T22:52:35Z
+- poll 2026-11-01T22:54:13Z: job 516 terminal tasks 8/15 (background poller). Last visited: 2026-11-01T22:54:13Z
+- poll 2026-11-01T22:59:26Z: job 516 terminal tasks 8/15 (background poller). Last visited: 2026-11-01T22:59:26Z
+- poll 2026-11-01T23:04:40Z: job 516 terminal tasks 8/15 (background poller). Last visited: 2026-11-01T23:04:40Z
