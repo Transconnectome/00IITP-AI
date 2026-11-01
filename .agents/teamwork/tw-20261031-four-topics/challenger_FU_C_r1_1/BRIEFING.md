@@ -21,7 +21,7 @@ Empirically challenge milestone FU_C (Topic 2 follow-up C: 8 fresh seeds x 3 arm
 
 ## Current Parent
 - Conversation ID: root 5fddb83e
-- Updated: not yet
+- Updated: 2026-11-01T20:15Z (unchanged)
 
 ## Review Scope
 - Files: src/topic2_fu_c/, tests/topic2_fu_c/, scripts/topic2fu_c_*.py, results/topic2/2026-11-02_fu_c/, docs/03_empirical_analysis/topic2/2026-11-02_topic2_fu_c_*.md
@@ -29,12 +29,13 @@ Empirically challenge milestone FU_C (Topic 2 follow-up C: 8 fresh seeds x 3 arm
 - Criteria: verdict follows card rules; freeze-before-results; numbers recompute from raw; tests kill mutants
 
 ## Key Decisions Made
-- [TBD]
+- Verdict CONFIRMED (stop holds; numbers reproduced from raw + checkpoints); test-gap mutants reported nonblocking
+- Used 0.013 GPU-h (Slurm job 577, ledgered); B300 probe dir removed after copy-back
 
 ## Attack Surface
-- Hypotheses tested: [TBD]
-- Vulnerabilities found: [TBD]
-- Untested angles: [TBD]
+- Hypotheses tested: freeze order, rule fidelity, numbers from raw, record provenance, checkpoint re-score, partition buffers, data identity (test_den), anchor, ledger, C4, 33 new mutants, 9 adversarial inputs
+- Vulnerabilities found: 20/33 new mutants survive (X30 estimator, X09 tolerance, X01/X02, X10/X11, X26 token, receipt guards X15/X17/X21); no production-code bug; none changes shipped verdict
+- Untested angles: S-surrogate rebuild from train FC (B300 only), per-submission squeue logs, explorer seed usage beyond ledger/handoffs
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md (methodology reference; read in place, not copied)
@@ -42,3 +43,4 @@ Empirically challenge milestone FU_C (Topic 2 follow-up C: 8 fresh seeds x 3 arm
 
 ## Artifact Index
 - DISPATCH.md, progress.md, handoff.md (this dir)
+- /home/juke/git/00IITP-AI/verification/challenger_FU_C_r1_1/{recompute,mutants,adversarial,b300_reeval}/
