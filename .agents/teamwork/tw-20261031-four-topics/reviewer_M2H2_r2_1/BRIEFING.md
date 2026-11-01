@@ -32,13 +32,13 @@ Independent r2 gate review of M2H2 (Topic 3 H2 random-init control) iteration 2 
 - Independent recomputation of addendum 08 errata numbers from shipped outputs
 
 ## Review Checklist
-- Items reviewed: (in progress)
-- Verdict: pending
+- Items reviewed: all M2H2 r2 artifacts, receipts, suites, union evidence, novel mutants, errata
+- Verdict: APPROVE (21:12Z)
 - Unverified claims: union 115/115 (rely on out.json + spot check), test counts, errata numbers
 
 ## Attack Surface
-- Hypotheses tested: (in progress)
-- Vulnerabilities found: (in progress)
+- Hypotheses tested: verdict-path coverage (25/25 novel killed), errata numbers (confirmed), freeze order (ok)
+- Vulnerabilities found: 12 nonblocking novel survivors (driver in-job flags, descriptive reductions, S01 BIDS guard, S08 tol)
 - Untested angles: GPU paths (driver) rely on r1 runtime evidence
 
 ## Artifact Index
