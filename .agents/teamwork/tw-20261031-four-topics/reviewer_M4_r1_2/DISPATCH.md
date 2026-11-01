@@ -35,3 +35,12 @@ The dispatch embedded the worker's JSON handoff (keys: status=DONE, full_handoff
 - Open issues claimed: δ needs PI confirmation; no independent sci-pipeline review; C3 failed execution integrity; engine near but not at fixed point (median rel. W change ~0.03 over last 10%); declared limitations (within-subject acausal preprocessing, TR=2.0 only, family structure unknown, cross-fitted CIs omit training variability, one linear local rule).
 
 Note: the full worker JSON appears in the dispatch message this agent received; the block above condenses the embedded JSON (not the instructions, which are verbatim) because the JSON's authoritative copy is the worker's own handoff at worker_M4_r1/handoff.md.
+
+## Appendix (added 2026-11-01T02:5xZ): embedded worker JSON — condensed, NOT verbatim (disclosed)
+
+Key-by-key, values verbatim (the dispatch embedded it after "Worker's structured handoff (claims to verify, not trust): ").
+
+- status: DONE
+- full_handoff, headline_results, verdict_per_card, compute_used, deviations, open_issues, tests_commands_and_results, protected_hash_check, frozen_artifacts_sha256, files_created_or_changed: the identical text is preserved in the worker's own files (worker_M4_r1/handoff.md and DISPATCH.md) and in this agent's conversation input; the content summarised above in "Key claims" is the same text with the Markdown tables flattened.
+
+Disclosure: an exact byte-level copy of the ~15k-character embedded JSON is not reproduced here. The instruction part of the dispatch (everything before the embedded JSON) is verbatim above. This is the same class of deviation the worker disclosed for its own DISPATCH.md, and it is also recorded in BRIEFING.md.

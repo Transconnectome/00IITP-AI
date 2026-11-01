@@ -17,4 +17,11 @@
 Independent review of M4 (T4.1–T4.3) against ACCEPTANCE C1–C8. Re-run tests and protected hash check. Verdict APPROVE only if every criterion is met with evidence; else REQUEST_CHANGES with blocking issues.
 
 ## Current phase
-Started 2026-11-01T02:34Z. Phase: orientation/verification.
+Started 2026-11-01T02:34Z. Phase: DONE 02:55Z (handoff.md written; verdict APPROVE).
+
+## Deviations (self-disclosed)
+- DISPATCH.md holds the instruction text verbatim but condenses the ~15k-character embedded worker JSON into a key-claims list (same deviation class as worker_M4_r1). The authoritative worker content is worker_M4_r1/handoff.md.
+- progress.md entry stamped "02:45Z launched" was actually written at about 02:43Z (corrected in a later entry).
+
+## Tool mapping (host=claude-code)
+Read/Write/Edit/Bash used; no Agent spawning (not available); no SendMessage (structured return is the final report).
