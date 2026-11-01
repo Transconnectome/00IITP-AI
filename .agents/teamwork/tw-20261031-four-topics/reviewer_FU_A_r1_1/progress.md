@@ -6,3 +6,4 @@ Last visited: 2026-11-01T16:54:58Z
 - Verdict recomputed -> identical to shipped verdict.json (inconclusive).
 - B300 read-only: sacct 507_0/507_1 COMPLETED 1480/1479 s on b300-01; run.json/train_log sha256 equal to repo copies.
 - Running: worker mutation harness copy; extra 16-mutant harness (target/sources/run/calib).
+Last visited: 2026-11-01T17:11:12Z — worker verdict harness copy 31/31 killed, control passes; extra harness 8/8 killed so far

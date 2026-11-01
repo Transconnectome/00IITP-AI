@@ -28,12 +28,13 @@ Empirically challenge worker_FU_A_r1's FU-A deliverable (Topic 2 follow-up A, lo
 - Criteria: ACCEPTANCE F1–F3, C1–C8; card rules
 
 ## Key Decisions Made
-- [TBD]
+- No GPU rerun (B300 queue saturated; no checkpoints); 0 GPU-h used
+- Verdict: CONFIRMED (handoff.md)
 
 ## Attack Surface
-- Hypotheses tested: [TBD]
-- Vulnerabilities found: [TBD]
-- Untested angles: [TBD]
+- Hypotheses tested: freeze-before-results; record genuineness; verdict-vs-card (oracle 60k cases); target code; fixture calib; mutants X01-X22
+- Vulnerabilities found: N1 F+ noise share 0.220 not 0.248 (card/report text); N2 seed-noise overstatement; N3 5 surviving mutants (non-shipped paths)
+- Untested angles: GPU rerun; HCP TRAIN design stats recompute
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md (read in place, not copied)

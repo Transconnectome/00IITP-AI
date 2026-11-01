@@ -11,3 +11,8 @@ Last visited: 2026-11-01T16:59:01Z
 - [x] FINDING: realized F+ noise share is 0.220 (not 0.248; 0.248 is pooled F+/F-), confirmed by train_loss/val ratio 1.128
 - [ ] my 22 mutants on verdict.py (running, detached)
 - [ ] old suite 86 (running)
+- [x] mutants X01-X22: 17/22 killed; survivors X05 X06 X07 X11 X16 (oracle-confirmed non-equivalent except X05 inf-only)
+- [x] old suite 86 passed; tests/topic2_fu_a 69 passed 1 skipped; rgpool no_ids 3 passed
+- [x] layout lint own folder PASS; ssh master closed; no orphan processes
+- [x] handoff.md written — verdict CONFIRMED
+Last visited: 2026-11-01T17:11:01Z

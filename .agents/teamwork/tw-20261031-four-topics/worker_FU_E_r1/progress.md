@@ -15,3 +15,4 @@ Last visited: 2026-11-01T15:46Z (times approximate to the minute)
 - 16:24:31Z g3t-G-E0 check none; main job 524 submitted (gpu partition, b300-01, 75 min); ledger start row written
 Last visited: 2026-11-01T16:36Z
 - 16:37Z job 524 PENDING (QOSMaxGRESPerUser: 8/8 user GPUs in use; FU-C jobs 513-520 queued earlier). Waiting is not a failure (C5 share rule).
+- 17:04Z job 524 RUNNING on b300-01 (waited 40 min in queue: QOSMaxGRESPerUser)

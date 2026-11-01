@@ -21,7 +21,7 @@ Empirically challenge milestone M2H2 (Topic 3 H2 random-init control): CONFIRMED
 - Metadata only in this folder
 
 ## Current Parent
-- root 5fddb83e; Updated: not yet
+- root 5fddb83e; Updated: 2026-11-01T17:25Z (unchanged)
 
 ## Review Scope
 - Files: src/topic3_h2/, tests/topic3_h2/, scripts/topic3h2_*.py, results/topic3/2026-11-02_h2/, docs/.../2026-11-02_topic3_addendum_07_h2_card.md (sha 09b45220…), 2026-11-02_topic3_h2_result_report.md
@@ -37,9 +37,14 @@ Empirically challenge milestone M2H2 (Topic 3 H2 random-init control): CONFIRMED
 - Recompute from saved npz independently (no use of h2stats arithmetic)
 
 ## Attack Surface
-- Hypotheses tested: [TBD]
-- Vulnerabilities found: [TBD]
-- Untested angles: [TBD]
+- Hypotheses tested: freeze order (holds); headline recomputation from npz with own code (holds, 2.7e-14); report numbers (hold);
+  ID leak (clean, boundary-aware real-label scan); connectome probe 218069: R0 G1 recheck pos 5/17/40 (7.65e-7, 0 fail),
+  seeds 4/1 hash = shipped and scalars bitwise = shipped; baseline 71 tests pass
+- Vulnerabilities found: (1) scripts/topic3h2_stats.py (writes h2_results/labels) has zero tests; copy-paste mutant
+  "all arms read R1" flips C1 INC->EQ + 4 L labels (sim); harness run pending. (2) δ sensitivity: C3 TE+ only for
+  δ/|T| <= 0.548 (frozen 0.5); C2 TE+ for <= 0.458; report §6.1 misattributes boundary to C1 (C1 INC robust 0.16-1.0)
+  (3) ledger closing rows of worker jobs in KST not UTC (minor)
+- Untested angles: driver.py negative-control mutants (needs GPU); explorer exposure taken from handoffs
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md (read in place; no copy needed for review)
