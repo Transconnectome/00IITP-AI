@@ -1,0 +1,6 @@
+# progress — challenger_M3_r2_1
+Last visited: 2026-11-01T09:46Z
+- 09:28Z dispatch received; read role/runtime/claude-code adapters, ORIGINAL_REQUEST, ACCEPTANCE, RESUME, PI_DECISIONS, GATE_STATUS, worker_M3_r2 handoff, card, verdict.py, stats.py.
+- 09:35Z metadata DISPATCH/BRIEFING written. Next: plan check, then baseline integrity checks.
+- 09:37Z baseline: C1 67/67, freeze 33/33, r2 pins 156/156, old pins fail exactly 2+16; artifact hashes = claims. Independent verdict recompute: stop, matches verdict.json to 1e-17.
+- 09:46Z B300 independent sealed-vs-sanitized check v2 all_ok (v1 probe bug preserved in prev_versions). split.json not reproducible from sanitized manifest (2/16 test overlap) — undisclosed.

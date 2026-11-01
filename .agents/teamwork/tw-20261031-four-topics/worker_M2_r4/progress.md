@@ -30,3 +30,5 @@ Last visited: 2026-11-01T08:56Z
 - Pre-checks (non-pytest): C1 67 OK; receipts output 42 / ad02 1 / ad03 3 / ad04 2 / ad05 3 OK; code_sha256_at_freeze: only topic3_launch_connectome.py differs (pre-existing, addendum 01 item 2).
 Last visited: 2026-11-01T09:07Z
 Last visited: 2026-11-01T09:29:08Z (v2b named running)
+- 09:27Z gated rate measured at ~2.4 min/job (memory hovering 13.5-15.5 GiB) -> full-mode union would take ~6 h. Union switched to runner v3 fail-fast (-x; SURVIVED still needs all 138 tests; skipped must be 0); v2b union step cancelled by pre-creating runs/EVID_union_r4_v2b_logs/README_CANCEL.txt. bin/run_evidence_v3.sh waits for v2b, then runs the union (EVID_union_r4_v3ff).
+Last visited: 2026-11-01T09:33Z
