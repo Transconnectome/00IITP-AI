@@ -22,14 +22,17 @@ M4 (Topic 4 FM-ReSU redesign): give the worker a concrete, verifiable strategy f
 - Root coordinator; updated: not yet
 
 ## Investigation State
-- **Explored paths**: ORIGINAL_REQUEST, ACCEPTANCE, RESUME, survey_2/3 handoffs (M4 sections), PROJECT.md layout, sci-pipeline SKILL
-- **Key findings**: see progress.md / handoff.md
-- **Unexplored areas**: src/fractal_motif_resu.py, src/local_learning_engine.py, data loaders, cohort TR/valid_T distribution, old tests' AST audit, connectome env
+- **Explored paths**: governing docs, surveys, old Topic-4 code (fractal_motif_resu, local_learning_engine, rg_box_pooling imports), old AST audit, topic1 loader/tr_table, M1 manifest (positions/site/TR), connectome (read-only)
+- **Key findings**: T4.1 falsified-tested (pos932 R2≈0 vs pos0 1.0); centred-before-padding needed for RED fixture; TR=2.0 primary (1195 subj); horizons in seconds; old engine non-local/non-equivariant/lazy torch; masked PSP topology-dependent PD loss; guarded rectified engine stable; 3-part no-backprop proof; compute ≤2 h local CPU
+- **Unexplored areas**: family structure; filter code for npy; engine-R derivation; real-data convergence
 
 ## Key Decisions Made
 - M4 compute = local CPU / connectome only (ENIGMA, C6).
+- 0 GPU-h; B300 not contacted; 0.25 GPU-h smoke not spent (no GPU need; SwiFT-7T allocation).
+- Real subjects used: positions 0 (burned) and 932 (TR 1.0, outside TR=2.0 primary set).
 
 ## Artifact Index
 - DISPATCH.md — dispatch verbatim
 - progress.md — heartbeat
-- handoff.md — final 5-component report
+- handoff.md — final 5-component report (written 01:00Z)
+- /home/juke/git/00IITP-AI/verification/explorer_M4_r1_2/probe_*.py + *.out.json — probes A–G

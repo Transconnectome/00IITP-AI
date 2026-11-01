@@ -32,22 +32,23 @@ Independent victory audit of milestone M1 (Topic 1 hardening T1.1–T1.3 + full-
 - **Audit type**: victory audit
 
 ## Audit Progress
-- **Phase**: investigating
-- **Checks completed**: card sha 1e589f0b…75aa OK; card §12 code hashes 10/10 OK; C1 rc 0 (67 lines OK)
-- **Checks remaining**: hash chain of results; timeline (git log, mtimes); test suites; mutants rerun; stats rerun on saved features; <=10 subject re-extraction; verdict-rule check; ID scan; degeneracy check; layout lint
-- **Findings so far**: none yet
+- **Phase**: reporting (handoff written 00:58Z)
+- **Checks completed**: card sha; §12 hashes; C1 (before/after tests); hash chains; old suite 86 passed; topic1 88 passed; mutants 19/19+4/4 (0 survivors) and without-new-tests 5 survive; stats mutants 24/24; analyze rerun identical; independent reimplementation KILLED; 8-subject bit-identical re-extraction; JSONL degeneracy recount; ID scans; layout lint; transcript provenance of freeze→decide→analyze
+- **Checks remaining**: none (structured return)
+- **Findings so far**: no blocking defect; disclosed deviation: card §12 pre-execution independent review not met (post-hoc only); git leads (push 10-31 20:12 KST, a18006d, d654ec8) not attributable to M1
 
 ## Key Decisions Made
 - Integrity mode: Development (no "from scratch" constraint in ORIGINAL_REQUEST)
+- Verdict: VERIFIED_COMPLETE; card §12 pre-execution review = disclosed unmet requirement, nonblocking (C3/T1.5 route)
 
 ## Artifact Index
 - verification/victory_M1_b/card_s12_hashes.txt — card §12 hash list (copied verbatim from card)
 - verification/victory_M1_b/c1_check.log — C1 sha256sum -c output
 
 ## Attack Surface
-- **Hypotheses tested**: [TBD]
-- **Vulnerabilities found**: [TBD]
-- **Untested angles**: [TBD]
+- **Hypotheses tested**: H-a real-label analyze before hash (refuted: transcripts+mtimes+append log); H-b saved features not produced by frozen code (refuted: 8 bit-identical); H-c verdict depends on p MC error (refuted: |d|<0.15 binding); H-d stats implementation diverges from card (refuted: independent reimplementation d identical, p within MC); H-e IDs leaked (refuted: 0 hits); H-f mutants survive (refuted)
+- **Vulnerabilities found**: pre-execution review owed by card §12 done only post hoc; planted d=0.15 recovered 2.55 MC-SE low (within 3-SE pass); across-site permutation defect fixture not FPR-detectable (disclosed D3)
+- **Untested angles**: full-cohort re-extraction (forbidden); family-1 AUROC independent reimplementation (reproduced via script rerun only); worker's earlier transcript context outside wf_59fa8ec4-d01
 
 ## Loaded Skills
 - **Source**: /home/juke/.claude/skills/sci-pipeline/SKILL.md
