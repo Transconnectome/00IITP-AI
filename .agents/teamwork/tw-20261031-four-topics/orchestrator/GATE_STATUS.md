@@ -13,3 +13,8 @@ M3/M4: workflow B wf_5bb8fefb-ae0 running (explorers done; workers running). M3 
 Root checkpoint loop (session 1157b38c scratchpad autocommit.sh, PID 3270989) still commits run .md/.txt every 15 min, local only, ID-guarded.
 
 PI 2026-11-01 ~14:3x KST: C6 relaxed — ENIGMA-OCD data may be used on B300 (PI_DECISIONS item 5). ENIGMA alarm closed.
+
+## Update — root, 2026-11-01 ~16:5x KST
+M2 r3 (wf_c7ee9ab8-f5e): worker DONE (5 r2b classes closed; 150/151 union mutants killed, U127 equivalent). Gate FAIL: reviewer_1 (N01 Bonferroni-vs-Holm), reviewer_2 (Family A printed numbers unguarded), challenger_1 (token_job T01/T02 flip H1a/H1b if code changed; Family A), challenger_2 (D1 corr-only branch; Family A); auditor CLEAN. Real verdicts and printed numbers independently reproduced. PI decision 6: one final fixed-scope iteration → wf_2e844535-2c9 (worker_M2_r4, reviewer_M2_r4_1, auditor_M2_r4_1, victory_M2).
+M4 (wf_5bb8fefb-ae0): r1 gate PASS (2 APPROVE, 2 CONFIRMED, CLEAN); victory_M4 VERIFIED_COMPLETE. H1 (C4 − C1) stop/killed (−0.0022, 95% CI [−0.0041, −0.0004]); S2 supported; S3 non-inferior at δ=0.01 with backprop better by 0.0047. 0 GPU-h.
+M3 (wf_5bb8fefb-ae0): r1 worker verdict stop/killed (I1 +0.15%, 95% t [−0.07%, +0.36%] < δ 1%; 11.73 GPU-h, launched by direct ssh before B300 Slurm was known). r1 gate FAIL on one reviewer: repo-side HCP subject tokens are unsalted content hashes + file sizes (recoverable to HCP IDs, C4). r2 worker running (sanitize to positional/HMAC tokens).
