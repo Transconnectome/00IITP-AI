@@ -12,3 +12,7 @@ Last visited: 2026-11-01T03:26Z
 - 03:23Z launched union (151 unique) on the shipped 88-suite (s88) detached: mutants/runs/S88_v1*.
 - probes/check_corrections.py: H1b HCP -10.7%, L1e-4 -3.2%; CI half-widths 0.00203-0.01442; L0 H4 subsample gives 159 eigenvalues; cat L0 stores 384.
 - git (read-only): addendum_03 commits = 4ce1917 (10-31 12:31:25Z, first) and ef27b71; 0db0336 does not touch addendum_03.
+Last visited: 2026-11-01T03:40Z
+- 03:33Z S88_v1 ABORTED (runner bug: "<job tree>" placeholder broke JUnit XML at U022; main thread stopped recording). Killed own processes only; README runs/S88_v1_ABORTED_README.txt; runner snapshot kept.
+- Runner fixed (placeholder JOBTREE; per-job exception -> INVALID). Smoke run SMOKE_v2 OK (U022 KILLED, U057 V01 SURVIVED on shipped 88).
+- 03:38:59Z launched S88_v2 (151 jobs, shipped 88 suite) detached.
