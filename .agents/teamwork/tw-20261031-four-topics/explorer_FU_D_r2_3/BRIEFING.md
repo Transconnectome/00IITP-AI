@@ -1,4 +1,4 @@
-# BRIEFING — 2026-11-01T19:41Z
+# BRIEFING — 2026-11-01T19:41Z (updated at handoff)
 
 ## Mission
 FU_D iteration 2: adversarial pre-mortem of the r1 gate failure (challenger_FU_D_r1_1 REFUTED: X45 DELTA unpinned, X22 joint-reading text unpinned) and recommend a fix strategy that closes it without changing the shipped verdict or the frozen artefacts.
@@ -20,15 +20,16 @@ FU_D iteration 2: adversarial pre-mortem of the r1 gate failure (challenger_FU_D
 
 ## Current Parent
 - Conversation ID: root 5fddb83e
-- Updated: not yet
+- Updated: unchanged (root 5fddb83e)
 
 ## Investigation State
-- **Explored paths**: run docs (ORIGINAL_REQUEST, ACCEPTANCE, PI decisions, GATE_STATUS, RESUME)
-- **Key findings**: [TBD]
-- **Unexplored areas**: FU-D code/tests/receipts; freeze-receipt scope of tests; verifier mutant lists
+- **Explored paths**: run docs; src/topic2_fu_d/{config,verdict,records}.py; scripts/topic2fu_d_{verdict,train,c4scan}.py; tests/topic2_fu_d; FU-D receipts; r1 verifier mutant harnesses; M3 r3 addendum_06 precedent
+- **Key findings**: shipped verdict regenerates byte-identical; tests are pinned in the freeze receipt (additive file only); probe test file kills 14/14 non-equivalent r1 survivors incl. X45/X22; G1/G2 card-vs-code gaps unreachable on shipped tree → errata; C4 scanner misses r2 dirs
+- **Unexplored areas**: full union (~190) of r1 mutant sets vs suite+proposal (left to worker)
 
 ## Key Decisions Made
 - DISPATCH.md summarises the inline gate JSON (references agent handoffs) instead of re-typing 60 KB.
 
 ## Artifact Index
+- /home/juke/git/00IITP-AI/verification/explorer_FU_D_r2_3/{proposed_test_fud_r2_pins.py,run_survivor_mutants.py,survivor_mutants.out.json,verdict_rerun.json,tree/}
 - DISPATCH.md, BRIEFING.md, progress.md, handoff.md (this folder)

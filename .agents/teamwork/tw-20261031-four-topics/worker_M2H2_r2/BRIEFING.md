@@ -1,4 +1,4 @@
-# BRIEFING — 2026-11-01T17:58Z
+# BRIEFING — 2026-11-01T20:05Z (updated)
 
 ## Mission
 M2H2 iteration 2: close the r1 gate failure (verdict-path + stats-script guards untested) with ADDITIVE tests, mutation evidence, a dated errata addendum in an owned path, ledger correction rows. No GPU, no rerun, no change to any pinned file.
@@ -34,3 +34,20 @@ M2H2 iteration 2: close the r1 gate failure (verdict-path + stats-script guards 
 
 ## Artifact Index
 - verification/worker_M2H2_r2/ — probes, mutation harness, logs
+
+## Change Tracker
+- Files added: tests/topic3_h2/test_h2r2_{stats_regression,stats_guards,family_oracle,gate_components}.py; results/topic3/2026-11-02_h2/r2/{2026-11-02_topic3_h2_addendum_08_r2.md, addendum_08_sha256.txt}; 2 ledger correction rows; verification/worker_M2H2_r2/*
+- Files modified: none (ledger append-only)
+- Build status: all suites pass (167 / 138 / 86 / 88)
+- Pending issues: none for worker; δ PI question and connectome cleanup for root
+
+## Quality Status
+- Build/test result: PASS
+- Lint status: layout lint findings []
+- Tests added: 96 (regression, guards, oracle, components/driver offline)
+
+## Loaded Skills
+- Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md (not copied; referenced for G7 additive-only and δ PI-only rules)
+
+## Status
+- Phase: DONE; handoff.md written

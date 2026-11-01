@@ -19,12 +19,13 @@ FU_D iteration 2: analyse why the r1 gate failed (challenger_FU_D_r1_1 REFUTED: 
 
 ## Current Parent
 - Conversation ID: root 5fddb83e
-- Updated: not yet
+- Updated: not yet (unchanged)
 
 ## Investigation State
 - **Explored paths**: run docs (request, acceptance, PI decisions, gate status, resume); FU-D card, config.py, verdict.py, records.py, design.py, scripts/topic2fu_d_verdict.py, tests helpers/test_verdict_script.py; verifier mutation harnesses; addendum_06 precedent
 - **Key findings**: see handoff.md
-- **Unexplored areas**: B300 state (not needed: no new runs recommended)
+- **Unexplored areas**: B300 state (not needed: no new runs recommended); full ~199-mutant union (left to worker)
+- **Status**: DONE 2026-11-01T20:25Z, handoff.md written
 
 ## Key Decisions Made
 - Fix = additive tests + dated FU-D addendum_01 + its own receipt; no frozen file edited; no rerun; verdict unchanged

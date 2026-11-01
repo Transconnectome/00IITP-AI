@@ -16,3 +16,4 @@ Last visited: 2026-11-01T17:58Z
 Last visited: 2026-11-01T18:12Z
 - 18:43Z union harness: baselines green in both trees (shipped 71 passed, extended 167 passed); first 13 r1-survivor edits all new=KILLED ext=KILLED shipped=SURVIVED. Last visited: 2026-11-01T18:44Z
 - 19:16Z union harness 31/115 done. Last visited: 2026-11-01T19:16Z
+- 20:05Z addendum 08 + receipt written (rc 0); ID-scan tests 17 passed; final suites 167/138/86/88 passed; handoff.md written. Last visited: 2026-11-01T20:05Z

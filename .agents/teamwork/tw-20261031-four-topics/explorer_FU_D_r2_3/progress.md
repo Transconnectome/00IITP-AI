@@ -5,3 +5,5 @@ Last visited: 2026-11-01T19:44:38Z
 - next: probe additive test + survivor mutants on a copied tree
 Last visited: 2026-11-01T19:49:49Z
 - proposed additive test (15 tests) passes on unmutated copy; kills 14/14 non-equivalent r1 survivors; Q08/Q19/Q21 survive (equivalent/redundant)
+Last visited: 2026-11-01T19:52:11Z
+- handoff.md written (Hard). C1 rc0, FU-D receipts OK, audit_layout findings []. 0 GPU-h. No processes left.
