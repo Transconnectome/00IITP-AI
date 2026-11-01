@@ -49,7 +49,7 @@ p05 ran new verdict-path mutants. These are text edits in a mirror, not in the w
 - **Local, two-file subset:** the baseline survives, and 3 positive controls are killed (t df, unshared bootstrap draws, 4 HCP seeds). V12 and V13 are killed. **11 survive.**
 - **Full 92-test suite on connectome** (p07, `srun` debug partition, CPU, torch 2.15.0+cpu / numpy 2.5.4 / scipy 1.18.1):
   - The baseline passes 92.
-  - V01–V08 SURVIVE. [V09–V11 and the 42 r1/explorer survivors: see §1a.]
+  - All 11 SURVIVE (§1a).
 - The survivors:
   - V01: keep uses `I1 lo >= 0`.
   - V02: keep uses `I2 lo >= 0`.
@@ -85,7 +85,12 @@ Test suite:
 The GPU ledger has 11.99 GPU-h completed, all from M3 agents, and no worker_M3_r2 row. On B300, the sealed dir is 700 and its files 400, and there are no worker_M3_r2 processes.
 
 ## 1a. p07 results (full suite, connectome)
-[filled in below after completion]
+
+`connectome/p07_mutants.out.json` and `p07.log`. This was 54 runs, each a separate `srun` step on the debug partition with 2 CPUs and CUDA hidden. Each ran the full current 92-test suite with `-x` in a fresh copy of the token-free tree. The run finished at 10:20:37Z on the connectome clock, which is about 6 minutes ahead.
+- The baseline passed 92 and SURVIVED, as a valid baseline should.
+- **All 11 new mutants V01–V11 SURVIVE the full suite.**
+- **All 42 r1/explorer survivors from the worker's list are KILLED.** This independently replicates the worker's "42 now killed" claim. The killing tests match addendum_05 §5a, for example m20/m21/metrics_* → test_masked_sq_terms_counts_only_masked_brain_voxels and m18 → test_build_boxes_default_is_the_deterministic_dense_mean_rule.
+- Totals: 12 SURVIVED (baseline + 11), 42 KILLED, 0 INVALID.
 
 ## 2. Logic chain
 
@@ -100,7 +105,7 @@ The GPU ledger has 11.99 GPU-h completed, all from M3 agents, and no worker_M3_r
    - Its salt and hashes sit in the repo working tree. A salt stored beside hashes over a 10^6 space is not a salted hash. p04 recovers all 5 IDs from repo content alone, which is easier than B1, because B1 needed the staged files.
    - This is the defect class that failed r1. The worker listed the salt file as a root action but did not say the hashes are reversible.
 4. The worker's headline "all verdict-path and pipeline mutants are now killed" is false beyond the 102 listed mutants.
-   - Card-rule mutants on boundaries and branches survive the full suite: V01–V08 confirmed, with V09–V11 and the r1 set given in §1a.
+   - 11 card-rule mutants on boundaries and branches survive the full 92-test suite (§1a). The 42 listed r1 survivors are all killed, so the narrower claim holds.
    - The worker made the stop-boundary mutant must-kill (`test_kill_rule_boundary_is_strict`). By that same standard, V01–V05 should be killed.
    - The frozen script also has an undisclosed card-vs-code defect, p06 case A: a measurement-capacity failure is reported as a software failure (sci-pipeline G8).
    - None of these is reachable with the shipped data: all 27 runs completed, both gates passed, and I1's upper bound is far below δ.
@@ -143,8 +148,20 @@ The GPU ledger has 11.99 GPU-h completed, all from M3 agents, and no worker_M3_r
 - **(1) C4 dev-salt leak.** verification/explorer_M3_r1_1/{dev_subject_salt.txt, dev_subjects_BURNED.md, probe_stage0_hcp_dev.log, probe_stage0_hcp_dev.out.json} let anyone recover 5 HCP IDs.
   - Owner: root / explorer_M3_r1_1, not the worker.
   - Fix: move the salt and the hash-bearing files off-repo, for example beside the sealed originals on B300. Replace them with a positional note. Then re-scan.
-- **(2) Unguarded verdict-path branches and boundaries.** These are V01–V11 plus any r1 survivor in §1a. Separately, the frozen script's F+-failure path gives no_verdict instead of inconclusive.
-  - Fix: add tests, and record an addendum erratum for the frozen-script defect. No rerun is needed.
+- **(2) Unguarded verdict-path branches and boundaries.** These are V01–V11; all 42 listed r1 survivors are killed.
+  - **Substantive:**
+    - V07: a missing F+ gate counts as a pass.
+    - V08 and V10: failed runs are counted, which bypasses the no_verdict guard.
+    - V06: an F− failure also downgrades modify.
+    - V09: the test-order guard is removed.
+  - **Boundary-only:** V01–V05. Exact float equality is practically unreachable.
+  - **Off-card:** V11. It is reachable only if Stage 1 runs after an F+ failure, which the card forbids. Low weight.
+  - **Frozen-code defect:** p06 case A. When F+ fails and Stage 1 is not run, the frozen script gives no_verdict instead of the card's inconclusive.
+  - Fix: add tests for V01–V11, and record an addendum erratum for case A. No rerun is needed.
+
+Reporting channel: the dispatch makes my structured return the final report and names no parent native ID. I therefore sent no SendMessage. That is a deliberate departure from the adapter's final-message step, not an omission.
+
+DISPATCH.md records the computed task verbatim except the embedded worker-handoff JSON. That JSON is condensed, with its field values preserved, and the condensation is disclosed in the file.
 
 **Nonblocking:**
 - The sanitized `split.json` salt no longer reproduces the split from repo data.

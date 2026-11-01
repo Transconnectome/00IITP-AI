@@ -1,4 +1,4 @@
-# BRIEFING — 2026-11-01T09:30Z
+# BRIEFING — 2026-11-01T09:30Z (updated 10:25Z)
 
 ## Mission
 Empirically challenge worker_M3_r2's M3 (Topic 2) iteration-2 claims: C4 remediation (B1), seal checks, new tests/mutation claims, verdict reproduction and card-rule conformance. CONFIRMED or REFUTED with evidence.
@@ -27,6 +27,7 @@ Empirically challenge worker_M3_r2's M3 (Topic 2) iteration-2 claims: C4 remedia
 - Criteria: ACCEPTANCE C1–C8, T2.1–T2.3; frozen card 2026-11-01_topic2_card.md
 
 ## Key Decisions Made
+- Verdict REFUTED (blocking: C4 dev-salt leak [root/explorer-owned]; 11 unguarded verdict-path mutants + F+-path card-vs-code defect). B1 remediation and verdict stop CONFIRMED.
 - Token scans will use sha256-of-token sets (tokens never leave B300 in clear) [planned]
 - GPU not needed: r2 changed no governed computation
 
@@ -39,7 +40,7 @@ Empirically challenge worker_M3_r2's M3 (Topic 2) iteration-2 claims: C4 remedia
   - card freeze before results (git 51609c1 03:16:27Z < first HCP partition 03:17:08Z, runs 03:44Z+); PI items 2–3 at a06f435 03:01:27Z — HOLDS
 - Vulnerabilities found:
   - C4: 5 burned dev-subject salted hashes + salt in repo (verification/explorer_M3_r1_1, untracked) reversible 5/5 in 0.37 s (p04) — BLOCKING (owner root/explorer)
-  - 11 new verdict-path mutants survive the two stats/verdict test files (p05); full-suite re-check on connectome pending (p07)
+  - 11 new verdict-path mutants survive the FULL 92-test suite on connectome (p07); all 42 listed r1 survivors are killed (worker's narrower claim holds)
   - frozen topic2_verdict.py returns no_verdict (not inconclusive) when F+ fails and Stage 1 is not run (p06 case A); F- missing -> keep (case D, disclosed erratum 8)
   - sanitized split.json salt no longer reproduces the split from positional tokens (p02) — nonblocking
 - Untested angles: /tmp/claude-1000 scratchpads (46 GB) not scanned; unreachable git objects not scanned; B300 GPU re-run not done (not needed: r2 changed no governed computation)

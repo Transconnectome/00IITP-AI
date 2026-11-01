@@ -14,3 +14,9 @@ Last visited: 2026-11-01T09:52Z
 - 09:44Z p05 new verdict-path mutants: 3 positive controls killed, baseline survives; 11 of 13 new mutants SURVIVE (boundary ops, F+ missing/failed-run handling, F- downgrading modify, stop under F+ failure, status/test-order guards). None changes the shipped verdict.
 - 09:44Z local full suite: 14 files; test_partition.py and test_pipeline_guards_r2.py SIGTERMed by earlyoom (rc 143, host memory); all others pass; old86 86 passed; topic1 88 passed. Stopped local heavy runs (earlyoom also hit others' processes in the window).
 - 09:50Z connectome: project-local CPU venv + full topic2 suite via srun (debug) launched; log ~/iitp4_verify/challenger_M3_r2_2/run.log on connectome.
+Last visited: 2026-11-01T10:24Z
+- 09:58Z p06 frozen verdict script on synthetic records: F+ fails + Stage 1 not run -> no_verdict (card: inconclusive); F- missing -> keep (disclosed erratum 8).
+- 10:01Z connectome venv (project-local, /storage/connectome1/iitp4_verify/challenger_M3_r2_2, uv-managed py3.12, torch 2.15.0+cpu) built; full suite 92 passed; code sha 38/38 = local.
+- 10:20Z p07 full-suite mutants on connectome: baseline survives; 11/11 new survive; 42/42 r1 survivors killed.
+- 10:22Z cleanup: B300 /scratch/iitp4/challenger_M3_r2_2 removed; connectome dir removed; no jobs/processes left. p03 output redacted. handoff.md written.
+Last visited: 2026-11-01T10:30Z — handoff.md final (Hard); layout lint PASS (267 files, 0 findings, c05_audit_layout.txt); no processes/jobs left on DGX-Spark, B300 or connectome; StructuredOutput next (REFUTED).

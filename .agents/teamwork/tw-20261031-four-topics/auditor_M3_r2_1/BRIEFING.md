@@ -29,21 +29,24 @@ Forensic integrity audit of M3 (Topic 2) iteration 2 (worker_M3_r2: C4 remediati
 - Audit type: forensic integrity check
 
 ## Audit Progress
-- Phase: investigating
+- Phase: reporting (handoff written 10:30Z)
 - Checks completed: orientation (role, adapters, ORIGINAL_REQUEST, ACCEPTANCE, RESUME, PI_DECISIONS, worker handoff, r1 auditor handoff)
 - Checks remaining: see progress.md
-- Findings so far: none yet
+- Findings so far: CLEAN for r2 work product; open root item N1 (explorer salt 5/5 recoverable), N2 preprocess.log order channel, N3 CUDA-visible skips
 
 ## Key Decisions Made
-- DISPATCH.md: computed text verbatim except worker JSON summarized (disclosed in file)
+- DISPATCH.md: computed text verbatim; worker JSON moved verbatim to its own section (09:35Z correction of an earlier summarized version, disclosed in file)
+- Tests: local host earlyoom-starved → full suite + own mutants in Slurm CPU-only job 346 on b300-01 (no GPU, 0 GPU-h); C5 placement deviation disclosed
+- Verdict: CLEAN for r2 work product; N1 explorer salt = open C4 item for root before M3 closure
 
 ## Attack Surface
-- Hypotheses tested: [TBD]
-- Vulnerabilities found: [TBD]
-- Untested angles: [TBD]
+- Hypotheses tested: fabricated remediation (refuted: streamed originals = pins, byte-level relabel); residual tokens (refuted: 0 hits WT+all git objects+session scratch); fake test/mutation evidence (refuted: own Slurm run 92/0 skipped, 13/13 own mutants killed); hidden GPU (refuted: ledger, sacct, skip behaviour)
+- Vulnerabilities found: N1 salt beside salted hashes (outside r2); N2 log-order relink channel undisclosed; N3 CUDA-visible skip
+- Untested angles: old86/topic1 not re-run (earlyoom); worker 102-mutant harness not re-run; transcripts not inspected
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md — Core methodology: frozen card before results, synthetic fixtures, run records, verdict taxonomy (read, not copied)
 
 ## Artifact Index
-- verification/auditor_M3_r2_1/ — my probes and raw outputs
+- verification/auditor_M3_r2_1/ — my probes and raw outputs (probe_sealed_and_scan.*, b300_job/, probe_selfscan.*)
+- handoff.md — final report

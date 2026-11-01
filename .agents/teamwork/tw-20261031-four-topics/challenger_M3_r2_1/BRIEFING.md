@@ -1,4 +1,4 @@
-# BRIEFING — 2026-11-01T09:35Z
+# BRIEFING — 2026-11-01T10:16Z (final: CONFIRMED, handoff.md written)
 
 ## Mission
 Empirically challenge worker_M3_r2's M3 (Topic 2) iteration-2 deliverable: C4 remediation (positional tokens, sealed originals), 37 new tests, addendum_05, unchanged verdict `stop`. Return CONFIRMED or REFUTED with evidence.
@@ -29,13 +29,14 @@ Empirically challenge worker_M3_r2's M3 (Topic 2) iteration-2 deliverable: C4 re
 
 ## Key Decisions Made
 - Recompute verdict independently from test_num/test_den (not test_nmse).
-- Compare sealed originals vs sanitized in memory via ssh pipe (nothing written locally), count-only output.
+- Compare sealed originals vs sanitized ON B300 (originals never leave B300) with my own stdlib script; count-only output. Fingerprint patterns streamed by ssh pipe into local grep (memory only).
+- Full 92-test suite on B300 CPU (local host at earlyoom threshold); disclosed C5 placement deviation.
 - New mutants beyond the worker's 102, run in a scratch copy of the repo, light tests only (host RAM tight).
 
 ## Attack Surface
-- Hypotheses tested: [TBD]
-- Vulnerabilities found: [TBD]
-- Untested angles: [TBD]
+- Hypotheses tested: sanitization is a pure relabel (CONFIRMED, B300 independent check); no fingerprint in tree/history/npz (CONFIRMED); verdict follows card from num/den (CONFIRMED, stop); freeze before results (CONFIRMED); full suite passes (92 on B300 CPU); old suites (86, 88 local).
+- Vulnerabilities found: new survivors K1-K4, K9 (verdict branches unreachable for stop); C4 guard gaps X1-X4, X6, X8; split.json not re-derivable from repo manifest (undisclosed); minor text errata.
+- Untested angles: worker's 102 mutants not re-run (outputs re-counted); no GPU re-evaluation (r1 reviewer did checkpoints); data-holder linkage not attempted (by design).
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md — gates G1–G9 (frozen card, synthetic fixtures, run records, verdict taxonomy, independent review). Read in place (no local copy).

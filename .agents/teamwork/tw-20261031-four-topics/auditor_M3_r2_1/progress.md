@@ -10,3 +10,8 @@ Last visited: 2026-11-01T10:15Z
 - 09:5xZ verdict reproduced byte-identical locally; independent t-interval recompute matches.
 - 09:59-10:01Z local tests: 25 light + 48 heavier passed; test_pipeline_guards_r2 SIGTERMed by earlyoom (host memory; my process 4.4 GB; earlyoom also SIGTERMed an ollama process at the same second — disclosed).
 - 10:14Z Slurm CPU job 346 on b300-01 (no GPU, CUDA hidden): full suite + 13 own spot mutants.
+Last visited: 2026-11-01T10:31Z
+- 10:21Z job 346 done: 92 passed/0 skipped; 13/13 own mutants KILLED; outputs copied to verification/auditor_M3_r2_1/b300_job/; B300 dir removed.
+- 10:2xZ self-scan of my outputs 0/0 hits; layout lint rc0 265 files; handoff.md written. Next: advisor, structured return.
+Last visited: 2026-11-01T10:36Z
+- 10:35Z handoff corrected per advisor (scratch hit scope, unscanned files, N2 = code reading). Closing checks follow; this is the last metadata write.
