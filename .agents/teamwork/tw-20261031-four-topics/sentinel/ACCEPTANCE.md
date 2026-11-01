@@ -50,3 +50,6 @@ H2′ Exact replication of the VRABES SwiFT E192 extraction with random-init wei
 H3′ Tests + fixtures; results in results/topic3/2026-11-02_h2/; result report states H2 verdict and its effect on R1–R3 readings. GPU cap 6 GPU-h on connectome.
 ## Final integrated report
 R1 One four-topic report from canonical dated outputs only (C8), each topic's verdict with its card rule, gate/victory status, deviations, and what remains untested; numbers audited against result files.
+
+## Addendum 2026-11-01 ~23:3x KST — B300 sharing rule (request from the SwiFT-LLM hub session, accepted by root 5fddb83e; GARD agreed to the same)
+C5 B300-share: the Slurm normal-QoS limit of 8 GPUs applies to the whole Slurm user `connectome`, shared by IITP, GARD and SwiFT. Immediately before EVERY B300 GPU submission (sbatch/srun, incl. smoke and verifier probes) run `squeue` and check for jobs named `g3t-G-E0-*` (SwiFT E0 measurement, b300-04, from 2026-11-02 early morning). If any is PENDING or RUNNING, do not submit; wait and re-check (poll ≥5 min apart), and record the wait in progress.md. Jobs already running may continue. Plan within ≤8 concurrent GPUs for the whole Slurm user; never cancel or disturb other teams' jobs. Wall-clock delays caused by this rule are not failures.

@@ -1,4 +1,4 @@
-# BRIEFING — 2026-11-01T14:20Z
+# BRIEFING — 2026-11-01T15:00Z (phase: handoff written)
 
 ## Mission
 FU-A (Topic 2 follow-up A, lower-noise reconstruction target): recommend a concrete, verifiable, falsifiable strategy (card, target definition, controls, gates, kill rule, permitted data, compute fit within 8 GPU-h) for the FU-A worker. Primary lens: scientific design and falsifiability.
@@ -24,14 +24,16 @@ FU-A (Topic 2 follow-up A, lower-noise reconstruction target): recommend a concr
 
 ## Investigation State
 - **Explored paths**: run docs (ORIGINAL_REQUEST, ACCEPTANCE+addendum, PI_DECISIONS 1-8, GATE_STATUS, RESUME); r1 card, result report, architecture, addenda 02/04/05; src/topic2_rgpool/{train,data,fixtures,metrics,stats,model,merge}.py; scripts/topic2_{verdict,train,launch_wave,preprocess_hcp}.py; M3_r2_gate_record (challenger_M3_r2_2 V01–V11 + case A)
-- **Key findings**: see progress.md / handoff.md
-- **Unexplored areas**: B300 data location under Slurm; per-run GPU-h; packing; synthetic fixture probes
+- **Key findings**: 12 mm block-mean target (L2); smoothing biased+leaky (p02); calibrated fixtures valid (p03); reduced-budget gates invalid (O3); cap conflict ~11-12 vs 8 GPU-h (L7); C4 token hazard via B300 dir names (L4); verdict sketch 22/22, 15/15 mutants killed
+- **Unexplored areas**: packing factor f (explorer_FU_A_r1_3 job 403); rho on all 64 TRAIN; kappa
 
 ## Key Decisions Made
 - Do not read peer FU-A explorers' folders (independence)
+- 0 GPU-h: FU-A smoke already held by explorer_FU_A_r1_3 (job 403); no duplicate
+- Recommend tiered compute plan T1/T2/T3 decided by root before card freeze
 
 ## Artifact Index
 - DISPATCH.md — verbatim dispatch
 - progress.md — heartbeat
 - handoff.md — final 5-component report
-- /home/juke/git/00IITP-AI/verification/explorer_FU_A_r1_1/ — probes
+- /home/juke/git/00IITP-AI/verification/explorer_FU_A_r1_1/ — probes p01-p04, proposed_fu_a_verdict_sketch.py, out/*.json

@@ -26,13 +26,14 @@ FU_C (Topic 2 follow-up C: 8 seeds x 3 arms at E36, 140k samples, df-7 t interva
 
 ## Investigation State
 - **Explored paths**: run docs (request, acceptance, PI decisions, gate status, resume); r1 card, result report, addenda 01-05; scripts/topic2_verdict.py, src/topic2_rgpool/stats.py, data.py, train.py (grep), build_partitions.py; r1 run.json timings; ledger tail; M3_r2_gate_record (challenger_M3_r2_2 V01-V11)
-- **Key findings**: see handoff.md
-- **Unexplored areas**: B300 live state (ssh banner timeout at 14:2xZ, retrying)
+- **Key findings**: 8 fresh seeds (D8F) calibrated & powerful; D5+3 dominated by seen data; r1 pipeline bit-reproducible under Slurm (job 401, 0.072 GPU-h); data only on b300-01; frozen wrapper defects confirmed (F+ fail->no_verdict, F- missing->keep, assert crash). See handoff.md
+- **Unexplored areas**: other FU-C explorers' outputs; M3 r3 addendum_06 wording; full-length determinism
 
 ## Key Decisions Made
-- [TBD]
+- Recommend 8 fresh seeds 5..12, r1 gate reused by hash-verified reference, stalls valid + pre-registered sensitivity, fail-closed wrapper; cap guard
 
 ## Artifact Index
 - DISPATCH.md — verbatim dispatch
 - progress.md — heartbeat
 - handoff.md — final 5-section report
+- verification/explorer_FU_C_r1_1/{probe_power,smoke,verdict_probe}/ — probes and outputs; c1_check.txt

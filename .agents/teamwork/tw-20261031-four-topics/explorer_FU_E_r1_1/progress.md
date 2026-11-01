@@ -8,3 +8,9 @@ Last visited: 2026-11-01T14:43Z
 - 14:38Z synthetic design probe run: verification/explorer_FU_E_r1_1/probe_design_sim.out.json
 - 14:41Z Slurm smoke job 407 submitted (debug, b300-01, 1 GPU, 12 min limit); ledger started row appended
 - next: poll 407, close ledger row, copy aggregate output, write handoff
+- 14:41:28Z job 407 COMPLETED (15 s, 0.005 GPU-h); ledger completed row appended; outputs copied (sha256 3/3 OK) to verification/explorer_FU_E_r1_1/{smoke_out.json,smoke_slurm407.log,smoke.sbatch,b300_sha.txt}
+- 14:55Z handoff.md written; C1 rc 0 (67/67); code freeze 33/33; output_sha256_r2 0 failures; whole-run audit_layout: 344 files, 0 findings
+- 14:58Z B300 dir /scratch/iitp4/explorer_FU_E_r1_1 removal requested (first ssh timed out; retry in flight)
+Last visited: 2026-11-01T14:58Z
+- 15:00Z B300 dir /scratch/iitp4/explorer_FU_E_r1_1 removed (confirmed); 0 fue_e_smoke jobs in squeue. DONE.
+Last visited: 2026-11-01T15:00Z

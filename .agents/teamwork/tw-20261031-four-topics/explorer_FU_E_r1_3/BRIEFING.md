@@ -17,15 +17,18 @@ FU-E pre-mortem explorer: concrete verifiable strategy for Topic 2 follow-up E (
 
 ## Current Parent
 - Conversation ID: 5fddb83e
-- Updated: not yet
+- Updated: 2026-11-01T15:05Z (unchanged)
 
 ## Investigation State
-- **Explored paths**: run control docs
-- **Key findings**: TBD
-- **Unexplored areas**: topic2 docs, checkpoints on B300, HCP staging, behavioral file
+- **Explored paths**: control docs; topic2 card/report §7/addendum_02,05; src/topic2_rgpool merge/model/train/stats; scripts/topic2_verdict.py; tests C4 scope; M3_r2 gate record; B300 .98 (runs, data, sinfo); ledger
+- **Key findings**: 15 ckpts exist (no hash in r1); REST1_LR only (103 files, no REST2); no OA behavioral CSV; full-run z-score -> split-half antisymmetry artifact (|r| ID 100% on noise); mask-outline confound for cov2 readout; common mask + per-half z fixes; accuracy step 2.1% > delta; B300 subject dirs carry B1-class tokens
+- **Unexplored areas**: .99/.101 nodes; G0 nondeterminism tolerance; seed SD of Idiff
 
 ## Key Decisions Made
-- none yet
+- No GPU smoke (peers FU_E_r1_1/r1_2 already did ckpt/re-score smoke); 0 GPU-h
+- Recommend fingerprinting (Idiff, cov2 readout, common mask, per-half z) as governed; age probe not run
 
 ## Artifact Index
-- DISPATCH.md, BRIEFING.md, progress.md, handoff.md
+- DISPATCH.md, BRIEFING.md, progress.md, handoff.md (final report)
+- /home/juke/git/00IITP-AI/verification/explorer_FU_E_r1_3/probe_mask_confound.py/.out (P1)
+- /home/juke/git/00IITP-AI/verification/explorer_FU_E_r1_3/probe_hook_equiv.py/.out (P2)
