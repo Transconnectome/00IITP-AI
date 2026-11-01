@@ -16,3 +16,8 @@ Last visited: 2026-11-01T03:40Z
 - 03:33Z S88_v1 ABORTED (runner bug: "<job tree>" placeholder broke JUnit XML at U022; main thread stopped recording). Killed own processes only; README runs/S88_v1_ABORTED_README.txt; runner snapshot kept.
 - Runner fixed (placeholder JOBTREE; per-job exception -> INVALID). Smoke run SMOKE_v2 OK (U022 KILLED, U057 V01 SURVIVED on shipped 88).
 - 03:38:59Z launched S88_v2 (151 jobs, shipped 88 suite) detached.
+Last visited: 2026-11-01T04:35Z
+- 04:03Z S88_v2 DONE: 101 KILLED, 50 SURVIVED, 0 INVALID, 0 NOT_APPLIED (controls 88 passed). The 50 reproduce the verifiers' reported survivors.
+- Added zero-mean zoo sign test (kills A16/V09) before FULL_v1. FULL_v1 (tree_base_v2) priority jobs: 48/50 killed, survivors U091 (X02) and U127 (A15). X02 is output-identical on the pinned spectra -> added re-signed-spectra wiring test. FULL_v1 stopped/superseded (README).
+- Frozen r3: test_verdict_rules_r3.py 58c64ccb..., test_token_stats_wiring_r3.py b091b0b8... (33 tests). Pass on shipped code (dev_tree_2 wiring 6 passed).
+- 04:3xZ launched FULL_v2 (tree_base_v3, 151 jobs, X02 first).

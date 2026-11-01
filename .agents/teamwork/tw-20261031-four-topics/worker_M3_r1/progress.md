@@ -17,3 +17,4 @@ Last visited: 2026-11-01T03:18Z
 - 04:11Z wave 2 done (3.43 GPU-h); F- gate computable: E 0.2393, C 0.2435, S 0.2437 (C not better: pass). 04:14:54Z wave 3 launched (8 hcp runs). Last visited: 2026-11-01T04:15:22Z
 - 04:2xZ report sections 1,2,4-8 drafted; waiting wave 3 (ETA 04:41Z). Last visited: 2026-11-01T04:18:16Z
 - 04:2xZ ID-scan pass 1 on B300 (1084 names in memory, 91 text files): 0 hits. Adjudication rule fixed beforehand. Wave-4 auto-launcher running locally (verification/worker_M3_r1/auto_wave4.sh). Last visited: 2026-11-01T04:23:40Z
+- 04:41Z wave 3 done (3.50 GPU-h, 8/8 completed); wave 4 (hcp E,C,S s4) auto-launched 04:41:49Z on GPUs 0-2. Last visited: 2026-11-01T04:42:25Z
