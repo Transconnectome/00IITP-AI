@@ -7,3 +7,8 @@ Last visited: 2026-11-01T02:21Z
 - 02:5xZ src/topic2_rgpool (grid, partition, merge, model, data, fixtures, metrics, stats, train) + scripts (preprocess, make_split, build_partitions, train) written; fixture partitions built locally (F+ C purity 1.00).
 - 03:0xZ tests/topic2_rgpool: 48 passed (merge/partition/model pairing/data/stats/stage-0 fixtures).
 Last visited: 2026-11-01T03:05Z
+- 03:06Z synthetic smoke on B300 GPUs 0,1 (0.04 GPU-h): 0.18 s/step at batch 16 -> ~0.45 GPU-h per 8750-step run.
+- 03:14:34Z CARD FROZEN: docs/03_empirical_analysis/topic2/2026-11-01_topic2_card.md sha c9bfc60a…41f5; results/topic2/2026-11-01/card_sha256.txt + code_sha256_at_freeze.txt (33 files). 51 new tests passed at freeze.
+- 03:16Z wave 1 (fixture gate: 6 Fplus + 2 Fminus) launched on .98 GPUs 0-7; HCP train-only partition build running on B300 CPU.
+Last visited: 2026-11-01T03:18Z
+- 03:3xZ HCP partitions built (64 train subj, 1195 signal cells; C disp 1.47, S 1.56-1.67, E 0.78); Stage 0 descriptive done (pca2 C<E all 16; r C~E; C>>S) copied to results/topic2/2026-11-01/stage0_hcp.json. Old 86 tests pass; C1 rc 0 (mid-run). Last visited: 2026-11-01T03:25:15Z
