@@ -1,4 +1,4 @@
-# BRIEFING — 2026-11-01T15:25Z (worker_FU_E_r1)
+# BRIEFING — 2026-11-01T15:25Z, updated 17:50Z (worker_FU_E_r1)
 
 ## Mission
 FU-E (Topic 2 follow-up E): downstream value of the saved r1 Stage-1 encoders — frozen-encoder within-run split-half identifiability ("fingerprinting"); age/sex probe judged untestable. New dated card frozen before any real-data result; B300 via Slurm; cap 1.5 GPU-h.
@@ -35,9 +35,16 @@ FU-E (Topic 2 follow-up E): downstream value of the saved r1 Stage-1 encoders �
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md — gates G1–G9: frozen card before results, synthetic fixtures (planted/null), run records, verdict taxonomy, software failure ≠ null. Read in place (not copied).
 
 ## Change Tracker
-- Files modified: none yet
-- Build status: n/a
-- Pending issues: B300 ssh flaky (retry helper verification/worker_FU_E_r1/b300ssh.sh)
+- New files: src/topic2_fu_e/ (8), scripts/topic2fu_e_extract.py, scripts/topic2fu_e_verdict.py, tests/topic2_fu_e/ (7), docs/.../2026-11-02_topic2_fu_e_card.md (FROZEN 16:22:56Z) + _result_report.md, results/topic2/2026-11-02_fu_e/ (pins, receipts, run_524, verdict, id scan), ledger rows (4)
+- Build status: tests/topic2_fu_e 71 passed; old 86 passed; topic2_rgpool 116 passed; C1 OK
+- Pending issues: none blocking; B300 /scratch/iitp4/fu_e kept (volatile)
+
+## Quality Status
+- Verdict mutants 29/29 killed; G6 fixtures (F+, F-, subject-mask mutant, NULL, surrogate)
+- Lint: no linter configured for these paths; layout lint 0 findings
+
+## Result
+- FU-E verdict: inconclusive (synthetic F+ failed on stalled S_s2); 0.297 GPU-h of 1.5
 
 ## Artifact Index
 - DISPATCH.md, progress.md, handoff.md (this dir)

@@ -33,8 +33,8 @@ Empirically challenge M2H2 (Topic 3 H2 random-init control): recompute headline 
 
 ## Attack Surface
 - Hypotheses tested: headline recompute (24/24 labels match, max diff 1.8e-15); freeze before results (git snapshot 35d10a5 16:05Z holds sha 09b45220; gate job 16:22Z); C1 rc 0; receipts OK (card_sha256.txt known format rc 1); 71 tests pass
-- Vulnerabilities found: [pending mutants]
-- Untested angles: [pending]
+- Vulnerabilities found: N26/N27/N53 (family C seed wiring, stats-script arm loading) survive and flip C1 INC->EQ; stats-script guards N50-N59 untested; comparator N30-N38 partly untested; C3 TE+ margin on delta only ~10%
+- Untested angles: gate R0 not rerun by me (reviewers/auditor reran seeds 3, 7); driver GPU-path mutants N71-N74 untestable offline
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md (methodology reference; read as needed)

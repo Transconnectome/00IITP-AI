@@ -31,10 +31,10 @@ Victory audit of M3 (Topic 2) r3 gate repair: ACCEPTANCE T2.4 (+C1–C8, PI deci
 - **Audit type**: victory audit
 
 ## Audit Progress
-- **Phase**: investigating
-- **Checks completed**: read role/runtime/request/acceptance/PI/gate docs
-- **Checks remaining**: Phase A timeline, Phase B integrity, Phase C independent execution + mutants
-- **Findings so far**: TBD
+- **Phase**: testing (connectome legs A/C pending, job 218071)
+- **Checks completed**: C1 67/67; receipts (addendum_06 31/31, code freeze 33/33, output_r2 156/156, c4_sanitized 19/19; old card 2 / old output 16 expected failures); frozen paths fully pinned; local full topic2 suite 116 passed; old86 86 passed (needs PYTHONPATH=repo); topic1 88 passed; leg B (new file alone) 41 specs: V01-V11 all KILLED; salt scan v02 clean; verdict rerun byte-identical + independent recomputation = stop; layout lint PASS
+- **Checks remaining**: legs A (shipped) and C (union) on connectome; final report
+- **Findings so far**: no blocking issue yet; new survivors X03/X05/X06/X07/X09/X11/X13/X14/X15/X18 vs new file alone (union pending)
 
 ## Key Decisions Made
 - Integrity mode: Development (no from-scratch constraints in ORIGINAL_REQUEST)
@@ -43,9 +43,9 @@ Victory audit of M3 (Topic 2) r3 gate repair: ACCEPTANCE T2.4 (+C1–C8, PI deci
 - verification/victory_M3_r3/ — my probes
 
 ## Attack Surface
-- **Hypotheses tested**: TBD
-- **Vulnerabilities found**: TBD
-- **Untested angles**: TBD
+- **Hypotheses tested**: 17 extra verdict-path mutants (X01-X18) beyond the 24 inherited specs
+- **Vulnerabilities found**: pending union leg
+- **Untested angles**: B300 plain-text HCP-name scan (needs off-repo listing)
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md — methodology reference (frozen card, fixtures, run records, verdict taxonomy); read in place

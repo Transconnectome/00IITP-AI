@@ -7,3 +7,8 @@ Last visited: 2026-11-01T16:54:58Z
 - B300 read-only: sacct 507_0/507_1 COMPLETED 1480/1479 s on b300-01; run.json/train_log sha256 equal to repo copies.
 - Running: worker mutation harness copy; extra 16-mutant harness (target/sources/run/calib).
 Last visited: 2026-11-01T17:11:12Z — worker verdict harness copy 31/31 killed, control passes; extra harness 8/8 killed so far
+- extra harness done: 13/16 killed, control passes; survivors X10/X15/X16 (calib.py untested).
+- fixture noise share probe: F+ 0.220, F- 0.287 (card/report 0.248 = pooled).
+- layout lint whole run root PASS (450 files, 0 findings).
+- handoff.md written; verdict APPROVE (nonblocking N1-N7).
+Last visited: 2026-11-01T17:29:28Z — DONE

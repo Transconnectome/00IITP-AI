@@ -41,10 +41,10 @@ Empirically challenge milestone M2H2 (Topic 3 H2 random-init control): CONFIRMED
   ID leak (clean, boundary-aware real-label scan); connectome probe 218069: R0 G1 recheck pos 5/17/40 (7.65e-7, 0 fail),
   seeds 4/1 hash = shipped and scalars bitwise = shipped; baseline 71 tests pass
 - Vulnerabilities found: (1) scripts/topic3h2_stats.py (writes h2_results/labels) has zero tests; copy-paste mutant
-  "all arms read R1" flips C1 INC->EQ + 4 L labels (sim); harness run pending. (2) δ sensitivity: C3 TE+ only for
+  "all arms read R1" flips C1 INC->EQ + 4 L labels (sim); harness v2 confirms survival (baseline-relative). (2) δ sensitivity: C3 TE+ only for
   δ/|T| <= 0.548 (frozen 0.5); C2 TE+ for <= 0.458; report §6.1 misattributes boundary to C1 (C1 INC robust 0.16-1.0)
   (3) ledger closing rows of worker jobs in KST not UTC (minor)
-- Untested angles: driver.py negative-control mutants (needs GPU); explorer exposure taken from handoffs
+- Untested angles: driver negative-control re-execution (in-job record only); seeds 3/7/8 left to other verifiers
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md (read in place; no copy needed for review)
@@ -52,3 +52,4 @@ Empirically challenge milestone M2H2 (Topic 3 H2 random-init control): CONFIRMED
 
 ## Artifact Index
 - DISPATCH.md, BRIEFING.md, progress.md, handoff.md (this folder)
+- Verdict: CONFIRMED (headline claims hold); nonblocking N1 script untested, N2 delta caveat misplaced; handoff.md

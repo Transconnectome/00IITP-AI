@@ -16,3 +16,9 @@ Last visited: 2026-11-01T15:46Z (times approximate to the minute)
 Last visited: 2026-11-01T16:36Z
 - 16:37Z job 524 PENDING (QOSMaxGRESPerUser: 8/8 user GPUs in use; FU-C jobs 513-520 queued earlier). Waiting is not a failure (C5 share rule).
 - 17:04Z job 524 RUNNING on b300-01 (waited 40 min in queue: QOSMaxGRESPerUser)
+- 17:20:40Z job 524 COMPLETED (1003 s, 0.279 GPU-h; ledger closed). FU-E total 0.297 GPU-h incl. explorers
+- 17:3xZ verdict.json (frozen script, reproduced byte-identically): INCONCLUSIVE — synthetic F+ failed on S_s2 (5.76 <= p95 10.59); F-, G2, G3, G0 pass; J1 [-0.066, +0.228], J2 [+0.098, +0.202] (not governed)
+- B300 ID scans (r1 script, 1084 names in memory): 45 then 47 files, 0 hits (results/topic2/2026-11-02_fu_e/id_scan_b300.json)
+- result report docs/03_empirical_analysis/topic2/2026-11-02_topic2_fu_e_result_report.md; output_sha256.txt 12 lines OK
+- final: tests/topic2_fu_e 71 passed; old 86 passed; tests/topic2_rgpool 116 passed; C1 0 non-OK; receipts OK; layout lint 0 findings
+Last visited: 2026-11-01T17:50Z (approx)

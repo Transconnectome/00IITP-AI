@@ -10,3 +10,7 @@ Last visited: 2026-11-01T17:16Z
 - 17:16Z fuzz of decide(): 200k cases incl. exact boundaries, 0 mismatches vs independent transcription
 - 17:16Z result-report secondary numbers spot-checked against h2_results.json (E1, per-seed D1/H1a, R1/A1b, medians, alpha): all match
 Last visited: 2026-11-01T17:16Z
+- 17:32Z mutation run done: 53 new mutants, 27 killed, 26 survived (N26/N53 flip C1 INC->EQ on real data with 71/71 green; stats-script guards N50-N59 untested)
+- 17:35Z survivor impact computed (verification/challenger_M2H2_r1_2/survivor_impact.out.txt); delta sensitivity computed
+- 17:40Z handoff.md written; verdict REFUTED (test coverage only; results CONFIRMED)
+Last visited: 2026-11-01T17:40Z

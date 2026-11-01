@@ -33,8 +33,8 @@ Independent review of milestone M2H2 (Topic 3 H2 random-init control) against AC
 
 ## Review Checklist
 - Items reviewed: addendum 07, result report, h2stats, compare, reduce, provenance, model, data, driver, both scripts, tests (decision_rule, endpoints, model_init, random_init_baseline)
-- Verdict: pending (no blocking issue found so far)
-- Unverified claims: seed-3 rerun (in flight); local seed-hash rebuild (in flight); test suites (running)
+- Verdict: APPROVE (handoff.md 17:26Z); nonblocking N1–N7
+- Unverified claims: gate job and G5 controls not rerun (records + local R0-vs-T recheck only)
 
 ## Attack Surface
 - Hypotheses tested: freeze before results (git commit 35d10a5 16:05Z < gate 16:22Z); vendored bytes = upstream commits; labels reproduce (24/24, diff 0); δ sensitivity; ID leak scan (0 real IDs)

@@ -29,18 +29,18 @@ Forensic integrity audit of milestone M2H2 (Topic 3 random-init control H2): CLE
 - Audit type: forensic integrity check
 
 ## Audit Progress
-- Phase: investigating
-- Checks completed: []
-- Checks remaining: C1/receipts, freeze timing, hardcoded/facade, tests-can-fail, logs vs Slurm sacct, ledger/cap, ID leakage, pinned paths, vendor hashes, recompute stats, env
-- Findings so far: TBD
+- Phase: reporting (DONE 17:26Z)
+- Checks completed: C1/receipts, freeze timing (git snapshot+sacct), ledger/cap/Slurm, returned-file identity, seed-3 bit-exact rerun (218067), independent recompute, tests 71+86, extra mutants 8/10, ID scan, pinned/git, layout lint
+- Checks remaining: none
+- Findings so far: CLEAN; nonblocking N1 (16:39Z late overwrite of worker remote code dir, no result effect), N2 A05 test gap, N5 δ PI-owned
 
 ## Key Decisions Made
 - DISPATCH.md records the inline worker JSON by summary (compact), noted as deviation
 
 ## Attack Surface
-- Hypotheses tested: TBD
-- Vulnerabilities found: TBD
-- Untested angles: TBD
+- Hypotheses tested: fabricated random arms (refuted: bit-exact rerun); pre-freeze exposure (refuted); remote code drift affects results (refuted: hashes at 16:32:21Z, fork pool)
+- Vulnerabilities found: remote dir mismatch vs ship manifest (N1); index-seed test gap (A05)
+- Untested angles: gate-arm rerun; vendored code internals
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md — methodology reference only (frozen card before results, run records)
