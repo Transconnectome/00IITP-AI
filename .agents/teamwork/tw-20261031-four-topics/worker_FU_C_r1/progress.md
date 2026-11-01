@@ -30,3 +30,9 @@ Last visited: 2026-11-01T17:38Z
 - 17:37Z driver: 8 Stage-1 jobs closed COMPLETED (0.431-0.434 GPU-h each; run.json status completed checked for the first 4), 10 submitted after wave1/2a; no g3t-G-E0-* block so far.
 Last visited: 2026-11-01T18:49Z
 - 18:49Z 14/24 Stage-1 jobs closed (all COMPLETED); all 24 submitted by 18:0xZ; remaining pending on shared QOS (FU-D, GARD, nhpfull jobs running). No g3t-G-E0-* seen.
+Last visited: 2026-11-01T19:56Z
+- 19:38Z all 24 Stage-1 jobs closed COMPLETED; run.json 24/24 completed; no reruns.
+- 19:39Z copy-back (72 files) after B300 C4 scan 0 hits; archive sha verified.
+- 19:4xZ verdict.json: STOP (I1 -0.113% [-0.499%, +0.272%], df 7); gate pass; 2 stalls (C s16, S s15); r1 stop replicated.
+- 19:5xZ addendum_01, result report, output_sha256.txt written; tests 109/86/116 passed; C1 rc 0; receipts 0 failures; lint 0 findings; ssh master closed; no jobs left.
+- DONE. handoff.md written.

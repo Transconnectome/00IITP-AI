@@ -26,15 +26,16 @@ Empirically challenge worker_FU_D_r1's FU-D claim (Topic 2 follow-up D, SwiFT ve
 - Criteria: freeze-before-results, verdict follows card, numbers recomputable, tests kill defects
 
 ## Key Decisions Made
-- [see progress.md]
+- Verdict leaning: scientific verdict CONFIRMED; test-guard claim REFUTED (X45/X22) → overall REFUTED narrow
+- Ledger slip: job 575 released before its started row (flock syntax); row written while PENDING
 
 ## Artifact Index
 - verification/challenger_FU_D_r1_1/ — probes
 
 ## Attack Surface
-- Hypotheses tested: [TBD]
-- Vulnerabilities found: [TBD]
-- Untested angles: [TBD]
+- Hypotheses tested: freeze-before-results (holds); gate numbers from raw terms (exact); verdict per card (holds, oracle); code hashes in runs (hold); ledger (holds); C4 (0 hits); mutation (5/50 survive)
+- Vulnerabilities found: X45 DELTA unpinned → flips shipped verdict with suite green; X22 shipped joint-reading text unguarded; X35/X37 redundant-guard survivors
+- Untested angles: seed noise of F+ gate (needs >1 GPU-h); checkpoint re-eval (job 575 pending)
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md — Local copy: not copied (read in place) — Core: frozen card before results, synthetic ground truth, run records, verdict taxonomy

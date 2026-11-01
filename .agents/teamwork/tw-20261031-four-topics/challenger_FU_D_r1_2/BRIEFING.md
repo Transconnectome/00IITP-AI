@@ -25,15 +25,17 @@ Empirically challenge worker_FU_D_r1's FU-D (Topic 2 follow-up D, E192 scale) de
 - Criteria: ACCEPTANCE C1–C8, F1–F3; card §7–§10 verdict rules
 
 ## Key Decisions Made
+- Final verdict CONFIRMED (2026-11-01T19:38Z); GPU 0.014 GPU-h job 574
 - DISPATCH.md summarises the inline worker JSON field-wise (numbers copied exactly)
 
 ## Attack Surface
-- Hypotheses tested: [in progress]
-- Vulnerabilities found: [TBD]
-- Untested angles: [TBD]
+- Hypotheses tested: freeze-before-results (held); headline recompute (exact); checkpoint re-eval on GPU (bit-exact, perm live); verdict oracle 40k fuzz (0 mismatches); 24 e2e adversarial script cases; 29 own mutants
+- Vulnerabilities found: M19 DELTA unpinned by tests (flips shipped verdict, suite green); M12, M21 survive; G1 NaN test_nmse accepted; G2 unplanned dirs ignored when gate fails — all nonblocking
+- Untested angles: training determinism (no retrain); HCP smoke equiv beyond recorded flags
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md — core: frozen card before results, synthetic ground truth, run records, verdict taxonomy (read in place, no local copy)
 
 ## Artifact Index
-- verification/challenger_FU_D_r1_2/ — probes
+- verification/challenger_FU_D_r1_2/ — probes (recompute.py, verdict_oracle.py, script_adversarial.py, mut/, b300/)
+- handoff.md — final report

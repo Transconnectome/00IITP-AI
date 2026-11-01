@@ -48,7 +48,7 @@ FU-C (Topic 2 follow-up C): new dated frozen card + fail-closed verdict code + 8
 ## Change Tracker
 - Files modified: new files only (see Artifact Index); no existing file edited; ledger rows appended.
 - Build status: tests/topic2_fu_c 109 passed; old 86 passed; C1 rc 0
-- Pending issues: Stage-1 runs queued (shared 8-GPU QOS)
+- Pending issues: none; FU-C DONE (verdict stop), see handoff.md
 
 ## Quality Status
 - Build/test result: 109 passed (FU-C), 86 passed (old)

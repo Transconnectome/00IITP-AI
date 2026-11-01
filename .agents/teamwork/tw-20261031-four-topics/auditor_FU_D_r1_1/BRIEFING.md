@@ -30,18 +30,18 @@ Forensic integrity audit of milestone FU_D (Topic 2 follow-up D, SwiFT ver11 E19
 - **Audit type**: forensic integrity check
 
 ## Audit Progress
-- **Phase**: investigating
-- **Checks completed**: governing docs read
-- **Checks remaining**: all forensic checks
-- **Findings so far**: TBD
+- **Phase**: reporting (DONE 19:38Z)
+- **Checks completed**: all (receipts, C1, tests, sacct/ledger, B300 hash match, checkpoint re-score job 576, verdict rerun, held-out mutants, C4, git, envs, layout)
+- **Checks remaining**: none
+- **Findings so far**: CLEAN; nonblocking test gaps A02/A05/A11/A13
 
 ## Key Decisions Made
 - Integrity mode inferred Development (ORIGINAL_REQUEST has no "from scratch"/"MUST NOT delegate"); extra C1–C8 constraints from ACCEPTANCE are enforced as integrity rules.
 
 ## Attack Surface
-- **Hypotheses tested**: TBD
-- **Vulnerabilities found**: TBD
-- **Untested angles**: TBD
+- **Hypotheses tested**: fabricated NMSE (refuted: exact re-score); post-freeze card edit (refuted: one git version = frozen hash); hidden GPU jobs (refuted: sacct); ID leakage (refuted: scans)
+- **Vulnerabilities found**: DELTA constant unpinned by tests (A02), wrong-term-count records untested (A11), joint-reading text untested (A13)
+- **Untested angles**: training re-run (cap rule); explorer work audit
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md — read in place (not copied); core methodology: frozen card before results, synthetic ground truth fixtures, run records, verdict taxonomy, author never passes own gate.

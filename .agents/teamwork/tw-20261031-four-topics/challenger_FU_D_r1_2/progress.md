@@ -13,3 +13,7 @@ Last visited: 2026-11-01T19:34:33Z
 - [x] verdict oracle fuzz 40000 cases 0 mismatches; 24 adversarial e2e script cases (2 gaps: NaN test_nmse accepted; unplanned dirs ignored when gate fails)
 - [x] C4 scan 76 files: 0 IDs (one 6-digit hit = merge.py hash prefix)
 - [~] own mutants M01-M29 running
+Last visited: 2026-11-01T19:38:32Z
+- [x] own mutants: 26/29 killed; survivors M12, M19 (DELTA, flips shipped verdict), M21
+- [x] suites: tests/topic2_fu_d 129 passed; old suite 86 passed; audit_layout findings []; C1 rc0 final; receipts OK final
+- [x] handoff.md written; verdict CONFIRMED (nonblocking issues listed)
