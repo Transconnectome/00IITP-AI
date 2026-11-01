@@ -23,7 +23,7 @@ FU_B (Topic 2 follow-up B: 4x budget 560k samples, E36, arms E/C/S, 5 seeds; cap
 
 ## Investigation State
 - **Explored paths**: r1 card, result report §7, train.py, stats.py, verdict script, launcher, run records, ledger, M3 r2 gate record, B300 Slurm config, B300 /scratch layout on 4 nodes
-- **Key findings**: see progress.md / handoff.md
+- **Key findings**: 1.703 GPU-h per 4x run; Stage1 25.8 + 4x F+ gate 5.16 fits cap only with resume; frozen verdict script unusable for FU-B; HCP only on b300-01; QoS 8 GPU per user shared
 - **Unexplored areas**: see handoff.md caveats
 
 ## Key Decisions Made

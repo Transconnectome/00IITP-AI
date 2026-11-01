@@ -1,0 +1,5 @@
+35c39d6af7b796d24c5d6b202231d3e27578cfebfb54a55c2d2d47f5c5e39a17  /home/juke/git/00IITP-AI/.agents/teamwork/tw-20261030-topic1/ORIGINAL_REQUEST.md
+9e7870ae3ad97a5c9c5463af366632c9fa147a4f2f9c5874229584d026f89963  /home/juke/git/00IITP-AI/.agents/teamwork/tw-20261030-topic1/sentinel/ACCEPTANCE.md
+49ddfaba49f8eec439a3b6a58a2718e5647935ac3f00e06572285a2e0a479236  /home/juke/git/00IITP-AI/.agents/teamwork/tw-20261030-topic1/sentinel/APPROVED_PROPOSAL.md
+4f5198067e6e102d8668512012b0ba41a81786b764b2968e16ce3a04f4d66867  /home/juke/git/00IITP-AI/.agents/teamwork/tw-20261030-topic1/sentinel/BRIEFING.md
+6dc4ba802bf77fa54bb5adf21da7abd9268656de028e99a052fa634ee85ce30a  /home/juke/git/00IITP-AI/.agents/teamwork/tw-20261030-topic1/sentinel/prompt_draft.md

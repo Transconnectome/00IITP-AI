@@ -9,3 +9,8 @@ Last visited: 2026-11-01T14:59:02Z
 - [x] ckpt structure probe (585 flat keys, _forward_module.model. prefix, 568 encoder tensors)
 - [x] found ver11 code divergence: local SwiFT_v2 (de132387) vs connectome bundle (5bc44469): RoPE axis-split default vs sum
 - [~] building explorer venv on connectome (detached)
+Last visited: 2026-11-01T15:14:49Z
+- [x] venv built on connectome node1 (torch 2.4.0+cu121, py3.8) 15:01-15:05Z
+- [x] Slurm smoke job 218004 COMPLETED (66 s, 0.02 GPU-h, ledger start+close rows): bundle ver11 reproduces stored trained dump rel_fro<=7.7e-7; local SwiFT_v2 ver11 fails; TF32 6e-4; perturbations 0.12-2.2
+- [x] C1 rc0, receipts OK, layout lint no findings, ID scan clean (placeholders only)
+- [x] handoff.md written; DONE

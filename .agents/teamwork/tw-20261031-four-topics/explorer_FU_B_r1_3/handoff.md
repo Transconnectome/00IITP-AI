@@ -40,7 +40,7 @@ O5. Data and C4 on B300:
   - So with the r1 original split, every FU-B `run.json` carries the old tokens, which recreates B1 when the file is copied back.
   - With the repo split, the data dir must be re-keyed positionally.
 - r1 jobs used `--split-file code/split.json --data-dir hcp --perm-file partitions/perms_hcp.npz` (`verification/worker_M3_r1/wave2_jobs.json`). The S-arm key is `S_seed{s}`: the npz keys are E, C, S_seed0..S_seed4, G, R, nvox, group_mask.
-- `/scratch/iitp4/worker_M3_r1/code/split.json` has mtime `Nov 1 11:56` (UTC), after r1 (02:3xZ) and r2 (07:28-09:20Z). Someone wrote to r1's B300 tree after the governed runs. See P3 for what the file now contains.
+- `/scratch/iitp4/worker_M3_r1/code/split.json` shows mtime `Nov 1 11:56` in `ls`. B300 local time is evidently KST (sacct prints 23:55:49 for 14:55:49Z), so this is 02:56Z, during r1's own split creation, not a later write. P3 confirms the content is r1's original-token split and maps exactly to the repo split, and 0 of 176 data files changed after 03:10Z.
 - All 15 r1 hcp runs have identical `test_den` (max rel diff 0.0) and identical test order (P2). den depends only on the data, the eval masks and the brain mask, not on the weights, so it is a free data-identity check.
 
 O6. Slurm on B300 (`sinfo`, `scontrol`, `sacctmgr`, 14:2xZ):
@@ -58,7 +58,7 @@ O7. Current state:
 - Addendum 05 §4.5: per-seed I1 tracks when E left the predict-zero plateau.
 - Addendum 04: `hcp_S_s2` stalled at NMSE 1.0000.
 
-O8. P3 B300 Slurm smoke: see §6.
+O8. P3 B300 Slurm smoke (job 419): mapping, den identity (max rel diff 0.0), throughput 1.711 h/run, peak 144.6 GiB; details §6.
 
 ## 2. Logic chain
 
@@ -169,3 +169,30 @@ Invalidation conditions:
 - the 35000-step projection is > 2.6 h;
 - peak GPU memory is near the device total.
 Any of these changes §4 items 4 and 5.
+
+## 6. P3 — B300 Slurm smoke (job 419, debug, b300-01, 1 GPU, COMPLETED, 52 s, 0.015 GPU-h, ledger rows started + completed)
+
+`verification/explorer_FU_B_r1_3/probes/p3_result.json` (no token; 0 matches for a 16-hex pattern), `p3_sacct_419.txt`, script `p3_b300_smoke.py` / `p3_job.sbatch`.
+- M (mapping): r1 B300 manifest has 88 subjects, sorted by content hash = True. The repo sanitized manifest equals that positional order = True. r1 `code/split.json` still holds the ORIGINAL tokens (its `ls` mtime 11:56 is KST = 02:56Z, r1's own write), and the content maps exactly. Mapped train/val/test lists equal the repo sanitized split = True/True/True (64/8/16, disjoint). r1 data files modified after 03:10Z: 0 of 176. Farm complete 88/88 (hard links).
+- D (data identity): frozen `evaluate_hcp` through the farm, untrained E model, eval seed 7002, 16 TEST subjects → per-subject den max relative difference vs r1 `test_den` = **0.0** (9.4 s). Mapping, split order, masks and data bytes are confirmed. No outcome (num) was recorded.
+- T (throughput): frozen `train.run`, `--steps 35000`, aborted at step 99 by the frozen probe (`aborted_throughput`, as predicted). 0.1754 s/step, 91.22 samples/s, **projected 1.711 h per run** (matches r1). Peak GPU memory 144.6 / 267.7 GiB, so one run per GPU. The log holds only `data_loaded`, `throughput_probe`, and no loss line. `run.json` has no `test_pseudonyms`.
+- Cleanup: `/scratch/iitp4/explorer_FU_B_r1_3` removed (unlinking the hard links left r1's 88 subject dirs intact, 88 before and after). No job left in squeue.
+
+New hazard found by P3: `sacct` prints Start/End in **KST** (23:55:49 for 14:55:49Z). A worker who copies sacct times into the ledger's "UTC" columns is off by 9 h. Use `sacct -o start,end` together with `TZ=UTC sacct ...`, or `date -u` at submit and at end.
+
+## 7. What verifiers will attack (pre-mortem list for the FU-B worker)
+
+| # | attack | defence the card or code must carry |
+|---|---|---|
+| A1 | "Gate not run at 560k (G6)" | the inherited gate is explicit in card §7; a cap table proves a 4x gate is unaffordable; limitation in the report |
+| A2 | runs silently aborted or truncated (`aborted_throughput` at 0.75 h; r1 timeout 3300 s) | `--max-run-hours 2.6`; Slurm `--time 03:00:00`; verdict code requires `steps == 35000` and `status == completed` |
+| A3 | wrong-budget or wrong-perm record counted (H2) | per-record validation against r1 `perm_sha256` per (arm, seed), sanitized split sha, frozen code sha |
+| A4 | duplicate attempts resolved by glob order (H4) | explicit attempt resolution, exactly one completed per key |
+| A5 | missing gate = pass (H1, V07) | unknown gate never passes; tests |
+| A6 | F+ failure / no Stage 1 → `no_verdict` instead of `inconclusive` (H3) | FU-B code returns `inconclusive` when the gate fails, whether or not Stage 1 exists; test |
+| A7 | F- failure downgrading modify (V06) / boundaries ≥ vs > (V01-V05) | tests at equality; card states that F- affects keep only |
+| A8 | C4: old tokens in copied-back `run.json` | positional hard-link farm + repo split; token detector run on the results dir before copy-back |
+| A9 | data drift in r1's B300 tree | den-identity check as the first FU-B job step (P3 recipe) |
+| A10 | interim peeking / result-dependent reruns (stall) | all 15 launched regardless; no interim verdict; stall = valid + pre-registered sensitivity |
+| A11 | GPU-h over cap, or ledger in the wrong time zone | cap check before every submit with 1.84 GPU-h per run reserved; ledger times in UTC; Slurm job id in each row |
+| A12 | 4x budget read as a reversal of r1 stop | report: FU-B verdict beside r1, descriptive per-seed pairing only; multiplicity note across FU-A..E |

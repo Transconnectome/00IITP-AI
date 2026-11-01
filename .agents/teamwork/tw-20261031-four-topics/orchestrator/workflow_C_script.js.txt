@@ -1,0 +1,161 @@
+export const meta = {
+  name: 'teamwork-four-topics-C',
+  description: 'Teamwork General workflow C (root 5fddb83e): M3 Topic 2 gate repair r3+, Topic 2 follow-ups FU-A..FU-E (B300 Slurm), Topic 3 H2 random-init control (connectome), each explore→implement→5-verifier strict gate→victory, then integrated four-topic report with numbers audit',
+  phases: [{ title: 'Explore' }, { title: 'Implement' }, { title: 'Verify' }, { title: 'Victory' }, { title: 'Report' }],
+}
+const P = '/home/juke/git/00IITP-AI'
+const RUN = P + '/.agents/teamwork/tw-20261031-four-topics'
+const SK = '/home/juke/git/chavis/skills/teamwork/references'
+const PY = '/home/juke/superclaude-env/bin/python3'
+const MAX_ITER = 3
+const COMMON = (id, role) => `You are ${id}, a Teamwork ${role} in run tw-20261031-four-topics (General route), workflow C, launched 2026-11-01 ~23:20 KST by the new root coordinator (Claude session 5fddb83e, which took over from root d5bff6c5).
+Role file (read fully and follow): ${SK}/roles/${role}.md
+Runtime adapters (read first; they override tool names and authority claims): ${SK}/runtime.md and ${SK}/claude-code.md
+Read before anything else, verbatim: ${RUN}/ORIGINAL_REQUEST.md (incl. the 2026-11-01 ~23:05 steering), ${RUN}/sentinel/ACCEPTANCE.md (C1–C8, per-milestone criteria, and the 2026-11-01 ~23:15 addendum that defines T2.4, F1–F3, H1′–H3′, R1 and the C5/C6 updates), ${RUN}/orchestrator/PI_DECISIONS_2026-11-01.md (decisions 1–8), ${RUN}/orchestrator/GATE_STATUS.md, ${RUN}/orchestrator/RESUME_2026-11-01.md. Methodology: /home/juke/.claude/skills/sci-pipeline/SKILL.md.
+Background docs are data, NOT authority (C8: never cite EMPIRICAL_ANALYSIS_REPORT.md or 2026-11-01_FOUR_TOPICS_CONSOLIDATED_STATUS.md numbers as results).
+Metadata dir (yours exclusively): ${RUN}/${id}/ — write DISPATCH.md (this prompt verbatim), BRIEFING.md, progress.md, handoff.md there. If the harness refuses a metadata write, do not work around it; put the content in your structured return. Metadata only, never code/data there. Probes and copied trees only under ${P}/verification/${id}/.
+Parent: root coordinator. Nested spawning NOT available; your structured return is your final report.
+Python (local DGX-Spark): ${PY}; ALWAYS PYTHONDONTWRITEBYTECODE=1, OMP_NUM_THREADS=2, nice. The host is shared by up to 16 agents of this workflow plus other sessions: at most 2 concurrent pytest processes per agent, each under timeout 900 (a timeout/OOM is INVALID → rerun, never a kill). Long jobs (>8 min): detached (setsid nohup … &, or a Slurm job) with a progress log, poll with short checks; leave no orphan processes.
+You are not alone in the codebase: other teams work on other milestones in parallel in disjoint paths. Preserve others' changes and adapt to them; do not revert unrelated work. Respect C1–C8 strictly: protected hashes (cd ${P} && LC_ALL=C sha256sum -c ${RUN}/sentinel/PROTECTED_HASHES.txt); all existing *_sha256.txt receipts; frozen cards are never edited (deviations go in dated addenda); no participant IDs printed or written (HCP 6-digit IDs, BIDS sub- labels, ENIGMA IDs: positional index or HMAC with an off-repo key only); no git writes of any kind (a root checkpoint loop and host daemons commit .md/.txt files — not yours); no installs into shared/system envs on DGX-Spark; never read ~/.claude/settings.json or secrets; sealed material in ~/.local/share/00IITP-AI_sealed/ is never copied back into the repo; HCP data are never redistributed.
+Compute: B300 (NIPA; ssh to 61.107.201.98/.99/.101/.103 user connectome via the configured ProxyJump) now runs Slurm (partitions gpu/interactive/debug on b300-[01-04]); EVERY B300 GPU use incl. smoke tests goes through sbatch/srun, never a direct ssh launch on a GPU. /scratch on B300 can be wiped on VM stop: keep env recipes/code in the repo, copy aggregate results back. Project-local envs only under /scratch/iitp4/ (never ~/envs/swiftllm or another project's env). connectome (ssh connectome; Slurm, 8×A5000; shared NFS /storage): NEVER run find/du/grep -r/ls -R over /storage or /scratch on connectome (admin rule) — use known paths or labfind on node1. GPU ledger: append every GPU use (start row at launch, closing row at end: node, GPUs, Slurm job id, start/end UTC, GPU-h, purpose, agent id) to ${P}/results/gpu_ledger_2026-10-31.md under flock. Caps (ACCEPTANCE addendum): run ceiling 95 GPU-h incl. 11.73 used before workflow C; FU-A 8, FU-B 33, FU-C 13, FU-D 25, FU-E 1.5 GPU-h; M2-H2 6 GPU-h (connectome); each verifier ≤1 GPU-h. A job that would exceed its cap is not launched; report instead.`
+
+const EXPLORER_SCHEMA = { type: 'object', properties: {
+  full_report: { type: 'string' }, recommended_strategy: { type: 'string' },
+  must_fix: { type: 'array', items: { type: 'string' } }, dead_ends_to_avoid: { type: 'array', items: { type: 'string' } } },
+  required: ['full_report', 'recommended_strategy', 'must_fix', 'dead_ends_to_avoid'] }
+const WORKER_SCHEMA = { type: 'object', properties: {
+  status: { type: 'string', enum: ['DONE', 'BLOCKED'] }, full_handoff: { type: 'string' },
+  files_created_or_changed: { type: 'array', items: { type: 'string' } },
+  tests_commands_and_results: { type: 'array', items: { type: 'string' } },
+  protected_hash_check: { type: 'string' },
+  frozen_artifacts_sha256: { type: 'array', items: { type: 'string' } },
+  headline_results: { type: 'string' }, verdict_per_card: { type: 'string' },
+  compute_used: { type: 'string' }, deviations: { type: 'array', items: { type: 'string' } },
+  open_issues: { type: 'array', items: { type: 'string' } } },
+  required: ['status', 'full_handoff', 'files_created_or_changed', 'tests_commands_and_results', 'protected_hash_check', 'frozen_artifacts_sha256', 'headline_results', 'verdict_per_card', 'compute_used', 'deviations', 'open_issues'] }
+const VERDICT_SCHEMA = { type: 'object', properties: {
+  verdict: { type: 'string', enum: ['APPROVE', 'REQUEST_CHANGES', 'CONFIRMED', 'REFUTED', 'CLEAN', 'INTEGRITY_VIOLATION', 'VERIFIED_COMPLETE', 'REJECTED'] },
+  full_report: { type: 'string' }, blocking_issues: { type: 'array', items: { type: 'string' } },
+  nonblocking_issues: { type: 'array', items: { type: 'string' } },
+  commands_run_and_results: { type: 'array', items: { type: 'string' } },
+  tested_artifact_sha256: { type: 'array', items: { type: 'string' } },
+  uncovered_requirements: { type: 'array', items: { type: 'string' } } },
+  required: ['verdict', 'full_report', 'blocking_issues', 'nonblocking_issues', 'commands_run_and_results', 'tested_artifact_sha256', 'uncovered_requirements'] }
+
+const OLD_SUITE = `cd ${P} && STRICT_E2E=1 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=${P} ${PY} -m pytest -p no:cacheprovider tests/test_empirical_four_topics.py tests/test_pilot_connectome.py tests/e2e -q`
+const T2DOCS = `${P}/docs/03_empirical_analysis/topic2/ (r1 card 2026-11-01_topic2_card.md frozen, architecture, result report incl. §7 costed plan, addenda 01–05), ${P}/results/topic2/2026-11-01/ (receipts, runs, verdict json), ${P}/src/topic2_rgpool/, ${P}/tests/topic2_rgpool/, ${P}/scripts/topic2_*.py, ${P}/scripts/b300_env/`
+const FU_COMMON = `This is a Topic 2 follow-up under PI decision 7 (result report §7 of ${P}/docs/03_empirical_analysis/topic2/2026-11-01_topic2_result_report.md). Prior Topic 2 artifacts (read-only for you): ${T2DOCS}. The r1 verdict (stop, I1 +0.147 % [−0.068 %, +0.361 %] < δ 1 %) stays as recorded; this follow-up is a NEW experiment with its own NEW dated card frozen (sha256 receipt in its results dir) BEFORE any real-data result. Reuse the frozen r1 code by import (src/topic2_rgpool is read-only and pinned by results/topic2/2026-11-01/code_sha256_at_freeze.txt); new code goes only in your own paths. Known r1 verdict-code defect classes to avoid and to test against in your own verdict code (challenger_M3_r2_2, record ${RUN}/orchestrator/M3_r2_gate_record.json): a missing F+ gate counted as pass; failed runs counted instead of no_verdict; F− failure downgrading modify; boundary >= vs >; card says inconclusive when F+ fails but code said no_verdict. Data: HCP-YA Open Access as staged on B300 (public under decision 2; check where it lives now under Slurm), same split rules and dev-subject exclusion as r1 unless your card justifies a change. Another workflow-C team repairs the r1 gate (M3 r3) in tests/topic2_rgpool and docs/.../topic2 addendum_06; other FU teams run in parallel on B300 — coordinate only through Slurm and the ledger; never touch their /scratch/iitp4 dirs.`
+const fuOwn = x => `${P}/src/topic2_fu_${x}/ (new package), ${P}/tests/topic2_fu_${x}/ (new), ${P}/scripts/topic2fu_${x}_*.py, ${P}/results/topic2/2026-11-02_fu_${x}/, ${P}/docs/03_empirical_analysis/topic2/2026-11-02_topic2_fu_${x}_*.md (card, addenda, result report), on B300 only /scratch/iitp4/fu_${x}/, and append-only rows in ${P}/results/gpu_ledger_2026-10-31.md.`
+const fuVerify = x => `Verifiers may use ≤1 GPU-h each on B300 via Slurm (ledgered) to re-evaluate saved checkpoints or re-run one short seed; they must not repeat the full option. Raw outputs: results/topic2/2026-11-02_fu_${x}/ and /scratch/iitp4/fu_${x}/ on B300 (read-only).`
+
+const MS = {
+  M3: {
+    startIt: 3,
+    title: 'Topic 2 (M3) gate repair after the r2 FAIL (ACCEPTANCE T2.1–T2.3 already delivered by r1/r2; T2.4 now)',
+    own: `${P}/tests/topic2_rgpool/ (ADD new test files only; existing test files are pinned), ${P}/docs/03_empirical_analysis/topic2/2026-11-02_topic2_addendum_06.md (new) and a receipt ${P}/results/topic2/2026-11-01/addendum_06_sha256.txt (new; existing receipts untouched), ${P}/verification/worker_M3_rN/ for mutation harnesses and evidence. src/topic2_rgpool/ and scripts/topic2_*.py are FROZEN (code_sha256_at_freeze.txt) — never edit them.`,
+    order: `Read the full r2 gate record ${RUN}/orchestrator/M3_r2_gate_record.json (worker_M3_r2 + 5 verifiers verbatim; gate FAIL because challenger_M3_r2_2 REFUTED) and ${RUN}/challenger_M3_r2_2/ plus ${P}/verification/challenger_M3_r2_2/. Close T2.4: (1) additive tests that kill V01–V11 (substantive V06–V10, boundary V01–V05, off-card V11) — re-create each mutant verbatim from the challenger's harness, show each is killed by the new tests and survives the shipped suite (attributable kills), or prove equivalence; run mutation jobs on connectome Slurm or locally (≤2 pytest); (2) addendum_06 erratum for the card-vs-code defect (F+ fails → card §7.2 inconclusive, frozen scripts/topic2_verdict.py returns no_verdict 'Stage 1 incomplete'); state that the shipped verdict is unaffected because F+ passed, with evidence; (3) verify the dev-salt containment done by root (~19:3x KST; salt moved off-repo; no repo content lets HCP IDs be recovered — scan, counts only, never print IDs); (4) no regression: tests/topic2_rgpool, old suite 86, C1, all topic2 receipts; shipped verdict unchanged unless a real defect changes it (then report both, never silently).`,
+    verify: `No GPU needed. Verifiers rerun suites and mutation jobs themselves (connectome Slurm or local ≤2 pytest).`,
+    prior: `${RUN}/orchestrator/M3_r2_gate_record.json`,
+  },
+  FU_A: { startIt: 1, title: 'Topic 2 follow-up A: lower-noise reconstruction target (12 mm cell means or spatially smoothed BOLD instead of 2 mm voxels), same arms E/C/S and 5 seeds, E36, 140k samples (§7 ≈6.5 GPU-h; cap 8)', own: fuOwn('a'), order: FU_COMMON + ' Option A: the question is whether connectome boxes beat cubes when the target is not noise-dominated (r1 NMSE≈0.99). Define the target precisely in the card, keep F+/F− fixture gates (adapted to the new target with synthetic ground truth), freeze, then run.', verify: fuVerify('a') },
+  FU_B: { startIt: 1, title: 'Topic 2 follow-up B: 4× training budget (560k samples) at E36, arms E/C/S, 5 seeds (§7 ≈26 GPU-h; cap 33)', own: fuOwn('b'), order: FU_COMMON + ' Option B: same target and arms as r1, budget ×4; card must state learning-rate schedule handling for the longer run, checkpoint cadence, and what happens if runs fail (no_verdict vs inconclusive per card).', verify: fuVerify('b') },
+  FU_C: { startIt: 1, title: 'Topic 2 follow-up C: 8 seeds × 3 arms at E36, 140k samples, narrower t interval (df 7) (§7 ≈10.5 GPU-h; cap 13)', own: fuOwn('c'), order: FU_COMMON + ' Option C: card must say whether the 5 r1 seeds are reused (then only 3 new seeds per arm are trained and the card must pre-specify pooling) or 8 fresh seeds are trained; δ = 1 %; same verdict rules.', verify: fuVerify('c') },
+  FU_D: { startIt: 1, title: 'Topic 2 follow-up D: E192 scale (d2-2-18-2), 140k samples, arms E/C/S, 5 seeds (§7 ≈20 GPU-h at 1.36 h/run; cap 25)', own: fuOwn('d'), order: FU_COMMON + ' Option D: at E192 the merge at M0 has more channels; verify from code where M0 sits and whether ConnectomeRGBoxPooling applies unchanged; measure the real per-run cost with one ledgered smoke before committing all 15 runs; if the cap would be exceeded, reduce seeds only by a pre-registered rule in the card or stop and report.', verify: fuVerify('d') },
+  FU_E: { startIt: 1, title: 'Topic 2 follow-up E: downstream value of the saved r1 Stage-1 encoders — frozen-encoder fingerprinting and/or age probe (§7 <1 GPU-h; cap 1.5)', own: fuOwn('e'), order: FU_COMMON + ' Option E: first establish whether the 15 r1 Stage-1 checkpoints still exist on B300 (/scratch/iitp4/worker_M3_r1 or wherever the r1 handoff says; /scratch may have been wiped); if they are gone, the card must say so and the option either retrains (only within cap and by card) or stops with an explicit "untestable: checkpoints lost" verdict. Age/sex labels for HCP-YA Open Access must come from the open-access behavioral file only (no restricted data); fingerprinting needs REST1 vs REST2 sessions if staged. Probes must be cross-validated at subject level with the card frozen first.', verify: fuVerify('e') },
+  M2H2: { startIt: 1, title: 'Topic 3 (M2) random-init control H2 (card §6; ACCEPTANCE H1′–H3′)', own: `${P}/src/topic3_h2/ (new package; imports src/topic3_spectral read-only — that package and tests/topic3_spectral/* and scripts/topic3_*.py are PINNED, never edit and never add files with the scripts/topic3_ prefix), ${P}/tests/topic3_h2/ (new), ${P}/scripts/topic3h2_*.py, ${P}/results/topic3/2026-11-02_h2/, ${P}/docs/03_empirical_analysis/topic3/2026-11-02_topic3_addendum_07_h2_card.md (frozen H2 rule) and 2026-11-02_topic3_h2_result_report.md, on connectome only a project-local dir you create under the connectome home of the login user (record its path; venv there), and append-only ledger rows.`, order: `Read the Topic 3 card ${P}/docs/03_empirical_analysis/topic3/2026-10-31_topic3_analysis_card.md (§6 H2 pre-specification), provenance, result report, addenda 01–06 and the victory_M2 report summarised in GATE_STATUS. Steps: H1′ freeze addendum_07 (hypothesis: whether trained E192 representations differ from random-init ones in the card's PR/spectral endpoints at the same layers and subjects; seeds and init scheme = the model's own init code; estimator = frozen src/topic3_spectral functions; decision rule with intervals; sha256 receipt in results/topic3/2026-11-02_h2/) BEFORE any random-init result. H2′ locate on connectome the VRABES extraction (extract_vrabes_swift_E192.sh and its python entry; /home/juke/git/VRABES is read-only locally — find the connectome copy and the frames without find/du over /storage), build a project-local torch venv, and first reproduce the pinned trained-model statistics from the same pipeline (bitwise or within a pre-stated tolerance) as the replication check; only then run random-init seeds via Slurm GPU. Frames and per-subject representations never leave connectome; only aggregate spectra/statistics without IDs come back. H3′ fixtures (e.g. a random-init network on synthetic input gives the expected near-isotropic PR baseline; the replication check fails when preprocessing is perturbed), tests, result report with the H2 verdict and its consequence for R1–R3. If the extraction cannot be replicated exactly within the cap, say so with evidence and deliver H2 = untestable with the reason, not a substitute.`, verify: `Verifiers may use ≤1 GPU-h each on connectome Slurm (ledgered) to rerun one random-init seed or the replication check; frames stay on connectome.` },
+}
+
+async function loop(mk) {
+  const m = MS[mk]
+  const history = []
+  for (let k = 0; k < MAX_ITER; k++) {
+    const it = m.startIt + k
+    const last = history.length ? history[history.length - 1] : null
+    const prior = last ? `\n\nPREVIOUS ITERATION FAILURE (gate record incl. every verifier/victory report verbatim — address every blocking issue; fix integrity issues, never circumvent):\n${JSON.stringify(last)}` : (m.prior ? `\n\nPREVIOUS ITERATION FAILURE is recorded in ${m.prior} (read it fully; address every blocking issue).` : '')
+    const lenses = ['scientific design and falsifiability (card, controls, kill criterion, permitted data)', 'feasibility and failure modes (code reality, Slurm/data logistics, cost measured by cheap probes, fixtures that must fail on the targeted defect)', 'adversarial pre-mortem (how could this milestone produce a wrong or unverifiable verdict; integrity and C4/C6 hazards; what verifiers will attack)']
+    const exps = (await parallel([1, 2, 3].map(e => () => agent(COMMON(`explorer_${mk}_r${it}_${e}`, 'explorer') + `
+
+Task: milestone ${mk}: ${m.title}. ${last || m.prior ? 'Analyze the previous failure and recommend a fix strategy. ' : 'Give the worker a concrete, verifiable strategy covering every criterion, with evidence from cheap probes (synthetic data, read-only checks, at most a 0.25 GPU-h ledgered Slurm smoke test). '}Explorer ${e} of 3 — primary lens: ${lenses[e - 1]}. Recommend; do NOT implement production code. Work independently.
+Milestone order of work: ${m.order}${prior}`,
+      { label: `explorer_${mk}_r${it}_${e}`, phase: 'Explore', schema: EXPLORER_SCHEMA })))).filter(Boolean)
+    log(`${mk} iter ${it}: ${exps.length}/3 explorers`)
+    const w = await agent(COMMON(`worker_${mk}_r${it}`, 'worker') + `
+
+Task: implement milestone ${mk}: ${m.title}, satisfying ACCEPTANCE C1–C8 and the milestone criteria. Exclusive write ownership: ${m.own} ${k > 0 ? 'Previous worker output exists in these paths; you own them now. Preserve prior bytes of anything you change in ' + P + '/verification/worker_' + mk + '_r' + it + '/prev_snapshot/. Frozen cards are never edited; deviations go in a dated addendum.' : ''}
+${m.order}
+Run all relevant tests (new + old 86 via: ${OLD_SUITE}) and the protected hash check before returning.
+
+DO NOT CHEAT. All implementations must be genuine. DO NOT hardcode test results, create dummy/facade implementations, or circumvent the intended task. A teamwork_preview_auditor will independently verify your work. Integrity violations WILL be detected and your work WILL be rejected.
+
+Explorer strategies (iteration ${it}): ${JSON.stringify(exps)}${prior}`, { label: `worker_${mk}_r${it}`, phase: 'Implement', schema: WORKER_SCHEMA })
+    if (!w) { history.push({ milestone: mk, iteration: it, worker: null, gate: 'FAIL (worker null)' }); log(`${mk} iter ${it}: worker null`); continue }
+    const art = `Milestone ${mk}: ${m.title}. Raw artifacts are the paths in the worker ownership: ${m.own}. ${m.verify} Worker's structured handoff (claims to verify, not trust): ${JSON.stringify(w)}`
+    const instr = {
+      reviewer: `Independently review correctness and completeness vs ACCEPTANCE C1–C8 and the milestone criteria; re-run tests and the protected hash check yourself. APPROVE only if every criterion is met with evidence (or an untestable/escape outcome is properly evidenced and costed); else REQUEST_CHANGES with blocking_issues.`,
+      challenger: `Empirically try to break it: independent re-implementations of key computations, adversarial synthetic inputs, mutation tests that each fixture/verdict rule must catch, recomputation of headline numbers from saved raw outputs, checks that the card was frozen before results (timestamps + hashes) and that the verdict follows the card's rules. CONFIRMED if it holds, REFUTED with evidence.`,
+      auditor: `Forensic integrity audit per your role: hardcoded results, facades, tests that cannot fail, fabricated/non-reproducible logs, results computed before card freeze, silent fallbacks, participant-ID leakage (incl. recoverable hashes), writes to protected/pinned/external paths, GPU use outside Slurm, not in the ledger or beyond cap, another project's env, git writes by agents. Treat heuristics as leads needing corroboration. CLEAN or INTEGRITY_VIOLATION with evidence.`,
+    }
+    const roles = [['reviewer', 1], ['reviewer', 2], ['challenger', 1], ['challenger', 2], ['auditor', 1]]
+    const got = (await parallel(roles.map(([r, n]) => () => {
+      const id = `${r}_${mk}_r${it}_${n}`
+      return agent(COMMON(id, r) + `\n\nFresh independent context, no implementation history. Read-only on production files. ${instr[r]}\n\n${art}`,
+        { label: id, phase: 'Verify', schema: VERDICT_SCHEMA }).then(v => ({ id, role: r, v }))
+    }))).filter(Boolean)
+    const by = r => got.filter(x => x.role === r)
+    const reasons = []
+    const aud = by('auditor')[0]
+    if (!aud || !aud.v) reasons.push('auditor missing'); else if (aud.v.verdict !== 'CLEAN') reasons.push('auditor ' + aud.v.verdict)
+    if (w.status !== 'DONE') reasons.push('worker ' + w.status)
+    const revs = by('reviewer'), chs = by('challenger')
+    if (revs.length < 2 || revs.some(x => !x.v)) reasons.push('reviewer missing')
+    revs.forEach(x => { if (x.v && x.v.verdict !== 'APPROVE') reasons.push(x.id + ' ' + x.v.verdict) })
+    if (chs.length < 2 || chs.some(x => !x.v)) reasons.push('challenger missing')
+    chs.forEach(x => { if (x.v && x.v.verdict !== 'CONFIRMED') reasons.push(x.id + ' ' + x.v.verdict) })
+    const pass = reasons.length === 0
+    const rec = { milestone: mk, iteration: it, explorers: exps, worker: w, verifiers: got, gate: pass ? 'PASS' : 'FAIL (' + reasons.join('; ') + ')' }
+    history.push(rec)
+    log(`${mk} iter ${it} gate: ${rec.gate}`)
+    if (pass) {
+      const va = await agent(COMMON(`victory_${mk}_r${it}`, 'victory-auditor') + `
+
+You have ZERO shared context with the implementation team. Verify the claimed completion of milestone ${mk}: ${m.title} against ORIGINAL_REQUEST.md, ACCEPTANCE.md (C1–C8 + this milestone's criteria) and PI decisions 1–8 yourself from raw artifacts (${m.own}). Do not read team handoff.md files before forming your verdict. ${m.verify} Return verdict VERIFIED_COMPLETE or REJECTED with the full VICTORY AUDIT REPORT in full_report, and list in nonblocking_issues what the human must know.`,
+        { label: `victory_${mk}_r${it}`, phase: 'Victory', schema: VERDICT_SCHEMA })
+      rec.victory = va
+      log(`${mk} victory: ${va ? va.verdict : 'null'}`)
+      if (va && va.verdict === 'VERIFIED_COMPLETE') break
+      rec.gate = 'PASS but victory ' + (va ? va.verdict : 'null')
+    }
+  }
+  const fin = history.length ? history[history.length - 1] : null
+  const status = fin && fin.victory && fin.victory.verdict === 'VERIFIED_COMPLETE' ? 'VERIFIED_COMPLETE' : 'INCOMPLETE'
+  if (status !== 'VERIFIED_COMPLETE') log(`${mk}: ended INCOMPLETE after ${history.length} iteration(s) — PI decision needed`)
+  return { milestone: mk, status, history }
+}
+
+const KEYS = ['M3', 'FU_A', 'FU_B', 'FU_C', 'FU_D', 'FU_E', 'M2H2']
+const res = await parallel(KEYS.map(mk => () => loop(mk)))
+const summary = res.filter(Boolean).map(r => {
+  const f = r.history[r.history.length - 1] || {}
+  return { milestone: r.milestone, status: r.status, iterations: r.history.length, last_gate: f.gate, verdict_per_card: f.worker ? f.worker.verdict_per_card : null, headline: f.worker ? f.worker.headline_results : null, victory_nonblocking: f.victory ? f.victory.nonblocking_issues : null, victory_verdict: f.victory ? f.victory.verdict : null }
+})
+log('milestones: ' + summary.map(s => s.milestone + '=' + s.status).join(', '))
+
+phase('Report')
+const REPORT = `${P}/docs/03_empirical_analysis/2026-11-02_FOUR_TOPICS_FINAL_REPORT.md`
+const repBrief = `Integrated four-topic report (ACCEPTANCE R1). Inputs, in order of authority: ${RUN}/orchestrator/GATE_STATUS.md and PI_DECISIONS_2026-11-01.md; the dated result reports, cards and addenda under ${P}/docs/03_empirical_analysis/topic1/, topic2/, topic3/, topic4/ and the results/ dirs they cite; victory reports in ${RUN}/victory_*/ ; workflow C milestone summary (claims to check against files): ${JSON.stringify(summary)}. Topics: Topic 1 = M1 (ENIGMA-OCD lag motifs), Topic 2 = M3 + FU-A..E (connectome box pooling for SwiFT), Topic 3 = M2 + H2 (layerwise PR/spectra), Topic 4 = M4 (backprop-free local learning). Origin of the four ideas: 손운규 교수님's email (refer to him as 손운규 교수님). Korean, report genre (objective third person; no 나는/저는/생각한다). For each topic: question, frozen card rule, data and compute, verdict exactly as the card's rule gives it, key numbers with intervals, gate + victory status, deviations/addenda, what remains untested, and what a follow-up would need. A one-page summary table first. Every number must come from a dated output file of this run (C8) and carry its source path in a footnote or table column. Do not cite EMPIRICAL_ANALYSIS_REPORT.md or the 2026-11-01 consolidated status numbers. Killed verdicts are stated as killed; nothing is reframed as success.`
+let rep = await agent(COMMON('writer_report', 'worker') + `\n\nTask: write ${REPORT} (new file; your only write target besides your metadata dir). ${repBrief}`, { label: 'writer_report', phase: 'Report', schema: WORKER_SCHEMA })
+const AUD_SCHEMA = VERDICT_SCHEMA
+const audits = (await parallel([
+  () => agent(`Read-only numbers audit of ${REPORT}. Extract every result number and check it against the dated result files under ${P}/results/ and ${P}/docs/03_empirical_analysis/topic*/ that the report cites. List each unsupported, mismatched or C8-forbidden number (anything from EMPIRICAL_ANALYSIS_REPORT.md or the 2026-11-01 consolidated status). APPROVE only if none; else REQUEST_CHANGES with the list in blocking_issues.`, { label: 'numbers_audit_report', phase: 'Report', agentType: 'paper-numbers-auditor', schema: AUD_SCHEMA }),
+  () => agent(`Adversarial claim audit of ${REPORT} against the governing cards and victory reports (${P}/docs/03_empirical_analysis/topic*/, ${RUN}/victory_*/, ${RUN}/orchestrator/GATE_STATUS.md). Find overclaims, verdicts that do not follow the card rule, killed results framed as success, missing untested items, gate/victory status misstated, and any participant ID. APPROVE or REQUEST_CHANGES with blocking_issues.`, { label: 'claim_audit_report', phase: 'Report', agentType: 'critic', schema: AUD_SCHEMA }),
+])).filter(Boolean)
+const blocking = audits.flatMap(a => a.verdict === 'APPROVE' ? [] : a.blocking_issues)
+let rep2 = null, audits2 = null
+if (blocking.length) {
+  rep2 = await agent(COMMON('writer_report_r2', 'worker') + `\n\nTask: revise ${REPORT} to fix every blocking issue below (only that file). Fix by correcting to the source files, never by deleting the topic's verdict. ${repBrief}\n\nBLOCKING ISSUES:\n${JSON.stringify(blocking)}`, { label: 'writer_report_r2', phase: 'Report', schema: WORKER_SCHEMA })
+  audits2 = (await parallel([
+    () => agent(`Read-only numbers audit of ${REPORT} (second round). Same rules as before: every number must match the dated result files it cites; C8-forbidden numbers are blocking. Previous blocking issues: ${JSON.stringify(blocking)}. APPROVE or REQUEST_CHANGES.`, { label: 'numbers_audit_report_r2', phase: 'Report', agentType: 'paper-numbers-auditor', schema: AUD_SCHEMA }),
+    () => agent(`Adversarial claim audit of ${REPORT} (second round), same rules. Previous blocking issues: ${JSON.stringify(blocking)}. APPROVE or REQUEST_CHANGES.`, { label: 'claim_audit_report_r2', phase: 'Report', agentType: 'critic', schema: AUD_SCHEMA }),
+  ])).filter(Boolean)
+}
+return { summary, report: { path: REPORT, writer: rep, audits, writer_r2: rep2, audits_r2: audits2 }, full: res }

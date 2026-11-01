@@ -18,15 +18,17 @@ Adversarial pre-mortem strategy for FU_B (Topic 2 follow-up B: 4x budget 560k sa
 
 ## Current Parent
 - Conversation ID: root 5fddb83e
-- Updated: not yet
+- Updated: 2026-11-01T15:1xZ (unchanged)
 
 ## Investigation State
-- **Explored paths**: run docs (ACCEPTANCE, PI_DECISIONS, GATE_STATUS, RESUME, ORIGINAL_REQUEST)
-- **Key findings**: [TBD]
-- **Unexplored areas**: topic2 card, result report §7, scripts, src, results receipts, B300 state
+- **Explored paths**: run docs; topic2 card, result report §7, addenda 01-05; src/topic2_rgpool/{train,stats,metrics}.py; scripts/topic2_{train,verdict,launch_wave,ledger}.py; r1 run records; M3_r2 gate record (V01-V11); B300 Slurm/QoS/nodes
+- **Key findings**: 4x gate unaffordable (26.3 Stage1 vs 47.4 with gate; cap 33) -> inherit r1 gate; frozen probe aborts 4x runs at 0.75 h; no resume in frozen loop; B300 tree keyed by old tokens -> positional hard-link farm (P3: den identical 0.0, 1.711 h/run, 144.6 GiB); frozen verdict script hazards H1-H5 (P1); QoS 8 GPU/user shared; data only on b300-01; sacct prints KST
+- **Unexplored areas**: env rebuild via build_env.sh (not run); concurrent-job throughput; peers' FU-B reports (not read, independence)
 
 ## Key Decisions Made
-- [TBD]
+- Recommend inherited r1 gate + no-resume policy + positional hard-link farm + new validated verdict script
+- P3 smoke run as Slurm job 419 (0.015 GPU-h, ledgered), B300 dir removed
 
 ## Artifact Index
 - DISPATCH.md, BRIEFING.md, progress.md, handoff.md (this dir)
+- /home/juke/git/00IITP-AI/verification/explorer_FU_B_r1_3/probes/ (p1, p2, p3 scripts + outputs)

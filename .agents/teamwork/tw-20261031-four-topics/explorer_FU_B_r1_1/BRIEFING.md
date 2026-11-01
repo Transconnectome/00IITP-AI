@@ -20,7 +20,7 @@ Recommend a concrete, verifiable strategy for milestone FU_B (Topic 2 follow-up 
 
 ## Current Parent
 - Conversation ID: root 5fddb83e
-- Updated: not yet
+- Updated: 2026-11-01T15:20Z (handoff written; no reparent)
 
 ## Investigation State
 - Explored: run docs (ORIGINAL_REQUEST, ACCEPTANCE+addendum, PI decisions 1-8, GATE_STATUS, RESUME); r1 card, result report §7, addenda 01-05; train.py, topic2_train.py, topic2_verdict.py, stats.py, launch_wave, ledger helper; r1 run.json timings; M3_r2_gate_record (V01-V11, case A); B300 Slurm/sinfo, /scratch layout (counts only)
@@ -35,3 +35,4 @@ Recommend a concrete, verifiable strategy for milestone FU_B (Topic 2 follow-up 
 - DISPATCH.md — dispatch verbatim
 - progress.md — heartbeat
 - handoff.md — 5-component report
+- Phase: DONE (Hard handoff). Smoke 0.065 GPU-h (Slurm 413). Probes: verification/explorer_FU_B_r1_1/

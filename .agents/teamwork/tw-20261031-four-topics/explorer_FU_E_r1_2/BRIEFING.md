@@ -23,14 +23,17 @@ FU_E (Topic 2 follow-up E): recommend a concrete, verifiable strategy for downst
 - Updated: not yet
 
 ## Investigation State
-- **Explored paths**: run docs (ORIGINAL_REQUEST, ACCEPTANCE, PI_DECISIONS, GATE_STATUS, RESUME)
-- **Key findings**: [TBD]
-- **Unexplored areas**: topic2 docs, result report §7, r1 handoff, B300 checkpoint state, data staging, src code
+- **Explored paths**: run docs; topic2 result report/card; frozen src/topic2_rgpool (train, model, merge, data, vendor encoder API); r1 wave jobs; B300 r1 dir, HCP staging, Slurm; local CPM unrestricted CSV; gate record V01-V11
+- **Key findings**: 15 ckpts intact + anchor exact; REST1_LR only (no REST2); 28 labelled subjects (<=11 held-out); held-out pool 34; cost 0.004 s/window/model; strict=False drift; layer_0-2 are (B,L,C); anatomy confound; float boundary fixtures fragile
+- **Unexplored areas**: real seed variance of identification accuracy; uncached I/O; full ConnectomeDB unrestricted CSV
 
 ## Key Decisions Made
-- [TBD]
+- Primary = within-session split-half fingerprinting (gap) on 34 encoder-unseen subjects; J=acc diff, delta 0.01 abs; r1-mirrored rules
+- Age/sex = untestable (labels); descriptive only
+- Smoke via Slurm only (jobs 412 failed/420 ok), 0.010 GPU-h total
 
 ## Artifact Index
 - DISPATCH.md — verbatim dispatch
 - progress.md — heartbeat
-- handoff.md — final report
+- handoff.md — final report (Hard)
+- /home/juke/git/00IITP-AI/verification/explorer_FU_E_r1_2/{b300,cpu}/ — probes + outputs

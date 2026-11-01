@@ -19,12 +19,12 @@ FU-A (Topic 2 follow-up A, lower-noise 12 mm target) explorer 2 of 3: feasibilit
 
 ## Current Parent
 - Conversation ID: root 5fddb83e
-- Updated: not yet
+- Updated: 2026-11-01T15:25Z (handoff written)
 
 ## Investigation State
 - **Explored paths**: r1 card, result report §7, train.py, data.py, fixtures.py, metrics.py, model.py, stats.py, scripts/topic2_train.py, topic2_verdict.py, topic2_launch_wave.py, topic2_preprocess_hcp.py, b300_env, M3_r2 gate record, addendum 05, r1 run.json/train_log, ledger; B300 Slurm/sinfo, /scratch layout on 4 nodes
 - **Key findings**: (1) r1-shaped FU-A = 12 gate + 15 Stage-1 runs x 0.433 GPU-h = 11.7 GPU-h > cap 8 (§7 6.5 excludes the gate); (2) HCP raw + r1 preprocessed data + venv exist ONLY on b300-01 local /scratch; other FU teams contend for b300-01; (3) r1 cellmeans.npy already exist (4096x1200 per subject) -> compact 12 mm target store ~1.7 GB, movable to any node; (4) train.run uses x as input AND target, so the zero-code-change design is input = target = transformed volume; (5) r1 launcher is direct-launch (forbidden now) -> sbatch needed; (6) repo split.json is sanitized (h00..h87) -> name FU-A derived subject dirs by the positional token so records carry no pseudonym; (7) ssh to B300 needs -J connectome (configured double jump times out)
-- **Unexplored areas**: co-location throughput (smoke pending), cell-target predictability on train subjects (probe pending), venv build off b300-01 (pending)
+- **Unexplored areas**: none blocking; end-to-end wrapper GPU run untested (worker T4); smoke done (co-location <=4% gain), probe done (cell target LS2 NMSE 0.87)
 
 ## Key Decisions Made
 - Recommend target = per-cell re-standardised 12 mm cell means, input = target, compact cell store; smoothed BOLD rejected for cost/logistics

@@ -25,11 +25,11 @@ FU_C (Topic 2 follow-up C: 8 seeds x 3 arms, E36, 140k samples, df 7): recommend
 
 ## Investigation State
 - **Explored paths**: run docs (ORIGINAL_REQUEST, ACCEPTANCE, PI_DECISIONS, GATE_STATUS, RESUME); r1 card, result report, addenda 01-05; stats.py, topic2_verdict.py, train.py, topic2_train.py, build_partitions, launch_wave; r1 run.json timings; M3_r2 gate record (V01-V11)
-- **Key findings**: see progress.md
-- **Unexplored areas**: B300 live state (Slurm, data, venv, sealed split), determinism
+- **Key findings**: fresh seeds 10-17 feasible (24 runs ~10.6-11.0 GPU-h); r1 path bit-reproducible under Slurm; surrogates via frozen builder self-checking; data only on b300-01 (pin -w); 8-GPU/user QOS; sanitizer import path works; stall in E is main verdict risk
+- **Unexplored areas**: rebuilt-venv bit identity; full-length repro; contention measurements
 
 ## Key Decisions Made
-- [TBD]
+- Recommend fresh seeds 10-17, reuse r1 fixture gate (justified by bit-reproducibility), own verdict layer; handoff written 15:20Z
 
 ## Artifact Index
 - DISPATCH.md — verbatim dispatch
