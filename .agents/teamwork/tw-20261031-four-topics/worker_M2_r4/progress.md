@@ -43,3 +43,11 @@ Last visited: 2026-11-01T10:40Z
 Last visited: 2026-11-01T10:59:13Z (union v3c running)
 Last visited: 2026-11-01T11:09:02Z (union v3c running)
 Last visited: 2026-11-01T11:19:13Z (union v3c running)
+- 11:24Z union v3c DONE: 121 KILLED + 1 SURVIVED (U127). Merged union 150 KILLED / 1 SURVIVED, no status diff vs FULL_v2 (runs/SUMMARY_r4.json).
+- 11:27Z fc1 (pre-addendum): topic3 138, old 86, topic1 88, C1 67, receipts OK, pyc unchanged. Layout lint PASS. ID scan clean.
+- 11:4xZ addendum 06 v1 + receipt written; fc2: topic3 2 FAILED (C4 guards: literal BIDS prefix in addendum §7). Preserved v1 bytes (verification/worker_M2_r4/superseded/), wrote v2 (46527e6a...), regenerated receipt (db88f543...), fc3 rerun started.
+Last visited: 2026-11-01T11:50Z
+- 11:24Z union v3c DONE: 121 KILLED + 1 SURVIVED (U127). Merged union 150 KILLED / 1 SURVIVED, no status diff vs FULL_v2 (runs/SUMMARY_r4.json).
+- 11:27Z fc1 (pre-addendum): topic3 138, old 86, topic1 88, C1 67, receipts OK, pyc unchanged. Layout lint PASS. ID scan clean.
+- 11:4xZ addendum 06 v1 + receipt written; fc2: topic3 2 FAILED (C4 guards: literal BIDS prefix in addendum §7). Preserved v1 bytes (verification/worker_M2_r4/superseded/), wrote v2 (46527e6a...), regenerated receipt (db88f543...), fc3 rerun started.
+Last visited: 2026-11-01T11:50Z
