@@ -40,3 +40,4 @@ Last visited: 2026-11-01T10:32:16Z (union v3ff running)
 - 10:14Z named v3 (N029-N032, full mode): all 4 SURVIVED (138 passed); controls OK. Named set complete: 32/32 valid; 24 KILLED (all r4-only, 0 pre-existing failures; covers all 26 REQUIRED ids), 8 SURVIVED (all EXTRA).
 - 10:14-10:37Z union v3ff (failfast, fast-first, gate 15.5): 29 valid records, then stopped (5-min gate stalls; runs/EVID_union_r4_v3ff_STOPPED_README.txt). 10:38Z launched v3c for the 122 pending (gate 14.0 GiB).
 Last visited: 2026-11-01T10:40Z
+Last visited: 2026-11-01T10:59:13Z (union v3c running)

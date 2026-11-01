@@ -21,3 +21,9 @@ Last visited: 2026-11-01T10:03Z
 - 10:00Z Slurm 217940 node4: 12 reviewer-designed mutants, baseline 92 passed, 12/12 KILLED, 0 INVALID.
 - 10:01Z sealed manifest/split hashes == values quoted in the card text committed in 51609c1 (git anchor, card sha c9bfc60a).
 - 10:02Z git-history numeric scan (HCP IDs / file sizes / voxel counts; count-only, masked) running.
+Last visited: 2026-11-01T10:41Z
+- 10:1xZ history numeric scan v1 hung in pipe_write (per-user pipe quota shrank buffer below pattern size); killed by PID, fixed in place (commented v2), thread-limited, binaries skipped.
+- 10:3xZ history numeric scan v2: 59 revisions, 0 candidate blobs for IDs/sizes/voxel counts; positive control (known value among 1258 decoys) 7 files in latest rev.
+- 10:3xZ cleanup: B300 /scratch/iitp4/reviewer_M3_r2_2 removed; connectome repo/mutwork copies + node-local home dir removed; venv + logs kept on /storage.
+- 10:40Z BRIEFING.md and handoff.md written (verdict APPROVE, 0 blocking, N1-N9 non-blocking).
+- 10:44Z closing checks after last metadata write: C1 67/67 rc0; audit_layout rc0 269 files 0 findings; freeze 33/33; r2 pins 156/156; my two dirs 36 files 0 token/size/vox/ID hits; no processes of mine remain. handoff.md read back.
