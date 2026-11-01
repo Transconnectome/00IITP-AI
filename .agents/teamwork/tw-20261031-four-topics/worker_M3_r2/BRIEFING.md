@@ -1,4 +1,4 @@
-# BRIEFING — 2026-11-01T07:25Z
+# BRIEFING — 2026-11-01T07:25Z (updated 09:08Z: work complete, Hard handoff written)
 
 ## Mission
 M3 (Topic 2) iteration 2 (LAST, MAX_ITER=2): remove gate blocker B1 (C4: unsalted content-hash subject tokens + per-file
@@ -45,12 +45,14 @@ that kill the r1 surviving mutants; addendum_05 with corrections. 0 GPU-h.
 - scratchpad /tmp/claude-1000/-home-juke/d5bff6c5-d355-47e4-94ae-f598f75c884a/scratchpad/wM3r2 — throw-away mirrors (outside repo)
 
 ## Change Tracker
-- Files modified: none yet
-- Build status: not run
-- Pending issues: all
+- Files modified: 19 token files in results/topic2/2026-11-01 (sanitized; originals sealed on B300)
+- New: scripts/topic2_c4_sanitize.py, scripts/topic2_c4_seal_check.py, scripts/b300_env/mutation_pytest_pydeps.sh,
+  tests/topic2_rgpool/test_{c4_tokens,verdict_path_guards,pipeline_guards}_r2.py, 3 new pin files, addendum_05
+- Build status: B300 full suite 92 passed; old86 86; topic1 88; local full topic2 run blocked by host earlyoom
+- Pending issues: root actions (durable sealed copy, explorer salt, R1 ruling, incidents, B300 cleanup)
 
 ## Quality Status
-- Build/test result: n/a yet; Lint: n/a; Tests added: none yet
+- Build/test result: pass (see handoff); Lint: n/a (no linter configured); Tests added: 37 (8+10+19); mutants 102/102 killed
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md (to read); Core methodology: frozen card before results,

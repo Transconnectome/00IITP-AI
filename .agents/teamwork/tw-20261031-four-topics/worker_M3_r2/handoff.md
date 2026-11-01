@@ -50,8 +50,14 @@ No subject token, content hash, file size, salt or HCP ID is written in any file
   host memory pressure from other workloads (`local_topic2_suite_attempt2_earlyoom.txt`,
   `local_topic2_suite_earlyoom_journal.txt`, `final_tests_topic2_per_file.txt`: the light files pass, the heavier
   ones are killed at start). The same files passed locally earlier (55 shipped on the sanitized mirror 07:30Z; the
-  new 28 at 07:45Z; C4 tests at 08:3xZ). The full 92-test suite passes on B300 .98 CPU (v3 baseline log
-  `mutation/v3_b300_baseline_suite.log`: "92 passed"); see §5 for the final B300 run.
+  new 28 at 07:45Z; C4 tests at 08:3xZ). A third local attempt (09:05Z) was also SIGTERMed by earlyoom (journal: a
+  python3 with 4030 MiB RSS). The full 92-test suite passes on B300 .98 CPU: v3 baseline (`mutation/v3_b300_baseline_suite.log`)
+  and the final run on the final bundle at 09:01Z (`final_b300_suite.log`: 92 PASSED, rc 0), whose code hashes equal
+  the repo (`final_b300_code.sha`). An earlier B300 run with a byte-wise verdict test failed only that test (scipy
+  version; `b300_suite_v0_bytewise_verdict_test_failed.log`), which is why the test now compares to 1e-9.
+- **Final ID scan on B300** (frozen `scripts/topic2_id_scan.py`, 1084 HCP directory names in memory) over the final
+  results/docs/scripts/tests/src copies plus my verification and metadata dirs: 193 text files, 0 hits
+  (`final_b300_id_scan_r2.json`).
 - **Addendum** `docs/03_empirical_analysis/topic2/2026-11-01_topic2_addendum_05.md` (pinned in output_sha256_r2.txt).
 - Facts used in it, re-measured: PI_DECISIONS first commit a06f435 2026-11-01T03:01:27Z; card first commit 51609c1
   03:16:27Z (freeze 03:14:34Z); SOURCE.md:12 cites a nonexistent test; hcp_S_s2 100-step loss means 1.0561 at step

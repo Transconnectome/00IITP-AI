@@ -1,5 +1,5 @@
 # progress — worker_M3_r2
-Last visited: 2026-11-01T08:28:31Z
+Last visited: 2026-11-01T09:09:37Z
 - 07:15Z DISPATCH.md written byte-for-byte from own transcript (count scan: 1 six-digit = 48^3 constant, 4 hex16 = float digits).
 - 07:20Z read role/runtime/adapter, ORIGINAL_REQUEST, ACCEPTANCE, orchestrator (no R1/R2 ruling, no durable sealed dir), explorer r2 handoffs, code.
 - 07:24Z advisor consulted: R1 positional, fail-closed sequence (preflight -> seal -> sanitize in scratch -> verify -> replace).
@@ -18,3 +18,9 @@ Last visited: 2026-11-01T08:28:31Z
 - 08:25Z m18 (build_boxes default algo) survived v2 -> added test_build_boxes_default_is_the_deterministic_dense_mean_rule (kills it locally).
 - 08:27Z git history scan: 176 patterns fed, 50 revisions, 0 hits (rc 1); positive control 33 hits.
 - 08:28Z addendum_05 drafted (docs/03_empirical_analysis/topic2/2026-11-01_topic2_addendum_05.md).
+- 08:35Z B300 v3: baseline 92 passed, m18 KILLED -> 102/102 mutants killed overall.
+- 08:40-09:05Z local topic2 suite killed by earlyoom 3x (host memory, other workloads; journal kept); old 86 passed; topic1_lagmotif 88 passed.
+- 08:45Z frozen verdict script on repo runs -> verdict.json + stdout byte-identical (local env).
+- 08:52Z output_sha256_r2.txt (156 lines) written; seal_check repo all_ok (R1-R5); audit_layout PASS 249 files; C1 67/67; freeze 33/33.
+- 09:01Z final B300 CPU run on final bundle: 92 passed; frozen ID scan 1084 names, 193 files, 0 hits; B300 code = repo.
+- 09:06Z scratchpad removed; B300 stale copies removed (sealed_c4, check, final, mutout, pydeps kept); no leftover processes.

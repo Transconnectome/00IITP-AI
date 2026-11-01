@@ -25,3 +25,7 @@ Last visited: 2026-11-01T08:43Z
 - 08:42–08:46Z earlyoom SIGTERMed nearly every job (17 named INVALID). Found 15 orphaned hung topic3_token_job.py Pool processes (test_token_job_driver) from SIGTERMed pytest parents in my work dirs; terminated by PID (logs/orphans_killed_0848.txt). Stopped my v1 batch + retry waiter (runs/EVID_named_r4_v1_STOPPED_README.txt). v1 partial keeps CONTROL_OK + 14 valid KILLED named jobs.
 - 08:55Z runner v2 (bin/run_jobs_v2.py): memory gate (MemAvailable >= 18 GiB), own session + process-group cleanup, INVALID auto-retry (<=4, per-attempt logs). Launched run_evidence_v2.sh: 18 pending named jobs, then the 151 union.
 Last visited: 2026-11-01T08:56Z
+- 08:49–09:05Z v2 (gate 18 GiB): gate held ~12 min, CONTROL passed (138) at 09:02:46Z, then N003 waited at the gate; stopped (runs/EVID_named_r4_v2_STOPPED_README.txt, incl. a correction of its first wording). No job process or work copy left.
+- 09:06Z launched v2b (gate 15.5 GiB, same runner v2, new log names): 18 pending named, then 151 union.
+- Pre-checks (non-pytest): C1 67 OK; receipts output 42 / ad02 1 / ad03 3 / ad04 2 / ad05 3 OK; code_sha256_at_freeze: only topic3_launch_connectome.py differs (pre-existing, addendum 01 item 2).
+Last visited: 2026-11-01T09:07Z
