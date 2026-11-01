@@ -19,11 +19,12 @@ Empirically challenge worker_M3_r3's T2.4 gate repair (Topic 2 / M3): new test f
 - tests/topic2_rgpool/test_verdict_path_guards_r3.py (24 tests), addendum_06, addendum_06_sha256.txt, verification/worker_M3_r3/
 - Claims: V01–V11,K1,K2,W04–W08,W12 killed by new file; W09 equivalent; shipped verdict stop unchanged; salt channel closed
 ## Key Decisions Made
+- Verdict CONFIRMED (handoff.md 2026-11-01T17:5xZ); final report via StructuredOutput, no SendMessage (dispatch: structured return is final)
 - Independent mutant re-application from upstream specs (not worker's m01) + novel mutants
 ## Attack Surface
-- Hypotheses tested: [TBD]
-- Vulnerabilities found: [TBD]
-- Untested angles: [TBD]
+- Hypotheses tested: V01-V11 killed by new file (yes); 20 novel verdict-path mutants survive union (no: 0/20); W09 equivalent (yes); E1/E4/E5 (reproduced); 27-scenario table (12 differ, reproduced); salt channel closed (yes); plaintext dev IDs in M3 files (0)
+- Vulnerabilities found: nonblocking — literal dev-ID tokens in 2 other-team files (FU-C test, challenger_M3_r3_1 p06); positional residual likely needs only public HCP numbering; old-86 pilot e2e needs PYTHONPATH
+- Untested angles: connectome legs not rerun; CUDA-visible skips; mutants beyond the 31 run
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md (read in place; methodology reference only)
 ## Artifact Index

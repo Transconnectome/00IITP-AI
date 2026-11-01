@@ -20,3 +20,9 @@ Last visited: 2026-11-01T16:35Z
 - 16:2xZ mutation harness verification/worker_FU_C_r1/mutants: r1 44/55 killed -> added 6 tests -> r2 51/54 killed (3 equivalent: V07c, V12, F11; baseline survives).
 - 16:31:53Z verdict code + tests pinned: results/topic2/2026-11-02_fu_c/code_sha256_before_results.txt. No Stage-1 job had started (all PENDING, QOSMaxGRESPerUser).
 - CLI dry run (no runs dir) -> no_verdict (fail closed).
+Last visited: 2026-11-01T16:38Z
+- 16:3xZ wave 2a submitted (jobs 526-528: S12, E13, C13); admission 12.90 <= 13; g3t-G-E0-* none.
+- 16:35:09Z first Stage-1 job (512, hcp_E_s10_a1) started on b300-01. Others pending (QOSMaxGRESPerUser; FU-A/FU-B/FU-D/nhpfull share the 8-GPU user QOS).
+- 16:36Z report renderer pinned (code_sha256_presentation_before_results.txt).
+- 16:38Z rolling driver (scratchpad driver.sh) started: close finished jobs; submit next planned run only if g3t check + cap admission pass; polls 5 min apart; never reruns.
+- Scanner controls (B300): positive 2/2 detected, negative 0, pre-freeze artifacts 0 hits.

@@ -14,3 +14,6 @@ Last visited: 2026-11-01T15:31Z
 - 16:11Z code synced (39 files, 0 mismatch); positional view built: 88 subjects, 176 hard links, all same inode, split check train/val/test/disjoint true.
 - 16:13:50Z share-check clean (no g3t-G-E0-*); smoke job 511 submitted (debug; equiv check + E192 HCP cost probe), ledger started row written.
 Last visited: 2026-11-01T16:14Z
+- 16:35-16:37Z smoke job 511 ran (waited ~21 min in queue: QOSMaxGRESPerUser, 8-GPU user cap). Closed 0.04 GPU-h. Equivalence: r1 hcp_E_s0 test NMSE reproduced EXACTLY through FU-D view (per-subject num/den equal, order equal). E192 HCP cost probe: 0.4962 s/step, projected 1.213 h/run. B300 C4 scan 0 hits before copy-back.
+- 16:39-16:41Z share-check clean; F+ gate jobs submitted: Fplus_E_s0=534, Fplus_C_s0=535, Fplus_S_s0=536 (cost guard c=1.31).
+Last visited: 2026-11-01T16:42Z

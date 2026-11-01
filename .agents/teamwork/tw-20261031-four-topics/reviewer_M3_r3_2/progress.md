@@ -1,3 +1,4 @@
 - 2026-11-01T16:01Z start; read role/adapters/run docs; DISPATCH+BRIEFING written. Last visited: 2026-11-01T16:01Z
 - 2026-11-01T16:06:51Z C1 67/67 rc0; receipts ok; full topic2 local 115p+1f (FU-B card, attributed); legs D done (21 identical/3 differ); chain v04 launched (B,A,extra)
 - 2026-11-01T16:10:35Z leg B (own harness): 20 KILLED, 4 SURVIVED (baseline, W09, CTRL_t_df_n, CTRL_boot) = worker claim; leg D 21 identical / 3 CTRL differ (still stop); v05 salt scan 0 needles in 19,560 files + 3,278 objects, 0 name-hash windows; found: addendum_06 §6 '11 passed' C4 claim has no log and conflicts with worker 15:50Z observation. Leg A running. Last visited: 2026-11-01T16:10:35Z
+- 2026-11-01T16:43:01Z leg A 21 survived/3 CTRL killed; extras union kills 8/8; old86 86, topic1 88, topic2 full 116 (after FU-B fix 16:20Z), C1 rc0. handoff written; verdict APPROVE. Last visited: 2026-11-01T16:43:01Z

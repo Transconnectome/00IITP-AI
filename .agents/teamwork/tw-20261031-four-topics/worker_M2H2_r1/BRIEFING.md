@@ -35,6 +35,16 @@ Milestone M2H2: Topic 3 random-init control H2 (card §6; ACCEPTANCE H1′–H3�
 - K = 10 seeds (1..10); δ = 0.5×|pinned trained effect| for contrast DiDs; δ = log 1.10 for levels.
 - Shared-loader in-memory driver; frozen subject_summary in-job; only position-keyed scalars + subset PR vectors return.
 
+## Change Tracker
+- New: src/topic3_h2/{__init__,provenance,model,data,compare,reduce,driver,h2stats}.py + vendor/ (3 byte-identical files)
+- New: scripts/topic3h2_connectome.py, scripts/topic3h2_stats.py; tests/topic3_h2/ (8 files)
+- New: docs/.../2026-11-02_topic3_addendum_07_h2_card.md (FROZEN 15:57:40Z, sha 09b45220…)
+- Build/test: tests/topic3_h2 pass; old 86 pass; topic3_spectral 138 pass; topic1_lagmotif 88 pass; mutants 32/32 killed
+## Quality Status
+- Gate 218063 PASS (local decision PASS). Random job 218064 running.
+## Loaded Skills
+- Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md (frozen card before results, fixtures, verdict taxonomy G8) — not copied (read via addendum 03 §6 mapping)
+
 ## Artifact Index
 - DISPATCH.md, progress.md, handoff.md (this dir)
 - verification/worker_M2H2_r1/ — probes, mutants

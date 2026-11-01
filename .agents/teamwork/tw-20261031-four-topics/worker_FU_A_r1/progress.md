@@ -53,3 +53,13 @@ Last visited: 2026-11-01T16:08Z
   b300-01; ledger start row written. Throughput probe step 200: 0.1707 s/step, projected 0.416 h/run.
 - Reproduction with the frozen prepare script (srun fua-prep-repro, CPU): checks and design stats identical to job 492.
 Last visited: 2026-11-01T16:16Z
+
+## 2026-11-01T16:16Z–16:56Z
+- Gate job 507 completed 16:37:11Z (sacct 1480 s / 1479 s). Fplus_E_s0 0.774678, Fplus_C_s0 0.770409, gain +0.551 % < 1 % -> F+ FAIL.
+- Verdict script: inconclusive (measurement capacity). Stage 1 NOT submitted (card section 7.3). No HCP training at all.
+- B300 count-only token scan: 0 hits / 14 files; copy-back 14/14 byte-identical; ledger closing row written (0.822 GPU-h).
+- Result report docs/03_empirical_analysis/topic2/2026-11-02_topic2_fu_a_result_report.md; output_sha256.txt (21 lines).
+- Final: tests/topic2_fu_a 69 passed 1 skipped; old suite 86 passed; C1 rc 0 (67/67); r1 code freeze 33/33; layout lint 0 findings.
+- Cross-team: tests/topic2_rgpool/test_outputs_no_ids.py fails on FU-B's card ("sub-o..." matches the BIDS regex) -> reported to root.
+- handoff.md written (hard).
+Last visited: 2026-11-01T16:56Z

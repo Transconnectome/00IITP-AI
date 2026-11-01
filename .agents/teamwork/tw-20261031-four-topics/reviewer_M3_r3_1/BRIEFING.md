@@ -30,17 +30,19 @@ Independently review M3 (Topic 2) iteration-3 gate repair against ACCEPTANCE T2.
 - Criteria: mutants killed (V01–V11), erratum recorded, dev-salt containment, no regression
 
 ## Key Decisions Made
-- [TBD]
+- Ran all mutation legs locally (own harness h01) instead of connectome; INVALIDs rerun (V05 leg A, X08)
+- FU-B card C4 red test attributed to another team -> nonblocking root action
+- Positional residual = C4-sanctioned positional index -> nonblocking, PI ruling
 
 ## Review Checklist
-- Items reviewed: [TBD]
-- Verdict: pending
-- Unverified claims: all worker claims
+- Items reviewed: new test file, addendum_06, receipt, worker evidence, frozen verdict path
+- Verdict: APPROVE (16:50Z)
+- Unverified claims: worker connectome legs (reproduced locally instead); 10^6 brute force (not rerun)
 
 ## Attack Surface
-- Hypotheses tested: [TBD]
-- Vulnerabilities found: [TBD]
-- Untested angles: [TBD]
+- Hypotheses tested: spec verbatim-ness; kills attributable to new file; W09 equivalence; shipped numbers; salt leak; 15 extra mutants X01-X15
+- Vulnerabilities found: none blocking; see handoff N1-N6
+- Untested angles: B300-listing plain-text scan; mutants outside enumerated + extra sets
 
 ## Artifact Index
 - verification/reviewer_M3_r3_1/ — my probes and logs

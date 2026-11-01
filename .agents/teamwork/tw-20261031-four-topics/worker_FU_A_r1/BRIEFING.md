@@ -50,12 +50,13 @@ Topic 2 follow-up A (FU-A): new dated frozen card + implementation + fixtures + 
 ## Change Tracker
 - Files created: src/topic2_fu_a/* (6), scripts/topic2fu_a_* (6), tests/topic2_fu_a/* (9), card, results receipts
 - Build status: FU-A tests 63 + receipts tests; flake8 clean
-- Pending issues: gate (Slurm 507) running; Stage 1 only if F+ passes and budget rule holds
+- Pending issues: none (gate F+ failed -> inconclusive; Stage 1 not run by rule)
 
 ## Quality Status
-- Build/test result: 63 passed pre-freeze (receipts deselected)
+- Build/test result: FU-A 69 passed 1 skipped; old 86 passed; C1 rc 0
 - Tests added/modified: tests/topic2_fu_a (target, sources, run, verdict, fixture_stage0, scripts, receipts_and_c4)
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md (read in place, not copied)
 - Core methodology: frozen card before results; synthetic ground-truth fixtures; run records; verdict taxonomy; stop rules.
+- Verdict: inconclusive (measurement capacity): F+ gain +0.551 % < 1 % (Slurm 507). Handoff written 16:56Z.

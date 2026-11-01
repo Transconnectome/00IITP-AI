@@ -26,14 +26,16 @@ Independent review of M3 (Topic 2) iteration 3 gate repair (ACCEPTANCE T2.4 + C1
 - Contracts: sentinel/ACCEPTANCE.md (T2.4, C1–C8)
 
 ## Review Checklist
-- Items reviewed: [in progress]
-- Verdict: pending
-- Unverified claims: leg A/B/C/D, W09 equivalence, salt containment, regression counts
+- Items reviewed: r3 test file, addendum_06, receipt, worker evidence, frozen script/stats vs card
+- Verdict: APPROVE (2026-11-01T16:45Z)
+- Unverified claims: leg C as single run (derived as A∪B); connectome reruns; positive-control hash recovery
 
 ## Attack Surface
-- Hypotheses tested: [TBD]
-- Vulnerabilities found: [TBD]
-- Untested angles: [TBD]
+- Hypotheses tested: 8 extra verdict-path mutants (shipped kills 8/8, union kills all); W09 float proof; salt/hash channels
+- Vulnerabilities found: none blocking; addendum_06 §6 '11 passed' unlogged (N1)
+- Untested angles: B300 name-list scan; connectome env
 
 ## Artifact Index
 - DISPATCH.md — dispatch
+- handoff.md — final review
+- /home/juke/git/00IITP-AI/verification/reviewer_M3_r3_2/ — v02-v09 evidence
