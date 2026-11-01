@@ -34,3 +34,19 @@ T2.3 Pilot training on B300 within the C5 cap on data allowed by C6; results + v
 T4.1 Diagnose why all conditions incl. C0 reach forecast R²=1.0 (task too easy/leak/bug) with evidence.
 T4.2 Redesigned task where a trivial baseline does not saturate; frozen card (conditions, backprop baseline, metric, seeds, kill criterion).
 T4.3 Implementation + fixtures (local rule stability e.g. spectral radius of M < 1, no gradient leak — prove no autograd backprop in the local-learning path); run (CPU or B300 within cap); results + verdict per card.
+
+## Addendum 2026-11-01 ~23:15 KST (new root 5fddb83e; PI decisions 7–8). Criteria above are unchanged; these are added.
+C5 update: B300 now runs Slurm (partitions gpu/interactive/debug on b300-[01-04]); every B300 GPU use goes through sbatch/srun, never direct ssh launches. Run GPU ceiling raised by PI decision 7 to 95 GPU-h total (11.73 used before this addendum); per-milestone caps below. Every GPU use (B300 and connectome) is appended to results/gpu_ledger_2026-10-31.md under flock.
+C6 update: PI decision 5 — ENIGMA-OCD data may be used on B300. HCP-YA Open Access counts as public (decision 2; no redistribution, no re-identification).
+## M3 (Topic 2) iteration 3+ — gate repair
+T2.4 Close the r2 gate: new tests (additive; src/topic2_rgpool and frozen scripts unchanged) kill the 11 verdict-path mutants V01–V11 reported by challenger_M3_r2_2 (or show a mutant equivalent with proof); dated addendum records the card-vs-code defect (F+ failure → script says no_verdict, card §7.2 says inconclusive) as an erratum without editing the frozen script; confirm the dev-salt containment (no repo content lets HCP IDs be recovered). No regression: all suites, C1, receipts; shipped verdict unchanged unless a real defect changes it (then report both).
+## FU-A..FU-E (Topic 2 follow-ups, result report §7) — one milestone each
+F1 New dated card per option frozen (sha256 receipt) before any real-data result of that option; it reuses the r1 card's gates/nulls/verdict machinery where applicable and states the option's change, arms, seeds, budget, metric, δ = 1 % (decision 3) and kill rule.
+F2 Implementation only in the option's own paths; tests with synthetic fixtures that fail on the targeted defect; verdict code tested (avoid the V06–V10 defect classes).
+F3 Runs on B300 via Slurm within the option cap (A 8, B 33, C 13, D 25, E 1.5 GPU-h; verifiers ≤1 GPU-h each); run records, ledger rows; results in the option's dated results dir; result report with verdict per its card and what it adds to the r1 stop verdict.
+## M2-H2 (Topic 3 random-init control, card §6)
+H1′ Dated addendum freezes H2 hypothesis, estimator (frozen PR/α estimators from src/topic3_spectral, imported not edited), random-init protocol (seeds, init scheme), comparison and decision rule — sha256 recorded before any random-init result.
+H2′ Exact replication of the VRABES SwiFT E192 extraction with random-init weights on connectome (project-local venv; frames never leave connectome; Slurm GPU), with a check that the replicated pipeline reproduces the pinned trained-model representation statistics on the same subjects before random-init is run.
+H3′ Tests + fixtures; results in results/topic3/2026-11-02_h2/; result report states H2 verdict and its effect on R1–R3 readings. GPU cap 6 GPU-h on connectome.
+## Final integrated report
+R1 One four-topic report from canonical dated outputs only (C8), each topic's verdict with its card rule, gate/victory status, deviations, and what remains untested; numbers audited against result files.
