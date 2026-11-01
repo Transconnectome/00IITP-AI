@@ -8,3 +8,9 @@ Last visited: 2026-11-01T15:31Z
 - 15:29Z venv build done: freeze identical to r1 lock (env_check identical=True, torch 2.15.0+cu134).
 - 15:35-15:55Z wrote src/topic2_fu_d (config, design, seedplan, records, verdict, view, slurm), scripts/topic2fu_d_{build_env,train,make_view,b300_scan,equiv,slurm,seed_plan,verdict,c4scan}.py, tests/topic2_fu_d (8 files, 128 tests pass), card draft docs/.../2026-11-02_topic2_fu_d_card.md (NOT yet frozen).
 - 15:56Z mutation harness running (verification/worker_FU_D_r1/mutation/); B300 code sync + positional view build running.
+- 16:00Z mutation harness pre-freeze run 1: 60/62 killed (R03, R15 survived) -> added 2 tests; run 2: 62/62 killed (verification/worker_FU_D_r1/mutation/mutants_prefreeze_r2.out.json).
+- 16:06:07Z CARD + CODE FROZEN: results/topic2/2026-11-02_fu_d/card_sha256.txt (card 1b7fee6c…001b), code_sha256_at_freeze.txt (29 files). Old 86 tests pass, C1 rc 0, r1 code freeze 33/33 OK (checked 15:58Z).
+- 16:0xZ B300 ssh outage ~10 min (banner timeouts via dgx1 jump); recovered.
+- 16:11Z code synced (39 files, 0 mismatch); positional view built: 88 subjects, 176 hard links, all same inode, split check train/val/test/disjoint true.
+- 16:13:50Z share-check clean (no g3t-G-E0-*); smoke job 511 submitted (debug; equiv check + E192 HCP cost probe), ledger started row written.
+Last visited: 2026-11-01T16:14Z

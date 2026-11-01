@@ -40,16 +40,21 @@ Topic 2 follow-up A (FU-A): new dated frozen card + implementation + fixtures + 
   can only become inconclusive (pending gates). 17 runs total ≈ 7.7 GPU-h.
 
 ## Artifact Index
-- verification/worker_FU_A_r1/b3.sh — ssh helper to B300 login node (b300-01)
+- verification/worker_FU_A_r1/b3.sh, b3cp.sh, sync_code.sh — B300 ssh/scp/sync helpers (private ssh master /tmp/fua_b3_cm)
+- docs/03_empirical_analysis/topic2/2026-11-02_topic2_fu_a_card.md — FROZEN 2026-11-01T16:06:01Z, sha 72be3e83…18fb
+- results/topic2/2026-11-02_fu_a/{card_sha256.txt, code_sha256_at_freeze.txt, freeze_time.json, fua_constants.json,
+  design_stats_train.json, partitions/}
+- verification/worker_FU_A_r1/mutation/ — verdict mutation harness (31/31 killed)
+- B300: /scratch/iitp4/fu_a/{env/venv, code, data/subjects/hNN (symlinks), runs, logs}
 
 ## Change Tracker
-- Files modified: (none yet)
-- Build status: n/a
-- Pending issues: see progress.md
+- Files created: src/topic2_fu_a/* (6), scripts/topic2fu_a_* (6), tests/topic2_fu_a/* (9), card, results receipts
+- Build status: FU-A tests 63 + receipts tests; flake8 clean
+- Pending issues: gate (Slurm 507) running; Stage 1 only if F+ passes and budget rule holds
 
 ## Quality Status
-- Build/test result: not yet run
-- Tests added/modified: none yet
+- Build/test result: 63 passed pre-freeze (receipts deselected)
+- Tests added/modified: tests/topic2_fu_a (target, sources, run, verdict, fixture_stage0, scripts, receipts_and_c4)
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md (read in place, not copied)

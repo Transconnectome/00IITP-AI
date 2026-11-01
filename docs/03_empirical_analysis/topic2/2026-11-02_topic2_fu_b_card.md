@@ -38,7 +38,7 @@ The r1 verdict (**stop**, I1 +0.147 % [−0.068 %, +0.361 %] < δ 1 %) stays as 
 | test | once, at the last step | once, at step 35,000 |
 | throughput abort | `--max-run-hours 0.75` (default) | **`--max-run-hours 2.2`** (the default would abort every 35,000-step run at step 200) |
 
-**Learning-rate handling (stated limitation).** The peak, warmup fraction and decay shape are kept, not re-tuned for the longer run. This isolates the budget, but the r1 recipe may be sub-optimal at 4×; FU-B therefore answers "more samples with the same recipe", not "best achievable at 560k". The step-8,750 val point of FU-B is **not** a replicate of r1's endpoint: there the FU-B learning rate is still 1.79e-4, whereas r1 had decayed to 0.
+**Learning-rate handling (stated limitation).** The peak, warmup fraction and decay shape are kept, not re-tuned for the longer run. This isolates the budget, but the r1 recipe may not be optimal at 4×; FU-B therefore answers "more samples with the same recipe", not "best achievable at 560k". The step-8,750 val point of FU-B is **not** a replicate of r1's endpoint: there the FU-B learning rate is still 1.79e-4, whereas r1 had decayed to 0.
 
 **Same data stream.** The window-order (1000+s), training-mask (2000+s) and init (s) streams do not depend on the number of steps, so the first 140k samples of every FU-B seed are exactly r1's samples in r1's order with r1's masks (only the learning rate differs). Continuing from r1's final checkpoints was rejected: they hold no optimiser state, their schedule has decayed to 0, and it would be a different experiment.
 

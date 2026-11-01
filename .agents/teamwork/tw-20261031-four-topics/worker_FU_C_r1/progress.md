@@ -10,3 +10,8 @@ Last visited: 2026-11-01T16:06Z
 - 15:5xZ perms_fu_c.npz built by frozen builder (S_SEEDS override in memory): self-check 25/25 (FC sha, counts, E/C/G/R/S0..4 == r1); S_seed10..17 distinct; npz sha f9e32ab7…
 - 16:04:50Z anchor Slurm job 501 submitted (debug, -w b300-01, 1 GPU, 15 min); squeue g3t-G-E0-* check: none; admission 11.55 <= 13. Ledger started row written.
 - ssh: banner timeouts / scp hang -> persistent master + base64 transfer.
+Last visited: 2026-11-01T16:17Z
+- 16:08Z anchor job 501 COMPLETED (210 s, 0.058 GPU-h, closing ledger row): 6/6 loss comparisons bitwise equal to r1; no val/test computed.
+- 16:10Z pre-freeze artifacts copied back (sha verified): env/, partitions/, anchor/.
+- 16:13:23Z CARD FROZEN: docs/03_empirical_analysis/topic2/2026-11-02_topic2_fu_c_card.md sha fc2d0672…; receipt results/topic2/2026-11-02_fu_c/card_sha256.txt (41 lines, 0 failures).
+- 16:13:51–16:15:20Z wave 1 submitted (jobs 512-515, 517-520): g3t-G-E0-* check none; admission 12.48 <= 13.

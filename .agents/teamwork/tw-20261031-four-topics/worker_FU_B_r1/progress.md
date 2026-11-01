@@ -9,3 +9,10 @@
 - 15:30Z positional view built: 88 subjects, 176 hard links, split check train/val/test true, 0 r1 files modified after 03:10Z.
 - 15:31Z g3t-G-E0 check: none present (other teams: nhpfull-* 22 pending on dependency, g3t-fulltests running on b300-03). Smoke job 490 submitted (debug, b300-01); ledger started row written.
 Last visited: 2026-11-01T15:33Z
+- 15:36Z smoke 490 COMPLETED (234 s, 0.07 GPU-h): den identity 0.0; anchors bit-identical to r1; projection 1.69 h. Ledger closed.
+- 15:4xZ mutation harness v1 38/44 killed; 4 tests added/tightened; v2 44/44 killed (verification/worker_FU_B_r1/mutation/mutants_v2.out.json); suite 128 passed.
+- 16:05:18Z CARD FROZEN: results/topic2/2026-11-02_fu_b/card_sha256.txt (card a9c4cab0…, 21 code/test files, 8 inputs). B300 code verified identical.
+- 16:12:37Z gate array job 509 submitted (preflight: used 0.21, projected 5.46, g3t none). 16:14:13Z Stage-1 array job 516 (0-14%4, afterany:509) submitted (projected 31.71 ≤ 33).
+- 16:15Z 509 PENDING (QOSMaxGRESPerUser: other teams hold the 8-GPU per-user QoS); background poller started.
+Last visited: 2026-11-01T16:15:56Z
+- poll 2026-11-01T16:16:13Z: job 509 terminal tasks 0/3 (background poller). Last visited: 2026-11-01T16:16:13Z

@@ -37,3 +37,19 @@ n_ic = subject i's brain voxels in padded cell c (pad96(mask.npy) reshaped 16x6 
 - B300 ssh: banner-exchange timeouts at the final hop since ~15:40Z (dgx1 and node1 reachable; B300 port 22 open);
   retry loop running. Fixture-perm build moved to local CPU (synthetic only), started 15:54Z.
 Last visited: 2026-11-01T15:56Z
+
+## 2026-11-01T15:56Z–16:08Z
+- Fixture partitions built locally (synthetic, 104 s): kappa_fix 0.970840, F+ C purity 1.00. Stage-0 fixture tests 4/4 at sigma_v.
+- design_stats_train.json written locally from job 492's printed JSON; sha256 694c31ca… equals the B300 original (checked 16:04Z).
+- flake8 (120 cols) clean. FU-A tests 63 passed (receipt tests deselected pre-freeze).
+- CARD FROZEN 2026-11-01T16:06:01Z: card sha256 72be3e83…18fb; receipts results/topic2/2026-11-02_fu_a/card_sha256.txt (8 lines),
+  code_sha256_at_freeze.txt (21 files), freeze_time.json. No FU-A run record exists before this time.
+- ssh master to B300 re-established 16:03:58Z. Syncing frozen code to /scratch/iitp4/fu_a/code.
+Last visited: 2026-11-01T16:08Z
+
+## 2026-11-01T16:08Z–16:16Z
+- Frozen code synced to b300-01 (45 files; FU-A receipts verify on B300).
+- squeue g3t-G-E0-* count 0 at 16:12Z -> gate submitted: Slurm job 507 (array 0-1: Fplus_E_s0, Fplus_C_s0), gpu partition,
+  b300-01; ledger start row written. Throughput probe step 200: 0.1707 s/step, projected 0.416 h/run.
+- Reproduction with the frozen prepare script (srun fua-prep-repro, CPU): checks and design stats identical to job 492.
+Last visited: 2026-11-01T16:16Z

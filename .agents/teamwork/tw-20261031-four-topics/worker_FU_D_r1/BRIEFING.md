@@ -1,4 +1,4 @@
-# BRIEFING — 2026-11-01T15:31Z
+# BRIEFING — 2026-11-01T16:20Z
 
 ## Mission
 FU_D: Topic 2 follow-up D — SwiFT ver11 E192 (d2-2-18-2) at the r1 budget (140k samples), arms E/C/S, new dated
@@ -39,7 +39,11 @@ frozen card, own code/tests/verdict, Slurm runs on B300 within the 25 GPU-h cap,
 - Design per explorer consensus: single change = model scale E36→E192; r1 §5 hyperparameters verbatim; r1 perms
   byte-identical; reduced gate (F+ seed 0, 3 runs); cost-only seed rule n∈{5,4} else not run; conditional F− (E,C s0)
   only for would-be keep; own verdict code with tri-state gates; positional hard-link view on b300-01.
-- Own venv /scratch/iitp4/fu_d/venv from r1 lock (build started 15:28Z).
+- Own venv /scratch/iitp4/fu_d/venv from r1 lock (freeze identical).
+- Card + code frozen 16:06:07Z (card sha 1b7fee6c…001b; 29 code files). Mutants 62/62 killed pre-freeze.
+- Positional hard-link view /scratch/iitp4/fu_d/hcp (88 subj, 176 links, same inode).
+- Order: smoke job (equiv + HCP cost) -> F+ gate (3 jobs) -> seed_plan.json -> Stage 1 (3n) -> F- if would-be keep -> verdict -> report.
+- QoS: whole Slurm user capped at 8 GPUs; queue is crowded (FU-A/B/C, GARD, t3).
 
 ## Artifact Index
 - DISPATCH.md — assignment verbatim
@@ -47,8 +51,8 @@ frozen card, own code/tests/verdict, Slurm runs on B300 within the 25 GPU-h cap,
 - handoff.md — final report (pending)
 
 ## Change Tracker
-- Files modified: (none yet)
-- Build status: n/a
+- Files created: src/topic2_fu_d/* (8), scripts/topic2fu_d_*.py (9), tests/topic2_fu_d/* (11), card, results/topic2/2026-11-02_fu_d/{card_sha256.txt,code_sha256_at_freeze.txt,logs/}
+- Build status: FU-D 129 passed; old 86 passed; C1 rc 0
 - Pending issues: none
 
 ## Quality Status
