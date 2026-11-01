@@ -1,4 +1,4 @@
-# BRIEFING — 2026-11-01T06:27Z
+# BRIEFING — 2026-11-01T06:41Z
 
 ## Mission
 Independent review of M2 (Topic 3) iteration 3 vs ACCEPTANCE C1–C8 + T3.1–T3.4; check every r1 and r2b blocking issue is closed; verdict APPROVE / REQUEST_CHANGES.
@@ -35,11 +35,14 @@ Independent review of M2 (Topic 3) iteration 3 vs ACCEPTANCE C1–C8 + T3.1–T3
 - verification/reviewer_M2_r3_2/ — probes, copied trees, logs
 
 ## Review Checklist
-- Items reviewed: (pending)
-- Verdict: pending
-- Unverified claims: all worker claims
+- Items reviewed: card, analysis.py, resampling.py, token_stats/subject_level/common scripts, both r3 test files, addendum 05, r2b gate record, worker handoff + mutation evidence
+- Verified: C1 67 OK; 5 receipts OK; prod topic3 121/0 skipped, old 86, topic1 88; no pyc added; layout lint PASS; ID scan clean;
+  addendum 05 numbers; independent recompute of Family B primary stats (exact) and D1/D3/A2 ratio (exact); worker log hashes 302/302
+- Own mutation: s88 CONTROL 88 pass; all 10 r2b-class mutants SURVIVE s88 (reproduces gate); FULL batch running
+- Verdict: pending FULL batch
+- Unverified claims: worker FULL_v2 kills (being re-checked independently for named classes)
 
 ## Attack Surface
-- Hypotheses tested: (pending)
-- Vulnerabilities found: (pending)
-- Untested angles: (pending)
+- Hypotheses tested: 8 new mutants not in the 151-patch union (D3 only first pair, A2 pair orientation, A1 corr->cov, bootstrap w/o replacement, A2 iid(25,D), E1 iid(n-1), E1 null q5, E1 PR/n)
+- Vulnerabilities found: (pending FULL)
+- Untested angles: token_job.py connectome path beyond union; Family A descriptive wiring (no full-output regression)
