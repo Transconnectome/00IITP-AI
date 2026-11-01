@@ -136,7 +136,7 @@ aggregates in the repo and the per-subject records off-repo.
 6. **Report §3.4** ("+13.1 % of E's explained variance") is a post hoc re-expression and governs nothing; the
    governed quantity is relative NMSE.
 7. **Reconstruction ceiling.** In E36 each final token is 288-d and `decoder_spatial_expand` is
-   Linear(288 → 48³ = 110592) (vendored ver11 lines 1135–1148), so each octant-frame is decoded from one 288-d
+   Linear(288 → 48³) (vendored ver11 lines 1135–1148), so each octant-frame is decoded from one 288-d
    vector. This is a plausible contributor to the ~1 % explained variance of every arm; report §7 options A (lower-
    noise target), D (E192) and E (probe on the saved checkpoints) address it more directly than B (longer budget).
 8. **Latent default in the verdict script.** `scripts/topic2_verdict.py:66` passes `fm is not False`, so a MISSING
@@ -166,6 +166,51 @@ aggregates in the repo and the per-subject records off-repo.
 
 Mutation testing (`verification/worker_M3_r2/mutation/`, all 103 mutants of the three r1 harnesses, explorer_M3_r2_2
 and 7 data mutants for the C4 guard, CPU only on B300 .98 with CUDA hidden): see §5a.
+
+### 5a. Mutation table
+
+Harness `verification/worker_M3_r2/mutation/run_mutants_r2.py` (an adapted copy; the r1 harnesses were not re-run in
+place). Each mutant: one exact text edit in a fresh mirror outside the repository, the full current
+`tests/topic2_rgpool` suite with `-x`; rc 1/2 = killed, rc 0 = survived, timeout or signal = INVALID (never a kill).
+- v1, local DGX-Spark, 4 jobs: INVALID. The host was out of memory (other workloads); earlyoom sent SIGTERM to
+  the test processes, the unmutated baseline included. Kept in `mutation/v1_local_earlyoom/`.
+- v2, B300 .98 CPU (project-local venv: torch 2.15.0, numpy 2.5.4, scipy 1.18.1; pytest 8.4.2 in
+  `/scratch/iitp4/worker_M3_r2/pydeps`), 6 jobs: baseline passes (91 tests); 101 of 102 mutants killed, 0 INVALID,
+  0 malformed. The one survivor, c1:m18 (default growth rule of `build_boxes` switched to random), changed only the
+  default of `build_boxes`, which the governed path never uses (`build_perm` passes `algo` explicitly).
+- v3, same node, after adding `test_build_boxes_default_is_the_deterministic_dense_mean_rule`: baseline passes
+  (92 tests) and c1:m18 is killed. A mutant killed by a suite stays killed when tests are added, so all 102 are
+  killed.
+
+All 42 mutants that survived in r1 (or in explorer_M3_r2_2's probe) are now killed; the killing test is the first
+failure under `-x`:
+
+| mutant (r1 harness) | killed by |
+|---|---|
+| stats_stop_uses_mean, e2 M1 | test_kill_rule_uses_the_upper_bound_not_the_mean |
+| stats_stop_le_boundary | test_kill_rule_boundary_is_strict |
+| m08, stats_gain_sign_flip, stats_gain_div_arm, au relative_gain_sign_flip, e2 M2 | test_relative_gain_sign_and_reference_denominator |
+| stats_gate_first_seed_only | test_fixture_gates_average_over_seeds |
+| stats_boot_no_seed_resampling | test_hierarchical_bootstrap_resamples_seeds |
+| m29, script_verdict_I1_swapped, e2 M3 | test_verdict_script_wires_I1_I2_and_both_fixture_gates[keep] |
+| m30, script_verdict_ignores_fminus, e2 M4 | test_verdict_script_wires_I1_I2_and_both_fixture_gates[fminus_bias_downgrades_keep] |
+| m20, m21, metrics_no_brain_weight, metrics_no_mask_weight, au nmse_ignores_mask, e2 M5 | test_masked_sq_terms_counts_only_masked_brain_voxels |
+| metrics_stage0_pca_insample | test_stage0_retention_uses_the_supplied_train_basis |
+| m22, train_loss_all_brain_voxels, au train_loss_ignores_mask | test_training_loss_is_masked_in_brain_mse |
+| m23, m24, train_mask_seed_differs_by_arm | test_arms_share_training_data_and_masks_for_a_seed |
+| train_eval_masks_same_for_every_subject, au eval_mask_seed_per_run | test_evaluation_masks_are_seeded_per_subject_position |
+| m32, train_test_uses_val_mask_seed | test_test_pass_uses_test_subjects_and_test_mask_seed |
+| m31 | test_split_script_writes_disjoint_lists |
+| au split_test_from_end | test_assign_split_takes_test_then_val_from_the_front_of_the_salted_order |
+| m15 | test_validate_perm_rejects_a_cross_octant_swap_of_signal_cells |
+| m18 | test_build_boxes_default_is_the_deterministic_dense_mean_rule (v3) |
+| part_mean_link_becomes_max | test_default_growth_rule_is_dense_core_with_mean_linkage |
+| part_signal_threshold_ignored | test_octant_cells_split_signal_and_filler_by_threshold |
+| m19, part_no_slot_matching, part_no_box_placement_matching | test_box_placement_and_child_slots_are_hungarian_optimal[C] |
+
+Data mutants D1–D7 (a synthetic 16-hex token in a run record or in a docs file; `file_bytes`, `n_brain_vox` or
+`content_sha256` re-added to a manifest subject; `sec` re-added to a log line; one run's test order altered) are
+all killed by `test_c4_tokens_r2.py`.
 
 ## 6. C4 print incidents (for root's record; nothing was written to any file)
 

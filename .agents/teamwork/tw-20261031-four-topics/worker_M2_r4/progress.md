@@ -22,3 +22,6 @@ Last visited: 2026-11-01T08:38:30Z (named set running; earlyoom INVALIDs to reru
 - 08:27–08:38Z earlyoom (host memory ~9-10% available, other workloads: agy 19.6 GB etc.) SIGTERMed 5 named jobs (rc -15) -> INVALID, never counted as kills. journalctl -u earlyoom shows the SIGTERMs.
 - 08:42Z wrote bin/retry_invalid.py + bin/run_retries_after_batch.sh (waits for "union rc=" then reruns INVALID jobs per set, up to 4 rounds, new log names per round); launched in background.
 Last visited: 2026-11-01T08:43Z
+- 08:42–08:46Z earlyoom SIGTERMed nearly every job (17 named INVALID). Found 15 orphaned hung topic3_token_job.py Pool processes (test_token_job_driver) from SIGTERMed pytest parents in my work dirs; terminated by PID (logs/orphans_killed_0848.txt). Stopped my v1 batch + retry waiter (runs/EVID_named_r4_v1_STOPPED_README.txt). v1 partial keeps CONTROL_OK + 14 valid KILLED named jobs.
+- 08:55Z runner v2 (bin/run_jobs_v2.py): memory gate (MemAvailable >= 18 GiB), own session + process-group cleanup, INVALID auto-retry (<=4, per-attempt logs). Launched run_evidence_v2.sh: 18 pending named jobs, then the 151 union.
+Last visited: 2026-11-01T08:56Z
