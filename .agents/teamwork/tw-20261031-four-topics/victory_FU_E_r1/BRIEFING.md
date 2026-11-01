@@ -29,10 +29,10 @@ Victory audit of milestone FU_E (Topic 2 follow-up E: downstream identifiability
 - **Audit type**: victory audit
 
 ## Audit Progress
-- **Phase**: testing (independent GPU re-execution job 570 queued)
+- **Phase**: reporting — DONE, verdict VERIFIED_COMPLETE
 - **Checks completed**: C1 rc0; card/code/output receipts rc0; r1 code freeze rc0; pytest tests/topic2_fu_e 71 passed; verdict script rerun byte-identical verdict.json; independent CPU recompute of gates/contrasts/verdict = inconclusive (F+ fails on S_s2 5.76 ≤ p95 10.59); B300 extract.json sha = repo; sacct 499/524 match; checkpoint sha256 on B300 = pins; card-vs-code review of verdict.py
-- **Checks remaining**: own mutants (running), GPU job 570 compare, ID scan of outputs, timeline/mtimes, ledger arithmetic, report-number audit
-- **Findings so far**: CLEAN so far
+- **Checks remaining**: none (mutants 20 killed / 4 survived; GPU job 570 reproduced 524; C4 scan 0 hits; timeline, ledger, report numbers audited)
+- **Findings so far**: CLEAN; 4 surviving test-coverage mutants (nonblocking)
 
 ## Key Decisions Made
 - Use my own mutants (X01–X24) on a temp tree; deselect the 2 output-scan C4 tests in temp tree only (they read repo outputs, not src)
@@ -40,11 +40,11 @@ Victory audit of milestone FU_E (Topic 2 follow-up E: downstream identifiability
 
 ## Attack Surface
 - **Hypotheses tested**: verdict fabricated/miscomputed (refuted: reproduced); card frozen after results (refuted: freeze 16:22:56Z < submit 16:24:31Z < start 17:03:57Z); checkpoints swapped (refuted: B300 sha = pins)
-- **Vulnerabilities found**: [TBD]
-- **Untested angles**: [TBD]
+- **Vulnerabilities found**: X04/X14/X15/X22 survive shipped suite (readout-key wiring, F- aggregation, dup fixture records); none flips verdict
+- **Untested angles**: init-twin bit-identity to r1 step-0; old 86-test suite not rerun (C1 covers)
 
 ## Loaded Skills
-- **Source**: /home/juke/.claude/skills/sci-pipeline/SKILL.md (methodology reference named in dispatch; read for verdict taxonomy/frozen-card discipline)
+- **Source**: /home/juke/.claude/skills/sci-pipeline/SKILL.md (named in dispatch; NOT read in this session — card discipline was checked directly against ACCEPTANCE C3/F1–F3 instead)
 - **Local copy**: none (read in place)
 - **Core methodology**: frozen card before results, synthetic ground truth, run records, verdict taxonomy
 

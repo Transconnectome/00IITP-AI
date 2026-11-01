@@ -30,17 +30,18 @@ Independent review (reviewer + critic) of milestone FU_D (Topic 2 follow-up D, S
 - Criteria: correctness, completeness, integrity, governance
 
 ## Key Decisions Made
-- [pending]
+- 19:29Z no GPU re-eval submitted: 3 other FU-D verifier re-evals already queued, QoS saturated; relied on B300 byte-identity + sacct + sidecar hashes
+- 19:31Z verdict APPROVE (handoff.md)
 
 ## Review Checklist
-- Items reviewed: [pending]
-- Verdict: pending
-- Unverified claims: all worker claims
+- Items reviewed: card, result report, src/topic2_fu_d (8), scripts/topic2fu_d_* (9), tests (11), results dir, ledger rows, B300 sacct + run dirs
+- Verdict: APPROVE
+- Unverified claims: checkpoint→test NMSE re-evaluation (left to queued verifier jobs); run-ledger total 30.665 (cut-off dependent, immaterial)
 
 ## Attack Surface
-- Hypotheses tested: [pending]
-- Vulnerabilities found: [pending]
-- Untested angles: [pending]
+- Hypotheses tested: fabricated records (B300 byte-identity, sacct), card post-hoc (git snapshot 15:50Z), gate arithmetic (recomputed), verdict path (19 own mutants), share rule (sacct), C4 (two scans)
+- Vulnerabilities found: A04 δ constant not pinned by a test (receipt-guarded); eval mask seeds not validated in records (mitigated)
+- Untested angles: GPU re-evaluation of checkpoints
 
 ## Artifact Index
 - DISPATCH.md — dispatch record
