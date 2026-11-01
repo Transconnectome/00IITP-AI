@@ -13,3 +13,10 @@ Last visited: 2026-11-01T01:36Z
 - 01:29Z own mutant run run_c2_A launched (34 own + 9 AST re-checks, 4 workers).
 - 01:33Z probe_numbers: Family B means/CIs/verdicts reproduce independently; addendum numbers check; L1 top-63 min 0.99993998 (worker mismatch confirmed); H4 L0 ceiling is 159 (160-token subsample), not 383 -> addendum 03 §2 error.
 - 01:35Z probe_survivor_impact: A07 reachable witness (killed -> holds); A06 non-equivalent, no D3 flip; S01 flips H1a if script rerun.
+
+Last visited: 2026-11-01T01:48:20Z
+- run_c2_A done: controls 88/88; 27 survivors of 34 own (classified in handoff); W_ re-check 9/9 killed (MM06 only by r2b file).
+- witness tests: shipped 3 passed; A06/A07/A08 each fail their witness.
+- full shipped rerun in copied tree: Family A/B JSON identical to pinned (0 diff leaves), 43 s.
+- T3.1 check OK; git provenance of addenda checked.
+- rerun-then-test protocol (rerun_c2_B) running.

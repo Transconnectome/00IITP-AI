@@ -1,4 +1,4 @@
-# BRIEFING — 2026-11-01T00:40Z
+# BRIEFING — 2026-11-01T02:08Z (created 00:40Z)
 
 ## Mission
 M3 / Topic 2 redesign (connectome box-covering RG pooling for SwiFT), ACCEPTANCE T2.1–T2.3: give the worker a concrete, verifiable strategy. Primary lens: scientific design (falsifiable question, card, controls, kill criterion, permitted/usable data). Recommend only; no production code.
@@ -27,14 +27,17 @@ M3 / Topic 2 redesign (connectome box-covering RG pooling for SwiFT), ACCEPTANCE
 - Updated: not yet
 
 ## Investigation State
-- **Explored paths**: runtime/role files; ORIGINAL_REQUEST, ACCEPTANCE, RESUME; survey handoffs 1–3
-- **Key findings**: (from surveys, to re-verify) ver11 PatchMergingV2 merges 2x2x2 spatial only at end of stages 0–2; no merge between layer_2/layer_3; UKB Schaefer-400 ROI copy on B300 sits inside ~/enigma_ocd/data/ukb (C6 hazard)
-- **Unexplored areas**: own verification of ver11 code; B300 current data state; UKB data provenance/location; topic3 docs; old rg_box_pooling.py
-
+- **Explored paths**: ver11 code (f0dc7aca); SwiFT HCP preprocessing; B300 /scratch/data on 4 nodes (read-only); connectome HCP holdings; old src/rg_box_pooling.py head; AST audit test
+- **Key findings**: merges M0/M1/M2 only (12->24->48->96 mm); M0 is the only roomy point (235 blocks); octant-local downstream; gather-index merge bit-exact for identity; HCP REST1 .98 (88) usable; ~100 samples/s E36 SimMIM on B300; dev (burned 5): C>>S but C<E on held-out coherence
+- **Unexplored areas**: perlmutter fork; SimMIM convergence on real data; HCP family structure
 ## Key Decisions Made
-- [TBD]
-
+- Merge point M0 with octant locality (decided on architecture grounds before real-data preview, progress 01:05Z)
+- Single changed factor = gather index pi; arms E/C/S for GPU, +G/R/C_global for Stage 0
+- Recommend Stage 1 run regardless of Stage 0 (option B, ~9-10 GPU-h); option A gate offered
+- Box algorithm dense-core + mean-linkage (periphery/max fails F+)
 ## Artifact Index
 - DISPATCH.md — verbatim dispatch
 - progress.md — heartbeat
-- handoff.md — final 5-component report (pending)
+- handoff.md — final 5-component report
+- /home/juke/git/00IITP-AI/verification/explorer_M3_r1_1/ — probes, outputs, burned-subject list, env recipe
+- /scratch/iitp4/explorer_M3_r1_1/ on B300 .98 — own venv + probe copies (ephemeral)

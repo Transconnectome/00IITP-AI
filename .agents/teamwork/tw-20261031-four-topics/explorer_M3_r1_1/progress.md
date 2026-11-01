@@ -20,3 +20,9 @@ Last visited: 2026-11-01T01:46Z
 - 01:29Z EXPLORATORY HCP dev probe (5 subj, burned; salted hashes in dev_subjects_BURNED.md) on .98 CPU: held-out within-box r E .2275 > C .2216 > G .2053 > R .1055; C-E <0 in 5/5 folds; C-G >0 in 5/5.
 - 01:40Z CPU gather-merge probe: identity index bit-exact vs ver11 PatchMergingV2; permutation-equivariant; grad to all 8 child slots; params equal; octant-local Hungarian placement bijective.
 - 01:44Z GPU smoke launched on .98 GPU 5 (ledger started row 01:44:33Z, hard timeout 600 s).
+
+Last visited: 2026-11-01T02:08Z
+- 01:45Z smoke completed (27 s, 0.008 GPU-h; ledger closed). E36-d2262 ~100 samples/s bs16; E192 28.6 samples/s bs4; gather no overhead.
+- 01:57Z C1 rc 0 (67/67).
+- 02:00Z dev probe v2 (same burned 5): S null held-out r .152 (C-S +.062..+.080 5/5); C_global ties E on r, loses on pca2.
+- 02:05Z handoff.md written. No leftover processes on B300/connectome; scratchpad cleaned.

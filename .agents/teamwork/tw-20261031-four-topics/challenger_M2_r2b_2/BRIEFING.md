@@ -32,12 +32,12 @@ Empirically challenge M2 (Topic 3) iteration 2 (worker_M2_r2 + worker_M2_r2b) fo
 - Also re-apply the 8 iteration-1 survivors + MM06 from the worker's summary as an independent re-check.
 
 ## Attack Surface
-- Hypotheses tested: [TBD]
-- Vulnerabilities found: [TBD — lead: addendum 03 §2 H4 ceilings "383, 63, 7, 7"; H4 uses 160 tokens per frame so L0 ceiling is <= 159]
-- Untested angles: [TBD]
+- Hypotheses tested: numbers reproduce (yes, bitwise rerun + independent recompute); card before results (yes, 3 clocks); verdicts follow card (yes); iteration-1 survivors killed (yes, 8/8 + MM06 via r2b); decision logic guarded beyond assigned set (NO: A07, A08, A06/S03 survive, witness tests prove reachability); Family B text (item 1 correct; item 2 H4 L0 ceiling wrong).
+- Vulnerabilities found: A07 (CI order at producer defeats primary-CI rule; synthetic flip killed->holds), A08 (primary = first dict key), A06/S03 (A2 subset wiring; real numbers change, D3 unchanged), PARAMS unpinned (A09-A13, hash-guarded only), script wiring S01-S07 untested (S01 would flip real H1a), boundary mutants A01/A03-A05/R03 measure-zero, A15/A16/R04 equivalent; addendum 03 §2 H4 "383" should be <=159; report §5 "±0.003" CI text uncorrected.
+- Untested angles: raw-frame time invariance at L2 (only L3 probed directly by r1_1); connectome token job not rerun; old 86-test suite and topic1 not rerun by me.
 
 ## Loaded Skills
-- Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md — to read; core methodology: frozen card before results, synthetic ground truth, run records, verdict taxonomy, independent review.
+- Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md — read in place (no local copy, to keep metadata minimal); core methodology: G5 frozen card before results (protocol commit before result commit), G6 synthetic fixtures with known answers, G7 run records/code hashes, G8 verdict taxonomy, author never passes own gate.
 
 ## Artifact Index
 - DISPATCH.md — dispatch record

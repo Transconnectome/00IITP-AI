@@ -29,18 +29,20 @@ Forensic integrity audit (General profile) of M2 Topic 3 iteration 2 (interrupte
 - **Audit type**: forensic integrity check
 
 ## Audit Progress
-- **Phase**: investigating
-- **Checks completed**: orientation (role, adapters, request, acceptance, resume note, challenger r1 handoff, worker r2/r2b metadata, git log)
-- **Checks remaining**: all forensic checks
-- **Findings so far**: none yet
+- **Phase**: reporting
+- **Checks completed**: all Phase 1/2 forensic checks (see handoff.md table)
+- **Checks remaining**: none
+- **Findings so far**: CLEAN; L1 (addendum_03 §4/§8 pre-write, superseded by addendum_04 §2), N1 pycache write by worker_M2_r2b, N2 stale GATE_STATUS, N3 boundary survivors A09-A11, N4 root git conduct (context)
 
 ## Key Decisions Made
-- DISPATCH.md records the computed task verbatim except the embedded worker JSON, which is summarized (disclosed in the file).
+- addendum_03 §4/§8 classified as disclosed, superseded lapse (not a violation of the delivered product); verdict CLEAN.
+- Root process issues reported as context only (dispatch + advisor).
+- DISPATCH.md: computed task verbatim; embedded worker JSON first summarized, then appended verbatim at 01:40Z.
 
 ## Attack Surface
-- **Hypotheses tested**: [TBD]
-- **Vulnerabilities found**: [TBD]
-- **Untested angles**: [TBD]
+- **Hypotheses tested**: hardcoded results (rerun bit-exact), tests cannot fail (own mutants), fabricated evidence (journal/transcript/ctime/git anchors), root edit hides ID (0 ID-pattern tokens), agent git writes (0)
+- **Vulnerabilities found**: CI/D1/D3 `>= 0` boundary mutants survive (measure-zero)
+- **Untested angles**: token job / raw frames on connectome, alpha calibration rerun, other verifiers' harnesses
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md (sha256 2b6999af…8c38)
