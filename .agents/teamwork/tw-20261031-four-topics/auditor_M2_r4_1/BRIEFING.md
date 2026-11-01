@@ -32,22 +32,21 @@ the four classes closed (every named mutant killed by the new tests in my own co
 - **Audit type**: forensic integrity check (fixed-scope gate)
 
 ## Audit Progress
-- **Phase**: testing
+- **Phase**: reporting (verdict CLEAN)
 - **Checks completed**: hashes of deliverables; C1 pre (67 OK); receipts pre (42/1/3/2/3/3 OK); code_freeze (only
   topic3_launch_connectome.py differs, pre-existing, disclosed); pyc baseline = worker start listing; own tree built
   (122 files); independent mutant extraction (26 required ids → 21 unique programs)
-- **Checks remaining**: control + mutant runs; per-test kill attribution; numeric spot-check probes; skip-path probe;
-  production suites (topic3/old/topic1); post C1/receipts/pyc/mtimes; git read-only check; ID scan; layout lint
-- **Findings so far**: none
+- **Checks remaining**: none (all done 12:32–13:00Z)
+- **Findings so far**: CLEAN — 26/26 required ids (21 programs) KILLED by r4 only; control 138/0 skipped; prod topic3 138, old 86, topic1 88; C1 67; receipts OK; no pyc/prod writes; no IDs; no git writes
 
 ## Key Decisions Made
 - Own builder/extractor/runner (not the worker's); merge byte-identical patched programs; full suite, no -x
 - Production suites run only after the mutant runner finishes (pytest cap of 2)
 
 ## Attack Surface
-- **Hypotheses tested**: [TBD]
-- **Vulnerabilities found**: [TBD]
-- **Untested angles**: [TBD]
+- **Hypotheses tested**: tests vacuous/unfailable (refuted: each fails under a named mutant); kills due to environment (refuted: control passes); class (a) script reads production src (refuted: mutants in tree kill FA-real); expected values hardcoded (refuted: recomputed); worker evidence fabricated (refuted: 384 records match raw logs; my run reproduces table); skip path errors (refuted: 1 skipped)
+- **Vulnerabilities found**: none in scope; pre-existing __pycache__ in src/ and scripts/ (not iteration 4)
+- **Untested angles**: union and EXTRA ids not rerun (out of scope); single control at start only
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md — read in place (no local dump; metadata-only folder)

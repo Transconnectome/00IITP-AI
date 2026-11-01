@@ -36,14 +36,15 @@ Fixed-scope gate review (PI decision 6) of M2 iteration 4 (worker_M2_r4): are cl
 - Union rerun not repeated (not in gate regression criterion).
 
 ## Review Checklist
-- Items reviewed: r4 test files (read in full), worker handoff, r3 gate record, analysis.py/token_job.py, scripts/topic3_subject_level.py/topic3_common.py, helpers.py
-- Verdict: pending
-- Unverified claims: 26 kills; production 138/86/88; receipts; additivity
+- Items reviewed: r4 test files (read in full), addendum 06 (read in full), worker handoff, r3 gate record + r3 fix requests, analysis.py/token_job.py/resampling.py/estimators.py, scripts/topic3_subject_level.py/topic3_common.py, helpers.py, worker superseded/ + evidence manifest
+- Verdict: interim APPROVE-track (pending shipped-121 survival run + skip probe)
+- Verified: 26/26 REQUIRED killed in-class by r4 tests in my tree (runs/R4_named.json); production topic3 138/0 skipped, old 86, topic1 88; C1 67; receipts 42/1/3/2/3/3; pyc unchanged; additivity (33/33 files pinned); witness numbers (c)/(d) reproduced; worker records spot-checked (4) against raw junit/log hashes
+- Unverified claims: worker's EXTRA-id statuses and 151-union rerun (not in gate; not rerun by me)
 
 ## Attack Surface
-- Hypotheses tested: helpers.ROOT is location-relative (yes) -> copied-tree mutants reach class (a) real-data test
-- Vulnerabilities found: [TBD]
-- Untested angles: [TBD]
+- Hypotheses tested: helpers.ROOT is location-relative (yes) -> copied-tree mutants reach class (a) real-data test; VRABES_RA absolute (yes) -> real-data test ran in every job (0 skips); kills are value/key assertions, not crashes; no production file touched by the suite (find -newermt empty)
+- Vulnerabilities found: none in scope. Nonblocking: literal pycache clause (pre-existing dirs), Gram path not exercised at token level, basetemp residue, (c) computed witness CI lo ~6e-4 (fail-closed fragility), exact seed replay brittleness
+- Untested angles: EXTRA/out-of-scope mutants (VB02, halts, ties, U127) not rerun by me
 
 ## Artifact Index
 - DISPATCH.md — dispatch (verbatim through frozen_artifacts_sha256; remainder summarised, disclosed)
