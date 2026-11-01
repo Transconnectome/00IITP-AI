@@ -8,3 +8,5 @@ Last visited: 2026-11-01T17:35:18Z
 - 17:42Z GPU repro probe NOT submitted: normal QoS has 8/8 user GPUs running + 37 pending; debug QoS would exceed the 8-GPU share rule
 - 17:43Z submitted CPU-only Slurm job 556 (debug, no gres): ckpt sha re-hash + real-data cellfc reproduction (main/surrogate/subjmask)
 Last visited: 2026-11-01T17:43:37Z
+- 17:54Z job 556 done: cellfc main/surrogate/subjmask reproduce (max diff <=4.5e-9); ckpt sha 15/15; mutants 16/20 killed (3 equivalent, A04 gap); layout lint PASS; B300 dir removed, ssh closed; handoff written; verdict CLEAN
+Last visited: 2026-11-01T17:54:39Z

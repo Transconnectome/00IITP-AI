@@ -29,18 +29,18 @@ Forensic integrity audit of milestone FU_E (Topic 2 follow-up E, frozen-encoder 
 - Audit type: forensic integrity check
 
 ## Audit Progress
-- Phase: investigating
-- Checks completed: []
-- Checks remaining: C1, receipts, freeze timing, source scan, tests, verdict reproduction, ID leakage, ledger/Slurm, env, git
-- Findings so far: TBD
+- Phase: reporting (done)
+- Checks completed: C1, receipts, freeze timing (autocommit cd1e43e), source scan, tests 71+86, verdict rerun + reimpl, B300 CPU cellfc repro (job 556), ID scan, sacct/ledger/cap, env, git, layout lint, 20 mutants
+- Checks remaining: none (GPU encoder re-run not possible under 8-GPU share rule)
+- Findings so far: CLEAN; nonblocking notes in handoff §3
 
 ## Key Decisions Made
 - DISPATCH.md abbreviates the worker JSON blob (claims under audit), points to worker handoff.md
 
 ## Attack Surface
-- Hypotheses tested: TBD
-- Vulnerabilities found: TBD
-- Untested angles: TBD
+- Hypotheses tested: fabricated record (refuted by B300 sha + CPU cellfc repro), hardcoded verdict (refuted), post-freeze card edit (refuted), ID leak (refuted)
+- Vulnerabilities found: mutant A04 (null quantile) survives; ledger 499 submit time inaccurate
+- Untested angles: GPU recompute of encoder cov2 matrices and G0 rescore
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md — Core methodology: frozen card before results, synthetic ground truth, run records, verdict taxonomy

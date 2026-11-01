@@ -18,7 +18,7 @@ Empirically challenge FU-E (Topic 2 follow-up E, frozen-encoder within-run ident
 - PYTHONDONTWRITEBYTECODE=1, OMP_NUM_THREADS=2, nice, ≤2 pytest, timeout 900
 
 ## Current Parent
-- Conversation ID: root 5fddb83e; Updated: not yet
+- Conversation ID: root 5fddb83e; Updated: 2026-11-01T17:58Z (final: CONFIRMED, handoff.md written)
 
 ## Review Scope
 - Files: src/topic2_fu_e/*, scripts/topic2fu_e_*.py, tests/topic2_fu_e/*, results/topic2/2026-11-02_fu_e/*, docs/03_empirical_analysis/topic2/2026-11-02_topic2_fu_e_{card,result_report}.md
@@ -30,9 +30,9 @@ Empirically challenge FU-E (Topic 2 follow-up E, frozen-encoder within-run ident
 - GPU re-evaluation not planned unless CPU evidence leaves a gap
 
 ## Attack Surface
-- Hypotheses tested: see progress.md
-- Vulnerabilities found: TBD
-- Untested angles: TBD
+- Hypotheses tested: freeze-before-results (holds); numbers reproducible (exact, 1.4e-14); F+ failure robust to null choice (holds); verdict per card §8 (holds; overdetermined); mutants 52 (40 killed)
+- Vulnerabilities found (nonblocking, no shipped-verdict effect): readout wiring untested (V08/V09), card constants unpinned (I05/V11/V12), F- mean bound (V05), G3 guards (V06/V07), G0 run.json perm leg + rel num tol (PV02/PV03), canonical subject-order guard absent, Idiff_E=0 order ambiguity
+- Untested angles: GPU re-extraction (job 557 cancelled while PENDING, 0 GPU-h); extract script has no CPU test (read-reviewed)
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md (methodology reference; frozen card before results, synthetic ground truth, verdict taxonomy). Not copied (read in place).

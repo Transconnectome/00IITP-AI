@@ -1,6 +1,6 @@
 # Handoff — explorer_M2H2_r2_2 (M2H2 iteration 2, explorer 2 of 3; lens: feasibility and failure modes)
 
-**Summary.** The r1 gate failed only on test coverage: the shipped science reproduces exactly, and every verifier reproduced it. The fix is additive, offline and costs no GPU. Two places need new tests in new files. First, `scripts/topic3h2_stats.py` (`gate` and `final`): a full-output regression run in `tmp_path`, plus one refusal test per guard. Second, a family C / L fixture whose K seeds really differ. Optionally, add comparator, reduce and driver fake-harness tests. I wrote a 58-test probe of exactly this design in my verification dir and ran it against the union of every surviving r1 mutant (32 mutant runs). The kill counts are in §1 O9. The probe runs in about 8 s; `final` alone takes 3.9 s and `gate` 0.1 s. Nothing in src/, scripts/, the frozen addendum 07, the result report or the shipped results needs to change, and none can change without breaking pinned receipts.
+**Summary.** The r1 gate failed only on test coverage: the shipped science reproduces exactly, and every verifier reproduced it. The fix is additive, offline and costs no GPU. Two places need new tests in new files. First, `scripts/topic3h2_stats.py` (`gate` and `final`): a full-output regression run in `tmp_path`, plus one refusal test per guard. Second, a family C / L fixture whose K seeds really differ. Optionally, add comparator, reduce and driver fake-harness tests. I wrote a 58-test probe of exactly this design in my verification dir and ran it against the union of every surviving r1 mutant (32 mutant runs). The probe kills 29 of 31 survivor mutants. The other two are N42, which is provably equivalent, and A09, which the probe does not cover; a kill design for it is in §4. The probe runs in about 8 s; `final` alone takes 3.9 s and `gate` 0.1 s. Nothing in src/, scripts/, the frozen addendum 07, the result report or the shipped results needs to change, and none can change without breaking pinned receipts.
 
 ## 1. Observation
 
@@ -46,9 +46,14 @@ O7. `tests/topic3_h2/test_endpoints.py::test_family_c_wiring_each_endpoint_reads
 
 O8. Driver job paths are testable offline. The names `driver.data`, `driver._loader`, `driver._stored`, `driver._fwd`, `driver.io.load_X`, `driver.io.ids_order_matches_names` and `driver.analysis.paired_log_contrast` are module attributes. `_run` imports `torch` and `from src.topic3_h2 import model as M` inside the function (driver.py lines 230–231), so a fake `M` in `sys.modules` plus monkeypatched `torch.cuda.get_device_name` / `max_memory_allocated` lets `_run` write a record on CPU. My probe does this.
 
-O9. Probe results. `verification/explorer_M2H2_r2_2/probe_tests/test_probe_r2.py` has 58 tests and passes in 7.8 s on the clean tree. The mutation run is `verification/explorer_M2H2_r2_2/probe_mutants.py`, which applies each mutant in place and restores the bytes (sha256 asserted); its output is `probe_mutants.out.json` and `probe_mutants.log`. Results: [FILLED BELOW IN §1 O10].
+O9. Probe results. `verification/explorer_M2H2_r2_2/probe_tests/test_probe_r2.py` has 58 tests and passes in 7.8 s on the clean tree. The mutation run is `verification/explorer_M2H2_r2_2/probe_mutants.py`, which applies each mutant in place and restores the bytes (sha256 asserted); its output is `probe_mutants.out.json` and `probe_mutants.log`. Results are in O10.
 
-O10. [mutation results]
+O10. Mutation probe result (`probe_mutants.out.json`): the baseline passes before and after (58 passed), all 31 mutants applied, and every tree file was restored byte-identical (`cmp`, checked).
+- **KILLED (29):** N11, N26, N27, N30, N31, N32, N33, N35, N38, N40, N41, N50, N51, N52, N53, N54, N55, N56, N57, N58, N59, N71, N72, N73, N74, W3, X09, X14r2, X15.
+- **SURVIVED (2):**
+  - N42 is equivalent: `reduce.returnable_scalars` builds `out` only from `positions` and SCALAR_KEYS×VARIANTS, so `bad` is always empty.
+  - A09 has no probe test. Kill design: insert a duplicate (position 0, start 0) window carrying different data before subject 0 completes. The shipped code raises; the mutant silently keeps the later window.
+- **Aliases** (same edit under another verifier's id): W6 = X04 = X11 = N50, X10 = N55, X06 = N30, X13 = N73, X14(reviewer_1) = A05 = N40.
 
 O11. Ledger (`results/gpu_ledger_2026-10-31.md`):
 - The completed M2H2 rows sum to 0.819 GPU-h of the 6 GPU-h cap.
@@ -59,7 +64,7 @@ O12. Result report (`docs/03_empirical_analysis/topic3/2026-11-02_topic3_h2_resu
 - line 84 says the expansion "cannot be read as a training product";
 - line 65 says the L0 PR "is set by the input and the patch embedding, not by training";
 - line 65 and §4 use the R0 values as "trained";
-- line 80 says "More than half of it is absent", while the init drop is 0.26 against the trained 5.34.
+- line 80 says "More than half of it is absent", while the init drop is 0.26 against the trained 5.34. This phrase is copied from the frozen addendum 07 §7 consequence table, so it is a true lower bound and not an erratum; the addendum may add the measured fraction.
 
 Three verifiers independently computed δ sensitivity: C1 INC over 0.158–1.017×; C2 TE+ only at ≤0.458×; C3 TE+ only at ≤0.548×; C4 TE+ only at ≤0.663×.
 
@@ -114,7 +119,7 @@ Recommended r2 scope: additive tests, a dated addendum and a receipt. No src or 
 5. N42: record as equivalent with proof (`returnable_scalars` builds only `positions` + SCALAR_KEYS×VARIANTS, so `bad` is always empty).
 6. New dated addendum 08 (e.g. `docs/03_empirical_analysis/topic3/2026-11-02_topic3_addendum_08_h2_r2.md`) recording:
    - the test additions and mutant table;
-   - report errata (δ sensitivity, R1 wording, L0 INC reading, R0-as-T labels, "more than half");
+   - report errata (δ sensitivity, R1 wording, L0 INC reading, R0-as-T labels);
    - the auditor's remote-dir overwrite (N1) disclosure;
    - ledger UTC correction rows appended, never edited.
 

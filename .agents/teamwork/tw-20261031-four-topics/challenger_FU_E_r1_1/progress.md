@@ -11,3 +11,9 @@ Last visited: 2026-11-01T17:50Z
 - 17:44Z B300 probe job 557 submitted (G3T_CHECK none 17:44:14Z), debug, synthetic only; ledger started row appended under flock; PENDING QOSMaxGRESPerUser (8 user GPUs busy, ~36 pending)
 - 17:47Z edge-case records (edge/edge_cases.out): duplicated/reordered/wrong-pool subject labels in governed main pool not caught (verdict keep instead of no_verdict); Idiff_E=0 maps to inconclusive (card order step 2 says no_verdict). Shipped record verified canonical in all 6 conditions -> no effect on shipped verdict
 - git: card committed by autocommit 16:35Z with frozen hash 072553b0 (before job 524 start 17:03:57Z); pre-freeze version (16:05Z) differs only by the smoke-499 disclosure
+Last visited: 2026-11-01T17:58Z
+- 17:51Z mutation harness done: 40 KILLED / 12 SURVIVED (2 equivalent); all survivors applied to shipped extract.json -> inconclusive (synthetic F+)
+- 17:52Z old suite 86 passed
+- 17:55Z cancelled own job 557 while PENDING (never started, 0 GPU-h); closing ledger row appended under flock; ssh master closed
+- 17:57Z C1 0 non-OK; audit_layout findings [] rc 0; handoff.md written (verdict CONFIRMED, risk LOW)
+- DONE
