@@ -42,3 +42,9 @@ Last visited: 2026-11-01T16:22:01Z
 - poll 2026-11-01T18:06:07Z: job 509 terminal tasks 1/3 (background poller). Last visited: 2026-11-01T18:06:07Z
 - poll 2026-11-01T18:11:20Z: job 509 terminal tasks 1/3 (background poller). Last visited: 2026-11-01T18:11:20Z
 - poll 2026-11-01T18:16:32Z: job 509 terminal tasks 3/3 (background poller). Last visited: 2026-11-01T18:16:32Z
+- 18:16Z gate 509 tasks 0-2 COMPLETED (6056/6066/6076 s; 1.69 GPU-h each, ledger closed). Synced to results/topic2/2026-11-02_fu_b/b300/runs. Gate state PASS (all 3 attempts valid): gain C vs E 0.03726, C vs S 0.03699 (>= 0.01). Saved results/topic2/2026-11-02_fu_b/gate_4x.json.
+- 18:2xZ Stage-1 array 516 tasks all PENDING (QOSMaxGRESPerUser); g3t-G-E0 none. FU-B used 5.28 GPU-h.
+Last visited: 2026-11-01T18:21:52Z
+- poll 2026-11-01T18:22:12Z: job 516 terminal tasks 0/15 (background poller). Last visited: 2026-11-01T18:22:12Z
+- poll 2026-11-01T18:27:26Z: job 516 terminal tasks 0/15 (background poller). Last visited: 2026-11-01T18:27:26Z
+- poll 2026-11-01T18:32:40Z: job 516 terminal tasks 0/15 (background poller). Last visited: 2026-11-01T18:32:40Z
