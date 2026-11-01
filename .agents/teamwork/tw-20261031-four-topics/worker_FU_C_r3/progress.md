@@ -8,3 +8,9 @@ Last visited: 2026-11-01T22:25Z
 - 22:30Z verdict_r2 --out: byte-identical (cmp). Frozen CLI --out: no_verdict with the 2 declared problems.
 - 22:31Z r3 union mutation harness running detached (2 jobs). Addendum 03 drafted; receipt writer r3 written.
 Last visited: 2026-11-01T22:45Z
+- Correction: the "22:45Z" visit stamp above was an estimate; the real clock then was about 22:12Z.
+- 22:20Z r3 mutation harness (run 2): 222 entries, 217 killed, survivors baseline/V07c/V12/F11/C10, 0 invalid; all 26 r2 behavioural survivors killed. Run 1 kept as *_run1_superseded (R05 alive; test case fixed).
+- 22:28Z output_sha256_r3.txt written (20 pins, 0 failures), chmod a-w. check_receipts_r2 ok incl. r3 20/0.
+Last visited: 2026-11-01T22:28Z
+- 22:33Z Post-receipt: final C4 check ok (all 0, B300 0 hits, controls valid); check_receipts ok; suites 210/86/116/88; verdict byte-identical; C1 rc 0; audit_layout 0 findings. Handoff written. DONE.
+Last visited: 2026-11-01T22:33Z

@@ -37,7 +37,7 @@ not reproduced here (root rule, ACCEPTANCE addendum "FU_C r2 near-copy containme
   history (root's pre-move check).
 - Where: `~/.local/share/00IITP-AI_sealed/topic2/fu_c_r2_nearcopy_2026-11-02/`, listed in its `MANIFEST.sha256`
   (302 lines; the manifest file's sha256 is
-  5d907c38335f68176c8dfa7ea3cb1f13d8c7db98c595eb8a49e697044a595c1d at 2026-11-01T22:3xZ).
+  5d907c38335f68176c8dfa7ea3cb1f13d8c7db98c595eb8a49e697044a595c1d, computed at about 2026-11-01T22:12Z).
 - Permissions, checked by this worker (metadata only): 302 files, 0 not mode 0400, 0 directories not mode 0700.
   This worker did not open, copy, mirror, diff or hash any sealed file other than the manifest itself.
 
@@ -79,7 +79,7 @@ recoverable until root's containment (§2). The class is closed in the repo work
 | file | role |
 |---|---|
 | `src/topic2_fu_c/c4scan_strict.py` | stricter shape scanner (§6); not imported by the verdict path |
-| `tests/topic2_fu_c/test_r3_guards.py` | 30 behaviour-only tests on synthetic tmp roots, plus one content-only strict scan of the real FU-C scope |
+| `tests/topic2_fu_c/test_r3_guards.py` | 30 tests (parametrized cases counted): behaviour-only tests on synthetic tmp roots, plus one content-only strict scan of the real FU-C scope |
 | `scripts/topic2fu_c_check_c4_r3.py` | count-only containment check of §3 |
 | `scripts/topic2fu_c_write_receipt_r3.py` | writes `output_sha256_r3.txt` |
 | `verification/worker_FU_C_r3/` | evidence: mutation harness and outputs, C4 check outputs, verdict reproduction, test logs |
@@ -111,11 +111,45 @@ membership pass over maximal digit runs (§3) remains the catch-all for both sca
 
 ## 7. Mutation evidence
 
-MUTATION_SECTION
+Harness `verification/worker_FU_C_r3/mutants/run_mutants_r3.py` (output `mutants_r3.out.json`, log `mutants_r3.log`).
+It is the union of the r2 union table (the four r1 tables W, C1, C2, R2), the two r2 challengers' tables for the
+iteration-2 surfaces (CR1 28, CR2 25) and an r3 table for the iteration-3 surfaces (R3 19: 11 on
+`c4scan_strict.py`, 8 on `scripts/topic2fu_c_check_c4_r3.py`). Every mutated file is a copy inside a fresh mirror,
+including every `scripts/topic2fu_c_*.py` (a mutant whose target is a symlink is INVALID), so no mutant can reach a
+production file. The FU-C suite runs with the same 5 hash-dependent node ids deselected as in iteration 2; the
+baseline reports 205 passed and exactly 5 deselected, so the new tests add no hash-dependent test.
+
+- 222 entries (221 mutants + baseline): 217 killed, 0 invalid.
+- Survivors: the baseline and four equivalents. V07c, V12 and F11 are the r1-accepted equivalents (result report
+  §3). CR2:C10 (mask every hex run of 8 or more characters, not only runs that contain a letter) is equivalent: a run
+  without a letter is all digits, and an all-digit run of 8 or more characters holds no 6-digit run bounded by
+  non-digits, so SIX cannot match inside it either way; HEX16 reads the unmasked text.
+- All 26 behavioural survivors named by the r2 challengers are now killed by behaviour: CR1 SS02, SS03, SS04, SS05,
+  SS07, SS12, DR01, DR02, CK01, C401, C402, C404, C405, C409, C413 and CR2 S01, S02, S03, S07, S08, S11, C02, C03,
+  C08, D01, D02 (first failing test per mutant in `mutants_r3.out.json`).
+- A first harness run (kept as `mutants_r3_run1_superseded.*`) left R3:R05 (minimum prefix length 8 → 6) alive: the
+  test's short-prefix case was not a prefix of a known digest. The case was corrected before this run; R05 is now
+  killed. No other test changed between the runs.
 
 ## 8. Receipts, suites and final checks
 
-FINAL_SECTION
+State before `output_sha256_r3.txt` was written (all reruns after the iteration-3 files were final):
+
+- C1 protected hashes: rc 0.
+- `scripts/topic2fu_c_check_receipts_r2.py`: ok true; card 36/0, code 15/2, presentation 1/0, output 160/3,
+  `output_sha256_r2.txt` 27/0. The failing lines are exactly the five declared in addendum 02 §3 (code receipt
+  13 and 16; output receipt 141, 162 and 164). Iteration 3 adds no supersession.
+- Suites: `tests/topic2_fu_c` 210 passed (180 from iterations 1–2 + 30 new); old suite (STRICT_E2E=1) 86 passed;
+  `tests/topic2_rgpool` 116 passed with `CUDA_VISIBLE_DEVICES=''` (3 CPU-only training-loop guards skip when a GPU
+  is visible); `tests/topic1_lagmotif` 88 passed.
+- flake8 (max line 120) clean on every new file.
+
+`output_sha256_r3.txt` pins the new code, test and addendum files and every evidence file in
+`verification/worker_FU_C_r3/` except the outputs written after it (`check_receipts_after_r3.out.json`,
+`c4_check_r3_final.*`). `supersession.check_receipts` globs every `*sha256*.txt` in the FU-C results folder, so
+the r3 receipt must verify completely, and `test_every_fu_c_receipt_fails_on_exactly_the_declared_superseded_lines`
+checks this in the suite. The post-receipt reruns (receipt check, final C4 check with B300 membership, all suites)
+are recorded in the worker_FU_C_r3 handoff.
 
 ## 9. Freeze-order git anchor
 

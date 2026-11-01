@@ -19,13 +19,14 @@ FU_C iteration 3 (final): additive-only hardening + record of root's C4 containm
 
 ## Current Parent
 - Conversation ID: root 5fddb83e
-- Updated: not yet
+- Updated: not yet (no reparent)
 
 ## Task Summary
 - What to build: c4scan_strict.py, tests/topic2_fu_c/test_r3_guards.py, scripts/topic2fu_c_check_c4_r3.py, scripts/topic2fu_c_write_receipt_r3.py, r3 mutation harness, addendum 03, output_sha256_r3.txt.
 - Success: containment confirmed count-only; r2-surface survivors killed behaviourally; verdict byte-identical; no regression.
 
 ## Key Decisions Made
+- Status DONE 22:33Z: harness 217/221 killed (4 equivalents), receipt r3 20/0, verdict byte-identical.
 - Containment by root confirmed (GATE_STATUS ~06:45 KST; sealed dir 0700/0400; peer dirs hold no tree/).
 - Harness work dir is removed before the final FU-C suite run (c4scan walks verification/worker_FU_C_r*).
 
