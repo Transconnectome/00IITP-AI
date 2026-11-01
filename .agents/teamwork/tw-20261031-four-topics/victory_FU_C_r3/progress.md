@@ -1,2 +1,4 @@
 - 2026-11-01T23:07Z start; DISPATCH/BRIEFING written; Phase A
 - 2026-11-01T23:13:40Z C1 rc0; receipts as declared; fu_c 210 passed; old 86; rgpool 116; indep verdict reimpl = stop matches; B300 48/48 run file hashes match; sacct 25 jobs COMPLETED via Slurm; g3t-G-E0-8gpu PENDING at 23:10Z -> no GPU probe submitted
+- 2026-11-01T23:2xZ B300 g3t-G-E0-8gpu still PENDING -> no verifier GPU probe (sharing rule); checkpoints present 24/24
+- 2026-11-01T23:3xZ independent C4 scan 0 hits; own mutants 12/12 killed; handoff written; verdict VERIFIED_COMPLETE

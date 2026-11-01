@@ -10,7 +10,7 @@ root coordinator 5fddb83e
 ## Audit Scope
 src/topic2_fu_c, tests/topic2_fu_c, scripts/topic2fu_c_*.py, results/topic2/2026-11-02_fu_c, docs/.../2026-11-02_topic2_fu_c_*.md, B300 /scratch/iitp4/fu_c (read-only), GPU ledger rows.
 ## Audit Progress
-Phase A started.
+Phases A, B, C done; verdict VERIFIED_COMPLETE (handoff.md).
 ## Key Decisions Made
 ## Artifact Index
 Probes: /home/juke/git/00IITP-AI/verification/victory_FU_C_r3/
@@ -20,3 +20,5 @@ Probes: /home/juke/git/00IITP-AI/verification/victory_FU_C_r3/
 - Untested angles:
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md — read in place (no local copy; metadata dir is metadata-only).
+- Hypotheses tested (update): fabricated records (refuted: B300 hashes, sacct, checkpoints); verdict-code facade (refuted: independent reimplementation); freeze after results (refuted: receipts + git anchors); cap/ledger gaps (none); C4 leak in FU-C scope (0 hits, count-only).
+- Untested: GPU re-eval of checkpoints by this auditor (blocked by sharing rule); bootstrap reimplementation.

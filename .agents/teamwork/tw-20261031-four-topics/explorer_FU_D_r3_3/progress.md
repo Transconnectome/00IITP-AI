@@ -13,3 +13,7 @@ Last visited: 2026-11-01T22:24:36Z
 Last visited: 2026-11-01T22:46:52Z
 - targeted 30 vs current+proposal: 30/30 KILLED (control 224 passed)
 - sweep3 (758) vs current+proposal running; interim survivors are output-structure deletions (sens category None, n_seeds, fminus_gate, stage1 dict entry) + needs_fminus bool drops
+Last visited: 2026-11-01T23:31:20Z
+- sweep3 vs proposal DONE: 671 KILLED / 87 SURVIVED, 241 shipped-changing all killed
+- final C1 rc 0, FU-D receipts OK, verdict.json unchanged, audit_layout rc 0 findings []
+- handoff.md written (Hard); no processes of mine running; leftover work_* dirs (rm denied) disclosed
