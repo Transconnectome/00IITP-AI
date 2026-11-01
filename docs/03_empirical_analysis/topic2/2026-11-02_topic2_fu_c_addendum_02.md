@@ -92,7 +92,10 @@ The pre-result receipts are not edited. Exactly these pin lines fail `sha256sum 
 
 ## 7. Evidence and residuals
 
-- **Mutation evidence:** `verification/worker_FU_C_r2/mutants/mutants_r2.out.json` (harness `run_mutants_r2.py`). It covers the union of the worker r1, challenger_FU_C_r1_1, challenger_FU_C_r1_2 and reviewer_FU_C_r1_2 mutant tables, run on the current tree with every hash-dependent test deselected; the deselect count is checked against the baseline. The summary is in the worker r2 handoff.
+- **Mutation evidence:** `verification/worker_FU_C_r2/mutants/mutants_r2.out.json` (harness `run_mutants_r2.py`). It covers the union of the worker r1, challenger_FU_C_r1_1, challenger_FU_C_r1_2 and reviewer_FU_C_r1_2 mutant tables, run on the current tree with every hash-dependent test deselected; the deselect count (5) is checked against the baseline.
+  - 150 entries: 149 mutants plus the baseline. 146 are killed, 0 are invalid, and the baseline survives.
+  - The 3 survivors are V07c, V12 and F11, the same equivalent survivors the r1 verifiers accepted.
+  - All 52 mutants that survived the r1 suite in the verifiers' harnesses (challenger_FU_C_r1_1: 20, challenger_FU_C_r1_2: 19, reviewer_FU_C_r1_2: 13) are now killed by the guard tests of §2 item 6.
 - **Residuals for root/PI:**
   1. `verification/explorer_FU_C_r2_2/tree/tests/topic2_fu_c/test_gate_and_records.py` is a peer probe copy of the retired file, edited in place. It sits beside copied receipts, so from working-tree content it is a ≥ 99 % near-copy (probe above), and with the old hash it lets the literal be recovered. Its owner or root should remove that tree (and `mut_work/`). The worker may not write there.
   2. The old file hash remains in the pre-result receipts and in verifier handoffs that are already committed. Without a near-copy of the rest of the file, it does not identify the literal.

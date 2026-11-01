@@ -8,3 +8,7 @@ Last visited: 2026-11-01T20:10Z
 - 20:11Z launched new_mutants.py detached (44 new mutants + 6 oracle mutations, 2 trees).
 - 20:12Z gate record consistent with card §4 (G1 max rel_fro 7.8e-7, G5 all 84 cells fail per control). Report §3 "one seed's effect (-0.079)" at L2 cov token is inaccurate: 5 seeds' effects >= -log1.10 (not in errata).
 Last visited: 2026-11-01T20:13Z
+- 20:15Z fuzz decide() vs independent 3-predicate oracle: 400k cases (2 generators, boundary-snapped), 0 mismatches.
+- 20:20Z gate/random job records: code_sha256 of all 20 files equals the repo code now (the code that ran = code under test). Card in git 35d10a5 (16:05:25Z) with hash 09b45220...; first random forward 16:32Z.
+- 20:51Z new_mutants: so far KILLED S1 S3 S5 S7 S9 H1 H4 H5 H6 H7 H13 C2 C4 C5 D1 D6 D7 D9; SURVIVED S2 S4 S6 C1 C3 D2 D3 D4 D5 (all outside the r1 classes; no shipped-verdict impact). Harness still running.
+Last visited: 2026-11-01T20:52Z

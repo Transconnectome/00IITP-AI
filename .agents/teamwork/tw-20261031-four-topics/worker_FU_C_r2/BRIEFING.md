@@ -22,7 +22,7 @@ FU-C iteration 2: close the C4 blocking class from the r1 gate (a real HCP-YA ID
 
 ## Current Parent
 - Conversation ID: root 5fddb83e
-- Updated: not yet
+- Updated: unchanged (root 5fddb83e)
 
 ## Task Summary
 - What to build: seal + retire tests/topic2_fu_c/test_gate_and_records.py, re-author its tests; repair the pinned receipt test in place; derived-view verdict reproduction driver; receipt supersession checker; strict C4 tripwire; guard tests for r1 challenger survivors; addendum 02; minimal report erratum; r2 receipt.
@@ -34,3 +34,17 @@ FU-C iteration 2: close the C4 blocking class from the r1 gate (a real HCP-YA ID
 
 ## Artifact Index
 - DISPATCH.md, progress.md, handoff.md (this dir)
+
+## Change Tracker
+- Files modified: tests/topic2_fu_c/test_perms_receipts_c4.py (one test repaired in place); result report (banner, §4 bullet, §6 block)
+- Files retired: tests/topic2_fu_c/test_gate_and_records.py (sealed off-repo first)
+- Files added: src/topic2_fu_c/{supersession,c4scan}.py; scripts/topic2fu_c_{verdict_r2,check_receipts_r2,write_receipt_r2}.py; tests/topic2_fu_c/test_{evaluate_records,c4_and_guards,supersession}_r2.py; addendum_02; results c4_sealed_originals_sha256.txt, output_sha256_r2.txt
+- Build status: all suites pass (FU-C 180, old 86, rgpool 116, topic1 88)
+- Pending issues: peer near-copy in verification/explorer_FU_C_r2_2/tree (root to remove)
+
+## Quality Status
+- Lint: flake8 clean; layout lint 0 findings
+- Mutation: 146/149 killed (3 equivalent survivors as in r1)
+
+## Loaded Skills
+- None loaded beyond the role/adapter files (sci-pipeline SKILL.md referenced as methodology; no new card needed in iteration 2)

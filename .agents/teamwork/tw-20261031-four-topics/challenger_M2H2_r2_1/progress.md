@@ -14,3 +14,6 @@ Last visited: 2026-11-01T20:35Z
 - 20:19Z guard probe (tree_c): `final` does not check that the random job used the card index sets (record flag/hash ignored; permuted R subsets accepted). Shipped hashes equal card J -> nonblocking.
 - 20:20Z ID scan clean; ledger append-only vs worker snapshot (prefix sha 9f9843eb); M2H2 GPU sum 0.819 verified.
 Last visited: 2026-11-01T20:22Z
+- 20:25Z gate record numbers (G1-G5) re-read: match report §1.
+- 21:02Z fresh mutants 34/51 done; survivors so far are guard/defensive or in-job descriptive paths (F06, F07, F20, F21, F22, F42, F53, F55, ...). Waiting.
+Last visited: 2026-11-01T21:03Z
