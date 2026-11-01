@@ -35,12 +35,12 @@ M2 (Topic 3) iteration 3: close every blocking issue of the r2b gate with ADDITI
 - verification/worker_M2_r3/pycache_baseline_start.txt — pyc listing before any work
 
 ## Change Tracker
-- Files modified: none yet
-- Build status: shipped topic3 88 passed in copied tree (timing probe)
-- Pending issues: none
+- Files created (owned): tests/topic3_spectral/test_verdict_rules_r3.py, tests/topic3_spectral/test_token_stats_wiring_r3.py, docs/.../2026-11-01_topic3_addendum_05.md (draft, placeholders), verification/worker_M2_r3/*
+- Build status: r3 v1 (30 tests) pass on shipped code in copied tree; zero-mean zoo test added after (v2, not yet in a tree)
+- Pending issues: S88_v1 aborted (runner XML bug, documented); S88_v2 running; FULL union not yet run
 
 ## Quality Status
-- Tests added: none yet
+- Tests added: unit guards (classes 1-4, D2, boundaries, PARAMS, first key, Holm cap, H4 seed) + script wiring (token_stats tmp-tree run vs pinned, 3 refusals, subject_level positions spy)
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md (methodology reference; read on demand)
