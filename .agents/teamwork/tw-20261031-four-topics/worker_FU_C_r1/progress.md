@@ -28,3 +28,5 @@ Last visited: 2026-11-01T16:38Z
 - Scanner controls (B300): positive 2/2 detected, negative 0, pre-freeze artifacts 0 hits.
 Last visited: 2026-11-01T17:38Z
 - 17:37Z driver: 8 Stage-1 jobs closed COMPLETED (0.431-0.434 GPU-h each; run.json status completed checked for the first 4), 10 submitted after wave1/2a; no g3t-G-E0-* block so far.
+Last visited: 2026-11-01T18:49Z
+- 18:49Z 14/24 Stage-1 jobs closed (all COMPLETED); all 24 submitted by 18:0xZ; remaining pending on shared QOS (FU-D, GARD, nhpfull jobs running). No g3t-G-E0-* seen.
