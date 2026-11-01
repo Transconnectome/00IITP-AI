@@ -15,3 +15,9 @@ Last visited: 2026-11-01T06:41Z
 - 06:38Z worker evidence audit: S88_v2/FULL_v2/MUTANTS_SUMMARY hashes as claimed; 302/302 raw-log hashes match; controls start+end
 - 06:39Z fixture numbers in addendum 05 reproduced; 508 non-run leaves; layout lint PASS (234 files); ID scan of r3 deliverables clean
 - 06:40Z git (read-only): addendum 03 history as addendum 05 §5 states; HEAD now holds final addendum 05 (a4001f09, commit a910c53 by root loop)
+Last visited: 2026-11-01T07:06Z
+- 06:58Z FULL batch done (v1 runner JUnit path bug -> reclassified from text logs; README in runs/). 10/10 r2b-class KILLED (r3 tests among failures), 6/6 r1 KILLED, 4/8 new KILLED, 4 new SURVIVED (B_A2_iid_at_n25, B_E1_iid_wrong_n, B_E1_null_q05, B_E1_pr_over_n)
+- 07:00Z real-input probes: survivors change 7/56/14/14 pinned Family A leaves; 3 of them are printed in the result report; D1/D3 unchanged; CONTROL probe 300/300 exact
+- 07:01Z v2 runner confirmation: V01 KILLED, B_A2_iid_at_n25 SURVIVED (JUnit agrees with log classification)
+- 07:03Z copied trees deleted (manifests kept); C1 post 67 OK; receipts post all OK; pyc unchanged; no own processes left
+- 07:06Z handoff.md final: REQUEST_CHANGES (1 Major blocking class: Family A descriptive columns unguarded)

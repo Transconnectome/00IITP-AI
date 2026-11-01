@@ -13,3 +13,8 @@ Last visited: 2026-11-01T06:50Z
 - §5 numbers and §2 fixture statistics recomputed: all match.
 - Git window 02:57Z-06:24Z: all commits = root checkpoint loop (PID 3270989) cadence; r3 .py untracked.
 - 06:39Z own mutation run MUT_A (13 union + 13 fresh, s88+full) running detached.
+Last visited: 2026-11-01T07:15Z
+- 06:47Z Family A / B reruns in own tree: 300/300 and 508/508 leaves bit-identical to pinned; code hashes equal.
+- 07:08Z MUT_A DONE: 12/12 union blocking mutants SURVIVED s88, KILLED full by r3 tests only; U127 survives both; 13/13 fresh mutants KILLED (10 only by r3); 0 INVALID.
+- 07:09Z post-checks: C1 67 OK; receipts 42/1/3/2/3 OK; no pyc; no production file written by me; layout lint PASS (236 files).
+- 07:12Z copied trees deleted (manifests kept). handoff.md written. Verdict: CLEAN.

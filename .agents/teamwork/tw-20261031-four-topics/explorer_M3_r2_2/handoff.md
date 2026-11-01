@@ -86,6 +86,20 @@ b300-02/03 mix, b300-04 idle), matching RESUME addendum 3 (all further B300 GPU 
 ≈11.99 GPU-h of 64. ~/.agents is a git work tree and ~/.agents/private is not git-ignored there; /home/juke is not
 a git work tree.
 
+O11 Embedded FILE-hash references (probe_embedded_file_hashes.py → embedded_file_hashes.out.json; file hashes are
+not subject tokens). Besides the pin files, the current bytes of the files a redaction rewrites are referenced
+inside other records:
+- hcp_manifest.json sha (26ba34a9…) is embedded in split.json (`manifest_sha256`) and in the frozen card §4.
+- split.json sha (c13b5f21…) is embedded in all 15 hcp run.json (`split_file_sha256`), in
+  partitions/partitions_hcp.json, in logs/build_partitions_hcp.log and in the frozen card §4 (the 12 fixture
+  run.json do not carry it).
+- stage0_hcp.json and the 15 hcp run.json shas appear only in output_sha256.txt; preprocess.log's sha nowhere.
+- Historical r1 verifier receipts also hold the original shas (e.g. verification/reviewer_M3_r1_1/recompute_verdict.py
+  and tested_artifacts_sha256.txt, verification/auditor_M3_r1_1/b300_runjson_sha.txt, verification/challenger_M3_r1_2/
+  b300_inputs/repo_runs_sha.txt, verification/reviewer_M3_r1_1/b300_cpu_check.json). r1 checks such as
+  "27/27 B300 run.json == repo copies" and "split.json reproduces from the manifest" will, after redaction, hold
+  only against the off-repo originals (B300 copies equal the R originals, not the repo copies).
+
 ## 2. Logic Chain
 
 L1 (O1) Only B1 blocks; fixing B1 cleanly turns the r1 REQUEST_CHANGES into APPROVE by its own stated criterion.
@@ -119,6 +133,13 @@ B300-staged HCP files can recompute pseudonyms → public-salt order → which p
 per-subject values by rerunning the pipeline. This needs the staged file set (B300, where HCP IDs are already
 directory names) and is inherent to publishing per-subject results of a reproducible public-data analysis. It
 must be disclosed, not described as "unlinkable".
+
+L10 (O11) A token swap therefore leaves internal references pointing at the ORIGINAL bytes: in the repo,
+split.json.manifest_sha256 ≠ sha(repo manifest) and run.json.split_file_sha256 / partitions_hcp.json ≠ sha(repo
+split). These fields must be KEPT unchanged (they are provenance of what the governed runs actually read; rewriting
+them would turn the redaction into an edit of run records) and must be listed, next to the 18 pin lines, as
+"verifies only against the R originals". Otherwise a fresh verifier rerunning the r1 consistency checks sees
+"run records do not match their split" without explanation.
 
 ## 3. Caveats
 
@@ -158,14 +179,18 @@ the repo or any git work tree. Blueprint: verification/explorer_M3_r2_2/probe_re
 Write results/topic2/2026-11-01/redaction_2026-11-01/redaction_record.json (per path: original sha = old pin,
 redacted sha, removed fields, method, key fingerprint, R path; no tokens, no map) and a new complete pin file
 results/topic2/2026-11-01/redaction_2026-11-01/output_sha256_post_redaction.txt. Never edit card_sha256.txt,
-output_sha256.txt, the card, the report or any frozen file.
+output_sha256.txt, the card, the report or any frozen file. Keep embedded provenance fields
+(split.json manifest_sha256, run.json split_file_sha256, partitions_hcp.json, build_partitions_hcp.log) unchanged;
+list them in redaction_record.json as references to R originals.
 
 Step 5 Explorer salt (needs root ownership assignment): copy verification/explorer_M3_r1_1/dev_subject_salt.txt to
 R (sha verified), remove the repo copy, leave dev_subject_salt.MOVED.md (sha of the salt, R path, date, mover).
 
 Step 6 New scripts/topic2_verify_redaction.py: repo mode (post-redaction pins, positive token-format assertions,
 cross-file consistency, frozen verdict regenerates pinned verdict.json bytes) and `--offrepo R` mode (the 18 old
-pins verify in R; recomputing the redaction from R originals + key reproduces the repo bytes; salt moved). Counts
+pins verify in R; every embedded reference of O11 (manifest_sha256, 15 split_file_sha256, partitions_hcp.json,
+build_partitions_hcp.log, card §4 values) matches the R originals; recomputing the redaction from R originals + key
+reproduces the repo bytes; salt moved). Counts
 only on stdout.
 
 Step 7 New tests (additive): tests/topic2_rgpool/test_redaction_r2.py — every subject-token field matches
@@ -177,8 +202,9 @@ test_verdict_path_guards_r2.py as tests/topic2_rgpool/test_verdict_path_guards_r
 test_outputs_no_ids.py unchanged (it passes but is vacuous for hk_ tokens; the new test covers it positively).
 
 Step 8 Addendum 05 (docs/03_empirical_analysis/topic2/2026-11-01_topic2_addendum_05.md, written after Step 4, no
-tokens): (a) the B1 redaction, why, the 19 files with original/redacted file sha256, which 18 old pin lines now
-verify only in R and the exact commands; that every governed number and the verdict are unchanged (verdict bytes
+tokens): (a) the B1 redaction, why, the 19 files with original/redacted file sha256, which 18 old pin lines and which
+embedded references (O11) now verify only in R, and the exact commands; that B300 run.json copies equal R, not
+the repo copies; that every governed number and the verdict are unchanged (verdict bytes
 reproduce); (b) residual linkage L9, stated plainly; (c) N1: δ = 1 % and HCP-as-public were decided by the PI before
 the freeze (commit a06f435, 03:01:27Z); (d) SOURCE.md test-name error (frozen, corrected here only);
 (e) addendum 04 loss range correction (per reviewer_M3_r1_2 / challenger_M3_r1_2: 100-step means 1.0561 at step 100, then 0.9978–1.0036; re-read train_log before writing); (f) I2 is confounded (per reviewer_M3_r1_2: S box dispersion 1.56–1.67 vs C 1.47 cells)
@@ -190,7 +216,7 @@ when visible); (k) worker_M3_r1 timestamp corrections (05:42Z/05:40Z claims vs 0
 
 Step 9 Final checks: C1 rc 0; tests/topic2_rgpool all pass (55 + new) with CUDA hidden; old 86; topic1_lagmotif;
 code freeze 33/33; card pins 6/8 OK in repo with the 2 named lines superseded and 2/2 OK in R; output pins 27/43 in
-repo with the 16 named lines superseded and 16/16 in R; post-redaction pins rc 0; verify_redaction both modes;
+repo with the 16 named lines superseded and 16/16 in R; post-redaction pins rc 0; verify_redaction both modes (incl. the O11 embedded references);
 token scan → 0 hits in the working tree and in git history; ID scan of new/changed files with B300 names held in
 memory → 0; whole-run audit_layout PASS; mutant demo (copy of probe_mutants.py) → M1–M5 killed.
 
@@ -210,6 +236,7 @@ S=<private scratch dir outside the repo>
 /home/juke/superclaude-env/bin/python3 -B probe_redaction_invariance.py /home/juke/git/00IITP-AI $S /tmp/ri.json # byte_identical true
 /home/juke/superclaude-env/bin/python3 -B probe_redaction_prototype.py /home/juke/git/00IITP-AI $S /tmp/rp.json  # 55 passed; 2 + 16 pins superseded
 /home/juke/superclaude-env/bin/python3 -B probe_mutants.py /home/juke/git/00IITP-AI $S /tmp/mu.json              # M1..M5 survive shipped, killed by proposed
+/home/juke/superclaude-env/bin/python3 -B probe_embedded_file_hashes.py /home/juke/git/00IITP-AI /tmp/eh.json        # O11 embedded file-hash references
 grep -n "def pseudonym" -A1 /home/juke/git/00IITP-AI/src/topic2_rgpool/data.py
 grep -n "test_pseudonyms\|fm is not False" /home/juke/git/00IITP-AI/scripts/topic2_verdict.py
 git -C /home/juke/git/00IITP-AI log --format='%h %cI' -- .agents/teamwork/tw-20261031-four-topics/orchestrator/PI_DECISIONS_2026-11-01.md

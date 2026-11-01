@@ -21,18 +21,20 @@ M3 (Topic 2) iteration 2, explorer 1 of 2: analyse why the r1 gate failed (revie
 
 ## Current Parent
 - Conversation ID: root coordinator (same)
-- Updated: not yet
+- Updated: 2026-11-01T07:35Z (no change)
 
 ## Investigation State
-- **Explored paths**: role/adapters, ORIGINAL_REQUEST, ACCEPTANCE, RESUME, GATE_STATUS, PI_DECISIONS
-- **Key findings**: [in progress]
-- **Unexplored areas**: topic2 code (data.py pseudonym, make_split), results/topic2 file structure, git tracking state, order-based linkage
+- **Explored paths**: role/adapters, ORIGINAL_REQUEST, ACCEPTANCE, RESUME, GATE_STATUS, PI_DECISIONS, workflow B script (MAX_ITER=2), topic2 data/split/preprocess/verdict/stats code, frozen C4 test, results/topic2 structure, git history, autocommit scopes, r1 mutation outputs, M1 manifest precedent, B300 (read-only ls/find/sinfo)
+- **Key findings**: B1 = 19 token files + n_brain_vox fingerprint; git history clean; R1 relabel (h00..h87, manifest order) reproduces verdict.json byte-identically and passes frozen C4 test; prev_snapshot instruction would recreate B1; 18 in-repo pin failures expected; salt 128-bit (seal salt only); 30+ surviving mutants incl. kill rule; r2 is last iteration
+- **Unexplored areas**: R2 not prototyped; mutants not re-executed; chavis-autocommit allowlist
 
 ## Key Decisions Made
 - DISPATCH.md written verbatim by programmatic extraction from my own transcript (sha256 of computed task text 24be2444…1482)
+- Recommend R1 (positional relabel + drop fingerprints + seal originals off-repo) with R2 as root alternative; additive verdict-path tests; addendum_05; 0 GPU
 
 ## Artifact Index
 - DISPATCH.md — verbatim dispatch
 - BRIEFING.md — this file
 - progress.md — heartbeat
-- handoff.md — final 5-part report (pending)
+- handoff.md — final 5-part report (written 07:30Z)
+- verification/explorer_M3_r2_1/{probe_structure,probe_token_scan,probe_sanitize_r1}.py + .out.json

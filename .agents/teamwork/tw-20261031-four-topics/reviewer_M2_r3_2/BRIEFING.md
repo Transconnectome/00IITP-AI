@@ -1,4 +1,4 @@
-# BRIEFING — 2026-11-01T06:41Z
+# BRIEFING — 2026-11-01T07:06Z
 
 ## Mission
 Independent review of M2 (Topic 3) iteration 3 vs ACCEPTANCE C1–C8 + T3.1–T3.4; check every r1 and r2b blocking issue is closed; verdict APPROVE / REQUEST_CHANGES.
@@ -28,6 +28,8 @@ Independent review of M2 (Topic 3) iteration 3 vs ACCEPTANCE C1–C8 + T3.1–T3
 - Criteria: correctness, completeness, r1/r2b closure, C1–C8
 
 ## Key Decisions Made
+- Report-cited descriptive survivors meet the dispatch bar (verdict OR reported number); r2b B3 precedent
+- Runner v1 JUnit bug: reclassified from logs; v2 confirms
 - DISPATCH.md: worker JSON summarized in brackets (verbatim in worker_M2_r3/handoff.md) — disclosed deviation
 
 ## Artifact Index
@@ -38,11 +40,11 @@ Independent review of M2 (Topic 3) iteration 3 vs ACCEPTANCE C1–C8 + T3.1–T3
 - Items reviewed: card, analysis.py, resampling.py, token_stats/subject_level/common scripts, both r3 test files, addendum 05, r2b gate record, worker handoff + mutation evidence
 - Verified: C1 67 OK; 5 receipts OK; prod topic3 121/0 skipped, old 86, topic1 88; no pyc added; layout lint PASS; ID scan clean;
   addendum 05 numbers; independent recompute of Family B primary stats (exact) and D1/D3/A2 ratio (exact); worker log hashes 302/302
-- Own mutation: s88 CONTROL 88 pass; all 10 r2b-class mutants SURVIVE s88 (reproduces gate); FULL batch running
-- Verdict: pending FULL batch
+- Own mutation: s88 10/10 r2b-class SURVIVE; full 121: 10/10 r2b + 6/6 r1 + 4/8 new KILLED; 4 new Family A descriptive SURVIVE (3 report-cited)
+- Verdict: REQUEST_CHANGES (1 Major blocking class; additive Family A wiring test fixes it)
 - Unverified claims: worker FULL_v2 kills (being re-checked independently for named classes)
 
 ## Attack Surface
 - Hypotheses tested: 8 new mutants not in the 151-patch union (D3 only first pair, A2 pair orientation, A1 corr->cov, bootstrap w/o replacement, A2 iid(25,D), E1 iid(n-1), E1 null q5, E1 PR/n)
-- Vulnerabilities found: (pending FULL)
+- Vulnerabilities found: Family A E1/A2 descriptive columns unguarded (B_A2_iid_at_n25, B_E1_iid_wrong_n, B_E1_null_q05; B_E1_pr_over_n JSON-only); pinned numbers independently verified correct
 - Untested angles: token_job.py connectome path beyond union; Family A descriptive wiring (no full-output regression)

@@ -26,13 +26,15 @@ M3 (Topic 2) iteration 2: analyse the r1 gate failure (reviewer_M3_r1_1 REQUEST_
 
 ## Investigation State
 - **Explored paths**: runtime/claude-code adapters, explorer role, ORIGINAL_REQUEST, ACCEPTANCE, RESUME (incl. addenda 1-3), PI_DECISIONS (items 1-5), GATE_STATUS
-- **Key findings**: [TBD]
-- **Unexplored areas**: worker_M3_r1 artifacts (data.py pseudonym, manifest, split, run.json), pins, git tracking state, B300 state
+- **Key findings**: B1 = 19 untracked results/topic2 files (H/P/B/V tokens), 0 commits; explorer salt co-located with 5 salted dev hashes (4 files); token-only HMAC redaction keeps frozen verdict bytes and 55 shipped tests; 18 pin lines superseded (2 card, 16 output); 5 verdict-path mutants survive shipped suite, killed by proposed guards
+- **Unexplored areas**: other challenger-reported survivors (slot order, placement, train loss/mask pairing) not re-run
 
 ## Key Decisions Made
 - DISPATCH.md copied programmatically from own transcript (records 0 and 1) to satisfy "verbatim" without retyping.
+- Recommend fix (HMAC hk_ tokens, off-repo originals+key, new pins, addendum 05, guard tests), not a PI waiver; no reorder; residual disclosed.
 
 ## Artifact Index
 - DISPATCH.md — verbatim dispatch (sha of computed task text 40b12c9b…ad6a)
 - progress.md — heartbeat
-- handoff.md — final 5-component report
+- handoff.md — final 5-component report (Hard)
+- /home/juke/git/00IITP-AI/verification/explorer_M3_r2_2/ — probes + outputs (token scan, invariance, prototype, mutants, proposed guard tests)

@@ -42,10 +42,10 @@ Independent review (reviewer + critic) of M2 Topic 3 iteration 3 (worker_M2_r3) 
 
 ## Review Checklist
 - Items reviewed: r3 tests (2 files), addendum 05, receipt, worker evidence, r1+r2b blockers
-- Verdict: pending
-- Unverified claims: worker's 150/151 kill claim, 121 passed, C1 67 OK, receipts, wiring test fidelity, A15 equivalence
+- Verdict: REQUEST_CHANGES (1 blocking: N01 primary Holm-vs-Bonferroni guard missing)
+- Unverified claims: only the 138 union patches I did not rewrite (checked for internal consistency/hashes only)
 
 ## Attack Surface
 - Hypotheses tested: worker evidence authentic (hashes/junit OK); addendum 05 numbers reproduce from pinned files; git claims OK; real-ID scan 0/1631 files.
-- Vulnerabilities found (pending run2): N01 primary reads Bonferroni p — reachable via shipped producer, flips holds->killed (probes/witness_N01_N02.out.json).
+- Vulnerabilities found: N01 SURVIVES full suite (run2), reachable, flips holds->killed; N02 killed. Nonblocking survivors N03/N04 (Family A descriptive), N06/N12 (Family A halts, equivalent on valid inputs).
 - Untested angles: Family A full replay (optional).

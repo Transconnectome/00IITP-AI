@@ -30,10 +30,10 @@ Forensic integrity audit of M2 (Topic 3) iteration 3 (worker_M2_r3): CLEAN or IN
 - Audit type: forensic integrity check
 
 ## Audit Progress
-- Phase: investigating
+- Phase: reporting (complete)
 - Checks completed: hashes/receipts/C1 (all OK); src/scripts/tests git-diff clean; launcher mismatch = pre-existing, disclosed (addendum 01 item 2); worker transcript timeline extracted (no git writes seen, only log/show); results dir mtime 06:05:39Z explained by receipt creation
-- Checks remaining: pyc scan, ID scan, addendum pointers/numbers, mutation evidence authenticity, own production test run, own independent mutants, union faithfulness spot-check, U127, GPU/B300
-- Findings so far: no violation yet
+- Checks remaining: none (pyc, real-ID scan, pointers/numbers, evidence chain, prod run 121/0 skipped, MUT_A 26 mutants, union faithfulness, Family A/B rerun, GPU/git all done)
+- Findings so far: CLEAN; non-blocking N1-N7 in handoff.md
 
 ## Key Decisions Made
 - Use worker native transcript (agent-ad2c5862ed1faddd3.jsonl) as primary evidence of worker actions
@@ -41,11 +41,15 @@ Forensic integrity audit of M2 (Topic 3) iteration 3 (worker_M2_r3): CLEAN or IN
 ## Artifact Index
 - verification/auditor_M2_r3_1/probes/tool_timeline.py — transcript tool-call extractor
 - verification/auditor_M2_r3_1/probes/worker_r3_tool_timeline.tsv — worker tool timeline
+- verification/auditor_M2_r3_1/runs/MUT_A.json (+ MUT_A_table.txt, mut_logs/) — own mutation run
+- verification/auditor_M2_r3_1/runs/prod_topic3.* — production run
+- verification/auditor_M2_r3_1/runs/rerun_* — Family A/B reruns vs pinned
+- verification/auditor_M2_r3_1/probes/id_scan_real_ids.py, id_scan_tmp_pytest.out — real-ID scan
 
 ## Attack Surface
 - Hypotheses tested: timing probe wrote to production OUT? → no (OUT is ROOT-relative; family_B mtime 10-31)
-- Vulnerabilities found: none yet
-- Untested angles: listed under Checks remaining
+- Vulnerabilities found: none integrity-level; strength/hygiene notes N1-N7 (U127 label, needs_vrabes skip, real-data re-derivation in tests, exec_module pyc hazard)
+- Untested angles: 138 of 151 union patches not re-run by me (rest rests on worker's hash-bound logs)
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md — read in place (not copied; methodology reference only)
