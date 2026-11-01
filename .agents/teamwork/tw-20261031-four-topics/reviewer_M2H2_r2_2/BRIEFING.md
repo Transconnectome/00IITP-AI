@@ -29,14 +29,16 @@ Independent review (reviewer + critic) of M2H2 iteration 2 (worker_M2H2_r2): Top
 - No GPU rerun planned: r1 gate already had 5 independent seed reruns; r2 changed no result.
 
 ## Review Checklist
-- Items reviewed: (in progress)
-- Verdict: pending
-- Unverified claims: mutation 115/115; errata numbers; ledger append-only
+- Items reviewed: 4 new tests, addendum 08 + receipt, ledger rows, union_mutants.out.json, suites, receipts, C1, IDs, layout
+- Verdict: APPROVE (nonblocking: F03/F05/F12 survivors, overstated 'every guard' wording, errata location, auditor N6)
+- Unverified claims: full 115-mutant rerun (4 rechecked); r1 GPU-verified numbers not re-run
 
 ## Attack Surface
-- Hypotheses tested: (in progress)
-- Vulnerabilities found: (in progress)
-- Untested angles: (in progress)
+- Hypotheses tested: 15 fresh mutants (12 killed); r1 survivors N26/N53/N50/W4 rechecked; errata numbers recomputed
+- Vulnerabilities found: F03 G2-missing default ok; F05 _dump BIDS guard untested; F12 seed identity by count only
+- Untested angles: driver/data/model internals beyond sample; GPU rerun
 
 ## Artifact Index
 - verification/reviewer_M2H2_r2_2/logs/ — my logs
+- handoff.md — final report (APPROVE)
+- verification/reviewer_M2H2_r2_2/{probes,mut,logs}/ — evidence

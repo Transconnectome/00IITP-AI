@@ -2,6 +2,8 @@
 
 Date: 2026-11-02 KST (runs 2026-11-01 16:35–19:38 UTC). Author: worker_FU_C_r1, run tw-20261031-four-topics, workflow C (PI decision 7; r1 result report §7, option C).
 
+**Revision r2 (2026-11-02, worker_FU_C_r2; C4 remediation, see `2026-11-02_topic2_fu_c_addendum_02.md`).** Only the §4 C4 bullet and the §6 reproduce block were corrected; no number, table, verdict or reading changed. Addendum 02 also records an erratum to §2 item 2 (the stall explanation of the wide interval is incomplete) and a scope note on what `stop` excludes. The test counts in §3 describe the r1 suite; iteration 2 retired one test file and added others (addendum 02 §2).
+
 **Governing card.** `2026-11-02_topic2_fu_c_card.md`, sha256 `fc2d0672de2bb3163f80b06079ad973c7332cd8b46808bdd59c6456164944ecb`, frozen 2026-11-01T16:13:23Z (`results/topic2/2026-11-02_fu_c/card_sha256.txt`).
 - Freeze order: the card was frozen before the first Stage-1 submission (16:13:51Z) and before the first run started (16:35:12Z).
 - The verdict code and tests were pinned at 16:31:53Z (`code_sha256_before_results.txt`).
@@ -166,7 +168,7 @@ I1 -0.013 % [-0.248 %, +0.222 %]; I2 +0.187 % [-0.163 %, +0.538 %] (df 12).
 - The repo holds only positional h-tokens: the data view is positional and the split is the sanitized one.
 - The B300 scan of the copy-back tree found 0 hits for HCP names and original tokens.
 - Repo-side C4 tests pass.
-- No participant ID was printed or written.
+- Correction (r2): the r1 claim that no participant ID was written was false for `tests/`. One negative test fixture used a 6-digit literal that is a real HCP-YA ID (not linked to any record). The r1 C4 checks scanned only `results/` and the B300 copy-back tree. In iteration 2 the file was sealed off-repo and retired, its tests were re-authored, and the C4 scan now covers every FU-C path (addendum 02 §1, §2, §5).
 
 ## 5. Limitations
 
@@ -178,11 +180,13 @@ I1 -0.013 % [-0.248 %, +0.222 %]; I2 +0.187 % [-0.163 %, +0.538 %] (df 12).
 
 ## 6. Reproduce / verify
 
+Revised in r2 (addendum 02 §3–§4). The pre-result code and output receipts now fail by design on exactly the superseded lines listed in addendum 02 §3; the checker below asserts that the failing set equals that list and that every other line verifies. The frozen CLI `scripts/topic2fu_c_verdict.py` now returns `no_verdict` by design (never run it without `--out`); the shipped verdict is reproduced byte-for-byte through the derived view of the original code receipt.
+
 ```
 cd /home/juke/git/00IITP-AI
-grep -v '^#' results/topic2/2026-11-02_fu_c/card_sha256.txt | LC_ALL=C sha256sum -c                 # card + governing inputs
-grep -v '^#' results/topic2/2026-11-02_fu_c/code_sha256_before_results.txt | LC_ALL=C sha256sum -c  # verdict code + tests
-grep -v '^#' results/topic2/2026-11-02_fu_c/output_sha256.txt | LC_ALL=C sha256sum -c               # outputs
+grep -v '^#' results/topic2/2026-11-02_fu_c/card_sha256.txt | LC_ALL=C sha256sum -c                 # card + governing inputs (all OK)
+grep -v '^#' results/topic2/2026-11-02_fu_c/output_sha256_r2.txt | LC_ALL=C sha256sum -c            # iteration-2 files (all OK)
+PYTHONDONTWRITEBYTECODE=1 /home/juke/superclaude-env/bin/python3 -B scripts/topic2fu_c_check_receipts_r2.py   # failing lines == addendum 02 §3
 PYTHONDONTWRITEBYTECODE=1 CUDA_VISIBLE_DEVICES="" PYTHONPATH=. /home/juke/superclaude-env/bin/python3 -m pytest -p no:cacheprovider tests/topic2_fu_c -q
-PYTHONDONTWRITEBYTECODE=1 /home/juke/superclaude-env/bin/python3 -B scripts/topic2fu_c_verdict.py --out /tmp/fuc_verdict_check.json   # recomputes the verdict
+PYTHONDONTWRITEBYTECODE=1 /home/juke/superclaude-env/bin/python3 -B scripts/topic2fu_c_verdict_r2.py --out /tmp/fuc_verdict_check.json   # byte-identical to verdict.json
 ```

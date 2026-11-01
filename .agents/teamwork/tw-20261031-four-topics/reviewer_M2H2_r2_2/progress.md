@@ -12,3 +12,4 @@ Last visited: 2026-11-01T20:07Z
 - layout lint whole run: PASS, findings [] (571 files)
 - fresh mutants: copied-tree baseline 167 passed; F03 SURVIVED (gate: G2 record missing defaults ok); F04 KILLED
 Last visited: 2026-11-01T20:22:51Z
+- 20:46Z handoff.md written; verdict APPROVE. Last visited: 2026-11-01T20:45:46Z
