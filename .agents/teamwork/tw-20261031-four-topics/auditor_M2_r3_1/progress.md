@@ -18,3 +18,6 @@ Last visited: 2026-11-01T07:15Z
 - 07:08Z MUT_A DONE: 12/12 union blocking mutants SURVIVED s88, KILLED full by r3 tests only; U127 survives both; 13/13 fresh mutants KILLED (10 only by r3); 0 INVALID.
 - 07:09Z post-checks: C1 67 OK; receipts 42/1/3/2/3 OK; no pyc; no production file written by me; layout lint PASS (236 files).
 - 07:12Z copied trees deleted (manifests kept). handoff.md written. Verdict: CLEAN.
+Last visited: 2026-11-01T07:25Z
+- 07:20Z C2 in production (own run): old suite 86 passed (STRICT_E2E=1), topic1 88 passed; no production write/pyc.
+- Own outputs + metadata real-ID scan: 0 hits (150 files). MUT_A kill sweep: 28/28 kills have JUnit failures>0, 0 errors, rc 1.

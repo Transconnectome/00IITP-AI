@@ -26,12 +26,13 @@ I ran every check myself. My evidence is in `/home/juke/git/00IITP-AI/verificati
 | Fabricated or dangling evidence | PASS | Every path in addendum_05 and handoff.md exists, except items explicitly described as deleted. All 9 harness sha256 prefixes in addendum_05 §4 match. All 302 raw mutant logs exist; each sha256 equals MUTANTS_SUMMARY, each mtime falls inside its run window, and the statuses agree with the run JSONs. The runner hashes itself at runtime (run_union.py:173). The S88 and FULL base-tree manifests match production for all 20 shipped code and test files. Run JSONs were written only by the runner; no post-run edit appears in the transcript. |
 | Results before card freeze | PASS (N/A this iteration) | Iteration 3 produced no new result. Earlier ordering: card frozen 08:48:29Z; Family A started 08:49:18Z; Family B written at 09:02Z. |
 | Silent fallbacks | PASS, with a note | The skipif is visible as a skip, not silent. If VRABES were absent, 5 of the 6 wiring tests would skip (non-blocking N2). |
-| Participant-ID leakage | PASS | I loaded the 57 real IDs from the pinned VRABES npz `ids` arrays in memory, never printed them, and scanned for them. 0 matches in the r3 tests, addendum_05, the receipt, `verification/worker_M2_r3/` (1076 files), the worker metadata, the worker's full native transcript, and `/tmp/pytest-of-juke` (48,835 files). The spectra npz hold numeric arrays only, with no ids key. |
+| Participant-ID leakage | PASS | I loaded the 57 real IDs from the pinned VRABES npz `ids` arrays in memory, never printed them, and scanned for them. 0 matches in the r3 tests, addendum_05, the receipt, `verification/worker_M2_r3/` (1076 files), the worker metadata, the worker's full native transcript, `/tmp/pytest-of-juke` (48,835 files), and my own outputs and metadata (150 files, scanned last). The spectra npz hold numeric arrays only, with no ids key. |
 | Writes to protected or production paths, incl. bytecode | PASS | The full-text transcript scan shows production writes only to the worker's own 4 deliverables. Since 02:57Z, the only other changed files are the GPU ledger (M3) and topic2/topic4 files (workflow B). No .pyc or __pycache__ in src, scripts, tests, docs or results is newer than iteration start. The iteration-2 pyc files from 00:39:14Z remain and are not this worker's. |
 | ENIGMA on B300 | N/A, PASS | M2 never touches ENIGMA; C6 was relaxed by PI decision 5. |
 | GPU use | PASS | The transcript has no ssh, nvidia-smi or B300 call. The GPU ledger has no M2 row. |
 | Git writes by agents | PASS | The transcript's git calls are log and show only. All commits in the 02:57–06:24Z window follow the root checkpoint loop's cadence (PID 3270989, `autocommit.sh`, started 10-31 16:31:23 KST). |
-| Layout lint (whole run root) | PASS | 236 files, findings [] (`runs/audit_layout_run_root.log`). |
+| Layout lint (whole run root) | PASS | 236 files, findings []; after my metadata writes, 242 files, findings [] (`runs/audit_layout_run_root.log`, `runs/audit_layout_run_root_final.log`). |
+| C2 old suite and topic1 (production, run by me) | PASS | `STRICT_E2E=1 … pytest tests/test_empirical_four_topics.py tests/test_pilot_connectome.py tests/e2e` gives 86 passed, 7 warnings (`runs/old_suite.log`, `.junit.xml`); `pytest tests/topic1_lagmotif` gives 88 passed (`runs/topic1.log`). Both ran concurrently with PYTHONDONTWRITEBYTECODE=1 and timeout 900. Afterwards, find -newer shows no production file and no bytecode written. |
 
 ## 1. Observation
 
@@ -56,7 +57,7 @@ I ran every check myself. My evidence is in `/home/juke/git/00IITP-AI/verificati
     - Bonferroni at the call site.
 
     **All 13 were KILLED** by the full suite. 10 of the 13 SURVIVED the shipped 88, so r3 tests alone killed them. Table: `runs/MUT_A_table.txt`.
-  - Kills are real assertion failures, not crashes. U057 gives `assert True is False`; U072 gives "40 of 508 values differ from the pinned output" plus CI asserts; U091 fails a verdict-JSON mismatch.
+  - Kills are real assertion failures, not crashes. A sweep of MUT_A.json finds that all 28 KILLED entries (25 full, 3 s88) have rc 1, JUnit failures > 0 and 0 errors. Three sampled logs: U057 gives `assert True is False`; U072 gives "40 of 508 values differ from the pinned output" plus CI asserts; U091 fails a verdict-JSON mismatch.
 - **O3. Evidence chain of the worker's runs.**
   - S88_v2: 101 KILLED / 50 SURVIVED. FULL_v2: 150 KILLED / 1 SURVIVED. Both recounted from the run JSONs (153 entries each, including 2 controls).
   - 302 logs, 0 missing, 0 sha mismatches, 0 mtimes outside 03:38–04:03Z (S88) and 04:31–05:56Z (FULL).

@@ -47,7 +47,15 @@ N03 and N04 survive. Neither is on a verdict path.
 - **N03:** the A2 D-calibration iid reference is computed at (25, D) instead of the card's (12, D).
 - **N04:** the E1 iid 2.5% quantile is moved to 5%.
 
-Both change reported Family A descriptive numbers. addendum_05 §6 discloses that Family A is not re-derived. Suggestion: add a Family A replay regression like the Family B one (it would need the 7 pinned npz; the runtime is not measured by me).
+Both change reported Family A descriptive numbers, so they meet the dispatch's necessary condition for blocking. I still class them nonblocking, by the r2b precedent:
+- These descriptive survivors were classed nonblocking there: A21 (A1b orientation, up to a 15.3 shift after a rerun), T01 (H4 never subsamples), and the PARAMS mutants V15–V19 / A09–A13.
+- A01 blocked only because it feeds the D3 verdict.
+
+N01 blocks and N03/N04 do not because N01 is on the verdict path.
+
+addendum_05 §6 discloses that Family A is not re-derived. Suggestion: add a Family A replay regression like the Family B one (it would need the 7 pinned npz; I did not measure its runtime).
+
+Related: N02 (the zoo-side Bonferroni twin) is killed only incidentally, by the skewed V05 fixture. A deliberate zoo-side Holm = raw case could go in the same additive file as B1's fix.
 
 ### [Minor — nonblocking] N2: Family A card §2 halts are untested
 N06 (`if not align["same_order"]` → `if False`) and N12 (BrainJEPA left out of the order check) survive in `scripts/topic3_subject_level.py`. Both are equivalent on valid inputs. This is the same class as r2b S05–S07, which iteration 3 closed for `topic3_token_stats.py` only.
@@ -75,7 +83,7 @@ A primary with Holm p ≥ 0.05 and a CI that excludes 0 gets "killed (primary CI
 | Addendum 05 numbers | recomputed from the pinned JSON/npz: H1b gm−1 HCP −10.7%, L1e-4 −3.2%, primary +4.6%, L5e-5 +8.2%; H1a −12.8 / +2.3 / +3.9 / +5.0%; half-widths 0.00203–0.01442; `cat_cov_eigs__L0` 57×384; H4 L0 max 3.18; fixture numbers raw 0.0326 / Holm 0.0652 / CI lo 0.0007 and skewed Holm 0.0321 / 0.0308, lo −0.0014; 508 non-run leaves | pass |
 | Addendum 05 git claims | `GIT_OPTIONAL_LOCKS=0 git log --follow`: addendum 03 commits are 4ce1917, then ef27b71; 0db0336 adds only the two iteration-2 tests; 4ce1917 blob is 725d5077 | pass |
 | Verdicts unchanged | pinned JSON: H1a holds 2/3 L3 higher; H1b not replicated 1/3; D1 "drop robust and not a per-channel-scale effect"; D3 True | pass |
-| C4 | 57 real row IDs loaded in memory only; 0 of 1631 scanned files contain one; the only `sub-<alnum>` tokens are the synthetic names in the shipped `test_token_job_driver.py` and its byte copies | pass |
+| C4 | 57 real row IDs loaded in memory only; 0 of 1631 scanned files contain one; the only BIDS-prefix tokens are the synthetic names in the shipped `test_token_job_driver.py` and its byte copies | pass |
 | Layout | `audit_layout.py` on the whole run root: PASS, 234 files, findings [] | pass |
 | C5 | no M2 rows in `results/gpu_ledger_2026-10-31.md` | pass |
 | C7 | VRABES `git status` clean; no file newer than the card | pass |
@@ -138,12 +146,36 @@ Everything else (C1–C8, T3.1–T3.4, r1 and r2b blocking classes) is met with 
 
 ## 5. Verification Method
 
+**Run provenance.** Run 2 was produced by runner sha256 `b73d414f9d75653f29da239cbc0eaadb79c265052819f636275dd863eaba1809` (`run2_runner_snapshot.py`). The specs are `run2_specs_snapshot.py` (17a30dca…) and the tree manifest is `tree_base.manifest_sha256.txt` (c4185539…).
+
+`run_my_mutants.py` is now v2 (31210647…). It writes logs to `<out>_logs` and refuses to overwrite existing evidence, so a rerun never touches run 2's `mutant_logs/`.
+
+**Evidence hashes.** Every evidence file is in `verification/reviewer_M2_r3_1/EVIDENCE_MANIFEST_sha256.txt` (138 files, self-check 0 failures). The key ones:
+
+| File | sha256 |
+|---|---|
+| `MY_MUTANTS_run2.json` | 0bf5f647621bf8f9f404b284bcde8c4a36f50e4b9ef0ec4726771580cb2a1c05 |
+| `probes/witness_N01_N02.py` | 0a81beb6a76f347e2deb1a3d28089af49f3471f73eef5632f889591b2f7972bf |
+| `probes/witness_N01_N02.out.json` | 205dc86e94aa113f7551145929bb24fdc41fd734e4005bf9bf75d41692b7b931 |
+| `proposed_tests/test_reviewer_demo_primary_holm_not_bonferroni.py` | e09ff20c09d8abd90447a138e5b6dc9d2b0043e6ba7692008a262379ffab2519 |
+| `probes/check_fixture_numbers.out.json` | 77de1fcb6beaa8bdd101317df8b87d288655728b061d83c76d8ce69440f6af65 |
+
+**Reviewed deliverables (unchanged during my review).**
+
+| File | sha256 |
+|---|---|
+| `test_verdict_rules_r3.py` | 58c64ccbc66e825b5e66e4322894e61d02ea5bddad8c3029c3be480dd0acd80b |
+| `test_token_stats_wiring_r3.py` | b091b0b861dc212d2972ed5a9bb64cfe42d41361e1bd6bde05f9476681ac6a1c |
+| addendum_05 | a4001f09ff7d8ccb401e5015ade37e887fbad5e3f17a15019a9c3d8695163bd1 |
+| `addendum_05_sha256.txt` | 1e542da7705d78000961faca75c11f8236473442e9fecaf9e181056c8e2905d6 |
+
 ```
 cd /home/juke/git/00IITP-AI
 LC_ALL=C sha256sum -c .agents/teamwork/tw-20261031-four-topics/sentinel/PROTECTED_HASHES.txt
 V=verification/reviewer_M2_r3_1
-cd $V && /home/juke/superclaude-env/bin/python3 -I -B run_my_mutants.py $PWD/CHECK.json N01_primary_bonferroni_consumer,B01_V01_primary_raw_p --jobs 2
-#   expect N01 full SURVIVED; B01 s88 SURVIVED / full KILLED
+cd $V && LC_ALL=C sha256sum -c EVIDENCE_MANIFEST_sha256.txt                     # evidence intact
+/home/juke/superclaude-env/bin/python3 -I -B run_my_mutants.py $PWD/CHECK_$(date +%s).json N01_primary_bonferroni_consumer,B01_V01_primary_raw_p --jobs 2
+#   fresh output name (v2 refuses to overwrite); expect N01 full SURVIVED; B01 s88 SURVIVED / full KILLED
 cd probes && /home/juke/superclaude-env/bin/python3 -I -B witness_N01_N02.py     # shipped 'holds' vs N01 'killed'
 ```
 
