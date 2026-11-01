@@ -11,3 +11,5 @@ Last visited: 2026-11-01T06:43:57Z
 - Worker evidence: all log/junit hashes match, junit kill evidence consistent (no fabrication found).
 - Built own tree verification/reviewer_M2_r3_1/tree_base (72 files, manifest == production). Launched own mutant run MY_MUTANTS_run1 (canary + 13 blocking rewrites x2 suites + 10 novel probes on full + 4 controls), detached.
 - Disclosure: one plain 'git status --porcelain' at ~06:29Z (possible index stat refresh); afterwards GIT_OPTIONAL_LOCKS=0 only.
+Last visited: 2026-11-01T06:50:48Z - run1 INVALID (tree lacked 2 old src modules; preserved in verification/reviewer_M2_r3_1/run1_INVALID). run2 launched on tree v2: controls s88/full OK, K00 killed. Addendum 05 numbers + fixture numbers + git claims verified. Layout lint PASS. Real-ID scan clean. N01/N02 witness: reachable, verdict-flipping.
+Last visited: 2026-11-01T06:57:46Z - run2 in progress: B01-B05 survive s88 & killed by full (B04 killed by both; different site from V08); B06/B07 survive s88. Demo test for N01 drafted in verification/reviewer_M2_r3_1/proposed_tests/.

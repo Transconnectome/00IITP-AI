@@ -33,9 +33,22 @@ Empirically challenge M2 (Topic 3) iteration 3: try to break the r3 guard tests 
 - Priority targets: Family A reported numbers (no real-data regression test seen), token-level producer of primary inputs (cat_corrpr L3, cat_covpr L2), Holm variants.
 
 ## Attack Surface
-- Hypotheses tested: [TBD]
-- Vulnerabilities found: [TBD]
-- Untested angles: [TBD]
+- Hypotheses tested:
+  - r2b blocking classes closed: yes. 5 union jobs reproduced; U127 is equivalent.
+  - Family B headline: recomputed exactly.
+  - Addendum 05 corrections: verified.
+  - Card frozen before results: yes (git 24fe976 at 08:46:25Z).
+  - Verdicts follow the card's rules: yes.
+- Vulnerabilities found (2026-11-01T06:56Z):
+  - (i) Token-job producer: `cat_corrpr__L3` and `cat_covpr__L2` are untested. T02 flips H1b to "holds"; T01 reverses H1a.
+  - (ii) Family A reported numbers have no real-data regression: A01, A02, A05, A07 and A08 move printed numbers.
+  - Both survive all 121 tests. No real verdict is affected.
+- Untested angles:
+  - full 151-patch union rerun (only 5 reproduced);
+  - connectome rerun (a counterfactual was used instead).
+
+## Status
+- Verdict: REFUTED. handoff.md is final.
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md (read in place; not copied — metadata dir holds metadata only)

@@ -31,7 +31,9 @@ Independent review (reviewer + critic) of M2 Topic 3 iteration 3 (worker_M2_r3) 
 - Review criteria: C1–C8, T3.1–T3.4, r1 + r2b blocking classes closed
 
 ## Key Decisions Made
-- [pending]
+- Production tests run myself: topic3 121 / topic1 88 / old 86 passed; C1 67 OK; 5 receipts OK; no production writes.
+- Own byte-copy tree + own runner + own patches (not worker's union/runner); run1 INVALID (missing old src modules), preserved; run2 valid controls.
+- Blocking policy (dispatch + r2b precedent): non-equivalent, reachable survivor on a decision path or a procedure change moving a reported number blocks; seed/dict-order-only does not.
 
 ## Artifact Index
 - DISPATCH.md — dispatch text
@@ -39,11 +41,11 @@ Independent review (reviewer + critic) of M2 Topic 3 iteration 3 (worker_M2_r3) 
 - handoff.md — final report
 
 ## Review Checklist
-- Items reviewed: [in progress]
+- Items reviewed: r3 tests (2 files), addendum 05, receipt, worker evidence, r1+r2b blockers
 - Verdict: pending
 - Unverified claims: worker's 150/151 kill claim, 121 passed, C1 67 OK, receipts, wiring test fidelity, A15 equivalence
 
 ## Attack Surface
-- Hypotheses tested: [pending]
-- Vulnerabilities found: [pending]
-- Untested angles: [pending]
+- Hypotheses tested: worker evidence authentic (hashes/junit OK); addendum 05 numbers reproduce from pinned files; git claims OK; real-ID scan 0/1631 files.
+- Vulnerabilities found (pending run2): N01 primary reads Bonferroni p — reachable via shipped producer, flips holds->killed (probes/witness_N01_N02.out.json).
+- Untested angles: Family A full replay (optional).

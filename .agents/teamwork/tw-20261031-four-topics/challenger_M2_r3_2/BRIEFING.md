@@ -30,11 +30,13 @@ Empirically challenge M2 (Topic 3) iteration 3: write my own verdict-path / prod
 
 ## Key Decisions Made
 - Independence: not reading other r3 gate members' folders (auditor_M2_r3_1, challenger_M2_r3_1, reviewer_M2_r3_1)
+- Own tree: verification/challenger_M2_r3_2/tree_base (manifest = production, 84 files); controls 121/88 passed, 0 skipped
+- Survivor classification: VERDICT change on reachable synthetic input = blocking; cited Family A number change on real data = blocking (r2b B3 precedent); MC seed reshuffles and killed-record label changes = nonblocking
 
 ## Attack Surface
-- Hypotheses tested: [TBD]
-- Vulnerabilities found: [TBD]
-- Untested angles: [TBD]
+- Hypotheses tested: r3 tests close r2b classes (CF01-CF07 re-written by me); D1/D3 verdict branches fully guarded; Family A reported numbers guarded; Family B headline reproducible independently; addenda numbers accurate; card frozen before results.
+- Vulnerabilities found: D1 corr-only branch unguarded (VA01/VA02 survive 121, witness flips D1 verdict at card params); Family A reported numbers unguarded (FA01-FA08 survive 121 and change pinned values on real-data rerun, e.g. L1 jackknife SE 3.58->4.61, A2 calibration 0.406->~0.19); VB02 changes direction/agree count in killed records.
+- Untested angles: token_job producer on real frames (connectome only); old 86-suite and topic1 not rerun by me.
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md (read in place; not copied, metadata dir is metadata-only)
