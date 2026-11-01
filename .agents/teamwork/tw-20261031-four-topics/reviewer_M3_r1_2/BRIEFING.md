@@ -1,4 +1,4 @@
-# BRIEFING — 2026-11-01T05:45Z
+# BRIEFING — 2026-11-01T06:12Z
 
 ## Mission
 Independent review + adversarial critique of M3 (Topic 2: connectome box-covering RG pooling for SwiFT) vs ACCEPTANCE C1–C8 and T2.1–T2.3; verdict APPROVE / REQUEST_CHANGES.
@@ -30,18 +30,21 @@ Independent review + adversarial critique of M3 (Topic 2: connectome box-coverin
 
 ## Key Decisions Made
 - DISPATCH.md written with computed task verbatim except the embedded worker JSON (abbreviated, flagged)
+- Used B300 GPU 7 for 0.01 GPU-h (checkpoint re-eval, seed 2 E/C/S); ledger rows written; nothing written on B300
+- Explorer salt co-location classed non-blocking for this review (C4 letter met; outside worker ownership; escalated; untracked) but REQUIRED root action before M3 closes (salt+hash is brute-forceable without B300 access)
 
 ## Review Checklist
-- Items reviewed: (in progress)
-- Verdict: pending
-- Unverified claims: all worker claims
+- Items reviewed: card, architecture, addenda 01-04, report, all src/tests/scripts, ledger, 27 run.json, B300 artifacts
+- Verdict: APPROVE (11 non-blocking findings; handoff.md §4)
+- Unverified claims: ~/enigma_ocd untouched (not inspected by design); 'no other process touched' (no contrary evidence)
 
 ## Attack Surface
-- Hypotheses tested: (pending)
-- Vulnerabilities found: (pending)
-- Untested angles: (pending)
+- Hypotheses tested: fabricated numbers (refuted: den invariant, ckpt re-eval 1e-8, partition rebuild); leakage into FC (refuted: train-only rebuild = shipped hash); card edited post hoc (refuted: git + sha); time order (verified)
+- Vulnerabilities found: I2 compactness confound; escape-from-trivial-basin drives I1 per seed; placement not unit-tested; stale PI wording; salt co-location
+- Untested angles: other 12 HCP checkpoints not re-evaluated; no own mutation pass
 
 ## Artifact Index
 - DISPATCH.md — dispatch record
 - progress.md — heartbeat
-- handoff.md — final report
+- handoff.md — final report (HARD)
+- /home/juke/git/00IITP-AI/verification/reviewer_M3_r1_2/ — probes and raw outputs

@@ -1,4 +1,4 @@
-# BRIEFING — 2026-11-01T05:45Z
+# BRIEFING — 2026-11-01T06:08Z
 
 ## Mission
 Independent review + adversarial critique of milestone M3 (Topic 2: connectome box-covering RG pooling for SwiFT; ACCEPTANCE T2.1–T2.3, C1–C8). Verdict APPROVE / REQUEST_CHANGES with evidence.
@@ -30,19 +30,22 @@ Independent review + adversarial critique of milestone M3 (Topic 2: connectome b
 - Criteria: correctness, completeness, pre-registration integrity, data governance, integrity violations
 
 ## Key Decisions Made
+- 06:00Z: treat C4 content-hash pseudonyms as blocking under 'strictly' (root/PI may downgrade; scientific verdict unaffected).
+- 05:58Z: B300 GPU use limited to 3-checkpoint re-eval (0.01 GPU-h).
 - 05:45Z: plan = (1) rerun C1/tests/freeze checks; (2) recompute verdict independently from run.json; (3) code read for π correctness, leakage, E bit-identity; (4) timeline audit (freeze vs results); (5) adversarial checks (NMSE≈0.99 ceiling, S_s2 stall, mutation spot checks).
 
 ## Review Checklist
-- Items reviewed: [in progress]
-- Verdict: pending
-- Unverified claims: all worker claims
+- Items reviewed: card, architecture, report, addenda 01-04, src/topic2_rgpool, tests, scripts, results (27 run.json, verdict, stage0, partitions, manifest, split), ledger, B300 checkpoints
+- Verdict: REQUEST_CHANGES (B1 C4: unsalted content-hash pseudonyms + file_bytes in repo -> linkable to HCP IDs)
+- Unverified claims: ENIGMA never read on B300 (no code path references it); linkage demonstrated in principle only
 
 ## Attack Surface
-- Hypotheses tested: [TBD]
-- Vulnerabilities found: [TBD]
-- Untested angles: [TBD]
+- Hypotheses tested: fabricated results (refuted: ckpt re-eval bit-exact); pre-written verdict (refuted: placeholder); post-freeze tuning (refuted: code sha = freeze, git checkpoint 03:16Z); arm pairing broken (refuted: den identical); leakage (refuted + mutant killed); NMSE~0.99 = bug (refuted: temporal baseline 1.31 > 1, noise-dominated target)
+- Vulnerabilities found: B1 C4 linkability; stale PI-pending text; SOURCE.md test name; worker timestamps; plateau-escape confound; decoder rank-288 bottleneck unstated
+- Untested angles: other 12 checkpoints not GPU re-evaluated; perlmutter fork; family structure
 
 ## Artifact Index
 - DISPATCH.md — dispatch record (embedded worker JSON abbreviated, disclosed)
 - progress.md — heartbeat
-- handoff.md — final 5-component report
+- handoff.md — final 5-component report (REQUEST_CHANGES)
+- /home/juke/git/00IITP-AI/verification/reviewer_M3_r1_1/ — probes + outputs (recompute_verdict, check_perms, b300_check, mutant diffs, test logs, tested_artifacts_sha256.txt)

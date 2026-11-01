@@ -13,3 +13,8 @@ Last visited: 2026-11-01T05:46Z
 - 05:58Z structural audit of shipped perms: 0 violations; split reproduced from manifest; local 6-digit scan: no ID-like tokens.
 - 06:00Z B300 CPU partition reproduction running.
 Last visited: 2026-11-01T06:00Z
+- 06:05Z B300 CPU partition repro (v1 launch had an empty script copy via ssh stdin, re-sent via tar): FC/mask/C/S0-4 reproduce exactly; S bins 0 violations.
+- 06:08–06:10Z B300 GPU 7 probe 2 (0.017 GPU-h, ledgered): perm-swap on all 5 seeds.
+- 06:12Z whole-run audit_layout rc 0 (209 files, 0 findings); old suite 86 passed (CPU); B300 dir removed; no residual processes.
+- 06:20Z handoff.md written; verdict CONFIRMED (nonblocking issues listed).
+Last visited: 2026-11-01T06:21Z

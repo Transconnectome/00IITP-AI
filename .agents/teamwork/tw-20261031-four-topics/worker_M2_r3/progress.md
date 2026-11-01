@@ -24,3 +24,8 @@ Last visited: 2026-11-01T04:35Z
 Last visited: 2026-11-01T05:16Z
 - FULL_v2 control: 121 passed. 80/151 done; all 50 shipped-suite survivors processed: 49 KILLED (incl. X02 by the re-signed wiring test), 1 SURVIVED (U127 A15, classified equivalent). No INVALID so far.
 - addendum_05 §1-§3, §5, §6 drafted; §4 (mutant table) and §7 (checks) pending the run.
+Last visited: 2026-11-01T06:16Z
+- 05:56Z FULL_v2 DONE: 150 KILLED, 1 SURVIVED (U127 A15, equivalent), 0 INVALID, 0 NOT_APPLIED; controls 121 passed.
+- MUTANTS_SUMMARY.json (fa7017ac...) + table built; addendum_05 written (060b8c15...); receipt addendum_05_sha256.txt (6efd73ad...).
+- Post checks (final/post_*): topic3 121 passed; old suite 86 passed; topic1 88 passed; C1 67 OK; pins 42/1/3/2/3 OK; no new pyc; layout PASS; ID scan clean.
+- handoff.md written. Next: advisor review, then structured return.

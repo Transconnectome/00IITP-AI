@@ -86,7 +86,7 @@ That is 221 rows. Identical (file, old, new) patches are merged into one job tha
 
 **How.** `verification/worker_M2_r3/mutants/run_union.py`. Each job runs in a fresh copy of the base tree `verification/worker_M2_r3/tree_base_v3`, a byte copy of production built by `make_tree.sh` with its manifest checked. The job applies one patch (the old string must occur exactly once), then runs the topic3 suite with no `-x` under `timeout 900`, 2 jobs at a time, with `PYTHONDONTWRITEBYTECODE=1`. The runner counts a job as KILLED only when rc = 1 and the JUnit report lists at least one failing test. A timeout, a signal or a crash would count as INVALID; none occurred. Two passes were made:
 - **s88**: the shipped 88-test suite (the r3 files `--ignore`d). Run 2026-11-01T03:38:59Z–04:03:23Z, `runs/S88_v2.json` (sha256 `34da3012…`). Controls: 88 passed at start and end.
-- **full**: the shipped 88 + the 33 r3 tests. Run 04:31:41Z–05:56:06Z, `runs/FULL_v2.json` (sha256 `e222e7f2…`), with the base tree's r3 files at sha256 `58c64ccb…` and `b091b0b8…` (= the pinned files). Controls: 121 passed at start and end, 0 skipped.
+- **full**: the shipped 88 + the 33 r3 tests. Run 04:31:41Z–05:56:06Z, `runs/FULL_v2.json` (sha256 `e222e7f2…`), with the base tree's r3 files at sha256 `58c64ccb…` and `b091b0b8…` (= the pinned files). Controls: 121 passed at start and end, 0 skipped. The base tree also carried a draft of this addendum (it was copied from production while being written). Its bytes can only affect the shipped ID-scan tests, which pass on the draft and on the final file (§7), so the run was not repeated.
 
 | Pass | KILLED | SURVIVED | INVALID | NOT_APPLIED |
 |---|---|---|---|---|
@@ -148,7 +148,7 @@ All 50 s88 survivors are survivors that the r2b verifiers reported, so each was 
 | U141 | CH2:S06_stats_npz_hash_guard_disabled | scripts/topic3_token_stats.py | SURVIVED | KILLED | test_token_stats_refuses_a_spectra_hash_mismatch |
 | U143 | AU:A11_D3_lo_ge | analysis.py | SURVIVED | KILLED | test_d3_needs_both_lower_bounds_strictly_above_zero |
 
-**The one survivor.** U127 (challenger_2 A15, `"L3 lower" if sign < 0` → `if sign <= 0`) is **equivalent** with respect to every card-defined output. It changes only the direction label of a primary whose mean log ratio is exactly 0. Card §5 defines no direction for a zero mean. Through the shipped producer an exactly-zero mean has raw sign-flip p = 1, so `primary_significant`, the agreement count and the verdict ("killed") are the same either way. challenger_M2_r2b_2 already classified it as "expected equivalent". It is not tested, because any expected label for a zero mean would have to be invented. No survivor is classified as measure-zero: every closed-boundary sibling is killed by a constructed fixture (§3).
+**The one survivor.** U127 (challenger_2 A15, `"L3 lower" if sign < 0` → `if sign <= 0`) is **equivalent** with respect to every card-defined output. It changes only the direction label of a primary whose mean log ratio is exactly 0. Card §5 defines no direction for a zero mean. Through the shipped producer an exactly-zero mean has raw sign-flip p = 1, so `primary_significant`, the agreement count and the verdict ("killed") are the same either way. challenger_M2_r2b_2 already classified it as "expected equivalent". The changed `direction` string does appear in the output JSON, and its input is reachable: a = b gives d = 0 exactly, the same construction used for D1/D3. It is not tested, because any expected label for a zero mean would have to be invented. No survivor is classified as measure-zero: every closed-boundary sibling is killed by a constructed fixture (§3).
 
 **Runs not used as evidence** (kept unchanged, each with a README in `runs/`):
 - `S88_v1` was aborted at about 03:33Z by a runner bug. The runner wrote the literal `<job tree>` into the JUnit XML, which made it malformed at U022; the main thread then stopped recording while the pool kept running. The fixed runner reran everything as S88_v2.
@@ -175,12 +175,24 @@ Two further context items from the verifiers, recorded here for completeness:
 
 ## 6. Limits of these tests
 
-- All 30 tests were written **after** the real-data results existed. They are regression guards for the shipped code, not a pre-registration.
+- All 33 tests were written **after** the real-data results existed. They are regression guards for the shipped code, not a pre-registration.
 - The closed-boundary tests (§3) reach an end point of exactly 0 only with constructed inputs: hand-built records for the primary CI, identical matrices for D1/D3. For real continuous bootstrap or subsampling bounds an exact 0.0 is practically unreachable. The tests pin the card's rule ("excluding 0", "lo > 0", "< 0.025") at the boundary; they say nothing about how often the boundary occurs.
 - The D2 threshold test replaces the column-permutation null with one of chosen size and count (so p_low is exactly 0.02, 0.03 or 0.025). A second test checks, on a real seeded null, that p_low is computed by the card formula.
 - The exact-replay tests (`_card_bootstrap_ci`, `_card_signflip_p`, the H4 subsample) pin the frozen seed schedule and draw order, not just the statistics' definitions. A future change of seeds or draw order would fail them even if the statistics stayed correct; that is intended while the card is frozen.
-- The Family B wiring test needs the pinned VRABES `layer_3.npz` (read-only, sha256-pinned) to identify the primary from the data, and it skips if the VRABES checkout is absent, like the existing `test_io_contract.py`. It adds about 17 s, and the three refusal tests about 20 s, to the suite.
+- The Family B wiring tests need the pinned VRABES `layer_3.npz` (read-only, sha256-pinned): the first identifies the primary from it, and the script itself compares the primary's pooled L3 with it. They skip if the VRABES checkout is absent, like the existing `test_io_contract.py`. The two script runs add about 16 s and 13 s to the suite, and the three refusal tests about 17 s (only the re-pool refusal runs the full statistics before it halts).
 - The Family A script (`topic3_subject_level.py`) is not rerun. Its wiring is checked in-process with synthetic stand-ins for the two pinned loaders, so that test reads no real data. Family A numbers other than the A2 row identity are not re-derived by the r3 tests; the card parameters that define them are pinned by `test_params_equal_frozen_card`.
 - H2 (random-init control) remains untested, as card §6 pre-specified.
 
-[[SECTION_7]]
+## 7. Checks, compute and conduct
+
+Run on the production tree on 2026-11-01 at about 06:00Z, with this addendum in place except for this section and without its receipt (logs `verification/worker_M2_r3/final/pre_*`). The same checks were rerun after this file and its receipt were final (`verification/worker_M2_r3/final/post_*`), and those are the results reported to the gate.
+- `tests/topic3_spectral`: 121 passed (88 shipped + 33 r3).
+- Old suite (`STRICT_E2E=1`, `tests/test_empirical_four_topics.py tests/test_pilot_connectome.py tests/e2e`): 86 passed. `tests/topic1_lagmotif`: 88 passed.
+- C1 (`LC_ALL=C sha256sum -c .agents/teamwork/tw-20261031-four-topics/sentinel/PROTECTED_HASHES.txt`): 67 OK, rc 0.
+- `output_sha256.txt` 42 OK; `addendum_02_sha256.txt` 1 OK; `addendum_03_sha256.txt` 3 OK; `addendum_04_sha256.txt` 2 OK; `addendum_05_sha256.txt` checked in the post run.
+- Bytecode: the `.pyc` listing of `src/`, `scripts/` and `tests/` was taken before any work (`verification/worker_M2_r3/pycache_baseline_start.txt`) and again after. No `.pyc` was added. Seven `src/topic4_resu` files that were present at the start have since been removed by another team, and the three iteration-2 files in `src/topic3_spectral/__pycache__` are unchanged (§5). Every Python call of this iteration ran with `PYTHONDONTWRITEBYTECODE=1`.
+- Participant identifiers: none printed or written. A BIDS-prefix scan with no exclusions over this addendum, its receipt, the two new tests, `verification/worker_M2_r3/` and this worker's metadata hits exactly one file: `verification/worker_M2_r3/tree_base_v3/tests/topic3_spectral/test_token_job_driver.py`, the byte copy of the shipped test inside the FULL_v2 base tree, whose names are synthetic. During the runs, each job's temporary copy held the same file; those copies are deleted. The Family B wiring tests read only the pinned spectra npz and the `X` array of the pinned `layer_3.npz`. The Family A wiring test reads no real data.
+- Compute: 0 GPU-hours, nothing sent to B300 or connectome; local CPU only, under `nice`, at most 2 pytest processes at a time.
+- No git write of any kind. The 15-minute checkpoint commits on this machine are not this worker's. `git log` and `git show` were used read-only for §5.
+- Layout lint of the run metadata root (`audit_layout.py`): PASS, no findings.
+- Everything written by this iteration: the two test files, this addendum, `results/topic3/2026-10-31/addendum_05_sha256.txt`, `verification/worker_M2_r3/` and `.agents/teamwork/tw-20261031-four-topics/worker_M2_r3/`.

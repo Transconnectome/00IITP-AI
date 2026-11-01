@@ -14,3 +14,5 @@ Last visited: 2026-11-01T05:50Z
 - 05:56–05:58Z B300 GPU 7 (idle-checked): re-evaluated hcp E/C/S seed-2 checkpoints; perm buffers match run.json perm_sha256; test NMSE reproduced to <=1.2e-8 abs; 0.01 GPU-h, ledger started+completed rows written.
 - 06:01Z B300 CPU: train-only FC recomputed = shipped fc hash; C and S0-4 perms rebuilt identical; C placement Hungarian-optimal.
 Last visited: 2026-11-01T06:02Z
+- 06:12Z handoff.md written (APPROVE, 11 non-blocking); BRIEFING updated. Last visited: 2026-11-01T06:12Z
+- 06:16Z C6 grep on streamed paths and B300 /scratch/iitp4: prose only, no ENIGMA-derived data; salt finding reworded (required root action). Last visited: 2026-11-01T06:16Z

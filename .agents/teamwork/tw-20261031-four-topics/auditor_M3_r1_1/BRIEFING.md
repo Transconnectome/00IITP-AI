@@ -32,18 +32,20 @@ Forensic integrity audit of milestone M3 (Topic 2: connectome box-covering RG po
 - **Audit type**: forensic integrity check
 
 ## Audit Progress
-- **Phase**: investigating
-- **Checks completed**: C1 rc0 (67/67); card hash rc0; card git-committed 03:16:27Z by host checkpoint job with identical sha
-- **Checks remaining**: see progress.md
-- **Findings so far**: none yet
+- **Phase**: reporting (handoff.md written 06:20Z)
+- **Checks completed**: C1; card/code/output pins; freeze timeline (git + B300 mtimes); run-record consistency (27); B300 originals = local; checkpoint re-eval (bit-exact, 15/15 perm buffers); verdict recompute; tests 55+86; 11 mutants; split/burned/leakage; ID scan 0 hits; ledger 11.943 GPU-h; env; ENIGMA; C7; installs; git cadence; orphans; layout lint
+- **Checks remaining**: none
+- **Findings so far**: CLEAN; non-blocking: 5 surviving mutants (coverage gaps), stale 'pending PI' text vs PI_DECISIONS 2/3, unsalted content-hash pseudonyms, verdict.py treats missing F- gate as pass
 
 ## Key Decisions Made
 - Integrity mode = Development (derived from ORIGINAL_REQUEST: no from-scratch/no-delegation constraint)
+- Used ≤0.02 GPU-h on B300 .98 GPU 7 for checkpoint re-eval (ledger rows 05:56:27Z/05:57:26Z); own B300 dir removed
+- PI_DECISIONS item 5 (ENIGMA allowed on B300) noted; moot for M3
 
 ## Attack Surface
-- **Hypotheses tested**: TBD
-- **Vulnerabilities found**: TBD
-- **Untested angles**: TBD
+- **Hypotheses tested**: fabricated run.json (refuted by bit-exact checkpoint re-eval); arm mislabel (refuted: perm buffers); pre-freeze results (refuted: git+mtimes); facade gather (refuted); leakage (refuted); ID leak (0 hits)
+- **Vulnerabilities found**: test gaps for mask/sign/split/eval-seed lines; unsalted pseudonyms
+- **Untested angles**: fixture-run checkpoints (not saved); 11/15 Stage-1 checkpoints not re-evaluated (perm buffers checked); perlmutter fork
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md (read in place, not copied; metadata dir must not hold non-metadata copies)

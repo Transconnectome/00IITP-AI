@@ -1,4 +1,4 @@
-# BRIEFING — 2026-11-01T05:45Z
+# BRIEFING — 2026-11-01T06:21Z (created 05:45Z)
 
 ## Mission
 Empirically try to break worker_M3_r1's M3 (Topic 2) delivery: T2.1 architecture facts, T2.2 card/implementation/fixtures, T2.3 B300 pilot and the card verdict `stop`. Return CONFIRMED or REFUTED with evidence.
@@ -30,12 +30,13 @@ Empirically try to break worker_M3_r1's M3 (Topic 2) delivery: T2.1 architecture
 - Criteria: freeze-before-results, verdict follows card, recomputation of headline numbers, mutation kill, adversarial fixtures, C4/C5/C6 hygiene
 
 ## Key Decisions Made
+- 06:20Z verdict CONFIRMED; handoff.md written (Hard).
 - Independent recomputation from run.json; own mutation harness on copies; B300 use limited to checkpoint re-evaluation (perm-swap) + partition reproduction.
 
 ## Attack Surface
-- Hypotheses tested: (filled in progress.md / handoff.md)
-- Vulnerabilities found: TBD
-- Untested angles: TBD
+- Hypotheses tested: freeze-before-results (holds); verdict per card (holds, stop for any delta>0.361%); numbers from run.json (exact) and from checkpoints (~1e-7); perm buffers = declared arms (holds); perm-swap (every trained model degrades); train-only partitions reproduce (exact); S keeps distance bins (0 violations); structural octant/bijection (0 violations); split reproduces.
+- Vulnerabilities found: 14/32 mutants survive shipped tests (metric, loss, pairing, verdict script, gain sign, octant-rule isolation, slot order); verdict script treats missing F- gate as pass; stale 'pending PI' statements; unsalted content sha in manifest (C4 nuance); test smoke uses local GPU when visible.
+- Untested angles: retraining dynamics (forbidden by budget); F+/F- checkpoints not saved.
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md (read in place, not copied: metadata dir is metadata-only and the file is a skill, read-only)
