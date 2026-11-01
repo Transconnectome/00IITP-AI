@@ -20,6 +20,8 @@ Mode: **CONFIRMATORY**, one new experiment. It does not re-read the r1 verdict. 
   - the original split.json (sha256 `c13b5f21…`) has 64 TRAIN, 8 VAL and 16 TEST subjects;
   - perms_hcp.npz on B300 equals the repo copy (sha256 `ec05b796…`).
 
+- **This worker's Slurm smoke job 499** (debug partition, b300-01, 8 s, 0.003 GPU-h, synthetic only, reads no subject data). It ran the extraction script in `--smoke` mode: the r1 code freeze held; E_s0 and C_s0 loaded strictly with a correct perm buffer; 3 synthetic F+ subjects went through 4 encoders in 0.88 s per subject; peak memory was 18.9 GB.
+
 **No real-data FU-E statistic has been computed by anyone:** no embedding, similarity, Idiff or label join on real data.
 
 ## 1. Question, estimand, unit

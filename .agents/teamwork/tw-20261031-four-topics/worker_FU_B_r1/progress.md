@@ -16,3 +16,9 @@ Last visited: 2026-11-01T15:33Z
 - 16:15Z 509 PENDING (QOSMaxGRESPerUser: other teams hold the 8-GPU per-user QoS); background poller started.
 Last visited: 2026-11-01T16:15:56Z
 - poll 2026-11-01T16:16:13Z: job 509 terminal tasks 0/3 (background poller). Last visited: 2026-11-01T16:16:13Z
+- poll 2026-11-01T16:21:50Z: job 509 terminal tasks 0/3 (background poller). Last visited: 2026-11-01T16:21:50Z
+- 16:1xZ regression found: frozen r1 test test_outputs_no_ids (BIDS-prefix detector) matched a hyphenated English word in the card §2. Fix before any FU-B run: v1 bytes preserved (verification/worker_FU_B_r1/card_v1_frozen_20261101T160518Z.md.txt), one phrase changed (card mtime 16:20:05Z), addendum_01 written, v2 receipt card_sha256_v2.txt at 16:20:25Z (v1 receipt kept). First gate task 509_0 started 16:20:41Z (sacct). Test now 3/3 pass.
+- 16:2xZ baseline checks: old 86 passed; C1 rc 0; topic2_rgpool + topic2_fu_b 243 passed + the 1 fixed; r1 receipts: code_sha256_at_freeze/output_sha256_r2/c4_sanitized/addendum_06 OK; card_sha256/output_sha256/c4_sealed_originals fail only on the r2-sanitized files (pre-existing by design, addendum_05).
+Last visited: 2026-11-01T16:22:01Z
+- poll 2026-11-01T16:26:56Z: job 509 terminal tasks 0/3 (background poller). Last visited: 2026-11-01T16:26:56Z
+- poll 2026-11-01T16:32:05Z: job 509 terminal tasks 0/3 (background poller). Last visited: 2026-11-01T16:32:05Z

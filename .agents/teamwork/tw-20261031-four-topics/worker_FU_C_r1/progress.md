@@ -15,3 +15,8 @@ Last visited: 2026-11-01T16:17Z
 - 16:10Z pre-freeze artifacts copied back (sha verified): env/, partitions/, anchor/.
 - 16:13:23Z CARD FROZEN: docs/03_empirical_analysis/topic2/2026-11-02_topic2_fu_c_card.md sha fc2d0672…; receipt results/topic2/2026-11-02_fu_c/card_sha256.txt (41 lines, 0 failures).
 - 16:13:51–16:15:20Z wave 1 submitted (jobs 512-515, 517-520): g3t-G-E0-* check none; admission 12.48 <= 13.
+Last visited: 2026-11-01T16:35Z
+- 16:2xZ verdict layer src/topic2_fu_c/verdict.py + receipts.py + CLI; tests/topic2_fu_c 109 passed; flake8 clean.
+- 16:2xZ mutation harness verification/worker_FU_C_r1/mutants: r1 44/55 killed -> added 6 tests -> r2 51/54 killed (3 equivalent: V07c, V12, F11; baseline survives).
+- 16:31:53Z verdict code + tests pinned: results/topic2/2026-11-02_fu_c/code_sha256_before_results.txt. No Stage-1 job had started (all PENDING, QOSMaxGRESPerUser).
+- CLI dry run (no runs dir) -> no_verdict (fail closed).
