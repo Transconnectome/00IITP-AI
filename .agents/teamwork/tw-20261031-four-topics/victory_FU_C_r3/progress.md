@@ -1,0 +1,2 @@
+- 2026-11-01T23:07Z start; DISPATCH/BRIEFING written; Phase A
+- 2026-11-01T23:13:40Z C1 rc0; receipts as declared; fu_c 210 passed; old 86; rgpool 116; indep verdict reimpl = stop matches; B300 48/48 run file hashes match; sacct 25 jobs COMPLETED via Slurm; g3t-G-E0-8gpu PENDING at 23:10Z -> no GPU probe submitted

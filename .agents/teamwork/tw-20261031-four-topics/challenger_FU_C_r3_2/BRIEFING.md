@@ -28,13 +28,14 @@ Empirically challenge FU_C iteration 3 (worker_FU_C_r3): recompute headline, che
 - Criteria: ACCEPTANCE C1-C8, F1-F3; card §5-§8
 
 ## Key Decisions Made
+- Final: CONFIRMED (handoff.md 2026-11-01T23:15Z)
 - 0 GPU-h: the primary is recomputable from saved run.json (no checkpoint re-eval needed)
 - Mutation mirror lives under verification/challenger_FU_C_r3_2/ (not in c4scan's verification/worker_FU_C_r* glob)
 
 ## Attack Surface
-- Hypotheses tested: see progress.md
-- Vulnerabilities found: TBD
-- Untested angles: TBD
+- Hypotheses tested: headline recompute (holds), freeze order (holds), verdict rule (holds), receipts (holds), C4 containment (holds), fresh verdict-path mutants (all killed)
+- Vulnerabilities found (nonblocking): check_c4_r3 main ok/exit and walk scope untested (K08/K09/K11); K02 sentence-final '.'; strict S05/S07 gaps; scanners ignore file names, symlinked dirs, utf-16, .gz
+- Untested angles: B300 checkpoint re-eval (0 GPU-h used); /scratch/iitp4/fu_c vs repo copy
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md (methodology reference; frozen card before results, synthetic ground truth, verdict taxonomy)

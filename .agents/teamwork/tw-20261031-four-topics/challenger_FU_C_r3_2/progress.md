@@ -8,3 +8,5 @@ Last visited: 2026-11-01T23:05Z
 - 22:55Z scanner attacks: strict closes letter-'.' and short-hex blind spots; residual blind spots: digit-'.' separator, digest-shaped tokens, encodings, file NAMES, symlinked dirs, utf-16, .gz. Present state: 0 FU-C path names with 6-digit runs, 0 symlinks into sealed store, 0 NUL files in scope, only .npz is int/bool
 - 23:00Z independent C4 recount (own code): ident-context 0 (worktree, blobs), near@0.2/0.3 0; near@0.1 = test_evaluate_records_r2.py + 2 auditor mut copies (sibling boilerplate, no literal); gate + pooled-13 recomputed exactly; ledger FU-C total 10.697 GPU-h
 - 23:05Z suites: FU-C 210, old 86, rgpool 116 (CUDA hidden), lagmotif 88; C1 rc 0; audit_layout 0 findings; r3 artifact shas equal worker claims
+Last visited: 2026-11-01T23:15Z
+- 23:10Z worker C4 script rerun --b300 rc 0 ok true (0 exposures; B300 0 member hits incl. my folder); handoff.md written; verdict CONFIRMED
