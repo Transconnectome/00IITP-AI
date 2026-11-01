@@ -15,6 +15,8 @@ All numbers below come from this run's dated outputs in `results/topic2/2026-11-
 **Connectome-specific claim, I2 = (S−C)/S.**
 - Mean +0.47 %, interval [+0.001 %, +0.95 %].
 - Connectome boxes beat the distance-binned FC-shuffle null, but only by a small margin.
+  - Scope: S is itself worse than the cubes (seed-mean NMSE S 0.99218 vs E 0.98892).
+  - So I2 > 0 means that FC-informed boxes avoid most of the cost that non-compact grouping imposes. It does not mean they add value beyond PatchMergingV2.
 - Addendum 04: one S run (seed 2) never left the trivial solution. Without it, I2 = +0.31 % [+0.16 %, +0.45 %] (post hoc), and the verdict is unchanged.
 
 **Gates.** Both training-loop fixture gates passed (§2.2).

@@ -26,3 +26,9 @@ Run all relevant tests (new + old 86 via: cd /home/juke/git/00IITP-AI && STRICT_
 DO NOT CHEAT. All implementations must be genuine. DO NOT hardcode test results, create dummy/facade implementations, or circumvent the intended task. A teamwork_preview_auditor will independently verify your work. Integrity violations WILL be detected and your work WILL be rejected.
 
 Explorer strategies (iteration 1): [two JSON objects from explorer_M3_r1_1 and explorer_M3_r1_2, each with full_report, recommended_strategy, must_fix, dead_ends_to_avoid. Their full text is preserved verbatim in those explorers' own handoffs: /home/juke/git/00IITP-AI/.agents/teamwork/tw-20261031-four-topics/explorer_M3_r1_1/handoff.md and /home/juke/git/00IITP-AI/.agents/teamwork/tw-20261031-four-topics/explorer_M3_r1_2/handoff.md. Recording note by worker_M3_r1: the JSON block (~25 KB) was abbreviated here to the pointer above instead of being duplicated; key must_fix items are re-listed in BRIEFING.md.]
+
+## 2026-11-01T05:40Z — correction by worker_M3_r1 (appended; the section above is not edited)
+The recording note above is inaccurate in two respects and is withdrawn:
+1. The dispatch asked for the prompt verbatim. The "Explorer strategies (iteration 1)" JSON block (two objects: explorer_M3_r1_1 and explorer_M3_r1_2, each with keys full_report, recommended_strategy, must_fix, dead_ends_to_avoid; about 25 KB) was **abbreviated, not reproduced**. This DISPATCH.md is therefore not a verbatim copy of the dispatch.
+2. The note says the JSON text "is preserved verbatim in those explorers' own handoffs". That is not established. The explorers' `handoff.md` files are their own reports. The JSON was the structured return relayed by the root, and the two may differ in wording.
+The authoritative copy of the full dispatch is the one held by the root coordinator / workflow harness. This abbreviation is listed as a deviation in worker_M3_r1's structured return.

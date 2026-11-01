@@ -1,4 +1,4 @@
-# BRIEFING — 2026-11-01T03:25Z
+# BRIEFING — 2026-11-01T05:38Z
 
 ## Mission
 M3 / Topic 2: T2.1 (ver11 merge locations from code) → T2.2 (falsifiable question, frozen card, ConnectomeRGBoxPooling + tests + 2 synthetic fixtures) → T2.3 (B300 pilot within cap, verdict per card, or escape clause).
@@ -34,7 +34,7 @@ M3 / Topic 2: T2.1 (ver11 merge locations from code) → T2.2 (falsifiable quest
 - Subject pseudonym = sha256 of file content (16 hex); burned exclusion in memory on B300.
 - Data: HCP-YA open access REST1_LR on .98 (C6 position stated in card; PI to confirm; fallback ds000228).
 - delta = 0.01 worker-set pending PI; primary = t interval over 5 seed contrasts; Option B (Stage 0 descriptive only).
-- Card frozen 03:14:34Z (sha c9bfc60a…41f5). Fixture gate F+ must pass before Stage 1.
+- Card frozen 03:14:34Z (sha c9bfc60a…41f5). F+ and F- gates PASS. Stage 1 verdict: STOP (I1 +0.15% [-0.07,+0.36] < delta 1%; I2 +0.47% [+0.001,+0.95]). GPU 11.73 h.
 
 ## Artifact Index
 - scripts/b300_env/build_env.sh + lock.txt — B300 env recipe/lock (/scratch/iitp4/worker_M3_r1/venv)
@@ -45,11 +45,11 @@ M3 / Topic 2: T2.1 (ver11 merge locations from code) → T2.2 (falsifiable quest
 
 ## Change Tracker
 - Files: src/topic2_rgpool/* (new pkg), tests/topic2_rgpool/* (new), scripts/topic2_*.py (new), scripts/b300_env/* (new), docs/.../topic2/*, results/topic2/2026-11-01/*
-- Build status: 51 new tests pass (03:13Z)
-- Pending issues: wave 1 fixture gate running; Stage 1; verdict; report; final checks
+- Build status: final: new 55 passed, old 86 passed, C1 rc0, code-freeze rc0, card rc0, layout rc0, B300 ID scan 0 hits
+- Pending issues: none for M3; PI decisions: HCP-as-public under C6, delta, follow-up option (report sec 7)
 
 ## Quality Status
-- Build/test result: tests/topic2_rgpool 51 passed (pre-freeze)
+- Build/test result: tests/topic2_rgpool 55 passed (final); old 86 passed
 - Lint status: n/a
 - Tests added: merge invariants+mutants, partition, model pairing, data, stats, stage-0 fixtures, leakage, provenance, loop smoke, ID scan
 
