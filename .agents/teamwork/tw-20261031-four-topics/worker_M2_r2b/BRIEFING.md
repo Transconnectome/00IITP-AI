@@ -1,4 +1,4 @@
-# BRIEFING — 2026-11-01T00:40Z
+# BRIEFING — 2026-11-01T01:08Z (updated; created 00:40Z)
 
 ## Mission
 Complete M2 iteration 2 (Topic 3): run the shipped 85-test topic3 suite against the control and every mutant from challenger_M2_r1_1 (N01–N28 run; dispatch names N01–N19) + explorer_M2_r2_2 mini_mutants (18) + explorer_M2_r2_3 kill_demo (21), on copied trees; handle survivors (equivalence or new test file); check addendum_03 items 1/3/5 numbers; write addendum_04 + its sha receipt.
@@ -31,21 +31,28 @@ Complete M2 iteration 2 (Topic 3): run the shipped 85-test topic3 suite against 
 - Run challenger N01–N28 (superset of dispatch's N01–N19).
 - Run full suite per mutant without -x so every killing test is recorded.
 - Extract mutant specs from source harness files via AST (verbatim), hashes recorded.
+- MM 06 judged NOT equivalent (Holm p == 0.05 reachable at B=9999; card says strict <) -> created r2b test file under conditional ownership.
+- Run 3 added after discovering the run-1 raw-log overwrite.
 
 ## Artifact Index
 - DISPATCH.md — verbatim dispatch
 - /home/juke/git/00IITP-AI/verification/worker_M2_r2b/baseline/ — C1 and pin checks before work
+- verification/worker_M2_r2b/mutants/MUTANTS_SUMMARY.json — merged mutation evidence (runs 1-3)
+- verification/worker_M2_r2b/probes/check_addendum03_numbers.* — item (c) check
+- verification/worker_M2_r2b/final/ — final suites, C1, pins, id grep, layout lint
+- handoff.md — Hard handoff
 
 ## Change Tracker
-- Files modified: none yet (production)
-- Build status: baseline C1 rc0 (67 OK); output/addendum_02/addendum_03 pins rc0; card OK (format-stripped); freeze list only launcher differs (disclosed)
-- Pending issues: none
+- Files created (production, owned): tests/topic3_spectral/test_verdict_rules_r2b.py (3 tests; MM 06 survivor); docs/03_empirical_analysis/topic3/2026-11-01_topic3_addendum_04.md; results/topic3/2026-10-31/addendum_04_sha256.txt
+- Evidence: verification/worker_M2_r2b/{baseline,final,mutants,probes}/, make_trees.sh, manifests
+- Build status: final 01:05Z — topic3 88 passed; old suite 86 passed; topic1 88 passed; C1 rc0; all pins OK (launcher disclosed)
+- Pending issues: none blocking. Disclosed: run 2 overwrote run-1 raw logs (run 3 reproduces run 1 for 67/67).
 
 ## Quality Status
-- Build/test result: not yet run
-- Lint status: n/a
-- Tests added/modified: none yet
+- Build/test result: all pass (see above)
+- Lint status: audit_layout PASS (findings [])
+- Tests added/modified: +3 tests (Holm-alpha boundary reachability; zoo at exactly alpha not agreeing, H1a and H1b)
 
 ## Loaded Skills
-- Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md (methodology reference named by dispatch; not yet dumped locally)
+- Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md (methodology reference named by dispatch; read 01:10Z, not copied locally). Relevant here: G7 (test hashes recorded: addendum_04_sha256.txt), G9 (author does not pass own gate: handoff says "ready for r2b gate", no PASS claim), §4.5 (full test output attached in final/).
 - Core methodology: frozen card before results, synthetic ground-truth fixtures, run records, verdict taxonomy, independent review.

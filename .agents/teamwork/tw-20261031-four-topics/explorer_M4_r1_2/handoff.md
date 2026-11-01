@@ -8,10 +8,11 @@ Numbers below are feasibility evidence and govern no result (C3/C8).
 
 Three choices decide whether the redesign is feasible:
 1. **Primary set and horizon.** Use TR = 2.0 sites only (1195 subjects, 13 sites), with horizons stated in seconds. Fast-TR data are band-limited at 0.25 Hz, which gives a lag-1-sample persistence of 0.71 at TR 1.0 versus 0.15 at 2 s.
-2. **Local engine.** It must be stable by construction for every mask:
+2. **Local engine.** It must be stable by construction for every mask *and* learn real structure:
    - the old engine is non-local, non-equivariant and imports torch at runtime;
    - masked canonical PSP loses positive definiteness depending on topology;
-   - a rectified engine with a per-neuron contraction guard passes every stability check.
+   - a rectified engine with a per-neuron contraction guard is stable on every mask, but fails planted recovery at m = k (0.79) and is no better than random ReLU features.
+   - **No engine qualifies yet.** A synthetic engine-qualification gate must pass before the card is frozen. If no engine qualifies, the verdict is `no_candidate` and no real data are run.
 3. **No-backprop proof.** It needs three checks (AST scan, a runtime import block, target invariance). Each catches a mutant that the others miss.
 
 Compute is not a constraint: the whole design runs in about 2 h or less on 4 local CPU processes.
@@ -41,6 +42,7 @@ Compute is not a constraint: the whole design runs in about 2 h or less on 4 loc
 | O16 | Topologies at seed 42:<br>• C1–C4 have 69 undirected edges each<br>• C4 has 0 edges among its designated hubs {0,6,12,18}, but those hubs have degree 9, which is also the maximum degree<br>• the code's own `R_hub(hub_frac=0.33)` gives C1 1.571, C2 2.0, C3 4.0, **C4 1.857**<br>• so the "R_hub = 0.0" claim (docstring :58; consolidated status doc line 17) is false under the code's top-degree hub definition | probe_d_nobackprop.out.json |
 | O17 | Only C4 gets the cFFL delay input (`use_cffl = "Bio_Fractal" in name`) | fractal_motif_resu.py:377 |
 | O18 | **Candidate rectified local engine** (probe only): Jacobi y ← max(0, (Wx − Ly)/D) run to tolerance; local ΔW, ΔL (L ≥ 0, masked), ΔD; per-neuron guard κ_i = Σ_j L_ij / D_i ≤ 0.9 (postsynaptic-local scaling).<br>• **With guard:** non-convergence 0.0 on every mask and both η_L; equivariance deviation 4e-15; centred PR C0 1.0, C3 1.8–1.9, C1/C2/C4 4.7–6.3, C5 5.8–7.1<br>• **Mutant without guard:** non-convergence 0.03%–64% (C5 48–64%, C3 1.2–4.9%)<br>• **Rectification cost:** on a linear VAR, ridge on Y reaches h=1 R² 0.14–0.21, versus identity ridge 0.483, persistence 0.294, Bayes 0.506 | probe_f_rectified_local_engine.out.json |
+| O18b | **Engine R does NOT qualify** (probe H, synthetic).<br>• Planted k=8 at dim_y = 8: W-row alignment C5 0.792, C4 0.792, C0 0.812, which is the same band as the old engines (0.76–0.86). Centred PR: C5 4.28 (old dense 3.91), C4 1.89. The fixture does not separate R from the old engine.<br>• At dim_y = 24 alignment is 0.98–0.99 even for C0 (0.993), so with m > k the alignment metric is not discriminative.<br>• VAR forecast h=1 (Bayes 0.506, identity ridge 0.483): random ReLU-24 0.184 (0.158–0.204 over 5 seeds) ≈ engine R C4 0.178 / C5 0.212. Engine R learns nothing beyond random features.<br>• Rectification cost, separately: PCA-24 linear 0.452 → PCA-24+ReLU 0.318; a ±-paired ReLU code of 12 PCA directions (24 units) recovers to 0.434.<br>• ON/OFF input split (96-d) with engine R collapses: PR 1.0, R² −0.002 | probe_h_engineR_planted_and_controls.out.json |
 | O19 | Layout:<br>• the old AST audit globs `SRC_DIR.glob("*.py")` at top level only (:161), so a `src/topic4_resu/` subpackage is invisible to it<br>• hash-protected: fractal_motif_resu.py, local_learning_engine.py, rg_box_pooling.py, test_pilot_connectome.py, test_empirical_four_topics.py<br>• NOT protected (owned by other milestones, may change): src/topic1_lagmotif/data.py (d320bfe4…95e9), tr_table.py (a3837b15…6b8d), src/topic3_spectral/estimators.py (efc6f7ec…f7e9; has `centered_eigs`/`pr_cov`) | PROTECTED_HASHES.txt; sha256sum |
 | O20 | connectome:<br>• Slurm up (debug/interactive/preemptable, 4 nodes, 18 jobs in queue); node1 has 96 cores<br>• system numpy 1.22.3 / scipy 1.8.0<br>• `/storage/bigdata/ENIGMA_unzip` has 27 entries (contents not inspected)<br>Local superclaude-env has torch, sklearn, scipy and networkx | ssh connectome (read-only) |
 
@@ -55,7 +57,14 @@ Compute is not a constraint: the whole design runs in about 2 h or less on 4 loc
    - it is not permutation-equivariant, so topology effects are confounded with node index;
    - it imports torch at runtime.
 6. O11: the canonical rule with sparse masks becomes unstable in a topology-dependent way (C3 first). Stability would then confound the topology comparison. Linear PSP is also weak on the science: with a linear readout and an 8-d target, a linear 24-d code cannot beat identity ridge in population, and dense PSP converges to PCA-24 (O9).
-7. O18: a rectified engine whose contraction is guaranteed by a per-neuron rule holds for every mask, is equivariant and is cheap. The guard is mutation-testable, because non-convergence appears without it. Its cost is the loss of sign information. H2 (beat identity ridge) and H3 (beat backprop) are therefore likely to be killed, and the card must say so in advance.
+7. O18: a per-neuron contraction guard makes a rectified engine stable on every mask. It is equivariant, cheap and mutation-testable (non-convergence appears without it). **But O18b shows that stability is not enough:**
+   - the probe-F engine fails planted-structure recovery at m = k, just like the old engines;
+   - on the VAR its features are no better than random ReLU-24;
+   - so its forecasting loss comes from two sources: unpaired rectification (0.45 → 0.32, recoverable with ±-paired units, 0.43) and a rule that learns nothing useful (0.18 ≈ random).
+   **No candidate engine is qualified yet:**
+   - Linear PSP passes the planted fixture (0.997), but needs the guard under masks (O11).
+   - With a linear 24-d code and a linear readout, a masked-PSP fixed point still spans a C-invariant subspace (from W = FC ⇒ MF = FC). If that subspace is the top-24, topology cannot change the ridge forecast, so H1 would be null by construction.
+   - A real-data run therefore only makes sense after an engine passes a synthetic qualification gate. Otherwise the verdict is `no_candidate` (sci-pipeline G8), not a scientific null.
 8. O14 + O8: LOSO with per-fold retraining is infeasible (1195 folds × 60 runs). 5-fold subject cross-fitting is about 300 engine runs × ≤72 s ≈ 1.5 h on 4 processes, and the MLP adds minutes. This is local CPU work, so no B300 (C6) and no connectome (old numpy, and the ENIGMA npy would have to be moved).
 9. Precision: survey_3 found a between-subject R² SD of ≈0.04–0.07 at n=5. A single 60/20/20 split (n_test ≈ 239) gives a CI half-width of ≈0.009 at worst, which is borderline for a SESOI of 0.01. Cross-fitting (n_eval ≈ 1016) gives ≈0.004.
 
@@ -71,6 +80,8 @@ Compute is not a constraint: the whole design runs in about 2 h or less on 4 loc
   - the guard check in the probe recorded κ before rescaling, so the fixture must assert κ after the update;
   - thresholds are not calibrated. Probe F supports feasibility only.
 - MLP timing is from synthetic data. The between-subject SD used for precision comes from survey_3's n=5 probe.
+- A subject bootstrap over cross-fitted predictions covers test-subject sampling. It does not cover training-set variability across overlapping folds, so the CI is somewhat anti-conservative. Seed averaging offsets this only partly. State this in the card.
+- Probe H is one synthetic seed per configuration. The ON/OFF collapse may be fixable, for example with mean subtraction or homeostatic thresholds; that was not explored.
 - Family or sibling structure in ENIGMA was not checked, so a subject-level split may not be family-disjoint. Diagnosis labels are not needed and were not read.
 - The claim that macroscale resting BOLD is near-linear (which motivates expecting H2/H3 to be killed) comes from memory of the literature, e.g. Nozari et al. 2024 Nat Biomed Eng [확인 필요]. Do not cite it unverified.
 - I did not read explorer_M4_r1_1's folder (independence).
@@ -135,24 +146,35 @@ Compute is not a constraint: the whole design runs in about 2 h or less on 4 loc
 - Optional sharpest control: a degree-preserving rewire of C4.
 - State C4's property as "0 designated-hub edges". Do not state it as R_hub, which is 1.857 under the code's own definition (O16).
 
-**Engine**
-- Name exactly one. Recommended: a new rectified similarity-matching engine, `src/topic4_resu/local/`:
-  - Jacobi iteration to a tolerance;
-  - local ΔW, ΔL and ΔD updates;
-  - the per-neuron guard κ_i ≤ κ_max < 1 (O18).
-- Not the old fractal engine (O9/O10/O13/O15). At most it can appear as a labelled "legacy" arm.
-- Not `local_learning_engine` (its (yyᵀ)W term is non-local).
-- Not unguarded masked PSP (O11).
+**Engine: a qualification gate (synthetic only) before the card is frozen.** Name exactly one engine, and only after it passes every pre-declared criterion below. Set the thresholds before running, at ≥3 synthetic parameter points, and never loosen them.
+- **Q1 stability for every mask at stress:** a postsynaptic-local guard checked after each update; non-convergence < 0.1%.
+- **Q2 planted structure at m = k (not m > k; O18b) for the engine's own objective:**
+  - for linear PSP: subspace alignment ≥ 0.95 (0.997 dense vs old 0.76–0.86);
+  - for a rectified / NSM engine: recovery of planted non-negative sparse sources.
+- **Q3 learning value:** on the BOLD-like VAR, the engine beats random ReLU-24 by a pre-set margin. Engine R currently does not (O18b).
+- **Q4 topology can matter in principle:** the readout must not be invariant to the subspace rotations the masks induce. A ±-paired rectified output stage on top of guarded linear PSP is one candidate; it recovers 0.434 of 0.483 at fixed PCA directions (O18b).
+
+**Decision if nothing qualifies within the milestone:**
+- deliver the card, the implementation, the qualification report and verdict `no_candidate`;
+- run no real data.
+
+**Excluded engines:**
+- the old fractal engine (O9/O10/O13/O15). At most it can appear as a labelled "legacy" arm.
+- `local_learning_engine` (its (yyᵀ)W term is non-local).
+- unguarded masked PSP (O11).
+- the probe-F engine R as it stands (O18b).
 
 **Tuning, seeds and hypotheses**
 - Tuning: a grid of ≤6 configurations, with one configuration shared by all masks. Per-mask tuning could manufacture topology differences. The MLP gets the same budget.
 - Seeds: 10, paired across conditions. Average per-subject R² over seeds before the bootstrap; report the seed SD.
-- Hypotheses: Holm over H1–H3, α = 0.05, SESOI δ = 0.01 R² (**PI to confirm δ**).
-  - H1: Δ = L-C4 − ½(L-C1 + L-C2).
-  - H2: L-best (chosen on the tuning set) − identity ridge.
-  - H3: L-best − BP-MLP.
+- Hypotheses: Bonferroni over four contrasts, so each paired subject-bootstrap CI is at 1 − 0.05/4 = 98.75%. SESOI δ = 0.01 R² (**PI to confirm δ**).
+  - H1 topology: Δ = L-C4 − ½(L-C1 + L-C2).
+  - H2a learning value: L-best (chosen on the tuning set) − random ReLU-24.
+  - H2b practical value: L-best − identity ridge.
+  - H3: L-best − BP-MLP, one-sided "local beats backprop".
   - Decision rule for each: survives if CI_low > 0 and the point estimate ≥ δ; killed if CI_high < δ; otherwise inconclusive.
-- State the expected outcome: H2/H3 likely killed (O18), H1 likely inconclusive. Nulls are results.
+  - (If Holm is preferred, use one-sided bootstrap p-values with Holm and report CIs at the matched level. Do not mix Holm with CI rules.)
+- State the expected outcome: H2b/H3 likely killed (O18b), H1 likely inconclusive. Nulls are results.
 
 **Pre-test validity gates** (on the tuning set only, before cross-fitting):
 1. Persistence and identity-ridge validation R² < 0.9.
@@ -201,6 +223,7 @@ nice $PY probe_b_engines.py              # alignment PSP 0.997 vs old 0.76/0.86;
 nice $PY probe_b2_masked_psp_rk4.py      # masked PSP non-PD for C3 at eta/tau 0.02, C1-C4 at 0.1
 nice $PY probe_d_nobackprop.py           # mutant matrix; old path fails torch block
 nice $PY probe_f_rectified_local_engine.py  # guarded: nonconv 0 all masks; no-guard: up to 64%
+nice $PY probe_h_engineR_planted_and_controls.py  # engine R m=8 alignment 0.79 (fails); VAR: R 0.18-0.21 ≈ random ReLU 0.18; PCA24 0.45 -> ReLU 0.32 -> ±paired 0.43
 sed -n 417,425p;371,372p;350,352p;300,302p;377p;432p /home/juke/git/00IITP-AI/src/fractal_motif_resu.py
 cd /home/juke/git/00IITP-AI && LC_ALL=C sha256sum -c .agents/teamwork/tw-20261031-four-topics/sentinel/PROTECTED_HASHES.txt   # rc 0 at 00:56Z
 ```

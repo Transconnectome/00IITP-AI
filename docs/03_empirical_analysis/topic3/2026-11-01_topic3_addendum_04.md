@@ -156,7 +156,7 @@ On the shipped, unmutated code: 3 passed (`verification/worker_M2_r2b/new_test_o
 
 Check script: `verification/worker_M2_r2b/probes/check_addendum03_numbers.py` (output `check_addendum03_numbers.out.json`, log `.log`). For each number, the quoted text must occur in the pinned addendum 03, and the value is compared with (P) `verification/worker_M2_r2/probes/probe_addendum03_numbers.out.json`, (J) the pinned `family_A_subject_level.json` and `family_B_token_level.json` where the quantity is stored there, and (I) an independent recomputation by the check script from the pinned token-spectra npz files (and, for the L1 leave-one-out details that exist only in P, from the external pooled `layer_1.npz`, array key only). All inputs matched their pins.
 
-**Result: 36 claims checked, 32 agree, 3 mismatch, 0 quotes missing.** Wherever P, J and I could be compared they agree to ≤ 1e-9. The three mismatches are text-level. None changes a verdict, and none changes the reading in addendum 03.
+**Result: 35 quoted claims checked (34 from items 1, 3 and 5, plus the item-2 restatement "77–88%" of an item-1 number), 32 agree, 3 mismatch, 0 quotes missing.** One further binding check, not a quote, confirmed that the PR recomputed from the stored float32 eigenvalues equals the stored PR to within 4.3e-8 (relative). Wherever P, J and I could be compared they agree to within 2e-15 (absolute). The three mismatches are text-level. None changes a verdict, and none changes the reading in addendum 03.
 
 | Item | Addendum 03 text | Finding | Correct text |
 |---|---|---|---|

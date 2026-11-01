@@ -1,6 +1,6 @@
 # progress — explorer_M4_r1_2
 
-Last visited: 2026-11-01T00:59Z
+Last visited: 2026-11-01T01:04Z
 
 - [x] 00:36Z dispatch recorded (DISPATCH.md), BRIEFING.md created
 - [x] Read governing docs, survey M4 sections, sci-pipeline, old Topic-4 code, old AST audit
@@ -12,4 +12,4 @@ Last visited: 2026-11-01T00:59Z
 - [x] Probe E (VAR parameter grid), F (candidate rectified local engine + guard mutant), G (MLP CPU cost)
 - [x] connectome read-only check (Slurm up; system numpy 1.22/scipy 1.8; not needed)
 - [x] 0 GPU-h used; B300 not contacted (decision: M4 has no GPU need; ENIGMA forbidden there)
-- [x] handoff.md written; [ ] advisor review, structured return
+- [x] handoff.md written; advisor review done; probe H added (engine R does not qualify -> qualification gate); [x] structured return

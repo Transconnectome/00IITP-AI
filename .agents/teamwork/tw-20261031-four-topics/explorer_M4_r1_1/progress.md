@@ -11,3 +11,9 @@ Last visited: 2026-11-01T00:46Z
 - 00:55Z Probe B psp/nsm done; 00:59Z legacy done. Probe C (VAR(1)) done: Bayes 0.3598, oracle 0.3622±0.002, guards OK, acausal leak 0.536 > Bayes caught.
 - 01:01Z Probe E (backprop baseline adequacy + timing on VAR fixture) launched in background.
 Last visited: 2026-11-01T01:01Z
+- 01:05Z Probe E done (after preserving failed v1 in verification/explorer_M4_r1_1/failed_v1_probe_e/ with hashes): RRR-24 0.3498; tuned MLP e2e 0.3432, enc+ridge 0.3450, ~6 s/fit; 4-subject regime MLP 0.227 < ridge 0.304.
+- 01:10Z C1 rc=0; no lingering probe processes; no ID-like strings in outputs; SHA256SUMS.txt written in probe dir.
+- 01:15Z handoff.md written (Hard). Real subjects used: positions 0 and 932 only. GPU 0 h.
+Last visited: 2026-11-01T01:16Z
+- 01:18Z advisor rate-limited at final check; self-verified numbers against probe outputs (one fix: 0.33→0.34). Final return via StructuredOutput.
+Last visited: 2026-11-01T01:18Z
