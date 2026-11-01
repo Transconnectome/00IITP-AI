@@ -18,7 +18,7 @@ Empirically challenge worker_M3_r3's T2.4 gate repair (M3 / Topic 2): new test f
 - No GPU needed (0 GPU-h). connectome: no find/du/grep -r over /storage,/scratch.
 
 ## Current Parent
-- root coordinator 5fddb83e; Updated: not yet
+- root coordinator 5fddb83e; Updated: 2026-11-01T16:55Z (final: CONFIRMED, handoff.md written)
 
 ## Review Scope
 - tests/topic2_rgpool/test_verdict_path_guards_r3.py; docs/03_empirical_analysis/topic2/2026-11-02_topic2_addendum_06.md; results/topic2/2026-11-01/addendum_06_sha256.txt; verification/worker_M3_r3/
@@ -29,9 +29,9 @@ Empirically challenge worker_M3_r3's T2.4 gate repair (M3 / Topic 2): new test f
 - Own mutation harness (not worker's m01) re-applying verbatim specs from source files; plus fresh mutants.
 
 ## Attack Surface
-- Hypotheses tested: [TBD]
-- Vulnerabilities found: [TBD]
-- Untested angles: [TBD]
+- Hypotheses tested: attributable kills (legs A/B/D own harness), W09 equivalence (adversarial), E1-E5, headline recompute, salt containment, C4 of r3 outputs, 24 fresh mutants, regression suites
+- Vulnerabilities found: N1 X02 F+ gate ignores C-vs-E survives union; N2 positional route needs only public HCP list; N3 reading-rule precedence; N4 FU-B card trips C4 test; N5 old86 needs PYTHONPATH; N6 external SIGTERM on 2 runs (rerun valid)
+- Untested angles: connectome legs, B300 name-list scan, off-repo salt channels (transcripts/history)
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md (read in place; no local copy needed — read-only reference)

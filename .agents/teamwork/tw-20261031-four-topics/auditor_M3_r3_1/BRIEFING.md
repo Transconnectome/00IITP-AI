@@ -31,10 +31,10 @@ Forensic integrity audit of worker_M3_r3 (M3 Topic 2 iteration 3, ACCEPTANCE T2.
 - Audit type: forensic integrity check
 
 ## Audit Progress
-- Phase: investigating
-- Checks completed: none
-- Checks remaining: C1/receipts; frozen-code/test immutability; test-file source review (can-fail, hardcoding); independent mutation rerun; spec provenance; ID/salt leakage scan; log authenticity; GPU/ledger/connectome; git writes; layout
-- Findings so far: TBD
+- Phase: reporting (DONE)
+- Checks completed: all (C1, receipts, frozen pins, ownership, test review, spec provenance, legs A/B/C/D, W09, errata E1-E5, leak scan incl. 1084 B300 names, git, compute, regression, layout)
+- Checks remaining: none
+- Findings so far: CLEAN; nonblocking N1 (unlogged 11-passed claim), N2 (FU-B card reds C4 test), N3 (positional residual)
 
 ## Key Decisions Made
 - Re-implement the mutation harness independently instead of running worker m01.

@@ -11,3 +11,5 @@ Last visited: 2026-11-01T16:15:57Z
 - 16:26:32Z legs A/C at 12/24.
 Last visited: 2026-11-01T16:26:32Z
 Last visited: 2026-11-01T16:36:44Z (legs running)
+- 16:57:40Z legs A/B/C 72/72 agree with worker; V06 leg-C INVALID (rc -15 external SIGTERM) rerun KILLED; old86 86, topic1 88, new file 24, C4 pair (no FU) 11; C1 rc 0 final; rm of mirrors denied by harness (disclosed). handoff.md written. Verdict CLEAN.
+Last visited: 2026-11-01T16:57:40Z
