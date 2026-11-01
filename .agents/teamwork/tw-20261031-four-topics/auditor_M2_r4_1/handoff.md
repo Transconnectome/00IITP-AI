@@ -73,6 +73,9 @@ O7. Layout lint `audit_layout.py` on the whole run root (12:43Z): PASS, 276 file
 - Integrity mode was inferred as Development; under any mode the observations contain no flagged pattern.
 - My own deviations: DISPATCH.md summarises the long worker JSON fields in brackets (disclosed in the file); early progress.md times were estimates, corrected by an appended note; after the runs I removed pytest basetemps (synthetic torch frames, copies of pinned spectra, the real-data-derived Family A output JSON) and per-job copied trees (16 GB) — listed in `verification/auditor_M2_r4_1/logs/removed_temp_dirs.txt`; logs, JUnit, patch.txt, records, `tree_base` and manifests are kept.
 
+- Cross-check (13:03Z): my independently extracted patched-file sha256 equals the worker's `sha256_after` for all 26 REQUIRED ids (0 differ), so the worker reproduced the harness mutants verbatim.
+- Messaging adaptation: no SendMessage was used. The dispatch states that nested spawning is unavailable and that the structured return is the final report; the parent is the workflow harness and no addressable parent ID was exposed.
+
 ## 4. Conclusion
 
 CLEAN. The four fixed-scope classes are closed: all 26 named mutants (21 unique programs) are killed by the new r4 tests in my own copied tree, each with all 121 pre-existing tests passing. No regression: topic3 138 passed / 0 skipped, old suite 86, topic1 88, C1 67 OK, all six receipts OK including addendum_06, no new bytecode, no production write. The work is genuine. Out-of-scope items go to nonblocking.

@@ -37,7 +37,7 @@ Fixed-scope gate review (PI decision 6) of M2 iteration 4 (worker_M2_r4): are cl
 
 ## Review Checklist
 - Items reviewed: r4 test files (read in full), addendum 06 (read in full), worker handoff, r3 gate record + r3 fix requests, analysis.py/token_job.py/resampling.py/estimators.py, scripts/topic3_subject_level.py/topic3_common.py, helpers.py, worker superseded/ + evidence manifest
-- Verdict: interim APPROVE-track (pending shipped-121 survival run + skip probe)
+- Verdict: APPROVE (13:02Z) — shipped-121 survival 26/26 SURVIVED (runs/SHIPPED_named.json); skip probe OK; close-out clean; handoff.md final
 - Verified: 26/26 REQUIRED killed in-class by r4 tests in my tree (runs/R4_named.json); production topic3 138/0 skipped, old 86, topic1 88; C1 67; receipts 42/1/3/2/3/3; pyc unchanged; additivity (33/33 files pinned); witness numbers (c)/(d) reproduced; worker records spot-checked (4) against raw junit/log hashes
 - Unverified claims: worker's EXTRA-id statuses and 151-union rerun (not in gate; not rerun by me)
 

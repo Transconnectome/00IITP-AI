@@ -22,3 +22,5 @@ Last visited: 2026-11-01T12:50Z
 - 12:58Z removed pytest basetemps and per-job trees (16 GB temp; list in verification/auditor_M2_r4_1/logs/removed_temp_dirs.txt); evidence manifest 109 files (18c69e38…)
 - 13:00Z handoff.md written; verdict CLEAN
 Last visited: 2026-11-01T13:00Z
+- 13:03Z patched-sha cross-check vs worker records: 26/26 agree; handoff caveats appended; final
+Last visited: 2026-11-01T13:03Z

@@ -16,3 +16,10 @@ Last visited: 2026-11-01T12:38Z
 - 12:44Z runner v1 bytes preserved (bin/run_mutants_v1_used_for_R4_named.py, 13774d60…); v2 adds own-process-group cleanup (fd58777f…). Launched SHIPPED_named (control + 26, shipped 121 tests).
 - 12:45Z BIDS scan of own outputs: no hits outside the byte copy of the shipped driver test (synthetic SYN names). Layout lint PASS (276 files, no findings).
 Last visited: 2026-11-01T12:46Z
+- CORRECTION (13:02Z): the 12:31Z additivity entry said "33" files; the correct count is 31 (18 tests/topic3_spectral, 6 src/topic3_spectral, 7 scripts/topic3_*). Re-run with exact hash+path match: 31 PINNED, 0 UNPINNED (logs/final_additivity.txt).
+- 12:59:58Z SHIPPED_named finished: CONTROL_OK (121/121) + 26/26 SURVIVED the shipped 121 tests -> every r4 kill is attributable to the r4 tests alone.
+- 13:00Z skip probe (bin/skip_probe.sh): VRABES_RA -> nonexistent in a copied tree: real-data class (a) test SKIPPED cleanly, 16 passed; with FA01 also applied the synthetic class (a) test still fails (1 failed, 15 passed, 1 skipped).
+- 13:01Z close-out: final pyc diff empty; C1 67 OK; receipts 42/1/3/2/3/3 OK; BIDS scan of own outputs clean; no leftover processes; jobs_tmp removed; own scratch items (allpins.txt, rv4_basetemp) removed; no production file newer than 12:25Z.
+Last visited: 2026-11-01T13:02Z
+- 13:04Z final layout lint rc=0 (logs/audit_layout_final.log); handoff.md read back (no control chars, APPROVE present). Final report delivered via StructuredOutput (no addressable parent ID for SendMessage; dispatch says the structured return is the final report).
+Last visited: 2026-11-01T13:04Z

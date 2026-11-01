@@ -57,3 +57,8 @@ the four classes closed (every named mutant killed by the new tests in my own co
 - verification/auditor_M2_r4_1/tree_base (+ .manifest_sha256.txt) — my copied tree
 - verification/auditor_M2_r4_1/logs/ — C1/receipt/code-freeze logs
 - verification/auditor_M2_r4_1/pyc_before.txt — pyc baseline
+
+## Corrections (append-only)
+- 13:03Z: the header time "12:45Z" was an estimate; BRIEFING.md was created at about 12:31Z (runner started 12:32:27Z).
+- 13:03Z: cross-check — my independently extracted patched-file sha256 equals the worker's sha256_after for all 26 REQUIRED ids (0 differ).
+- 13:03Z: no SendMessage used — dispatch says the structured return is the final report and the parent is the workflow harness (no addressable parent ID exposed).
