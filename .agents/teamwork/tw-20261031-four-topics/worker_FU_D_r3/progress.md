@@ -3,3 +3,5 @@
 - 23:40Z read role/adapters/request/acceptance/PI decisions/gate status; frozen code; explorer r3 proposals.
 Last visited: 2026-11-01T23:40Z
 - 23:46Z wrote tests/topic2_fu_d/test_fud_r3_{guards,oracle,full_output}.py; tests/topic2_fu_d 388 passed
+- 23:58Z union run 1 launched (background task blc6snz0w); test snapshot in mutation/run1_test_snapshot
+- 00:02Z errata probe done (probes/errata_probe.out.json); addendum draft in scratchpad

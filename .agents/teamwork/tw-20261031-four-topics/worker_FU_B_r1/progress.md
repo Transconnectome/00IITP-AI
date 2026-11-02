@@ -111,3 +111,5 @@ Last visited: 2026-11-01T22:52:35Z
 - poll 2026-11-01T23:35:58Z: job 516 terminal tasks 8/15 (background poller). Last visited: 2026-11-01T23:35:58Z
 - poll 2026-11-01T23:41:13Z: job 516 terminal tasks 8/15 (background poller). Last visited: 2026-11-01T23:41:13Z
 - poll 2026-11-01T23:46:27Z: job 516 terminal tasks 8/15 (background poller). Last visited: 2026-11-01T23:46:27Z
+- 2026-11-01T23:51:36Z waiting: 516_8-11 running, 516_12-14 held by root. Last visited: 2026-11-01T23:51:36Z
+- poll 2026-11-01T23:51:43Z: job 516 terminal tasks 8/15 (background poller). Last visited: 2026-11-01T23:51:43Z
