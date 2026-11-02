@@ -1,0 +1,153 @@
+{
+  "report_path": "/home/juke/git/00IITP-AI/docs/03_empirical_analysis/2026-11-02_FOUR_TOPICS_FINAL_REPORT.md",
+  "report_sha256": "d8d4a3ce674481276e2ac8fec35466ccb120e86a85db23aef1d052229d257f45",
+  "report_lines": 443,
+  "report_bytes": 114400,
+  "c1_protected_hashes": {
+    "rc": 0,
+    "total_lines": 67,
+    "ok_count": 67,
+    "pass": true,
+    "stderr": ""
+  },
+  "genre_and_voice": {
+    "forbidden_first_person_hits": {
+      "나는": 0,
+      "내가": 0,
+      "저는": 0,
+      "제가": 0,
+      "우리의": 0,
+      "생각한다": 0,
+      "믿는다": 0
+    },
+    "total_forbidden_voice_hits": 0,
+    "son_professor_honorific_count": 7,
+    "improper_honorific_count": 0,
+    "bare_name_without_honorific_count": 0,
+    "pass": true
+  },
+  "verdict_fidelity": {
+    "milestone_verdict_checks": {
+      "M1_killed": true,
+      "M3_stop": true,
+      "FU_A_inconclusive": true,
+      "FU_B_stop": true,
+      "FU_C_stop": true,
+      "FU_D_inconclusive": true,
+      "FU_E_inconclusive": true,
+      "M2_verdicts": true,
+      "M2H2_verdicts": true,
+      "M4_verdicts": true
+    },
+    "all_milestone_verdicts_match": true,
+    "spin_phrase_hits": {
+      "부분적\\s*성공": 0,
+      "유망한\\s*신호": 0,
+      "경향성\\s*확인": 0,
+      "긍정적\\s*경향": 0,
+      "잠재적\\s*이득을\\s*입증": 0,
+      "가설을\\s*지지": 0
+    },
+    "zero_spin_phrases": true,
+    "pass": true
+  },
+  "structure_and_completeness": {
+    "required_headings_count": 38,
+    "missing_headings": [],
+    "pass": true
+  },
+  "addenda_and_caveats": {
+    "checks": {
+      "M2_addendum03_D1_cov_lo_3_22": true,
+      "M2_addendum03_A1b_L5e5_neg_3_28": true,
+      "M2_addendum03_effective_ceiling_7_and_L1_LOO": true,
+      "M2H2_addendum08_E1_C3_f_0_5483": true,
+      "M2H2_addendum08_E2_R1_descriptive_interval": true,
+      "M2H2_addendum08_E3_L0_subject_INC": true,
+      "M2H2_victory_untrained_pr_cov_31_0_to_34_0": true,
+      "M3_addendum06_V01_V11_and_E1_Fplus": true,
+      "FU_C_addendum01_03_disclosures": true,
+      "FU_D_addendum01_02_E1_E9_W1_W5_P1": true,
+      "FU_E_counterfactual_J1_and_S_s2": true,
+      "R2_fix_BLOCKING1_M1_log_ratio_means": true,
+      "R2_fix_BLOCKING2_M2_colperm_null_means": true,
+      "R2_fix_BLOCKING3_M2_D3_m12_covPR": true,
+      "R2_fix_BLOCKING4_M2H2_FamilyL_subject": true,
+      "R2_fix_BLOCKING4_M2H2_FamilyL_token": true,
+      "R2_fix_M4_addendum01_and_victory_caveat7": true,
+      "R2_fix_M4_package_and_test_paths": true
+    },
+    "pass": true
+  },
+  "c4_and_c8_hygiene": {
+    "bids_prefix_hits": [],
+    "six_digit_tokens": [
+      {
+        "token": "217845",
+        "context": " `connectome` CPU Slurm `217845`) | **`J1` FAILS (`stop`"
+      },
+      {
+        "token": "218063",
+        "context": "connectome` A5000 Slurm `218063, 218064` 외: 작업자 `0.458`,"
+      },
+      {
+        "token": "218064",
+        "context": "me` A5000 Slurm `218063, 218064` 외: 작업자 `0.458`, 탐색 `0.0"
+      },
+      {
+        "token": "218063",
+        "context": "07_sha256.txt`, Gate 작업 `218063` 제출 `16:22:19Z` 및 무작위 초기"
+      },
+      {
+        "token": "218064",
+        "context": "16:22:19Z` 및 무작위 초기화 작업 `218064` 제출 `16:32:19Z` 이전).   -"
+      },
+      {
+        "token": "217845",
+        "context": "`node2` CPU Slurm 배열 작업 `217845_0..3` 각 `101–121 s`).   "
+      },
+      {
+        "token": "218004",
+        "context": "PU-h`의 `14.85%`; 탐색 스모크 `218004, 218007, 218041` 합계 `0.0"
+      },
+      {
+        "token": "218007",
+        "context": "14.85%`; 탐색 스모크 `218004, 218007, 218041` 합계 `0.058 GPU-h"
+      },
+      {
+        "token": "218041",
+        "context": " 탐색 스모크 `218004, 218007, 218041` 합계 `0.058 GPU-h` + 본작업 "
+      },
+      {
+        "token": "218063",
+        "context": "058 GPU-h` + 본작업 Gate G `218063` `0.135 GPU-h` + 무작위 10시"
+      },
+      {
+        "token": "218064",
+        "context": "0.135 GPU-h` + 무작위 10시드 `218064` `0.323 GPU-h` + r1 검증자 "
+      },
+      {
+        "token": "218065",
+        "context": "323 GPU-h` + r1 검증자 재실행 `218065..218069` `0.303 GPU-h` +"
+      },
+      {
+        "token": "218072",
+        "context": "` `0.303 GPU-h` + 승리 감사 `218072` 시드 5·10 비트일치 재현 `0.072 "
+      },
+      {
+        "token": "218072",
+        "context": "6}$, `connectome` Slurm `218072`에서 시드 5·10 재실행 시 `.npz` "
+      }
+    ],
+    "unexpected_six_digit_tokens": [],
+    "hex16_tokens": [],
+    "c8_mentions": [
+      {
+        "line": 6,
+        "text": "- **증거 및 데이터 거버넌스 준칙 (C1–C8)**: 본 보고서의 모든 실증 수치는 사전 동결(pre-frozen) 분석 카드 이후 생성된 본 실행의 날짜별 정본 결과 파일(`results/topic1/2026-10-31/`, `results/topic2/2026-11-01/`, `results/topic2/2026-11-02_fu_{a,b,c,d,e}/`, `results/topic3/2026-10-31/`, `results/topic3/2026-11-02_h2/`, `results/topic4/2026-11-01/`, `results/gpu_ledger_2026-10-31.md`)에서만 인용하였다. 과거 예비 문서(`EMPIRICAL_ANALYSIS_REPORT.md`, `2026-11-01_FOUR_TOPICS_CONSOLIDATED_STATUS.md`)의 수치는 결과 근거로 인용하지 않는다(C8). 참가자 식별자·BIDS 접두어·비염처리 해시는 일절 포함하지 않는다(C4)."
+      }
+    ],
+    "pass": true
+  },
+  "all_automated_checks_pass": true
+}

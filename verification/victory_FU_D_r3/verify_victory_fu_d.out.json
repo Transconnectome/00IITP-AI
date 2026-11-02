@@ -1,0 +1,132 @@
+{
+  "phase_a": {
+    "receipts": {
+      "protected_hashes": {
+        "total": 67,
+        "ok": 67,
+        "bad": []
+      },
+      "fud_card": {
+        "total": 1,
+        "ok": 1,
+        "bad": []
+      },
+      "fud_code_freeze": {
+        "total": 29,
+        "ok": 29,
+        "bad": []
+      },
+      "fud_output": {
+        "total": 34,
+        "ok": 34,
+        "bad": []
+      },
+      "fud_addendum_01": {
+        "total": 23,
+        "ok": 23,
+        "bad": []
+      },
+      "fud_addendum_02": {
+        "total": 102,
+        "ok": 102,
+        "bad": []
+      },
+      "r1_code_freeze": {
+        "total": 33,
+        "ok": 33,
+        "bad": []
+      },
+      "r1_output_r2": {
+        "total": 156,
+        "ok": 156,
+        "bad": []
+      },
+      "r1_addendum_06": {
+        "total": 31,
+        "ok": 31,
+        "bad": []
+      }
+    },
+    "chronology": {
+      "freeze_utc": "2026-11-01T16:06:07Z",
+      "smoke_submitted_utc": "2026-11-01T16:13:50Z",
+      "smoke_start_utc": "2026-11-01T16:35:26Z",
+      "smoke_closed_utc": "2026-11-01T16:39:16Z",
+      "gate_runs": {
+        "Fplus_E_s0": {
+          "job_id": "534",
+          "submitted_utc": "2026-11-01T16:39:57Z",
+          "start_utc": "2026-11-01T17:46:43Z",
+          "end_utc": "2026-11-01T18:57:06Z",
+          "closed_utc": "2026-11-01T19:06:59Z"
+        },
+        "Fplus_C_s0": {
+          "job_id": "535",
+          "submitted_utc": "2026-11-01T16:40:43Z",
+          "start_utc": "2026-11-01T17:46:46Z",
+          "end_utc": "2026-11-01T18:57:27Z",
+          "closed_utc": "2026-11-01T19:09:08Z"
+        },
+        "Fplus_S_s0": {
+          "job_id": "536",
+          "submitted_utc": "2026-11-01T16:41:11Z",
+          "start_utc": "2026-11-01T17:52:47Z",
+          "end_utc": "2026-11-01T19:03:26Z",
+          "closed_utc": "2026-11-01T19:11:21Z"
+        }
+      },
+      "output_receipt_utc": "2026-11-01T19:13:37Z",
+      "addendum_01_receipt_utc": "2026-11-01T21:49:17Z",
+      "addendum_02_after_addendum_01": true,
+      "strict_order_verified": true
+    }
+  },
+  "phase_c_recomputation": {
+    "nmse_float": {
+      "E": 0.6558494816918741,
+      "C": 0.653467876277415,
+      "S": 0.6577736746995909
+    },
+    "gain_C_vs_E": 0.003631329262188746,
+    "gain_C_vs_S": 0.00654601816368273,
+    "gate_pass": false,
+    "verdict": "inconclusive",
+    "verdict_sha256": "f6b295d9d093fd3ff3e991d46a64a5dc21fbdfc638804363deed7ff1cca959fc",
+    "regenerated_byte_identical": true,
+    "shipped_invariants_ok": true
+  },
+  "phase_b_b1_b2_closure": {
+    "p1_mult_k4": 0.3552890210395598,
+    "p1_mult_k3": 0.2800873806582569,
+    "stall_matrix_fixtures_verified": 28,
+    "oracle_scenarios_verified": 3000,
+    "union_raw": 2051,
+    "union_distinct": 1675,
+    "union_killed": 1511,
+    "union_survived": 164,
+    "union_invalid": 0,
+    "union_shipped_changing_killed": 515,
+    "union_survivors_changing_shipped": 0,
+    "union_killed_only_by_r3_files": 34,
+    "errata_probe_reproduced_identically": true
+  },
+  "phase_b_c4_c5": {
+    "fud_worker_and_explorer_gpuh": 3.672,
+    "fud_cap_gpuh": 25.0,
+    "fud_r2_r3_gpuh": 0.0,
+    "c4_frozen_scan": {
+      "n_files": 84,
+      "token_hits": 0,
+      "bids_hits": 0,
+      "files_with_hits": []
+    },
+    "c4_victory_scan": {
+      "n_files": 6,
+      "token_hits": 0,
+      "bids_hits": 0,
+      "six_digit_hits": 0,
+      "bad_files": []
+    }
+  },
+  "status": "PASS"
+}

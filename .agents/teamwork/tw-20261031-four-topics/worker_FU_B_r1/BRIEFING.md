@@ -32,20 +32,22 @@ FU-B: Topic 2 follow-up B — 4x training budget (35000 steps x 16 = 560k sample
 - Own verdict wiring (src/topic2_fu_b/verdict.py) around frozen stats.py; never scripts/topic2_verdict.py.
 
 ## Artifact Index
-- docs/03_empirical_analysis/topic2/2026-11-02_topic2_fu_b_card.md — card (freeze pending smoke)
+- docs/03_empirical_analysis/topic2/2026-11-02_topic2_fu_b_card.md — frozen card (v2 receipt card_sha256_v2.txt; v1 receipt card_sha256.txt; addendum_01)
+- docs/03_empirical_analysis/topic2/2026-11-02_topic2_fu_b_result_report.md — final result report
+- results/topic2/2026-11-02_fu_b/{verdict.json,gate_4x.json,output_sha256.txt,slurm/jobs.json,b300/runs/*}
 - src/topic2_fu_b/{design,records,verdict,budget,view,slurm}.py; scripts/topic2fu_b_{run,make_view,smoke,verdict,slurm,c4scan}.py
-- tests/topic2_fu_b/ (125 passing at 15:24Z)
+- tests/topic2_fu_b/ (128 passing; 44/44 mutants killed in verification/worker_FU_B_r1/mutation/mutants_v2.out.json)
 - verification/worker_FU_B_r1/stage_v1 (+ sha lists) — code bundle copied to B300
-- B300 /scratch/iitp4/fu_b/{venv,code,in,hcp/subjects(hNN hard links),view_check.json}
+- B300 /scratch/iitp4/fu_b/{venv,code,in,hcp/subjects(hNN hard links),view_check.json,c4_scan_b300.json,runs}
 
 ## Change Tracker
 - Files modified: only new files in owned paths.
-- Build status: tests/topic2_fu_b 125 passed.
-- Pending: smoke job 490; freeze; gate; Stage 1; verdict; report.
+- Build status: tests/topic2_fu_b + tests/topic2_rgpool 244 passed; old 86 passed; C1 PROTECTED_HASHES 67/67 OK.
+- Pending: none (complete; verdict STOP).
 
 ## Quality Status
-- Build/test result: pass (15:24Z). Lint: not run yet.
-- Tests added: design/pins, records, verdict precedence/boundaries/r1 reproduction, budget/share rule, slurm/view/wrapper.
+- Build/test result: pass (2026-11-02T03:45Z).
+- Tests added: design/pins, records, verdict precedence/boundaries/r1 reproduction, budget/share rule, slurm/view/wrapper (128 tests, 44/44 mutants killed).
 
 ## Loaded Skills
 - Source: /home/juke/.claude/skills/sci-pipeline/SKILL.md (methodology: frozen card before results, synthetic ground truth, run records, verdict taxonomy). Not copied locally (read in place; deviation: the role asks for a local dump).

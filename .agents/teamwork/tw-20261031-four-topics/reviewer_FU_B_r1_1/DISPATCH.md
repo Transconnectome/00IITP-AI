@@ -1,0 +1,23 @@
+## 2026-11-02T03:49:20Z — Coordination dispatch from parent 78a86a60-03cb-452a-896e-fb2a0120898a
+
+- Role: `reviewer_FU_B_r1_1` (Reviewer 1 of 2 for Milestone `FU_B_r1`) in run `tw-20261031-four-topics` (General route), workflow C.
+- Role reference: `/home/juke/git/chavis/skills/teamwork/references/roles/reviewer.md`
+- Runtime adapters: `/home/juke/git/chavis/skills/teamwork/references/runtime.md`, `/home/juke/git/chavis/skills/teamwork/references/claude-code.md`
+- Required pre-reads:
+  - `/home/juke/git/00IITP-AI/.agents/teamwork/tw-20261031-four-topics/ORIGINAL_REQUEST.md`
+  - `/home/juke/git/00IITP-AI/.agents/teamwork/tw-20261031-four-topics/sentinel/ACCEPTANCE.md`
+  - `/home/juke/git/00IITP-AI/.agents/teamwork/tw-20261031-four-topics/orchestrator/PI_DECISIONS_2026-11-01.md`
+  - `/home/juke/git/00IITP-AI/.agents/teamwork/tw-20261031-four-topics/orchestrator/GATE_STATUS.md`
+- Exclusive metadata directory: `/home/juke/git/00IITP-AI/.agents/teamwork/tw-20261031-four-topics/reviewer_FU_B_r1_1/`
+- Exclusive probe directory: `/home/juke/git/00IITP-AI/verification/reviewer_FU_B_r1_1/`
+- Read-only on all production files (`src/`, `scripts/`, `tests/`, `results/`, `docs/`). ZERO git writes.
+- C4 privacy rule: Never print or write HCP 6-digit IDs, BIDS subject prefix strings (or hyphenated English words starting with that 3-letter prefix), or 16-hex content hashes.
+- Task: Independently review correctness and completeness of Milestone FU_B (`Topic 2 follow-up B: 4x training budget (560k samples) at E36, arms E/C/S, 5 seeds (sec 7 ~26 GPU-h; cap 33)`) vs ACCEPTANCE C1-C8 and milestone criteria F1-F3.
+- Raw artifacts in worker ownership:
+  - `/home/juke/git/00IITP-AI/src/topic2_fu_b/`
+  - `/home/juke/git/00IITP-AI/tests/topic2_fu_b/`
+  - `/home/juke/git/00IITP-AI/scripts/topic2fu_b_*.py`
+  - `/home/juke/git/00IITP-AI/results/topic2/2026-11-02_fu_b/`
+  - `/home/juke/git/00IITP-AI/docs/03_empirical_analysis/topic2/2026-11-02_topic2_fu_b_*.md`
+  - `/home/juke/git/00IITP-AI/.agents/teamwork/tw-20261031-four-topics/worker_FU_B_r1/handoff.md`
+- Re-run tests (`tests/topic2_fu_b`, `tests/topic2_rgpool`, old suite 86), receipt checks (`card_sha256_v2.txt`, `output_sha256.txt`, `results/topic2/2026-11-01/code_sha256_at_freeze.txt`), and protected hash check (`LC_ALL=C sha256sum -c .agents/teamwork/tw-20261031-four-topics/sentinel/PROTECTED_HASHES.txt`).
