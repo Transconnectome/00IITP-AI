@@ -113,3 +113,4 @@ Last visited: 2026-11-01T22:52:35Z
 - poll 2026-11-01T23:46:27Z: job 516 terminal tasks 8/15 (background poller). Last visited: 2026-11-01T23:46:27Z
 - 2026-11-01T23:51:36Z waiting: 516_8-11 running, 516_12-14 held by root. Last visited: 2026-11-01T23:51:36Z
 - poll 2026-11-01T23:51:43Z: job 516 terminal tasks 8/15 (background poller). Last visited: 2026-11-01T23:51:43Z
+- worker_FU_B_r1 wait 2026-11-02T00:28:56Z: 516 terminal=12 running=3. Last visited: 2026-11-02T00:28:56Z
