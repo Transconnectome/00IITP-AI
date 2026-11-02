@@ -124,3 +124,8 @@ Last visited: 2026-11-01T22:52:35Z
 - 2026-11-02T01:28:47Z ROOT NOTICE (coordination event, not human): the 23:53:56Z stop was root's duplicate-instance cleanup, not a PI instruction; this is the single remaining instance. Hold/release window: root put 516_[12-14] on hold (JobHeldAdmin, ACCEPTANCE C5 B300-share rule) at 2026-11-01T22:52:35Z and released it by 23:57Z (root observation). After that they waited only on the %4 array throttle. SwiFT job 589 runs under QOS=whole and does not compete. I did not cancel, release or resubmit any task. Current sacct (01:27:13Z): 12/15 terminal, 3 running (516_12-14). Next: one background poller (>=5 min), close+ledger+sync per finished task, then card s8 verdict and handoff. Last visited: 2026-11-02T01:28:47Z
 - poll 2026-11-02T01:29:07Z: job 516 terminal tasks 12/15 (background poller). Last visited: 2026-11-02T01:29:07Z
 - poll 2026-11-02T01:34:22Z: job 516 terminal tasks 12/15 (background poller). Last visited: 2026-11-02T01:34:22Z
+- worker_FU_B_r1 wait 2026-11-02T01:38:01Z: 516 terminal=12 running=3. Last visited: 2026-11-02T01:38:01Z
+- poll 2026-11-02T01:39:39Z: job 516 terminal tasks 12/15 (background poller). Last visited: 2026-11-02T01:39:39Z
+- poll 2026-11-02T01:44:52Z: job 516 terminal tasks 12/15 (background poller). Last visited: 2026-11-02T01:44:52Z
+- worker_FU_B_r1 wait 2026-11-02T01:46:50Z: 516 terminal=12 running=3. Last visited: 2026-11-02T01:46:50Z
+- poll 2026-11-02T01:50:09Z: job 516 terminal tasks 12/15 (background poller). Last visited: 2026-11-02T01:50:09Z
