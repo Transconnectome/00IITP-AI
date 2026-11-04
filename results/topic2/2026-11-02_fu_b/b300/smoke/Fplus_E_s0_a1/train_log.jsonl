@@ -1,0 +1,3 @@
+{"event": "train", "step": 100, "loss_mean_last100": 0.9958606666326523, "lr": 4.5662100456621006e-05, "elapsed_sec": 20.6, "utc": "2026-11-01T15:34:17Z"}
+{"event": "train", "step": 200, "loss_mean_last100": 0.9440779674053192, "lr": 9.132420091324201e-05, "elapsed_sec": 37.7, "utc": "2026-11-01T15:34:34Z"}
+{"event": "throughput_probe", "step": 201, "sec_per_step": 0.1737, "samples_per_s": 92.1, "projected_run_hours": 0.423, "utc": "2026-11-01T15:34:34Z"}

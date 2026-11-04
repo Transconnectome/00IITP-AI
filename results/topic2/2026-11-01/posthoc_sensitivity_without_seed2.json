@@ -1,0 +1,27 @@
+{
+ "excluded_seed": 2,
+ "I1_t_without_seed2": {
+  "mean": 0.0008281643503467071,
+  "se": 0.0005589242682907951,
+  "lo": -0.0009505821222090438,
+  "hi": 0.002606910822902458,
+  "n": 4,
+  "df": 3,
+  "t_crit": 3.182446305284263
+ },
+ "I2_t_without_seed2": {
+  "mean": 0.003069719811062209,
+  "se": 0.00046227398643731987,
+  "lo": 0.0015985576708957329,
+  "hi": 0.004540881951228685,
+  "n": 4,
+  "df": 3,
+  "t_crit": 3.182446305284263
+ },
+ "verdict_without_seed2": {
+  "verdict": "stop",
+  "reason": "upper 95% bound of I1 < delta: practical gain over PatchMergingV2 excluded (killed)",
+  "I1_survives": false,
+  "I2_lower_gt_0": true
+ }
+}

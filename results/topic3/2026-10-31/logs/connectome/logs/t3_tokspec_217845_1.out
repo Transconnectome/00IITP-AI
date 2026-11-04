@@ -1,0 +1,3 @@
+task 1 label zoo_HCP_N400_T2400_E192 start 2026-10-31T08:53:33Z
+{"label": "zoo_HCP_N400_T2400_E192", "n_subjects": 57, "checks": {"same_subject_set_as_reference": true, "frames_per_subject_min_max": [7, 7]}, "runtime_s": 115.2}
+task 1 end 2026-10-31T08:55:28Z

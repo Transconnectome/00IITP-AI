@@ -1,0 +1,2 @@
+a1828b38b56e6018dff8abd0bbf7b9cfc83f639c8442214ba84d199fe39bdbe5  docs/03_empirical_analysis/topic3/2026-11-01_topic3_addendum_04.md
+ede1166cd31af2929c31d3f97f55be0b5d0762bac3d3537c5d8bd69269db2219  tests/topic3_spectral/test_verdict_rules_r2b.py

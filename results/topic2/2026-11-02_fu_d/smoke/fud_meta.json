@@ -1,0 +1,110 @@
+{
+ "agent": "worker_FU_D_r1",
+ "cfg_name": "E192_d22182",
+ "cfg": {
+  "img_size": [
+   96,
+   96,
+   96,
+   20
+  ],
+  "in_chans": 1,
+  "embed_dim": 192,
+  "window_size": [
+   4,
+   4,
+   4,
+   10
+  ],
+  "patch_size": [
+   6,
+   6,
+   6,
+   1
+  ],
+  "depths": [
+   2,
+   2,
+   18,
+   2
+  ],
+  "num_heads": [
+   6,
+   12,
+   24,
+   48
+  ],
+  "c_multiplier": 2
+ },
+ "wrapper_sha256": "d598989bd93666c36b821448bbde0cbbb10b5eb822b454a4ff90b9a03185b84e",
+ "fud_code_sha256": {
+  "__init__.py": "9e1b9d62c515a993dc0b40c103a4ae66b999e4579d5118397c6b63ac0288adc2",
+  "config.py": "964a5ade69fe36b658488aa1726078f56839a670dbc59a0e0da37265f0040e22",
+  "design.py": "616d359b73d0fb64739f9d717d76b187c6365d1f25c1db175b6b97be5d89118a",
+  "records.py": "68c938113bd92f27a9943c88cb87ae843037ed38504acf935af3c512ba9babd9",
+  "seedplan.py": "5049a21586675b3fe051113403387e5d22fa513a984d30d8182a48a50cddd56e",
+  "slurm.py": "b4809d12a964b3ceedf4619fdcbe84a8cc97db7b548e15ad74fbc73151d3bd3c",
+  "verdict.py": "9aac22ad0d0d091c098c0346f8dd0517b9e56b7ab9b5ee70f02f2cfb7fc45ecc",
+  "view.py": "c1a141ffdb69b2ba0474de616f46037fb28df9a39a7063e121b8866c30e0c2a1"
+ },
+ "frozen_train_script_sha256": "05f08f7c4505cbbd5907df3ab114f4e57394c67d95dade4934ab76256d605c68",
+ "argv": [
+  "--perm-file",
+  "/scratch/iitp4/fu_d/code/results/topic2/2026-11-01/partitions/perms_hcp.npz",
+  "--out",
+  "/scratch/iitp4/fu_d/smoke/smoke_hcp_C_s0",
+  "--data-dir",
+  "/scratch/iitp4/fu_d/hcp",
+  "--split-file",
+  "/scratch/iitp4/fu_d/code/results/topic2/2026-11-01/split.json",
+  "--source",
+  "hcp",
+  "--arm",
+  "C",
+  "--seed",
+  "0",
+  "--perm-key",
+  "C",
+  "--cfg",
+  "E192_d22182",
+  "--steps",
+  "8750",
+  "--batch",
+  "16",
+  "--lr",
+  "0.0002",
+  "--wd",
+  "0.05",
+  "--warmup-frac",
+  "0.05",
+  "--mask-ratio",
+  "0.6",
+  "--val-mask-seed",
+  "7001",
+  "--test-mask-seed",
+  "7002",
+  "--probe-steps",
+  "200",
+  "--max-run-hours",
+  "0.001",
+  "--save-model"
+ ],
+ "inputs": {
+  "perm_file_sha256": "ec05b796a450d78b646172cb84031f04758fef6965e085db87a75c6b620f2b34",
+  "split_file_sha256": "cc521b087a97a6669fe6f94041dac2c2c0c0987741ac698203309af1ced2c75a"
+ },
+ "smoke_abort": true,
+ "slurm_job_id": "511",
+ "node": "cloud-S1HDe3",
+ "cuda_visible": "0",
+ "start_utc": "2026-11-01T16:35:26Z",
+ "end_utc": "2026-11-01T16:37:30Z",
+ "run_status": "aborted_throughput",
+ "post_checks": {
+  "cfg": true,
+  "n_params": true,
+  "frozen_code": true,
+  "status_completed": false
+ },
+ "post_checks_ok": false
+}

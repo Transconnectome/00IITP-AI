@@ -1,0 +1,64 @@
+{
+ "started_utc": "2026-10-31T08:16:15Z",
+ "variant": "primary",
+ "density": null,
+ "variant_sha": "28cc34d98fd7de788a2bb6001eda82c08c518b120205ff257acb4dc708280c0d",
+ "params": {
+  "version": "topic1_lagmotif v2.0 (2026-10-30)",
+  "source": "raw npy MBBN_data_304_ROIs_0.25 (broadband); VMD cache IMF channels not used",
+  "n_roi": 304,
+  "head_trim_s": 40.0,
+  "detrend": "linear",
+  "grid_dt_s": 2.0,
+  "resample": "scipy.signal.resample_poly, exact Fraction(TR)/2 ratio, padtype='line'",
+  "padtype": "line",
+  "highpass_cutoff_s": null,
+  "lag_s": 2.0,
+  "density_primary": 0.1,
+  "density_sensitivity": [
+   0.05,
+   0.15
+  ],
+  "channels": [
+   "broadband",
+   "curl"
+  ],
+  "n_null": 1000,
+  "attempts_factor": 20,
+  "p_rot": 0.2,
+  "base_seed": 20261030,
+  "seed_rule": "SeedSequence([base_seed, position, channel_code, density_code]).generate_state(n_null)",
+  "z_rule": "Z = (obs - mean_null)/sd_null(ddof=1); NaN and flagged if sd_null == 0",
+  "endpoints": [
+   "E1 = Z030C",
+   "E2 = Z030C - Z030T"
+  ]
+ },
+ "params_sha256": "86863ffad95cbd852ae4e187490e2112183dd38632166bb417158b62bfea15c6",
+ "kw": {},
+ "truncate_native_s": null,
+ "card_sha256": "1e589f0ba5a866088a3ce93ed049163860f222edb148acc044254275d5bb75aa",
+ "card_s12_code_hashes": {
+  "src/topic1_lagmotif/__init__.py": "cb0b70ae8500c847bea59f57960e90e4496d4e9971fc99f74f49c9a279d1e1d2",
+  "src/topic1_lagmotif/data.py": "d320bfe4afdd81fca5005c0aef6677f8aed0395e3e1146b98108e5599a9695e9",
+  "src/topic1_lagmotif/flow.py": "bead276472e5594c99d55c55f4a949e58ddb1070131730be8b745f19c121686c",
+  "src/topic1_lagmotif/motifs.py": "ab6997b97bee16b694f53dd6557aa5afe970c4141b062b6778fef838ba8de627",
+  "src/topic1_lagmotif/pipeline.py": "99bfc9f12e5406997a40a6d0285dcac54400701f9c41017c370ff5b79123be94",
+  "src/topic1_lagmotif/preprocess.py": "1520aef9c8a6ea69abfa052b198bf3ac34de6d82eef3f192b7f4b1c30f70d65f",
+  "src/topic1_lagmotif/spurious.py": "b246356c374e07ed200a303c359778386b6d61bc3cbad6a7b8befa3959991067",
+  "src/topic1_lagmotif/synthetic.py": "64f29139c22dedad02cec52e56156893d4f2bbdae7a576d6cda713d6769b9550",
+  "src/topic1_lagmotif/tr_table.py": "a3837b151b44dac5a144cb1fcf7f2286d3b944dc830d5fcfd76e5f92b2886b8d",
+  "scripts/topic1_timing.py": "1e5224b1b5eb618cc0d2fe321675dd4348cffe3fa6a4081d44aa7435c97a0eec"
+ },
+ "script_sha256": "ae69aee21938922a13b276deeb06c670c06fa2c4fb6b54243caa64e70e60c2f0",
+ "manifest_sha256": "063513c99122e849407c598b95dda24b2f946493095b7ed11d27bf15beb537f6",
+ "cohort_digest": "6a0c408ba44a107bb881536ba13e8fe0b40b5a658305e0d465783c644d895afe",
+ "n_positions": 1706,
+ "n_already_done": 0,
+ "workers": 14,
+ "host": "spark-3a4c",
+ "cpus": 20,
+ "python": "3.12.3",
+ "numpy": "2.3.5",
+ "pid": 3858561
+}

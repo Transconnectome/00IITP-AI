@@ -1,0 +1,4 @@
+# FU-C r2 C4 seal (worker_FU_C_r2): the retired test file, sealed off-repo byte-exact (dir 0700, file 0400). Never copy back into the repo.
+# frozen_utc: 2026-11-01T20:36:54Z
+# The sha equals the pre-result pin in code_sha256_before_results.txt line 13 (and output_sha256.txt line 162). Verify (root): LC_ALL=C sha256sum -c on this file.
+3af2eb8ca790b3a67b2ed507bb3f542e47281dd40efe13e33905aba2c06be81c  /home/juke/.local/share/00IITP-AI_sealed/topic2/fu_c_c4/tests/topic2_fu_c/test_gate_and_records.py

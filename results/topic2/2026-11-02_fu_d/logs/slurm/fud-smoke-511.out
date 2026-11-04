@@ -1,0 +1,17 @@
+job=511 node=cloud-S1HDe3 gpus=0 start=2026-11-01T16:35:08Z
+0, 0 MiB, 0 %
+/scratch/iitp4/fu_d/code/src/topic2_rgpool/vendor_swift_ver11/simmim_swin4d_transformer_ver11.py:272: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):
+/scratch/iitp4/fu_d/code/src/topic2_rgpool/vendor_swift_ver11/simmim_swin4d_transformer_ver11.py:316: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):
+img_size:  (96, 96, 96, 20)
+patch_size:  (6, 6, 6, 1)
+{"r1_run": "hcp_E_s0", "expected_test_nmse": 0.9908706340280367, "reproduced_test_nmse": 0.9908706340280367, "abs_diff": 0.0, "exact": true, "per_subject_num_equal": true, "per_subject_den_equal": true, "test_order_equal": true, "sec": 10.7}
+/scratch/iitp4/fu_d/code/src/topic2_rgpool/vendor_swift_ver11/simmim_swin4d_transformer_ver11.py:272: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):
+/scratch/iitp4/fu_d/code/src/topic2_rgpool/vendor_swift_ver11/simmim_swin4d_transformer_ver11.py:316: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):
+img_size:  (96, 96, 96, 20)
+patch_size:  (6, 6, 6, 1)
+{"source": "hcp", "arm": "C", "seed": 0, "status": "aborted_throughput", "test_nmse": null, "wall_sec": null}
+rc=0 end=2026-11-01T16:37:32Z

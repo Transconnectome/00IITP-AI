@@ -1,0 +1,222 @@
+[
+ {
+  "name": "control",
+  "target": "none",
+  "rc": 0,
+  "summary": "27 passed in 2.42s",
+  "failed_tests": [],
+  "elapsed_s": 27.0
+ },
+ {
+  "name": "perm_across_sites",
+  "target": "within-site exchangeability",
+  "rc": 1,
+  "summary": "1 failed, 26 passed in 7.39s",
+  "failed_tests": [
+   "tests/topic1_lagmotif/test_cohort_stats.py::test_permutations_stay_within_site_and_are_permutations"
+  ],
+  "elapsed_s": 22.0
+ },
+ {
+  "name": "reduced_model_includes_nothing",
+  "target": "FL reduced model",
+  "rc": 1,
+  "summary": "2 failed, 25 passed in 9.85s",
+  "failed_tests": [
+   "tests/topic1_lagmotif/test_cohort_stats.py::test_vectorised_freedman_lane_equals_statsmodels_refit",
+   "tests/topic1_lagmotif/test_cohort_stats.py::test_full_enumeration_matches_brute_force_on_tiny_design"
+  ],
+  "elapsed_s": 23.3
+ },
+ {
+  "name": "p_without_plus_one",
+  "target": "p = (1+#)/(B+1)",
+  "rc": 1,
+  "summary": "2 failed, 25 passed in 10.47s",
+  "failed_tests": [
+   "tests/topic1_lagmotif/test_cohort_stats.py::test_planted_effect_recovered_with_card_d_and_sign_is_ocd_minus_hc",
+   "tests/topic1_lagmotif/test_cohort_stats.py::test_assoc_effect_standardised_beta"
+  ],
+  "elapsed_s": 24.1
+ },
+ {
+  "name": "one_sided_p",
+  "target": "two-sided p",
+  "rc": 1,
+  "summary": "1 failed, 26 passed in 1.97s",
+  "failed_tests": [
+   "tests/topic1_lagmotif/test_cohort_stats.py::test_planted_effect_recovered_with_card_d_and_sign_is_ocd_minus_hc"
+  ],
+  "elapsed_s": 11.4
+ },
+ {
+  "name": "d_from_total_sd",
+  "target": "d = beta/sigma_eps",
+  "rc": 1,
+  "summary": "1 failed, 26 passed in 1.57s",
+  "failed_tests": [
+   "tests/topic1_lagmotif/test_cohort_stats.py::test_planted_effect_recovered_with_card_d_and_sign_is_ocd_minus_hc"
+  ],
+  "elapsed_s": 4.5
+ },
+ {
+  "name": "d_from_scale_plus_re",
+  "target": "d = beta/sigma_eps",
+  "rc": 1,
+  "summary": "1 failed, 26 passed in 1.13s",
+  "failed_tests": [
+   "tests/topic1_lagmotif/test_cohort_stats.py::test_planted_effect_recovered_with_card_d_and_sign_is_ocd_minus_hc"
+  ],
+  "elapsed_s": 5.0
+ },
+ {
+  "name": "no_mundlak_terms",
+  "target": "Mundlak equality",
+  "rc": 1,
+  "summary": "4 failed, 23 passed in 1.32s",
+  "failed_tests": [
+   "tests/topic1_lagmotif/test_cohort_stats.py::test_planted_effect_recovered_with_card_d_and_sign_is_ocd_minus_hc",
+   "tests/topic1_lagmotif/test_cohort_stats.py::test_mundlak_lmm_beta_equals_site_fe_beta",
+   "tests/topic1_lagmotif/test_cohort_stats.py::test_truncation_row_drops_log_duration_constant_within_site",
+   "tests/topic1_lagmotif/test_cohort_stats.py::test_raw_welch_is_labelled_descriptive_and_fl_is_the_primary_p"
+  ],
+  "elapsed_s": 5.3
+ },
+ {
+  "name": "holm_omitted",
+  "target": "Holm",
+  "rc": 1,
+  "summary": "1 failed, 26 passed in 1.31s",
+  "failed_tests": [
+   "tests/topic1_lagmotif/test_cohort_stats.py::test_primary_verdict_kill_rule_uses_holm_not_raw_p"
+  ],
+  "elapsed_s": 6.4
+ },
+ {
+  "name": "holm_bonferroni_no_stepdown_cap",
+  "target": "Holm monotone",
+  "rc": 1,
+  "summary": "2 failed, 25 passed in 1.30s",
+  "failed_tests": [
+   "tests/topic1_lagmotif/test_cohort_stats.py::test_holm_and_bh_values",
+   "tests/topic1_lagmotif/test_cohort_stats.py::test_primary_verdict_kill_rule_uses_holm_not_raw_p"
+  ],
+  "elapsed_s": 5.6
+ },
+ {
+  "name": "survive_le",
+  "target": "kill boundary p",
+  "rc": 1,
+  "summary": "1 failed, 26 passed in 1.03s",
+  "failed_tests": [
+   "tests/topic1_lagmotif/test_cohort_stats.py::test_survival_boundaries[0.05-0.4-False]"
+  ],
+  "elapsed_s": 4.8
+ },
+ {
+  "name": "survive_signed_d",
+  "target": "two-sided |d|",
+  "rc": 1,
+  "summary": "1 failed, 26 passed in 1.67s",
+  "failed_tests": [
+   "tests/topic1_lagmotif/test_cohort_stats.py::test_survival_boundaries[0.001--0.16-True]"
+  ],
+  "elapsed_s": 5.6
+ },
+ {
+  "name": "survive_or",
+  "target": "kill rule AND",
+  "rc": 1,
+  "summary": "4 failed, 23 passed in 1.60s",
+  "failed_tests": [
+   "tests/topic1_lagmotif/test_cohort_stats.py::test_survival_boundaries[0.049-0.149-False]",
+   "tests/topic1_lagmotif/test_cohort_stats.py::test_survival_boundaries[0.05-0.4-False]",
+   "tests/topic1_lagmotif/test_cohort_stats.py::test_survival_boundaries[0.001--0.149-False]",
+   "tests/topic1_lagmotif/test_cohort_stats.py::test_primary_verdict_kill_rule_uses_holm_not_raw_p"
+  ],
+  "elapsed_s": 6.4
+ },
+ {
+  "name": "fallback_ge",
+  "target": "fallback >10%",
+  "rc": 1,
+  "summary": "1 failed, 26 passed in 0.86s",
+  "failed_tests": [
+   "tests/topic1_lagmotif/test_cohort_stats.py::test_degeneracy_rates_and_fallback_boundary"
+  ],
+  "elapsed_s": 4.7
+ },
+ {
+  "name": "fallback_e1_only",
+  "target": "fallback E1 or E2",
+  "rc": 1,
+  "summary": "1 failed, 26 passed in 1.39s",
+  "failed_tests": [
+   "tests/topic1_lagmotif/test_cohort_stats.py::test_degeneracy_rates_and_fallback_boundary"
+  ],
+  "elapsed_s": 5.6
+ },
+ {
+  "name": "e2_degenerate_ignores_030T",
+  "target": "E2 degeneracy",
+  "rc": 1,
+  "summary": "1 failed, 26 passed in 1.57s",
+  "failed_tests": [
+   "tests/topic1_lagmotif/test_cohort_stats.py::test_degeneracy_rates_and_fallback_boundary"
+  ],
+  "elapsed_s": 4.4
+ },
+ {
+  "name": "std_beta_unscaled",
+  "target": "standardised beta",
+  "rc": 1,
+  "summary": "1 failed, 26 passed in 0.85s",
+  "failed_tests": [
+   "tests/topic1_lagmotif/test_cohort_stats.py::test_assoc_effect_standardised_beta"
+  ],
+  "elapsed_s": 4.2
+ },
+ {
+  "name": "logdur_option_ignored",
+  "target": "truncation-row covariate",
+  "rc": 1,
+  "summary": "1 failed, 26 passed in 1.42s",
+  "failed_tests": [
+   "tests/topic1_lagmotif/test_cohort_stats.py::test_truncation_row_drops_log_duration_constant_within_site"
+  ],
+  "elapsed_s": 5.3
+ },
+ {
+  "name": "trunc_ceil",
+  "target": "200 s truncation",
+  "rc": 1,
+  "summary": "4 failed, 23 passed in 1.09s",
+  "failed_tests": [
+   "tests/topic1_lagmotif/test_cohort_stats.py::test_200s_truncation_gives_exactly_100_grid_samples[0.7]",
+   "tests/topic1_lagmotif/test_cohort_stats.py::test_200s_truncation_gives_exactly_100_grid_samples[0.85]",
+   "tests/topic1_lagmotif/test_cohort_stats.py::test_200s_truncation_gives_exactly_100_grid_samples[1.73]",
+   "tests/topic1_lagmotif/test_cohort_stats.py::test_200s_truncation_gives_exactly_100_grid_samples[1.8]"
+  ],
+  "elapsed_s": 4.7
+ },
+ {
+  "name": "variant_af40_kw_only",
+  "target": "variant provenance",
+  "rc": 1,
+  "summary": "1 failed, 26 passed in 1.78s",
+  "failed_tests": [
+   "tests/topic1_lagmotif/test_cohort_stats.py::test_variant_specs_change_the_params_hash_and_primary_has_no_overrides"
+  ],
+  "elapsed_s": 6.4
+ },
+ {
+  "name": "digest_unsalted_prefix_only",
+  "target": "manifest digest",
+  "rc": 1,
+  "summary": "1 failed, 26 passed in 1.75s",
+  "failed_tests": [
+   "tests/topic1_lagmotif/test_cohort_stats.py::test_cohort_digest_detects_a_remapped_listing"
+  ],
+  "elapsed_s": 4.4
+ }
+]

@@ -1,0 +1,6 @@
+33e2757690c1dd948cf82478efbe067aa37296a05db0ab081a2073113b396e02  scripts/topic1_cohort_stats.py  recorded 2026-10-31T11:14:46Z before decide/analyze (first token is read by _check_recorded_hashes)
+88aec0ac2c653c95438136930a6fedf746a43af0cf6179576d979c575bfa4d18  results/topic1/2026-10-31/stats_validation_final.json  validation on these bytes, all_pass=true (R=2000 B=999; Rc=300 B=9999; Rp=300)
+a5decc1834d089b84590660eef2ee8f7699a3c9155701c5907c49edfbffcf476  results/topic1/2026-10-31/stats_validation.json  history: run 2 on earlier bytes f2589105504ac4013e9176c454d35c006c69e4537e56e93b71640b45159b4047 (pre-review)
+d19866f2d5fd99a48945849b5ff1eba1153547ba2849f7ab5fbda1bda29a2681  results/topic1/2026-10-31/t1_1_mutation/v3_final_tree/stats_mutation_results_v3.json  stats mutants 24/24 killed, control 31 passed
+1078aae5001fb50779bcf9ce3a967239a730fb5b4ef1929bf9e4885357c1da31  results/topic1/2026-10-31/t1_1_mutation/v3_final_tree/SHA256SUMS.txt  T1.1 + stats v3 receipt set
+7ccb983ed9dedd50d9c74b433e2578a7007b11ee5397a276832382a39f55e90e  docs/03_empirical_analysis/topic1/2026-10-31_topic1_prelabel_addendum.md  pre-label addendum (frozen)

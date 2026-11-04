@@ -1,0 +1,66 @@
+{
+ "jobs": [
+  {
+   "job_id": "509",
+   "role": "gate",
+   "sbatch": "fub-gate_20261101T161237Z.sbatch",
+   "submitted_utc": "2026-11-01T16:12:37Z",
+   "n_tasks": 3,
+   "attempt": 1,
+   "dependency": null,
+   "preflight": {
+    "used": 0.21,
+    "running": 0,
+    "new": 3,
+    "per_run": 1.75,
+    "projected_total": 5.46,
+    "cap": 33.0,
+    "admit": true,
+    "g3t_blockers": [],
+    "ok": true,
+    "utc": "2026-11-01T16:12:37Z"
+   }
+  },
+  {
+   "job_id": "516",
+   "role": "stage1",
+   "sbatch": "fub-s1_20261101T161413Z.sbatch",
+   "submitted_utc": "2026-11-01T16:14:13Z",
+   "n_tasks": 15,
+   "attempt": 1,
+   "dependency": "afterany:509",
+   "preflight": {
+    "used": 0.21,
+    "running": 3,
+    "new": 15,
+    "per_run": 1.75,
+    "projected_total": 31.71,
+    "cap": 33.0,
+    "admit": true,
+    "g3t_blockers": [],
+    "ok": true,
+    "utc": "2026-11-01T16:14:13Z"
+   }
+  }
+ ],
+ "closed": [
+  "509_0",
+  "509_1",
+  "509_2",
+  "516_0",
+  "516_1",
+  "516_2",
+  "516_3",
+  "516_4",
+  "516_5",
+  "516_6",
+  "516_7",
+  "516_8",
+  "516_9",
+  "516_10",
+  "516_11",
+  "516_12",
+  "516_13",
+  "516_14"
+ ]
+}

@@ -1,0 +1,58 @@
+{
+ "run": "Fplus_S_s0_a1",
+ "role": "gate",
+ "slurm_job_id": "509",
+ "array_job_id": "509",
+ "array_task_id": "2",
+ "host": "cloud-S1HDe3",
+ "cuda_visible": "0",
+ "wrapper_start_utc": "2026-11-01T16:35:00Z",
+ "gpu_check": {
+  "gpus": [
+   {
+    "index": "0",
+    "uuid": "GPU-c2d584f5-ca5c-1496-776c-8c85bed72a15",
+    "mem_used_mib": 0.0
+   }
+  ]
+ },
+ "argv_tail": [
+  "--source",
+  "Fplus",
+  "--arm",
+  "S",
+  "--seed",
+  "0",
+  "--perm-file",
+  "/scratch/iitp4/fu_b/in/perms_Fplus.npz",
+  "--perm-key",
+  "S_seed0",
+  "--out",
+  "/scratch/iitp4/fu_b/runs/Fplus_S_s0_a1",
+  "--cfg",
+  "E36_d2262",
+  "--steps",
+  "35000",
+  "--batch",
+  "16",
+  "--lr",
+  "0.0002",
+  "--wd",
+  "0.05",
+  "--warmup-frac",
+  "0.05",
+  "--mask-ratio",
+  "0.6",
+  "--val-mask-seed",
+  "7001",
+  "--test-mask-seed",
+  "7002",
+  "--probe-steps",
+  "200",
+  "--max-run-hours",
+  "2.2",
+  "--save-model"
+ ],
+ "rc": 0,
+ "wrapper_end_utc": "2026-11-01T18:16:16Z"
+}

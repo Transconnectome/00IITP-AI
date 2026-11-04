@@ -1,0 +1,41 @@
+# FU-C card receipt (worker_FU_C_r1); written before the first FU-C Stage-1 submission
+# frozen_utc: 2026-11-01T16:13:23Z
+# verify: cd /home/juke/git/00IITP-AI && grep -v '^#' results/topic2/2026-11-02_fu_c/card_sha256.txt | LC_ALL=C sha256sum -c
+# section: governing
+fc2d0672de2bb3163f80b06079ad973c7332cd8b46808bdd59c6456164944ecb  docs/03_empirical_analysis/topic2/2026-11-02_topic2_fu_c_card.md
+791d1db8ad390055351bc770551bf8bdcd69f62bfc258419c2f6be9aa3277727  src/topic2_fu_c/design.py
+f9e32ab76fdc7daed8c70a5cb855076d28346638bd2f2dcefa5a32e04b532bca  results/topic2/2026-11-02_fu_c/partitions/perms_fu_c.npz
+c045196f40c77e52303fc91c364eead1248659c2f3a1869f5a7e3cd6ba1cd651  results/topic2/2026-11-02_fu_c/partitions/perms_fu_c.json
+a570b1f3ad1820c0e50b85e83d35c77f0e26b503fdb06f8fd0beea226c08f3fb  results/topic2/2026-11-02_fu_c/env/env_check.json
+ae664dc907024bc1f2a11c18cad83bdfd107e80f5eb124eac6323a20f9e231a2  results/topic2/2026-11-02_fu_c/env/freeze.txt
+b7f23e435b2bd996391604d5168b7fed872792e31a6f84d2cf23c78ee35b760e  results/topic2/2026-11-02_fu_c/env/datadir_check.json
+147487ebc248aad435417e5a296c6bfae4bc131acb952affa389f75bae66158b  results/topic2/2026-11-02_fu_c/anchor/anchor.json
+cc521b087a97a6669fe6f94041dac2c2c0c0987741ac698203309af1ced2c75a  results/topic2/2026-11-01/split.json
+ae664dc907024bc1f2a11c18cad83bdfd107e80f5eb124eac6323a20f9e231a2  scripts/b300_env/lock.txt
+1617d8c5404ff93e9bd8afd2bec3bca401c84704a5e2fb577d9556385fb4f874  results/topic2/2026-11-01/code_sha256_at_freeze.txt
+5ae1bc38bb0ae65265940da2d4f679f754d18da95bb79c2cfb390963094b1fcc  results/topic2/2026-11-01/output_sha256.txt
+ca945e85cdd6cf6dbffc9f5ca8ee4d03b2f5ad11db606ef9bf5da4529794dd96  results/topic2/2026-11-01/runs/Fplus_E_s0/run.json
+e8fc5f33d1f8f35ae93348c6f479e1bd003b44dce5666060cc9efc8d52abdd04  results/topic2/2026-11-01/runs/Fplus_E_s1/run.json
+ce9cf713e3e2acf1ac59fd5d1ef8d2a620c842c4ba79ed5136b0ff97dc35acd0  results/topic2/2026-11-01/runs/Fplus_C_s0/run.json
+3d567c50af717c519dcb37c2cfe603c3ce68d1b2096f3315f33178c9ad16b1d3  results/topic2/2026-11-01/runs/Fplus_C_s1/run.json
+7a6c868180814f4ed620db8b4451f05923fb4fec1853a31c110dc5d65fa9c0b6  results/topic2/2026-11-01/runs/Fplus_S_s0/run.json
+aafdfc27e4074251681a2faac35d6287a615c0b3af9ed76bb5d950dcd61d2f05  results/topic2/2026-11-01/runs/Fplus_S_s1/run.json
+8a17ed0d0ccf1b8a14a5fa872cff9a46afe8da86e3b17936598286b2f7dd55a9  results/topic2/2026-11-01/runs/Fminus_E_s0/run.json
+1f23566c5abf9caa4d9a3feffed643212a7e10ab994382299fa660289d79e396  results/topic2/2026-11-01/runs/Fminus_E_s1/run.json
+ed4d7327d58419a0df9adfea8ab19127e8d6cca2891672f91017a807d8b7341a  results/topic2/2026-11-01/runs/Fminus_C_s0/run.json
+99349c3fda9b8ffa2c3fff602fc330ce1615500ced592ebb12156d900a5cb2f1  results/topic2/2026-11-01/runs/Fminus_C_s1/run.json
+89f5b2e02a3108101a7b5a591218884442c0564760195ce6d93c24e50023c009  results/topic2/2026-11-01/runs/Fminus_S_s0/run.json
+263e762cbd15b36e8ed02bd4389b207e09caa40713c3b3edca4d0cb9475e8426  results/topic2/2026-11-01/runs/Fminus_S_s1/run.json
+# section: record
+4a9e9bf6d8ffa1fa6af3616de913801d423136586b4cd44a7af3cf7f4f8c4843  scripts/topic2fu_c_slurm.py
+4599f2396029147b71943f9e4cc2a0e21648f0a9bd998de543a2a06f02811a28  src/topic2_fu_c/budget.py
+8f4c2bb414b807cb3ba009dcd035fc5f730f62237eae3fbcbca011981f625c96  src/topic2_fu_c/perms.py
+dda70d8189524b3c50800c8d3351e5b0c8087a8334a96dc8875d708134e4b963  src/topic2_fu_c/__init__.py
+88b7815cc237c882372949067aa49cf7e4622f034c47b973f279b6944cf79c5a  scripts/topic2fu_c_build_env.py
+712736928d4953f49983d64cb9695d4d2d89ec3009e9df49fd2f54583bb82ef7  scripts/topic2fu_c_make_datadir.py
+2d0746e77f942afe65ca2fded1c46b1213c08b789e4a0d096404d791eec12e94  scripts/topic2fu_c_build_perms.py
+b09ee0b0c59271cbbcfc6f9124ea66614a9ebd3c768685410dde0c740c847880  scripts/topic2fu_c_anchor.py
+b9f59c7076a553fd9dd6f338c5b5e15bc71c8bd59f8732b3e518343d21513667  scripts/topic2fu_c_freeze.py
+ff5bdb29325f0a1124151fc1deb2d8d5b04eb1eec4cde181e247445fc5719f6a  results/topic2/2026-11-02_fu_c/slurm/anchor.sbatch
+e6bb49e52cd556a339fb2e6ccd47a001f1baac2926fa0797dd9ce9cd7ae71a89  results/topic2/2026-11-02_fu_c/partitions/build_perms.log
+d759b08218528de3e60a068294919752d4bf2a25d50d58d2aeb0da02d6a63a35  results/topic2/2026-11-02_fu_c/anchor/slurm-501.out

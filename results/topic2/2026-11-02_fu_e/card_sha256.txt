@@ -1,0 +1,5 @@
+# FU-E card frozen 2026-11-01T16:22:56Z by worker_FU_E_r1, BEFORE any real-data FU-E statistic. Verify: grep -v '^#' results/topic2/2026-11-02_fu_e/card_sha256.txt | LC_ALL=C sha256sum -c
+072553b0912a86ee786e82f13d9fdc873a6681c9ba6feb5ffc5d8e0ddc36b88f  docs/03_empirical_analysis/topic2/2026-11-02_topic2_fu_e_card.md
+ebeb505b290f87cec2911d204420fbf0122bff724c389b1a2a8ba3b6d6953511  results/topic2/2026-11-02_fu_e/checkpoint_sha256_pins.txt
+5e43668a5496d94709532f2f7c33f718118d371c66b482739c8cfe36d506729e  results/topic2/2026-11-02_fu_e/code_sha256_at_freeze.txt
+17aeb67d37608efeb74ed618b7ec7b05331d27475f92ad2c2d0725c9b4cdd0e2  verification/worker_FU_E_r1/b300/fue_smoke.sbatch

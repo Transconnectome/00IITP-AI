@@ -1,0 +1,52 @@
+[
+ {
+  "name": "control_extra",
+  "target": "none",
+  "rc": 0,
+  "summary": "59 passed in 4.61s",
+  "failed_tests": [],
+  "elapsed_s": 7.0
+ },
+ {
+  "name": "curl_returns_F",
+  "target": "curl channel",
+  "rc": 1,
+  "summary": "2 failed, 57 passed in 4.54s",
+  "failed_tests": [
+   "tests/topic1_lagmotif/test_extract_contract.py::test_curl_channel_is_F_minus_its_gradient_part",
+   "tests/topic1_lagmotif/test_extract_contract.py::test_null_seeds_follow_card_rule_with_position"
+  ],
+  "elapsed_s": 7.1
+ },
+ {
+  "name": "seeds_ignore_position",
+  "target": "card \u00a711 seed rule",
+  "rc": 1,
+  "summary": "2 failed, 57 passed in 4.33s",
+  "failed_tests": [
+   "tests/topic1_lagmotif/test_extract_contract.py::test_curl_channel_is_F_minus_its_gradient_part",
+   "tests/topic1_lagmotif/test_extract_contract.py::test_null_seeds_follow_card_rule_with_position"
+  ],
+  "elapsed_s": 6.8
+ },
+ {
+  "name": "sp_not_normalised",
+  "target": "SP normalisation",
+  "rc": 1,
+  "summary": "1 failed, 58 passed in 4.66s",
+  "failed_tests": [
+   "tests/topic1_lagmotif/test_extract_contract.py::test_sp_is_unit_norm_z_over_the_five_classes"
+  ],
+  "elapsed_s": 7.1
+ },
+ {
+  "name": "extract_subject_drops_valid_T",
+  "target": "A1 report valid T",
+  "rc": 1,
+  "summary": "1 failed, 58 passed in 4.74s",
+  "failed_tests": [
+   "tests/topic1_lagmotif/test_extract_contract.py::test_reported_valid_T_is_after_head_trim"
+  ],
+  "elapsed_s": 7.3
+ }
+]

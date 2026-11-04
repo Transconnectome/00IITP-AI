@@ -1,0 +1,4 @@
+{"event": "data_loaded", "n_train": 64, "n_val": 8, "n_test": 16, "sec": 19.4, "utc": "2026-11-01T16:05:13Z"}
+{"event": "train", "step": 100, "loss_mean_last100": 1.0545948070287705, "lr": 4.5662100456621006e-05, "elapsed_sec": 39.7, "utc": "2026-11-01T16:05:34Z"}
+{"event": "train", "step": 200, "loss_mean_last100": 1.0033420294523239, "lr": 9.132420091324201e-05, "elapsed_sec": 56.8, "utc": "2026-11-01T16:05:51Z"}
+{"event": "throughput_probe", "step": 300, "sec_per_step": 0.1726, "samples_per_s": 92.71, "projected_run_hours": 0.426, "utc": "2026-11-01T16:06:08Z"}

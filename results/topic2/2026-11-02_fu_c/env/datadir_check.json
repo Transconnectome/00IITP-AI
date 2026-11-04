@@ -1,0 +1,19 @@
+{
+ "r1_manifest_sha_ok": true,
+ "r1_split_sha_ok": true,
+ "sanitized_split_sha_ok": true,
+ "relabelled_r1_split_equals_sanitized": {
+  "train": true,
+  "val": true,
+  "test": true
+ },
+ "n": {
+  "train": 64,
+  "val": 8,
+  "test": 16
+ },
+ "n_positions": 88,
+ "n_positions_complete": 88,
+ "n_new_links": 264,
+ "ok": true
+}

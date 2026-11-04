@@ -1,0 +1,10 @@
+{
+ "target_id": "cell12_kappa",
+ "kappa": 5.699891773354029,
+ "sigma_v": 6.545925453832064,
+ "kappa_fix": 0.9708403204386594,
+ "source": {
+  "kappa, sigma_v": "design_stats_train.json (TRAIN only, B300 Slurm job 492)",
+  "kappa_fix": "partitions/fixture_build.json (synthetic fixture-train samples)"
+ }
+}

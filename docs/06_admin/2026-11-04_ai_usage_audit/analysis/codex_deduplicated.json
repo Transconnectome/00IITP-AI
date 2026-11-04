@@ -1,0 +1,157 @@
+{
+  "generated_at": "2026-11-04T10:39:53.868636+09:00",
+  "coverage": "Local host default Claude projects and Codex sessions + archived_sessions only. Not all devices, seats, browser usage or grant-attributed spending.",
+  "method": "Global response/message ID dedupe. Split record counters max. Cached input and reasoning counted as subsets for Codex. No conversation content exported.",
+  "providers": {
+    "codex": {
+      "diagnostics": {
+        "files_scanned": 796,
+        "legacy_cumulative_deltas": 0,
+        "malformed_candidates": 0,
+        "usage_total_mismatch": 0,
+        "missing_response_id": 0
+      },
+      "periods": {
+        "audit_2026_04_01_to_09_30": {
+          "start_inclusive": "2026-04-01",
+          "end_exclusive": "2026-10-01",
+          "timezone": "Asia/Seoul",
+          "totals": {},
+          "active_days": 0,
+          "duplicate_records_merged": 0,
+          "duplicate_records_with_different_values": 0,
+          "models": {},
+          "daily": {},
+          "iitp_path_subset_models": {},
+          "request_id_hash_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "synthetic_zero_token_responses_excluded": 0,
+          "sessions_with_usage_records_including_zero_and_synthetic": 0,
+          "count_note": "requests counts unique model-response records excluding synthetic; zero-token non-synthetic responses may remain. Session and duplicate counts include zero-token/synthetic records. No user-task count inferred."
+        },
+        "october_2026": {
+          "start_inclusive": "2026-10-01",
+          "end_exclusive": "2026-11-01",
+          "timezone": "Asia/Seoul",
+          "totals": {
+            "input_uncached": 5199221,
+            "cache_write_5m": 0,
+            "cache_write_1h": 0,
+            "cache_write_unknown": 0,
+            "cache_read": 228940544,
+            "output": 668924,
+            "reasoning_subset": 297676,
+            "total_processed": 234808689,
+            "requests": 1136
+          },
+          "active_days": 5,
+          "duplicate_records_merged": 0,
+          "duplicate_records_with_different_values": 0,
+          "models": {
+            "gpt-5.6-terra": {
+              "input_uncached": 364624,
+              "cache_write_5m": 0,
+              "cache_write_1h": 0,
+              "cache_write_unknown": 0,
+              "cache_read": 1925120,
+              "output": 37287,
+              "reasoning_subset": 20006,
+              "total_processed": 2327031,
+              "requests": 38
+            },
+            "gpt-6.1-sol": {
+              "input_uncached": 4361653,
+              "cache_write_5m": 0,
+              "cache_write_1h": 0,
+              "cache_write_unknown": 0,
+              "cache_read": 216905344,
+              "output": 588175,
+              "reasoning_subset": 270576,
+              "total_processed": 221855172,
+              "requests": 1006
+            },
+            "codex-auto-review": {
+              "input_uncached": 29983,
+              "cache_write_5m": 0,
+              "cache_write_1h": 0,
+              "cache_write_unknown": 0,
+              "cache_read": 67712,
+              "output": 506,
+              "reasoning_subset": 384,
+              "total_processed": 98201,
+              "requests": 7
+            },
+            "gpt-6-astra": {
+              "input_uncached": 442961,
+              "cache_write_5m": 0,
+              "cache_write_1h": 0,
+              "cache_write_unknown": 0,
+              "cache_read": 10042368,
+              "output": 42956,
+              "reasoning_subset": 6710,
+              "total_processed": 10528285,
+              "requests": 85
+            }
+          },
+          "daily": {
+            "2026-10-30": {
+              "input_uncached": 364624,
+              "cache_write_5m": 0,
+              "cache_write_1h": 0,
+              "cache_write_unknown": 0,
+              "cache_read": 1925120,
+              "output": 37287,
+              "reasoning_subset": 20006,
+              "total_processed": 2327031
+            },
+            "2026-10-28": {
+              "input_uncached": 705958,
+              "cache_write_5m": 0,
+              "cache_write_1h": 0,
+              "cache_write_unknown": 0,
+              "cache_read": 8746368,
+              "output": 55829,
+              "reasoning_subset": 12239,
+              "total_processed": 9508155
+            },
+            "2026-10-27": {
+              "input_uncached": 3421902,
+              "cache_write_5m": 0,
+              "cache_write_1h": 0,
+              "cache_write_unknown": 0,
+              "cache_read": 199742080,
+              "output": 516472,
+              "reasoning_subset": 255520,
+              "total_processed": 203680454
+            },
+            "2026-10-25": {
+              "input_uncached": 79221,
+              "cache_write_5m": 0,
+              "cache_write_1h": 0,
+              "cache_write_unknown": 0,
+              "cache_read": 1019648,
+              "output": 5601,
+              "reasoning_subset": 813,
+              "total_processed": 1104470
+            },
+            "2026-10-26": {
+              "input_uncached": 627516,
+              "cache_write_5m": 0,
+              "cache_write_1h": 0,
+              "cache_write_unknown": 0,
+              "cache_read": 17507328,
+              "output": 53735,
+              "reasoning_subset": 9098,
+              "total_processed": 18188579
+            }
+          },
+          "iitp_path_subset_models": {},
+          "request_id_hash_digest": "450e9f47bbce232dd3d9c026ac8112fb58353c39112db9eda875e2d658b159cc",
+          "synthetic_zero_token_responses_excluded": 0,
+          "sessions_with_usage_records_including_zero_and_synthetic": 25,
+          "count_note": "requests counts unique model-response records excluding synthetic; zero-token non-synthetic responses may remain. Session and duplicate counts include zero-token/synthetic records. No user-task count inferred."
+        }
+      }
+    }
+  },
+  "count_normalization": "Zero-token synthetic response count removed using saved model aggregate. Token sums unchanged. Session/duplicate counts labeled raw. Optional rereads terminated SIGTERM; successful prior complete scan retained."
+}

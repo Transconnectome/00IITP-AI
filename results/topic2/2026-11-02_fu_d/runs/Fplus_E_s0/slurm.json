@@ -1,0 +1,10 @@
+{
+ "job_id": "534",
+ "state": "COMPLETED",
+ "elapsed_raw": 4230,
+ "n_gpus": 1,
+ "gpuh": 1.175,
+ "start_utc": "2026-11-01T17:46:39Z",
+ "end_utc": "2026-11-01T18:57:09Z",
+ "node": "b300-01"
+}

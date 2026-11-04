@@ -1,0 +1,53 @@
+{
+ "launched": [
+  {
+   "name": "Fminus_S_s0",
+   "gpu": 0,
+   "launch_utc": "2026-11-01T03:44:38Z",
+   "pid": 415116
+  },
+  {
+   "name": "Fminus_E_s1",
+   "gpu": 1,
+   "launch_utc": "2026-11-01T03:44:41Z",
+   "pid": 415138
+  },
+  {
+   "name": "Fminus_C_s1",
+   "gpu": 2,
+   "launch_utc": "2026-11-01T03:44:43Z",
+   "pid": 415160
+  },
+  {
+   "name": "Fminus_S_s1",
+   "gpu": 3,
+   "launch_utc": "2026-11-01T03:44:46Z",
+   "pid": 415183
+  },
+  {
+   "name": "hcp_E_s0",
+   "gpu": 4,
+   "launch_utc": "2026-11-01T03:44:49Z",
+   "pid": 415208
+  },
+  {
+   "name": "hcp_C_s0",
+   "gpu": 5,
+   "launch_utc": "2026-11-01T03:44:51Z",
+   "pid": 415231
+  },
+  {
+   "name": "hcp_S_s0",
+   "gpu": 6,
+   "launch_utc": "2026-11-01T03:44:54Z",
+   "pid": 415254
+  },
+  {
+   "name": "hcp_E_s1",
+   "gpu": 7,
+   "launch_utc": "2026-11-01T03:44:57Z",
+   "pid": 415276
+  }
+ ],
+ "skipped_no_idle_gpu": []
+}

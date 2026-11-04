@@ -1,0 +1,19 @@
+# Only the reviewed handoff package is eligible for tracking.
+*
+!.gitignore
+!README.md
+!public_rate_sources.json
+!summary_plain_v3.md
+!summary_plain_v3.html
+!연구용_AI서비스_활용소명서_쉬운설명_1쪽.pdf
+!render_plain_summary.py
+!PLAIN_V3_SHA256SUMS
+!cost_calculation.json
+!subscription_scenarios.csv
+!analysis/
+analysis/*
+!analysis/aggregate_usage.py
+!analysis/check_usage.py
+!analysis/claude_deduplicated.json
+!analysis/codex_deduplicated.json
+!analysis/README.md

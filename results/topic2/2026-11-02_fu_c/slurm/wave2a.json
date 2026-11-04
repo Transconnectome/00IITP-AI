@@ -1,0 +1,35 @@
+[
+ {
+  "name": "hcp_S_s12_a1",
+  "kind": "run",
+  "arm": "S",
+  "seed": 12,
+  "attempt": 1,
+  "sbatch": "results/topic2/2026-11-02_fu_c/slurm/hcp_S_s12_a1.sbatch",
+  "remote_out": "/scratch/iitp4/fu_c/runs/hcp_S_s12_a1",
+  "time_limit": "00:36:00",
+  "purpose": "FU-C Stage-1 run hcp_S_s12_a1: SwiFT ver11 E36 SimMIM 8750x16, frozen r1 code, HCP-YA OA positional view (read-only, stays on B300)"
+ },
+ {
+  "name": "hcp_E_s13_a1",
+  "kind": "run",
+  "arm": "E",
+  "seed": 13,
+  "attempt": 1,
+  "sbatch": "results/topic2/2026-11-02_fu_c/slurm/hcp_E_s13_a1.sbatch",
+  "remote_out": "/scratch/iitp4/fu_c/runs/hcp_E_s13_a1",
+  "time_limit": "00:36:00",
+  "purpose": "FU-C Stage-1 run hcp_E_s13_a1: SwiFT ver11 E36 SimMIM 8750x16, frozen r1 code, HCP-YA OA positional view (read-only, stays on B300)"
+ },
+ {
+  "name": "hcp_C_s13_a1",
+  "kind": "run",
+  "arm": "C",
+  "seed": 13,
+  "attempt": 1,
+  "sbatch": "results/topic2/2026-11-02_fu_c/slurm/hcp_C_s13_a1.sbatch",
+  "remote_out": "/scratch/iitp4/fu_c/runs/hcp_C_s13_a1",
+  "time_limit": "00:36:00",
+  "purpose": "FU-C Stage-1 run hcp_C_s13_a1: SwiFT ver11 E36 SimMIM 8750x16, frozen r1 code, HCP-YA OA positional view (read-only, stays on B300)"
+ }
+]

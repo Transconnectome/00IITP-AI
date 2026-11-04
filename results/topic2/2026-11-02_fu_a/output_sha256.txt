@@ -1,0 +1,22 @@
+# FU-A outputs after the gate (worker_FU_A_r1). Verify: grep -v '^#' THIS | LC_ALL=C sha256sum -c
+ae21e4aeaf1a8d8ea3eecd3751a8eb60ceb69fca397f5a9d0c62e3c31ccf6964  results/topic2/2026-11-02_fu_a/verdict.json
+9a3e887c7cee7e960776ea0d61b5c8da744e5dc59cae79da9f2f86d62d8697f7  results/topic2/2026-11-02_fu_a/gpu_hours_fu_a.txt
+d9f75ce5163f8db75f9a2bd52e1e2eb9232146b3073550f54fdf8ec9d7f147a4  results/topic2/2026-11-02_fu_a/token_scan_b300_gate.json
+53f2891a13e5e65311c8b5057e51af4252b466bf27115c9639dab23114a1c74c  results/topic2/2026-11-02_fu_a/runs/Fplus_C_s0/run.json
+2bbacca7665f8e31a910b38a83233b97806e1aad539aa69d0ca5b743f597cc00  results/topic2/2026-11-02_fu_a/runs/Fplus_E_s0/run.json
+ba11256baa84b3c0dd8b691447970cfe03a0f383cff08a8ff1e80c4b8a3884ce  results/topic2/2026-11-02_fu_a/runs/Fplus_C_s0/train_log.jsonl
+3474c959b908bf2b7c600078408b8f650ea1f18365e9b794c067f0c1d65a09cf  results/topic2/2026-11-02_fu_a/runs/Fplus_E_s0/train_log.jsonl
+2069d0611c49d33e26dc92bd7203b852c295932dbea9bc62bb6f37ba51afce5d  results/topic2/2026-11-02_fu_a/logs/verdict_stdout.txt
+cb0aa66a35f349fc9d20e8324d0369c338b34f028763aa529cb59f0182aa37b6  results/topic2/2026-11-02_fu_a/logs/build_fixture_perms.log
+363ca0e41cf059146ee1794947db7312bcc6ba55c50f69cfa54dc40caf8e66e1  results/topic2/2026-11-02_fu_a/logs/b300/build_env.log
+71dc0eb13ef170ac938aeb7f9f3636c2c4b5e9981088b2ef18e44ce81e33937e  results/topic2/2026-11-02_fu_a/logs/b300/design_stats_repro_frozen_script.json
+d6930002bcb24e261536b097e951c35330eb2ea6ed50f519d8c8633c2328a956  results/topic2/2026-11-02_fu_a/logs/b300/fua-gate.sbatch
+a7bd2382592383f1cca19e6d94e8671cb6162b2e024c3fab2e06ab46cd875a40  results/topic2/2026-11-02_fu_a/logs/b300/fua-gate_507_0.out
+cd740a93c9564b806162937eb7f5bee65c78caaa3bb142b0eb4c01de14509e54  results/topic2/2026-11-02_fu_a/logs/b300/fua-gate_507_1.out
+6dbcf9d490adb647c0db3cf5cd31a62ddf93321d2a35ce1baf98acc8daf41315  results/topic2/2026-11-02_fu_a/logs/b300/jobs_gate.json
+ee4a51e37e20308d22d90946b6c1482783d9640321dc00ddf041c6a7bc9f2c63  results/topic2/2026-11-02_fu_a/logs/b300/jobs_stage1.json
+5681b800f65b3739127bc7f20c974195e86fc524898604347569c4cea46f1951  results/topic2/2026-11-02_fu_a/logs/b300/prep.log
+3689accf694ebeeda094fd64c3a8255f9f18d1a74a6bbeead6c73e8e4ebb774b  results/topic2/2026-11-02_fu_a/logs/b300/prep_repro.log
+4953fe4786ebf7617caccf3b2b88b90e277c98e11f7bb834b59841c494187fb6  docs/03_empirical_analysis/topic2/2026-11-02_topic2_fu_a_result_report.md
+86cdd4305f4d7794243449b64686697cf03893e68cc147ea4cfa281be10fd0b4  verification/worker_FU_A_r1/mutation/results.json
+54c38061b4c077a63a2898cb383891c64b57265e1b87b31a6c1c640152b9a630  verification/worker_FU_A_r1/probe_stage0_fixture_numbers.out.json

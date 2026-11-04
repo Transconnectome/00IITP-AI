@@ -1,0 +1,82 @@
+{
+ "card": "docs/03_empirical_analysis/topic2/2026-11-02_topic2_fu_d_card.md",
+ "delta": 0.01,
+ "seed_plan": null,
+ "run_states": {
+  "Fminus_C_s0": {
+   "state": "missing",
+   "attempts": [],
+   "used_dir": null
+  },
+  "Fminus_E_s0": {
+   "state": "missing",
+   "attempts": [],
+   "used_dir": null
+  },
+  "Fplus_C_s0": {
+   "state": "completed",
+   "attempts": [
+    [
+     0,
+     "completed"
+    ]
+   ],
+   "used_dir": "Fplus_C_s0"
+  },
+  "Fplus_E_s0": {
+   "state": "completed",
+   "attempts": [
+    [
+     0,
+     "completed"
+    ]
+   ],
+   "used_dir": "Fplus_E_s0"
+  },
+  "Fplus_S_s0": {
+   "state": "completed",
+   "attempts": [
+    [
+     0,
+     "completed"
+    ]
+   ],
+   "used_dir": "Fplus_S_s0"
+  }
+ },
+ "decision": {
+  "delta": 0.01,
+  "fplus_gate": {
+   "gain_C_vs_E": 0.0036313292621888414,
+   "gain_C_vs_S": 0.006546018163682844,
+   "pass": false
+  },
+  "verdict": "inconclusive",
+  "reason": "measurement-capacity gate failed (F+ fixture at E192); Stage 1 not read"
+ },
+ "verdict": "inconclusive",
+ "needs_fminus": false,
+ "r1_reference": {
+  "verdict": "stop",
+  "seed_mean_nmse_E_E36": 0.9889222408071936,
+  "I1_t": {
+   "mean": 0.001468184023099891,
+   "se": 0.0007726985079070186,
+   "lo": -0.0006771709669721932,
+   "hi": 0.003613539013171975,
+   "n": 5,
+   "df": 4,
+   "t_crit": 2.7764451051977987
+  },
+  "I2_t": {
+   "mean": 0.004732633303407484,
+   "se": 0.001701028990389626,
+   "lo": 9.819689240653587e-06,
+   "hi": 0.009455446917574314,
+   "n": 5,
+   "df": 4,
+   "t_crit": 2.7764451051977987
+  }
+ },
+ "joint_reading_with_r1": "E192 adds no decision; the r1 E36 stop stands alone"
+}

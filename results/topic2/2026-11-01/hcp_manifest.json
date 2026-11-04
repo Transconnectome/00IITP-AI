@@ -1,0 +1,464 @@
+{
+ "created_utc": "2026-11-01T02:29:25Z",
+ "source": "HCP-YA S1200 open access, rfMRI_REST1_LR_hp2000_clean, B300 node 61.107.201.98 (read-only)",
+ "n_dirs_listed": 1084,
+ "n_with_rest1_lr": 93,
+ "n_burned_excluded": 5,
+ "n_qc_pass": 88,
+ "n_qc_fail": 0,
+ "subjects": [
+  {
+   "pseudonym": "h00",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h01",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h02",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h03",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h04",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h05",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h06",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h07",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h08",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h09",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h10",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h11",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h12",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h13",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h14",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h15",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h16",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h17",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h18",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h19",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h20",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h21",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h22",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h23",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h24",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h25",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h26",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h27",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h28",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h29",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h30",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h31",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h32",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h33",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h34",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h35",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h36",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h37",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h38",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h39",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h40",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h41",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h42",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h43",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h44",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h45",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h46",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h47",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h48",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h49",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h50",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h51",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h52",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h53",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h54",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h55",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h56",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h57",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h58",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h59",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h60",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h61",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h62",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h63",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h64",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h65",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h66",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h67",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h68",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h69",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h70",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h71",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h72",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h73",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h74",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h75",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h76",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h77",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h78",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h79",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h80",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h81",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h82",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h83",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h84",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h85",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h86",
+   "qc": "pass",
+   "T": 1200
+  },
+  {
+   "pseudonym": "h87",
+   "qc": "pass",
+   "T": 1200
+  }
+ ],
+ "elapsed_sec": 160.3,
+ "c4_sanitized": {
+  "date": "2026-11-01",
+  "by": "worker_M3_r2",
+  "rule": "subject token = 'h%02d' % (position in the original manifest subject list, which is sorted by content sha256); content_sha256, file_bytes, n_brain_vox and per-file sec removed; originals sealed off-repo (docs/03_empirical_analysis/topic2/2026-11-01_topic2_addendum_05.md)",
+  "original_file_sha256": "26ba34a9d78fd364cfd359f40655251ec1a006f06b9ceea5266d403fdb8f96d5",
+  "dropped_subject_fields": [
+   "content_sha256",
+   "file_bytes",
+   "n_brain_vox",
+   "sec"
+  ]
+ }
+}

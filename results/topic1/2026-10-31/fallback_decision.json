@@ -1,0 +1,63 @@
+{
+ "fallback_triggered": false,
+ "primary_density": 0.1,
+ "rule": "fallback iff rate_E1 > 0.10 or rate_E2 > 0.10 at broadband@0.10 (card 3)",
+ "rates_broadband_010": {
+  "n": 1706,
+  "n_degenerate_E1": 0,
+  "n_degenerate_E2": 0,
+  "rate_E1": 0.0,
+  "rate_E2": 0.0
+ },
+ "created_utc": "2026-10-31T11:14:54Z",
+ "labels_read": false,
+ "n_extraction_records": 1706,
+ "n_ok": 1706,
+ "n_failed": 0,
+ "rates_all_units": {
+  "broadband@0.05": {
+   "n": 1706,
+   "n_degenerate_E1": 2,
+   "n_degenerate_E2": 2,
+   "rate_E1": 0.0011723329425556857,
+   "rate_E2": 0.0011723329425556857
+  },
+  "broadband@0.10": {
+   "n": 1706,
+   "n_degenerate_E1": 0,
+   "n_degenerate_E2": 0,
+   "rate_E1": 0.0,
+   "rate_E2": 0.0
+  },
+  "broadband@0.15": {
+   "n": 1706,
+   "n_degenerate_E1": 0,
+   "n_degenerate_E2": 0,
+   "rate_E1": 0.0,
+   "rate_E2": 0.0
+  },
+  "curl@0.05": {
+   "n": 1706,
+   "n_degenerate_E1": 0,
+   "n_degenerate_E2": 0,
+   "rate_E1": 0.0,
+   "rate_E2": 0.0
+  },
+  "curl@0.10": {
+   "n": 1706,
+   "n_degenerate_E1": 0,
+   "n_degenerate_E2": 0,
+   "rate_E1": 0.0,
+   "rate_E2": 0.0
+  },
+  "curl@0.15": {
+   "n": 1706,
+   "n_degenerate_E1": 0,
+   "n_degenerate_E2": 0,
+   "rate_E1": 0.0,
+   "rate_E2": 0.0
+  }
+ },
+ "extract_primary_jsonl_sha256": "948961c84a371709b562424ddbe15eefaf9d659bd2bb17415c286e335888518e",
+ "script_sha256": "33e2757690c1dd948cf82478efbe067aa37296a05db0ab081a2073113b396e02"
+}

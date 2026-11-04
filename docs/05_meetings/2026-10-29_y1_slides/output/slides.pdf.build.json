@@ -1,0 +1,88 @@
+{
+  "schema": 1,
+  "created_at": "2026-10-29T03:56:40.913074+00:00",
+  "source": {
+    "path": "/home/juke/git/00IITP-AI/docs/05_meetings/2026-10-29_y1_slides/slides.md",
+    "sha256": "57caef7a8d7a64b72b3a5d1a93e471644b7b5962a97579cc78128738ce498481"
+  },
+  "output": {
+    "path": "/home/juke/git/00IITP-AI/docs/05_meetings/2026-10-29_y1_slides/output/slides.pdf",
+    "sha256": "d7d847d68d8bef885abf7fabb021d07cfaf736329bf6fc96c427727cbd3c6a3c"
+  },
+  "format": "pdf",
+  "output_kind": "PDF presentation; text/geometry QA plus separate visual inspection",
+  "marp": {
+    "path": "/home/juke/.npm-global/bin/marp",
+    "version": "@marp-team/marp-cli v4.3.1 (w/ @marp-team/marp-core v4.3.0)"
+  },
+  "browser": {
+    "path": "/home/juke/.cache/ms-playwright/chromium-1217/chrome-linux/chrome",
+    "version": "Chromium 147.0.7727.0",
+    "sandbox_disabled": true
+  },
+  "themes": [
+    {
+      "path": "/home/juke/git/cha-talks/themes/cha-editorial.css",
+      "sha256": "452d55c7f8209c84b9989c02c52b7e764f0cca17dea1ac1212c5ad87e4ceb650"
+    },
+    {
+      "path": "/home/juke/git/cha-talks/themes/cha-friendly.css",
+      "sha256": "bb9e796ada357d123a8b696853c14c03220b5879e29b27451b6ed3c332ecaa8d"
+    },
+    {
+      "path": "/home/juke/git/cha-talks/themes/cha.css",
+      "sha256": "3407fa9c57303064c1346aed258ee63f757ed6ba09e738d02303248a323aa56c"
+    }
+  ],
+  "font": {
+    "requested_family": "Pretendard",
+    "resolved_family": "Pretendard,Noto Sans,Noto Sans Adlam,Noto Sans Arabic UI,Noto Sans Arabic,Noto Sans Armenian,Noto Sans Avestan,Noto Sans Balinese,Noto Sans Bamum,Noto Sans Bassa Vah,Noto Sans Batak,Noto Sans Bengali,Noto Sans Bhaiksuki,Noto Sans Brahmi,Noto Sans Buginese,Noto Sans Buhid,Noto Sans Canadian Aboriginal,Noto Sans Carian,Noto Sans Caucasian Albanian,Noto Sans Chakma,Noto Sans Cham,Noto Sans Cherokee,Noto Sans Coptic,Noto Sans Cuneiform,Noto Sans Cypriot,Noto Sans Deseret,Noto Sans Devanagari,Noto Sans Duployan,Noto Sans Elbasan,Noto Sans Elymaic,Noto Sans Ethiopic,Noto Sans Georgian,Noto Sans Glagolitic,Noto Sans Gothic,Noto Sans Grantha,Noto Sans Gujarati,Noto Sans Gunjala Gondi,Noto Sans Gurmukhi,Noto Sans Hanifi Rohingya,Noto Sans Hanunoo,Noto Sans Hatran,Noto Sans Hebrew,Noto Sans Javanese,Noto Sans Kaithi,Noto Sans Kannada,Noto Sans Kayah Li,Noto Sans Kharoshthi,Noto Sans Khmer,Noto Sans Khojki,Noto Sans Khudawadi,Noto Sans Lao,Noto Sans Lepcha,Noto Sans Limbu,Noto Sans Linear A,Noto Sans Linear B,Noto Sans Lisu,Noto Sans Lycian,Noto Sans Lydian,Noto Sans Mahajani,Noto Sans Malayalam,Noto Sans Mandaic,Noto Sans Manichaean,Noto Sans Marchen,Noto Sans Masaram Gondi,Noto Sans Mayan Numerals,Noto Sans Medefaidrin,Noto Sans Meetei Mayek,Noto Sans Mende Kikakui,Noto Sans Meroitic,Noto Sans Miao,Noto Sans Modi,Noto Sans Mongolian,Noto Sans Mro,Noto Sans Multani,Noto Sans Myanmar,Noto Sans NKo,Noto Sans Nabataean,Noto Sans New Tai Lue,Noto Sans Newa,Noto Sans Nushu,Noto Sans Ogham,Noto Sans Ol Chiki,Noto Sans Oriya,Noto Sans Osage,Noto Sans Osmanya,Noto Sans Pahawh Hmong,Noto Sans Palmyrene,Noto Sans Pau Cin Hau,Noto Sans PhagsPa,Noto Sans Phoenician,Noto Sans Rejang,Noto Sans Runic,Noto Sans Saurashtra,Noto Sans Sharada,Noto Sans Shavian,Noto Sans Siddham,Noto Sans Sinhala,Noto Sans Sogdian,Noto Sans Sora Sompeng,Noto Sans Soyombo,Noto Sans Sundanese,Noto Sans Syloti Nagri,Noto Sans Syriac,Noto Sans Tagalog,Noto Sans Tagbanwa,Noto Sans Tai Le,Noto Sans Tai Tham,Noto Sans Tai Viet,Noto Sans Tamil,Noto Sans Takri,Noto Sans Telugu,Noto Sans Thaana,Noto Sans Thai,Noto Sans Tifinagh,Noto Sans Tirhuta,Noto Sans Ugaritic,Noto Nastaliq Urdu,Noto Sans Vai,Noto Sans Wancho,Noto Sans Warang Citi,Noto Sans Yi,Noto Sans Zanabazar Square,Noto Sans Math,DejaVu LGC Sans,Noto Sans,DejaVu Sans,Verdana,Arial,Albany AMT,Luxi Sans,Nimbus Sans L,Nimbus Sans,Nimbus Sans,Helvetica,Nimbus Sans,Nimbus Sans L,Lucida Sans Unicode,BPG Glaho International,Tahoma,URW Gothic,Nimbus Sans,Nimbus Sans Narrow,Loma,Waree,Garuda,Umpush,Laksaman,Noto Sans CJK JP,Noto Sans CJK KR,Noto Sans CJK SC,Noto Sans CJK TC,Noto Sans CJK HK,WenQuanYi Zen Hei,Droid Sans Fallback,AR PL UMing CN,AR PL UMing HK,AR PL UMing TW,Khmer OS,Nachlieli,Lucida Sans Unicode,Yudit Unicode,Kerkis,ArmNet Helvetica,Artsounk,BPG UTF8 M,Waree,Loma,Garuda,Umpush,Saysettha Unicode,JG Lao Old Arial,GF Zemen Unicode,Pigiarniq,B Davat,B Compset,Kacst-Qr,Urdu Nastaliq Unicode,Raghindi,Mukti Narrow,padmaa,Hapax Berbère,MS Gothic,UmePlus P Gothic,Microsoft YaHei,Microsoft JhengHei,WenQuanYi Zen Hei,WenQuanYi Bitmap Song,AR PL ShanHeiSun Uni,AR PL New Sung,Hiragino Sans,PingFang SC,PingFang TC,PingFang HK,Hiragino Sans CNS,Hiragino Sans GB,MgOpen Moderna,MgOpen Modata,MgOpen Cosmetica,VL Gothic,IPAMonaGothic,IPAGothic,Sazanami Gothic,Kochi Gothic,AR PL KaitiM GB,AR PL KaitiM Big5,AR PL ShanHeiSun Uni,AR PL SungtiL GB,AR PL Mingti2L Big5,ＭＳ ゴシック,ZYSong18030,NanumGothic,UnDotum,Baekmuk Dotum,Baekmuk Gulim,Apple SD Gothic Neo,KacstQura,Lohit Bengali,Lohit Gujarati,Lohit Hindi,Lohit Marathi,Lohit Maithili,Lohit Kashmiri,Lohit Konkani,Lohit Nepali,Lohit Sindhi,Lohit Punjabi,Lohit Tamil,Meera,Lohit Malayalam,Lohit Kannada,Lohit Telugu,Lohit Oriya,LKLUG,FreeSans,Arial Unicode MS,Arial Unicode,Code2000,Code2001,Noto Sans CJK KR,sans-serif,Roya,Koodak,Terafik,sans-serif,ITC Avant Garde Gothic,URW Gothic,sans-serif,sans-serif,Helvetica,Helvetica Narrow,Nimbus Sans Narrow,AR PL UKai CN,AR PL UKai HK,AR PL UKai TW,sans-serif,sans-serif,sans-serif,sans-serif,sans-serif",
+    "path": "/home/juke/.fonts/pretendard/web/static/woff/Pretendard-Black.woff",
+    "sha256": "d8511e03d73b848d3df45d6f3d1166bb9532f7547b68da5f768d7b60df76faaa"
+  },
+  "embedded_html_assets": [],
+  "lint": {
+    "mode": "final",
+    "skipped": false,
+    "forced": false,
+    "errors": 0,
+    "warnings": 3
+  },
+  "render_qa": {
+    "status": "pass",
+    "pages": 3,
+    "source_slides": 3,
+    "page_sizes_px": [
+      [
+        1280.0,
+        720.0
+      ],
+      [
+        1280.0,
+        720.0
+      ],
+      [
+        1280.0,
+        720.0
+      ]
+    ],
+    "fonts": [
+      "AAAAAA+Pretendard-Bold",
+      "BAAAAA+Pretendard-Regular",
+      "CAAAAA+DejaVuSans",
+      "DAAAAA+Pretendard-Bold",
+      "EAAAAA+Pretendard-Regular",
+      "Pretendard"
+    ],
+    "required_font": "Pretendard",
+    "code_lines_checked": 0,
+    "errors": [],
+    "warnings": [],
+    "limits": [
+      "PDF text geometry is not a visual quality judgment",
+      "Images, diagrams, fully clipped prose and text as paths need visual inspection",
+      "Font list proves use somewhere in PDF, not every glyph's family"
+    ]
+  },
+  "visual_review": "pending; build success does not certify aesthetics or every asset"
+}

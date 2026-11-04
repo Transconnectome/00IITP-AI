@@ -1,0 +1,19 @@
+worker_r2 A3 rerun conditions
+cmd: PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 /home/juke/superclaude-env/bin/python3 -B scripts/topic1_timing.py --outdir results/topic1/2026-10-30/a3_r2
+start 2026-10-30T12:59:50Z load: 42.73 44.77 34.32 45/6817 2346104
+rc=0 end 2026-10-30T13:03:23Z load: 25.98 38.09 34.02 67/6594 2445148
+nproc: 20; concurrent: worker_r2 mutation harness (1 pytest process at a time) plus other users' processes
+
+comparison vs results/topic1/2026-10-30/a3_timing.json (verification/worker_r2/compare_a3.py):
+params_sha256 equal: True 86863ffad95cbd852ae4e187490e2112183dd38632166bb417158b62bfea15c6
+pos=1578 tr=0.7 total_s ref=26.48 new=27.86 nulls_s ratio new/ref min=1.03 max=1.08
+pos=1228 tr=0.85 total_s ref=26.50 new=28.72 nulls_s ratio new/ref min=1.03 max=1.10
+pos=932 tr=1.0 total_s ref=25.98 new=27.48 nulls_s ratio new/ref min=1.03 max=1.09
+pos=0 tr=1.8 total_s ref=26.25 new=27.45 nulls_s ratio new/ref min=1.02 max=1.07
+pos=57 tr=2.0 total_s ref=26.36 new=26.69 nulls_s ratio new/ref min=1.00 max=1.02
+deterministic mismatches: 0 []
+mean_unit_s: ref=4.384 new=4.605
+cpu_h_full_cohort_all_units_추정: ref=12.469 new=13.099
+cpu_h_full_cohort_primary_unit_only_추정: ref=2.274 new=2.391
+peak_rss_mb: ref=292.297 new=286.695
+numba_compile_s: ref=0.784 new=0.963

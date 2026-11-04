@@ -1,0 +1,21 @@
+# FU-C verdict code + tests receipt (worker_FU_C_r1); written before any Stage-1 record was copied off B300 or read (card s8)
+# frozen_utc: 2026-11-01T16:31:53Z
+# verify: cd /home/juke/git/00IITP-AI && grep -v '^#' results/topic2/2026-11-02_fu_c/code_sha256_before_results.txt | LC_ALL=C sha256sum -c
+# section: verdict_code
+9a1425b6dff9c2e2a5750783b1a79108e109bdd2a41fe364e00b4787e6493060  src/topic2_fu_c/verdict.py
+6ee7fe296ee60d0797ae2cff0e9609d90b6de6c3f01d0938080c4d62d3f229af  src/topic2_fu_c/logs.py
+7ee0856a6ecedb3a4236981a101e18945a6439c2407a65aebddfd3f38d407a6c  src/topic2_fu_c/receipts.py
+211ad5c1e33b10164ef94796390eb1125e10e2441f8e7db5c562e1e1d1f16cb3  scripts/topic2fu_c_verdict.py
+# section: tests
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  tests/topic2_fu_c/__init__.py
+f60132b57dfe11dd8ed4d865964a21330f8b26babaddd074342f30e712cea598  tests/topic2_fu_c/helpers.py
+34c2fce272b1b125fb6f422912236e987ec04f167d3e5893b76459d2d54ee148  tests/topic2_fu_c/test_verdict_rules.py
+3af2eb8ca790b3a67b2ed507bb3f542e47281dd40efe13e33905aba2c06be81c  tests/topic2_fu_c/test_gate_and_records.py
+49a29b958142929249024b13d7507ac9940f25f012af9dd1bbb2877ed45282eb  tests/topic2_fu_c/test_planted_effects.py
+354f2bfe678378da1760e63eafc5d9af20d205c5225cd3d05ea2c388ec2b0dd9  tests/topic2_fu_c/test_logs_budget_design.py
+ecea4b563e54ab407829ee6602f2f42149a2b0db9c7bb14e17f92e3cc19ef1bd  tests/topic2_fu_c/test_perms_receipts_c4.py
+# section: result_handling
+9caa744b9ab5440053b062a9ae82f334330a9313aa7d2684cd45c464c1134326  scripts/topic2fu_c_scan_b300.py
+19bda1b77459edb45ea73d0a56061b622429489806c2159b323327ef1fd1fb0f  scripts/topic2fu_c_copyback.py
+670a11e13abfd362b5ad2a1c27512c7d9c7df7a9d2060178318a4404a2c13cd3  verification/worker_FU_C_r1/mutants/run_mutants.py
+95bafac4a45c8c7f26aba442abfb5ac545da09c4dcce31b5f40ea6709cd50375  verification/worker_FU_C_r1/mutants/mutants_r2.out.json

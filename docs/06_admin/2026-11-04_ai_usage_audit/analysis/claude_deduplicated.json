@@ -1,0 +1,1105 @@
+{
+  "generated_at": "2026-11-04T10:40:42.161906+09:00",
+  "coverage": "Local host default Claude projects and Codex sessions + archived_sessions only. Not all devices, seats, browser usage or grant-attributed spending.",
+  "method": "Global response/message ID dedupe. Split record counters max. Cached input and reasoning counted as subsets for Codex. No conversation content exported.",
+  "providers": {
+    "claude_code": {
+      "diagnostics": {
+        "files_scanned": 13551,
+        "malformed_candidates": 0,
+        "missing_id_or_usage": 0
+      },
+      "periods": {
+        "audit_2026_04_01_to_09_30": {
+          "start_inclusive": "2026-04-01",
+          "end_exclusive": "2026-10-01",
+          "timezone": "Asia/Seoul",
+          "totals": {
+            "input_uncached": 5622858,
+            "cache_write_5m": 289505,
+            "cache_write_1h": 784294531,
+            "cache_write_unknown": 7570461,
+            "cache_read": 17975465471,
+            "output": 96507480,
+            "reasoning_subset": 48917802,
+            "total_processed": 18869750306,
+            "requests": 85495
+          },
+          "active_days": 37,
+          "duplicate_records_merged": 116158,
+          "duplicate_records_with_different_values": 26068,
+          "models": {
+            "claude-haiku-4-5-20251001": {
+              "input_uncached": 24857,
+              "cache_write_5m": 0,
+              "cache_write_1h": 34878108,
+              "cache_write_unknown": 0,
+              "cache_read": 152707675,
+              "output": 2262773,
+              "reasoning_subset": 1852108,
+              "total_processed": 189873413,
+              "requests": 2658
+            },
+            "claude-sonnet-5-5": {
+              "input_uncached": 1204,
+              "cache_write_5m": 0,
+              "cache_write_1h": 2114387,
+              "cache_write_unknown": 0,
+              "cache_read": 36451642,
+              "output": 495469,
+              "reasoning_subset": 63679,
+              "total_processed": 39062702,
+              "requests": 599
+            },
+            "claude-opus-5-5": {
+              "input_uncached": 433157,
+              "cache_write_5m": 0,
+              "cache_write_1h": 190302816,
+              "cache_write_unknown": 471279,
+              "cache_read": 5936402309,
+              "output": 13633726,
+              "reasoning_subset": 6420368,
+              "total_processed": 6141243287,
+              "requests": 25753
+            },
+            "claude-opus-5": {
+              "input_uncached": 537119,
+              "cache_write_5m": 131172,
+              "cache_write_1h": 322043274,
+              "cache_write_unknown": 4108203,
+              "cache_read": 8096212251,
+              "output": 50714883,
+              "reasoning_subset": 24412162,
+              "total_processed": 8473746902,
+              "requests": 35322
+            },
+            "claude-fable-5": {
+              "input_uncached": 6626,
+              "cache_write_5m": 0,
+              "cache_write_1h": 42156109,
+              "cache_write_unknown": 0,
+              "cache_read": 807705052,
+              "output": 5258206,
+              "reasoning_subset": 2743073,
+              "total_processed": 855125993,
+              "requests": 3313
+            },
+            "claude-sonnet-5": {
+              "input_uncached": 292569,
+              "cache_write_5m": 0,
+              "cache_write_1h": 76749731,
+              "cache_write_unknown": 492046,
+              "cache_read": 1716442271,
+              "output": 10213674,
+              "reasoning_subset": 6559020,
+              "total_processed": 1804190291,
+              "requests": 10432
+            },
+            "claude-fable-5-1": {
+              "input_uncached": 642814,
+              "cache_write_5m": 0,
+              "cache_write_1h": 114247627,
+              "cache_write_unknown": 0,
+              "cache_read": 1220682437,
+              "output": 13824015,
+              "reasoning_subset": 6790060,
+              "total_processed": 1349396893,
+              "requests": 7237
+            },
+            "google/gemini-3.1-pro-preview": {
+              "input_uncached": 96510,
+              "cache_write_5m": 0,
+              "cache_write_1h": 0,
+              "cache_write_unknown": 1854665,
+              "cache_read": 1888638,
+              "output": 16114,
+              "reasoning_subset": 14466,
+              "total_processed": 3855927,
+              "requests": 50
+            },
+            "unknown": {
+              "input_uncached": 2819250,
+              "cache_write_5m": 0,
+              "cache_write_1h": 0,
+              "cache_write_unknown": 0,
+              "cache_read": 170211,
+              "output": 19457,
+              "reasoning_subset": 17326,
+              "total_processed": 3008918,
+              "requests": 21
+            },
+            "anthropic/claude-sonnet-5": {
+              "input_uncached": 113545,
+              "cache_write_5m": 119921,
+              "cache_write_1h": 402750,
+              "cache_write_unknown": 0,
+              "cache_read": 274428,
+              "output": 968,
+              "reasoning_subset": 581,
+              "total_processed": 911612,
+              "requests": 12
+            },
+            "google/gemini-3.1-flash-lite": {
+              "input_uncached": 0,
+              "cache_write_5m": 0,
+              "cache_write_1h": 0,
+              "cache_write_unknown": 52965,
+              "cache_read": 52965,
+              "output": 3,
+              "reasoning_subset": 0,
+              "total_processed": 105933,
+              "requests": 1
+            },
+            "deepseek/deepseek-v4-pro": {
+              "input_uncached": 165536,
+              "cache_write_5m": 0,
+              "cache_write_1h": 0,
+              "cache_write_unknown": 0,
+              "cache_read": 810437,
+              "output": 6754,
+              "reasoning_subset": 5519,
+              "total_processed": 982727,
+              "requests": 25
+            },
+            "google/gemini-2.5-pro": {
+              "input_uncached": 24682,
+              "cache_write_5m": 0,
+              "cache_write_1h": 0,
+              "cache_write_unknown": 0,
+              "cache_read": 0,
+              "output": 1107,
+              "reasoning_subset": 1100,
+              "total_processed": 25789,
+              "requests": 1
+            },
+            "anthropic/claude-haiku-4.5": {
+              "input_uncached": 100,
+              "cache_write_5m": 0,
+              "cache_write_1h": 187951,
+              "cache_write_unknown": 0,
+              "cache_read": 38074,
+              "output": 5267,
+              "reasoning_subset": 3787,
+              "total_processed": 231392,
+              "requests": 8
+            },
+            "openai/gpt-5.4-pro": {
+              "input_uncached": 73561,
+              "cache_write_5m": 0,
+              "cache_write_1h": 0,
+              "cache_write_unknown": 0,
+              "cache_read": 0,
+              "output": 165,
+              "reasoning_subset": 69,
+              "total_processed": 73726,
+              "requests": 3
+            },
+            "openai/gpt-6-astra": {
+              "input_uncached": 24,
+              "cache_write_5m": 0,
+              "cache_write_1h": 0,
+              "cache_write_unknown": 305900,
+              "cache_read": 122456,
+              "output": 196,
+              "reasoning_subset": 0,
+              "total_processed": 428576,
+              "requests": 8
+            },
+            "test": {
+              "input_uncached": 10,
+              "cache_write_5m": 0,
+              "cache_write_1h": 0,
+              "cache_write_unknown": 0,
+              "cache_read": 0,
+              "output": 5,
+              "reasoning_subset": 0,
+              "total_processed": 15,
+              "requests": 1
+            },
+            "anthropic/claude-opus-5": {
+              "input_uncached": 302334,
+              "cache_write_5m": 38412,
+              "cache_write_1h": 1087906,
+              "cache_write_unknown": 0,
+              "cache_read": 4725652,
+              "output": 25579,
+              "reasoning_subset": 13350,
+              "total_processed": 6179883,
+              "requests": 36
+            },
+            "qwen/qwen3-coder-plus": {
+              "input_uncached": 58227,
+              "cache_write_5m": 0,
+              "cache_write_1h": 0,
+              "cache_write_unknown": 0,
+              "cache_read": 29056,
+              "output": 67,
+              "reasoning_subset": 0,
+              "total_processed": 87350,
+              "requests": 3
+            },
+            "deepseek/deepseek-chat": {
+              "input_uncached": 30691,
+              "cache_write_5m": 0,
+              "cache_write_1h": 0,
+              "cache_write_unknown": 0,
+              "cache_read": 0,
+              "output": 6,
+              "reasoning_subset": 0,
+              "total_processed": 30697,
+              "requests": 1
+            },
+            "claude-opus-4-8": {
+              "input_uncached": 42,
+              "cache_write_5m": 0,
+              "cache_write_1h": 123872,
+              "cache_write_unknown": 0,
+              "cache_read": 464514,
+              "output": 25407,
+              "reasoning_subset": 17958,
+              "total_processed": 613835,
+              "requests": 6
+            },
+            "google/gemini-3.8-flash": {
+              "input_uncached": 0,
+              "cache_write_5m": 0,
+              "cache_write_1h": 0,
+              "cache_write_unknown": 285403,
+              "cache_read": 285403,
+              "output": 3639,
+              "reasoning_subset": 3176,
+              "total_processed": 574445,
+              "requests": 5
+            }
+          },
+          "daily": {
+            "2026-09-24": {
+              "input_uncached": 478055,
+              "cache_write_5m": 0,
+              "cache_write_1h": 120244733,
+              "cache_write_unknown": 378504,
+              "cache_read": 3565042501,
+              "output": 10043854,
+              "reasoning_subset": 6941043,
+              "total_processed": 3696187647
+            },
+            "2026-09-25": {
+              "input_uncached": 35272,
+              "cache_write_5m": 0,
+              "cache_write_1h": 52743929,
+              "cache_write_unknown": 50490,
+              "cache_read": 1303316928,
+              "output": 4016806,
+              "reasoning_subset": 1330887,
+              "total_processed": 1360163425
+            },
+            "2026-09-29": {
+              "input_uncached": 143118,
+              "cache_write_5m": 0,
+              "cache_write_1h": 27479003,
+              "cache_write_unknown": 174669,
+              "cache_read": 751944906,
+              "output": 2723730,
+              "reasoning_subset": 969008,
+              "total_processed": 782465426
+            },
+            "2026-09-19": {
+              "input_uncached": 227099,
+              "cache_write_5m": 0,
+              "cache_write_1h": 63044518,
+              "cache_write_unknown": 826936,
+              "cache_read": 1747968187,
+              "output": 11651355,
+              "reasoning_subset": 5398699,
+              "total_processed": 1823718095
+            },
+            "2026-09-21": {
+              "input_uncached": 575240,
+              "cache_write_5m": 103891,
+              "cache_write_1h": 83513114,
+              "cache_write_unknown": 569615,
+              "cache_read": 1374539369,
+              "output": 9270801,
+              "reasoning_subset": 5019958,
+              "total_processed": 1468572030
+            },
+            "2026-09-30": {
+              "input_uncached": 3038,
+              "cache_write_5m": 0,
+              "cache_write_1h": 5985861,
+              "cache_write_unknown": 12854,
+              "cache_read": 409529713,
+              "output": 874128,
+              "reasoning_subset": 432506,
+              "total_processed": 416405594
+            },
+            "2026-09-28": {
+              "input_uncached": 2820,
+              "cache_write_5m": 0,
+              "cache_write_1h": 5518891,
+              "cache_write_unknown": 11180,
+              "cache_read": 255132865,
+              "output": 758942,
+              "reasoning_subset": 244750,
+              "total_processed": 261424698
+            },
+            "2026-08-22": {
+              "input_uncached": 60887,
+              "cache_write_5m": 0,
+              "cache_write_1h": 36206015,
+              "cache_write_unknown": 339050,
+              "cache_read": 1026334886,
+              "output": 5406487,
+              "reasoning_subset": 2451517,
+              "total_processed": 1068347325
+            },
+            "2026-09-20": {
+              "input_uncached": 43281,
+              "cache_write_5m": 0,
+              "cache_write_1h": 24616996,
+              "cache_write_unknown": 349094,
+              "cache_read": 613985709,
+              "output": 4635162,
+              "reasoning_subset": 2804177,
+              "total_processed": 643630242
+            },
+            "2026-09-18": {
+              "input_uncached": 4646,
+              "cache_write_5m": 45375,
+              "cache_write_1h": 15392763,
+              "cache_write_unknown": 88445,
+              "cache_read": 400382337,
+              "output": 1925883,
+              "reasoning_subset": 875672,
+              "total_processed": 417839449
+            },
+            "2026-09-23": {
+              "input_uncached": 8672,
+              "cache_write_5m": 0,
+              "cache_write_1h": 28431414,
+              "cache_write_unknown": 64095,
+              "cache_read": 690088870,
+              "output": 2326776,
+              "reasoning_subset": 958552,
+              "total_processed": 720919827
+            },
+            "2026-09-17": {
+              "input_uncached": 26456,
+              "cache_write_5m": 0,
+              "cache_write_1h": 52001007,
+              "cache_write_unknown": 1131335,
+              "cache_read": 1075990876,
+              "output": 7546247,
+              "reasoning_subset": 3675095,
+              "total_processed": 1136695921
+            },
+            "2026-09-16": {
+              "input_uncached": 22177,
+              "cache_write_5m": 43065,
+              "cache_write_1h": 32205039,
+              "cache_write_unknown": 221821,
+              "cache_read": 1014546721,
+              "output": 7268982,
+              "reasoning_subset": 4089198,
+              "total_processed": 1054307805
+            },
+            "2026-08-28": {
+              "input_uncached": 4739,
+              "cache_write_5m": 0,
+              "cache_write_1h": 20715477,
+              "cache_write_unknown": 19553,
+              "cache_read": 377457161,
+              "output": 747193,
+              "reasoning_subset": 248253,
+              "total_processed": 398944123
+            },
+            "2026-09-12": {
+              "input_uncached": 1536281,
+              "cache_write_5m": 0,
+              "cache_write_1h": 26701821,
+              "cache_write_unknown": 1988634,
+              "cache_read": 353527536,
+              "output": 3881795,
+              "reasoning_subset": 1603592,
+              "total_processed": 387636067
+            },
+            "2026-09-14": {
+              "input_uncached": 85022,
+              "cache_write_5m": 0,
+              "cache_write_1h": 51937560,
+              "cache_write_unknown": 369012,
+              "cache_read": 959218097,
+              "output": 8654799,
+              "reasoning_subset": 4238376,
+              "total_processed": 1020264490
+            },
+            "2026-09-15": {
+              "input_uncached": 23622,
+              "cache_write_5m": 0,
+              "cache_write_1h": 43287842,
+              "cache_write_unknown": 182744,
+              "cache_read": 681594788,
+              "output": 4981803,
+              "reasoning_subset": 2763452,
+              "total_processed": 730070799
+            },
+            "2026-09-10": {
+              "input_uncached": 4510,
+              "cache_write_5m": 0,
+              "cache_write_1h": 5919546,
+              "cache_write_unknown": 0,
+              "cache_read": 39595584,
+              "output": 460558,
+              "reasoning_subset": 234856,
+              "total_processed": 45980198
+            },
+            "2026-09-01": {
+              "input_uncached": 952,
+              "cache_write_5m": 0,
+              "cache_write_1h": 3022071,
+              "cache_write_unknown": 10039,
+              "cache_read": 62785535,
+              "output": 446885,
+              "reasoning_subset": 294356,
+              "total_processed": 66265482
+            },
+            "2026-09-11": {
+              "input_uncached": 14124,
+              "cache_write_5m": 42732,
+              "cache_write_1h": 7524942,
+              "cache_write_unknown": 33817,
+              "cache_read": 78813933,
+              "output": 739262,
+              "reasoning_subset": 316619,
+              "total_processed": 87168810
+            },
+            "2026-09-09": {
+              "input_uncached": 52,
+              "cache_write_5m": 0,
+              "cache_write_1h": 206452,
+              "cache_write_unknown": 0,
+              "cache_read": 4294717,
+              "output": 30323,
+              "reasoning_subset": 21961,
+              "total_processed": 4531544
+            },
+            "2026-09-22": {
+              "input_uncached": 4310,
+              "cache_write_5m": 0,
+              "cache_write_1h": 13185711,
+              "cache_write_unknown": 60584,
+              "cache_read": 244589182,
+              "output": 1692301,
+              "reasoning_subset": 951627,
+              "total_processed": 259532088
+            },
+            "2026-09-26": {
+              "input_uncached": 332,
+              "cache_write_5m": 0,
+              "cache_write_1h": 1621089,
+              "cache_write_unknown": 0,
+              "cache_read": 1277429,
+              "output": 97407,
+              "reasoning_subset": 13307,
+              "total_processed": 2996257
+            },
+            "2026-08-21": {
+              "input_uncached": 1460,
+              "cache_write_5m": 0,
+              "cache_write_1h": 4741192,
+              "cache_write_unknown": 8569,
+              "cache_read": 156986055,
+              "output": 1069371,
+              "reasoning_subset": 433334,
+              "total_processed": 162806647
+            },
+            "2026-09-13": {
+              "input_uncached": 1736379,
+              "cache_write_5m": 54442,
+              "cache_write_1h": 1324607,
+              "cache_write_unknown": 599746,
+              "cache_read": 19812765,
+              "output": 176376,
+              "reasoning_subset": 93707,
+              "total_processed": 23704315
+            },
+            "2026-09-27": {
+              "input_uncached": 0,
+              "cache_write_5m": 0,
+              "cache_write_1h": 0,
+              "cache_write_unknown": 0,
+              "cache_read": 0,
+              "output": 0,
+              "reasoning_subset": 0,
+              "total_processed": 0
+            },
+            "2026-07-28": {
+              "input_uncached": 10,
+              "cache_write_5m": 0,
+              "cache_write_1h": 97532,
+              "cache_write_unknown": 0,
+              "cache_read": 379092,
+              "output": 4423,
+              "reasoning_subset": 0,
+              "total_processed": 481057
+            },
+            "2026-08-26": {
+              "input_uncached": 15432,
+              "cache_write_5m": 0,
+              "cache_write_1h": 20106898,
+              "cache_write_unknown": 5786,
+              "cache_read": 314219513,
+              "output": 1797193,
+              "reasoning_subset": 965905,
+              "total_processed": 336144822
+            },
+            "2026-09-04": {
+              "input_uncached": 1622,
+              "cache_write_5m": 0,
+              "cache_write_1h": 1849327,
+              "cache_write_unknown": 3963,
+              "cache_read": 25741887,
+              "output": 203343,
+              "reasoning_subset": 100759,
+              "total_processed": 27800142
+            },
+            "2026-08-24": {
+              "input_uncached": 712,
+              "cache_write_5m": 0,
+              "cache_write_1h": 4146521,
+              "cache_write_unknown": 8160,
+              "cache_read": 105629800,
+              "output": 428521,
+              "reasoning_subset": 165337,
+              "total_processed": 110213714
+            },
+            "2026-08-23": {
+              "input_uncached": 678,
+              "cache_write_5m": 0,
+              "cache_write_1h": 5219923,
+              "cache_write_unknown": 19349,
+              "cache_read": 88862391,
+              "output": 271955,
+              "reasoning_subset": 116777,
+              "total_processed": 94374296
+            },
+            "2026-08-29": {
+              "input_uncached": 104,
+              "cache_write_5m": 0,
+              "cache_write_1h": 797911,
+              "cache_write_unknown": 1332,
+              "cache_read": 15040139,
+              "output": 70267,
+              "reasoning_subset": 28225,
+              "total_processed": 15909753
+            },
+            "2026-08-25": {
+              "input_uncached": 552,
+              "cache_write_5m": 0,
+              "cache_write_1h": 4240738,
+              "cache_write_unknown": 7954,
+              "cache_read": 45752539,
+              "output": 419609,
+              "reasoning_subset": 201423,
+              "total_processed": 50421392
+            },
+            "2026-09-02": {
+              "input_uncached": 1192,
+              "cache_write_5m": 0,
+              "cache_write_1h": 1995968,
+              "cache_write_unknown": 24749,
+              "cache_read": 31586388,
+              "output": 324507,
+              "reasoning_subset": 108455,
+              "total_processed": 33932804
+            },
+            "2026-09-08": {
+              "input_uncached": 18,
+              "cache_write_5m": 0,
+              "cache_write_1h": 144830,
+              "cache_write_unknown": 0,
+              "cache_read": 1082358,
+              "output": 5120,
+              "reasoning_subset": 2340,
+              "total_processed": 1232326
+            },
+            "2026-09-03": {
+              "input_uncached": 547184,
+              "cache_write_5m": 0,
+              "cache_write_1h": 9919737,
+              "cache_write_unknown": 0,
+              "cache_read": 52723457,
+              "output": 1102786,
+              "reasoning_subset": 597229,
+              "total_processed": 64293164
+            },
+            "2026-08-27": {
+              "input_uncached": 362,
+              "cache_write_5m": 0,
+              "cache_write_1h": 1136436,
+              "cache_write_unknown": 8382,
+              "cache_read": 39311968,
+              "output": 270368,
+              "reasoning_subset": 134680,
+              "total_processed": 40727516
+            },
+            "2026-09-05": {
+              "input_uncached": 12448,
+              "cache_write_5m": 0,
+              "cache_write_1h": 7067117,
+              "cache_write_unknown": 0,
+              "cache_read": 46379289,
+              "output": 182162,
+              "reasoning_subset": 92170,
+              "total_processed": 53641016
+            }
+          },
+          "iitp_path_subset_models": {
+            "claude-opus-5-5": {
+              "input_uncached": 8,
+              "cache_write_5m": 0,
+              "cache_write_1h": 67884,
+              "cache_write_unknown": 0,
+              "cache_read": 260843,
+              "output": 2172,
+              "reasoning_subset": 403,
+              "total_processed": 330907,
+              "requests": 4
+            }
+          },
+          "request_id_hash_digest": "5131583880a9c21c01c8322c2bbde81e43e47cd074fcc766450ae1c43efdef09",
+          "synthetic_zero_token_responses_excluded": 817,
+          "sessions_with_usage_records_including_zero_and_synthetic": 2414,
+          "count_note": "requests counts unique model-response records excluding synthetic; zero-token non-synthetic responses may remain. Session and duplicate counts include zero-token/synthetic records. No user-task count inferred."
+        },
+        "october_2026": {
+          "start_inclusive": "2026-10-01",
+          "end_exclusive": "2026-11-01",
+          "timezone": "Asia/Seoul",
+          "totals": {
+            "input_uncached": 729588,
+            "cache_write_5m": 0,
+            "cache_write_1h": 1262689645,
+            "cache_write_unknown": 7120075,
+            "cache_read": 41298416235,
+            "output": 168630562,
+            "reasoning_subset": 65489813,
+            "total_processed": 42737586105,
+            "requests": 162594
+          },
+          "active_days": 31,
+          "duplicate_records_merged": 184080,
+          "duplicate_records_with_different_values": 4282,
+          "models": {
+            "claude-opus-5-5": {
+              "input_uncached": 622958,
+              "cache_write_5m": 0,
+              "cache_write_1h": 1091873451,
+              "cache_write_unknown": 6379938,
+              "cache_read": 39164613909,
+              "output": 157603888,
+              "reasoning_subset": 59029987,
+              "total_processed": 40421094144,
+              "requests": 152820
+            },
+            "claude-sonnet-5-5": {
+              "input_uncached": 19212,
+              "cache_write_5m": 0,
+              "cache_write_1h": 63394176,
+              "cache_write_unknown": 728684,
+              "cache_read": 1151801451,
+              "output": 6972123,
+              "reasoning_subset": 4473413,
+              "total_processed": 1222915646,
+              "requests": 5114
+            },
+            "claude-haiku-4-5-20251001": {
+              "input_uncached": 10268,
+              "cache_write_5m": 0,
+              "cache_write_1h": 16233650,
+              "cache_write_unknown": 0,
+              "cache_read": 91295877,
+              "output": 986071,
+              "reasoning_subset": 805804,
+              "total_processed": 108525866,
+              "requests": 1101
+            },
+            "claude-haiku-5-5": {
+              "input_uncached": 1358,
+              "cache_write_5m": 0,
+              "cache_write_1h": 42816847,
+              "cache_write_unknown": 11453,
+              "cache_read": 47458436,
+              "output": 311296,
+              "reasoning_subset": 163227,
+              "total_processed": 90599390,
+              "requests": 676
+            },
+            "claude-sonnet-5": {
+              "input_uncached": 44,
+              "cache_write_5m": 0,
+              "cache_write_1h": 401152,
+              "cache_write_unknown": 0,
+              "cache_read": 3507838,
+              "output": 12592,
+              "reasoning_subset": 7595,
+              "total_processed": 3921626,
+              "requests": 22
+            },
+            "claude-fable-5-1": {
+              "input_uncached": 75610,
+              "cache_write_5m": 0,
+              "cache_write_1h": 47753889,
+              "cache_write_unknown": 0,
+              "cache_read": 835014722,
+              "output": 2702932,
+              "reasoning_subset": 991229,
+              "total_processed": 885547153,
+              "requests": 2842
+            },
+            "claude-opus-5": {
+              "input_uncached": 4,
+              "cache_write_5m": 0,
+              "cache_write_1h": 169968,
+              "cache_write_unknown": 0,
+              "cache_read": 24545,
+              "output": 8,
+              "reasoning_subset": 0,
+              "total_processed": 194525,
+              "requests": 2
+            },
+            "claude-opus-4-8": {
+              "input_uncached": 134,
+              "cache_write_5m": 0,
+              "cache_write_1h": 46512,
+              "cache_write_unknown": 0,
+              "cache_read": 4699457,
+              "output": 41652,
+              "reasoning_subset": 18558,
+              "total_processed": 4787755,
+              "requests": 17
+            }
+          },
+          "daily": {
+            "2026-10-16": {
+              "input_uncached": 784,
+              "cache_write_5m": 0,
+              "cache_write_1h": 2627009,
+              "cache_write_unknown": 23734,
+              "cache_read": 50257903,
+              "output": 339559,
+              "reasoning_subset": 147225,
+              "total_processed": 53248989
+            },
+            "2026-10-04": {
+              "input_uncached": 29628,
+              "cache_write_5m": 0,
+              "cache_write_1h": 46352926,
+              "cache_write_unknown": 16277,
+              "cache_read": 773105808,
+              "output": 2158613,
+              "reasoning_subset": 884413,
+              "total_processed": 821663252
+            },
+            "2026-10-05": {
+              "input_uncached": 4944,
+              "cache_write_5m": 0,
+              "cache_write_1h": 8737064,
+              "cache_write_unknown": 14097,
+              "cache_read": 152626748,
+              "output": 798137,
+              "reasoning_subset": 285795,
+              "total_processed": 162180990
+            },
+            "2026-10-06": {
+              "input_uncached": 7401,
+              "cache_write_5m": 0,
+              "cache_write_1h": 24049587,
+              "cache_write_unknown": 12961,
+              "cache_read": 952098542,
+              "output": 1661760,
+              "reasoning_subset": 739944,
+              "total_processed": 977830251
+            },
+            "2026-10-01": {
+              "input_uncached": 2950,
+              "cache_write_5m": 0,
+              "cache_write_1h": 12250521,
+              "cache_write_unknown": 25847,
+              "cache_read": 327012992,
+              "output": 1652137,
+              "reasoning_subset": 1002534,
+              "total_processed": 340944447
+            },
+            "2026-10-10": {
+              "input_uncached": 38660,
+              "cache_write_5m": 0,
+              "cache_write_1h": 51932036,
+              "cache_write_unknown": 29862,
+              "cache_read": 1672969781,
+              "output": 3513170,
+              "reasoning_subset": 932619,
+              "total_processed": 1728483509
+            },
+            "2026-10-26": {
+              "input_uncached": 14859,
+              "cache_write_5m": 0,
+              "cache_write_1h": 50652352,
+              "cache_write_unknown": 502024,
+              "cache_read": 2271375703,
+              "output": 11819835,
+              "reasoning_subset": 5234004,
+              "total_processed": 2334364773
+            },
+            "2026-10-25": {
+              "input_uncached": 20013,
+              "cache_write_5m": 0,
+              "cache_write_1h": 48801279,
+              "cache_write_unknown": 415684,
+              "cache_read": 2179443380,
+              "output": 12152106,
+              "reasoning_subset": 5173946,
+              "total_processed": 2240832462
+            },
+            "2026-10-11": {
+              "input_uncached": 99088,
+              "cache_write_5m": 0,
+              "cache_write_1h": 99713658,
+              "cache_write_unknown": 201550,
+              "cache_read": 1995776904,
+              "output": 5248772,
+              "reasoning_subset": 2165996,
+              "total_processed": 2101039972
+            },
+            "2026-10-02": {
+              "input_uncached": 14205,
+              "cache_write_5m": 0,
+              "cache_write_1h": 35489136,
+              "cache_write_unknown": 709082,
+              "cache_read": 673650827,
+              "output": 4570896,
+              "reasoning_subset": 3229476,
+              "total_processed": 714434146
+            },
+            "2026-10-03": {
+              "input_uncached": 6106,
+              "cache_write_5m": 0,
+              "cache_write_1h": 22374372,
+              "cache_write_unknown": 26277,
+              "cache_read": 472829076,
+              "output": 1460766,
+              "reasoning_subset": 458413,
+              "total_processed": 496696597
+            },
+            "2026-10-15": {
+              "input_uncached": 2250,
+              "cache_write_5m": 0,
+              "cache_write_1h": 10684344,
+              "cache_write_unknown": 37063,
+              "cache_read": 310593703,
+              "output": 897258,
+              "reasoning_subset": 377184,
+              "total_processed": 322214618
+            },
+            "2026-10-20": {
+              "input_uncached": 66375,
+              "cache_write_5m": 0,
+              "cache_write_1h": 21449281,
+              "cache_write_unknown": 706156,
+              "cache_read": 438362240,
+              "output": 2129462,
+              "reasoning_subset": 1371645,
+              "total_processed": 462713514
+            },
+            "2026-10-14": {
+              "input_uncached": 10542,
+              "cache_write_5m": 0,
+              "cache_write_1h": 33530578,
+              "cache_write_unknown": 82867,
+              "cache_read": 838340489,
+              "output": 1762771,
+              "reasoning_subset": 737775,
+              "total_processed": 873727247
+            },
+            "2026-10-07": {
+              "input_uncached": 15520,
+              "cache_write_5m": 0,
+              "cache_write_1h": 44801949,
+              "cache_write_unknown": 74557,
+              "cache_read": 1716536012,
+              "output": 4277104,
+              "reasoning_subset": 1933071,
+              "total_processed": 1765705142
+            },
+            "2026-10-08": {
+              "input_uncached": 3158,
+              "cache_write_5m": 0,
+              "cache_write_1h": 13008683,
+              "cache_write_unknown": 22126,
+              "cache_read": 309053817,
+              "output": 885768,
+              "reasoning_subset": 248573,
+              "total_processed": 322973552
+            },
+            "2026-10-12": {
+              "input_uncached": 10668,
+              "cache_write_5m": 0,
+              "cache_write_1h": 34453514,
+              "cache_write_unknown": 93366,
+              "cache_read": 1423031110,
+              "output": 3025849,
+              "reasoning_subset": 1085328,
+              "total_processed": 1460614507
+            },
+            "2026-10-09": {
+              "input_uncached": 8910,
+              "cache_write_5m": 0,
+              "cache_write_1h": 49668041,
+              "cache_write_unknown": 70784,
+              "cache_read": 1211017166,
+              "output": 2507770,
+              "reasoning_subset": 799713,
+              "total_processed": 1263272671
+            },
+            "2026-10-13": {
+              "input_uncached": 4630,
+              "cache_write_5m": 0,
+              "cache_write_1h": 16822752,
+              "cache_write_unknown": 51239,
+              "cache_read": 587871210,
+              "output": 1896692,
+              "reasoning_subset": 813745,
+              "total_processed": 606646523
+            },
+            "2026-10-31": {
+              "input_uncached": 60597,
+              "cache_write_5m": 0,
+              "cache_write_1h": 112477623,
+              "cache_write_unknown": 816442,
+              "cache_read": 3755851372,
+              "output": 23619143,
+              "reasoning_subset": 8762706,
+              "total_processed": 3892825177
+            },
+            "2026-10-28": {
+              "input_uncached": 69918,
+              "cache_write_5m": 0,
+              "cache_write_1h": 130451005,
+              "cache_write_unknown": 1052480,
+              "cache_read": 5771330530,
+              "output": 28931064,
+              "reasoning_subset": 9943728,
+              "total_processed": 5931834997
+            },
+            "2026-10-27": {
+              "input_uncached": 18205,
+              "cache_write_5m": 0,
+              "cache_write_1h": 42036246,
+              "cache_write_unknown": 393495,
+              "cache_read": 1321703020,
+              "output": 7548127,
+              "reasoning_subset": 3028758,
+              "total_processed": 1371699093
+            },
+            "2026-10-29": {
+              "input_uncached": 88329,
+              "cache_write_5m": 0,
+              "cache_write_1h": 80206183,
+              "cache_write_unknown": 638394,
+              "cache_read": 4152039251,
+              "output": 19625922,
+              "reasoning_subset": 6524541,
+              "total_processed": 4252598079
+            },
+            "2026-10-30": {
+              "input_uncached": 26486,
+              "cache_write_5m": 0,
+              "cache_write_1h": 41422429,
+              "cache_write_unknown": 349184,
+              "cache_read": 1654740512,
+              "output": 10303770,
+              "reasoning_subset": 3709030,
+              "total_processed": 1706842381
+            },
+            "2026-10-18": {
+              "input_uncached": 69270,
+              "cache_write_5m": 0,
+              "cache_write_1h": 124332138,
+              "cache_write_unknown": 141671,
+              "cache_read": 2885248804,
+              "output": 5685719,
+              "reasoning_subset": 1538348,
+              "total_processed": 3015477602
+            },
+            "2026-10-19": {
+              "input_uncached": 12688,
+              "cache_write_5m": 0,
+              "cache_write_1h": 46670172,
+              "cache_write_unknown": 331331,
+              "cache_read": 1444669528,
+              "output": 3355462,
+              "reasoning_subset": 1425278,
+              "total_processed": 1495039181
+            },
+            "2026-10-17": {
+              "input_uncached": 7618,
+              "cache_write_5m": 0,
+              "cache_write_1h": 23988041,
+              "cache_write_unknown": 94321,
+              "cache_read": 837318864,
+              "output": 2529191,
+              "reasoning_subset": 1251870,
+              "total_processed": 863938035
+            },
+            "2026-10-24": {
+              "input_uncached": 14362,
+              "cache_write_5m": 0,
+              "cache_write_1h": 26973940,
+              "cache_write_unknown": 173296,
+              "cache_read": 844050588,
+              "output": 3632182,
+              "reasoning_subset": 1485895,
+              "total_processed": 874844368
+            },
+            "2026-10-23": {
+              "input_uncached": 514,
+              "cache_write_5m": 0,
+              "cache_write_1h": 2145895,
+              "cache_write_unknown": 4126,
+              "cache_read": 68196804,
+              "output": 259592,
+              "reasoning_subset": 84319,
+              "total_processed": 70606931
+            },
+            "2026-10-22": {
+              "input_uncached": 908,
+              "cache_write_5m": 0,
+              "cache_write_1h": 4262440,
+              "cache_write_unknown": 9782,
+              "cache_read": 207313551,
+              "output": 381455,
+              "reasoning_subset": 113586,
+              "total_processed": 211968136
+            },
+            "2026-10-21": {
+              "input_uncached": 2,
+              "cache_write_5m": 0,
+              "cache_write_1h": 324451,
+              "cache_write_unknown": 0,
+              "cache_read": 0,
+              "output": 510,
+              "reasoning_subset": 355,
+              "total_processed": 324963
+            }
+          },
+          "iitp_path_subset_models": {},
+          "request_id_hash_digest": "fec7545f27c71fdcce907b4753c033b5f3435be2aab259966b5c1d0dbbb22078",
+          "synthetic_zero_token_responses_excluded": 565,
+          "sessions_with_usage_records_including_zero_and_synthetic": 1788,
+          "count_note": "requests counts unique model-response records excluding synthetic; zero-token non-synthetic responses may remain. Session and duplicate counts include zero-token/synthetic records. No user-task count inferred."
+        }
+      }
+    }
+  },
+  "count_normalization": "Zero-token synthetic response count removed using saved model aggregate. Token sums unchanged. Session/duplicate counts labeled raw. Optional rereads terminated SIGTERM; successful prior complete scan retained."
+}

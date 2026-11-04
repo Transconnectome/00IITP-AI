@@ -1,0 +1,33 @@
+{
+ "checks": {
+  "n_manifest_subjects": 88,
+  "n_dirs": 88,
+  "manifest_order_equals_sorted_dirs": true,
+  "manifest_sorted_by_content_sha": true,
+  "all_qc_pass": true,
+  "n_burned_excluded": 5,
+  "n_qc_pass": 88,
+  "n_qc_fail": 0,
+  "repo_split_equals_mapped_r1_split": true,
+  "split_sizes": {
+   "train": 64,
+   "val": 8,
+   "test": 16
+  },
+  "split_disjoint": true,
+  "n_linked": 88
+ },
+ "design_stats": {
+  "Q": 0.030779869970554173,
+  "kappa": 5.699891773354029,
+  "NF": 0.20850750121592257,
+  "n_subjects": 64,
+  "sigma_v": 6.545925453832064,
+  "fixture_noise_share_at_sigma_v": 0.2085075012159226,
+  "lag1_ac_cells_median": 0.253101094412311,
+  "lag1_ac_cells_mean": 0.31334237730946585,
+  "subjects_used": "train only (64); val/test never read"
+ },
+ "status": "ok",
+ "sec": 1.7
+}

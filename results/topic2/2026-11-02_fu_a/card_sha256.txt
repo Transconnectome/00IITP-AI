@@ -1,0 +1,9 @@
+# FU-A card + frozen inputs (worker_FU_A_r1). Verify: grep -v '^#' THIS | LC_ALL=C sha256sum -c
+72be3e83c43f17990d6ed4ab8e2f254894c083f697dfe18557866866623618fb  docs/03_empirical_analysis/topic2/2026-11-02_topic2_fu_a_card.md
+258386a636cee006fb69d8731d1869414b0f8a8aad32730a89b33cdabba4e3a9  results/topic2/2026-11-02_fu_a/fua_constants.json
+694c31cad17ade7be1e218fae1062b233ecc8cfc0188649bfd34f0bcb4291a12  results/topic2/2026-11-02_fu_a/design_stats_train.json
+629a699b851f3372a04fb74166fe5363ff5755ac6b967d56513684937a2d3ae8  results/topic2/2026-11-02_fu_a/partitions/perms_fua_Fplus.npz
+2e96493b847d61bfcbda17775509e56b105be4508c3746517435fc25a56752fc  results/topic2/2026-11-02_fu_a/partitions/perms_fua_Fminus.npz
+568836e947259e5416a873f0a333fff088ff647b625f9dbe02b80cb8f3a0713f  results/topic2/2026-11-02_fu_a/partitions/fixture_build.json
+ec05b796a450d78b646172cb84031f04758fef6965e085db87a75c6b620f2b34  results/topic2/2026-11-01/partitions/perms_hcp.npz
+cc521b087a97a6669fe6f94041dac2c2c0c0987741ac698203309af1ced2c75a  results/topic2/2026-11-01/split.json

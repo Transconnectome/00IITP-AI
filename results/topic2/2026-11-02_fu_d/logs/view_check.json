@@ -1,0 +1,32 @@
+{
+ "original_manifest_sha_ok": true,
+ "original_split_sha_ok": true,
+ "sanitized_split_sha_ok": true,
+ "n_subjects": 88,
+ "split_check": {
+  "train": true,
+  "val": true,
+  "test": true,
+  "disjoint": true,
+  "sizes": {
+   "train": 64,
+   "val": 8,
+   "test": 16
+  }
+ },
+ "preconditions_ok": true,
+ "links": {
+  "links_made": 176,
+  "links_existing_same_inode": 0,
+  "links_conflicting": 0,
+  "sources_missing": 0,
+  "n_planned": 176
+ },
+ "verify": {
+  "n_planned": 176,
+  "n_same_inode": 176,
+  "all_ok": true
+ },
+ "n_view_dirs": 88,
+ "utc": "2026-11-01T16:11:26Z"
+}

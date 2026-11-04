@@ -1,0 +1,11 @@
+{
+ "r1_run": "hcp_E_s0",
+ "expected_test_nmse": 0.9908706340280367,
+ "reproduced_test_nmse": 0.9908706340280367,
+ "abs_diff": 0.0,
+ "exact": true,
+ "per_subject_num_equal": true,
+ "per_subject_den_equal": true,
+ "test_order_equal": true,
+ "sec": 10.7
+}

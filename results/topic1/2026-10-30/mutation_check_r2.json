@@ -1,0 +1,1195 @@
+{
+ "harness": "/home/juke/git/00IITP-AI/verification/worker_r2/mutants.py",
+ "harness_sha256": "8800b77c1dc5231d24bdc2fb7cc3f7d93defb3eed7acb4ab4ad43223c9e42ef6",
+ "killed_only_with_new_file": [
+  "C_normalised_by_T",
+  "chain_not_restarted",
+  "head_trim_in_samples",
+  "lag_native_samples",
+  "lag_two_grid_samples",
+  "no_zscore",
+  "null_021C_missing_t",
+  "null_counts_raise_disabled",
+  "params_density_primary_005",
+  "params_detrend_none",
+  "params_highpass_on",
+  "params_n_null_500",
+  "params_padtype_constant",
+  "pipeline_ignores_detrend",
+  "pipeline_lag1_native_no_grid",
+  "pipeline_padtype_literal_constant",
+  "pipeline_tr_ignored",
+  "trim_s_ignored_20_samples",
+  "z_ddof0_no_nan",
+  "zscore_ddof1"
+ ],
+ "modes": {
+  "full": {
+   "control": "CONTROL_OK",
+   "killed": 23,
+   "n_mutants": 23,
+   "results": {
+    "C_normalised_by_T": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.73]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[2.0]"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 7,
+     "n_passed": 46,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "7 failed, 46 passed in 3.84s"
+    },
+    "chain_not_restarted": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_each_null_is_an_independent_restart_from_the_observed_graph",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_null_moments_of_all_five_classes_equal_census_of_independent_null_graphs"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 2,
+     "n_passed": 51,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "2 failed, 51 passed in 4.06s"
+    },
+    "control": {
+     "failed_tests": [],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 0,
+     "n_passed": 53,
+     "returncode": 0,
+     "status": "CONTROL_OK",
+     "tail": "53 passed in 4.40s"
+    },
+    "e2_sign_swapped": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_synthetic_ground_truth.py::test_shared_driver_latency_produces_spurious_direction_bias_characterization"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 1,
+     "n_passed": 52,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "1 failed, 52 passed in 3.82s"
+    },
+    "head_trim_in_samples": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_prepare_series_trims_in_seconds_at_every_on_disk_tr[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_prepare_series_trims_in_seconds_at_every_on_disk_tr[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_prepare_series_trims_in_seconds_at_every_on_disk_tr[0.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_prepare_series_trims_in_seconds_at_every_on_disk_tr[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_prepare_series_trims_in_seconds_at_every_on_disk_tr[1.73]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_prepare_series_trims_in_seconds_at_every_on_disk_tr[1.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.73]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.73]"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 16,
+     "n_passed": 37,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "16 failed, 37 passed in 4.43s"
+    },
+    "lag_native_samples": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.0]"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 7,
+     "n_passed": 46,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "7 failed, 46 passed in 4.19s"
+    },
+    "lag_two_grid_samples": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.73]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[2.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.73]"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 11,
+     "n_passed": 42,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "11 failed, 42 passed in 4.27s"
+    },
+    "no_zscore": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_flow_is_invariant_to_offset_scale_and_linear_drift_at_tr_07",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.73]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[2.0]"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 8,
+     "n_passed": 45,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "8 failed, 45 passed in 4.22s"
+    },
+    "null_021C_missing_t": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_null_moments_of_all_five_classes_equal_census_of_independent_null_graphs"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 1,
+     "n_passed": 52,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "1 failed, 52 passed in 4.22s"
+    },
+    "null_counts_raise_disabled": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_null_counts_raises_when_any_null_violates_an_invariant"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 1,
+     "n_passed": 52,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "1 failed, 52 passed in 4.05s"
+    },
+    "params_density_primary_005": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_frozen_params_are_the_carded_params",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.73]"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 5,
+     "n_passed": 48,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "5 failed, 48 passed in 3.01s"
+    },
+    "params_detrend_none": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_flow_is_invariant_to_offset_scale_and_linear_drift_at_tr_07",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_frozen_params_are_the_carded_params",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.73]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[2.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.73]"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 13,
+     "n_passed": 40,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "13 failed, 40 passed in 4.17s"
+    },
+    "params_highpass_on": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_frozen_params_are_the_carded_params",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.73]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[2.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.73]"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 12,
+     "n_passed": 41,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "12 failed, 41 passed in 4.17s"
+    },
+    "params_n_null_500": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_frozen_params_are_the_carded_params",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.73]"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 5,
+     "n_passed": 48,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "5 failed, 48 passed in 3.82s"
+    },
+    "params_padtype_constant": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_frozen_params_are_the_carded_params",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.73]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.73]"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 11,
+     "n_passed": 42,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "11 failed, 42 passed in 4.15s"
+    },
+    "pipeline_ignores_detrend": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_flow_is_invariant_to_offset_scale_and_linear_drift_at_tr_07",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.73]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[2.0]"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 8,
+     "n_passed": 45,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "8 failed, 45 passed in 4.44s"
+    },
+    "pipeline_lag1_native_no_grid": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.73]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.0]"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 9,
+     "n_passed": 44,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "9 failed, 44 passed in 4.34s"
+    },
+    "pipeline_padtype_literal_constant": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.73]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.8]"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 6,
+     "n_passed": 47,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "6 failed, 47 passed in 3.79s"
+    },
+    "pipeline_tr_ignored": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.73]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.0]"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 9,
+     "n_passed": 44,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "9 failed, 44 passed in 4.61s"
+    },
+    "resample_before_detrend": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_flow_chain.py::test_detrend_before_resample_makes_offset_and_linear_trend_irrelevant",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_flow_is_invariant_to_offset_scale_and_linear_drift_at_tr_07",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.73]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.8]"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 8,
+     "n_passed": 45,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "8 failed, 45 passed in 4.00s"
+    },
+    "resample_ratio_coarse": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_flow_chain.py::test_resample_ratios_are_exact",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.73]"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 4,
+     "n_passed": 49,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "4 failed, 49 passed in 4.27s"
+    },
+    "trim_s_ignored_20_samples": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_prepare_series_trims_in_seconds_at_every_on_disk_tr[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_prepare_series_trims_in_seconds_at_every_on_disk_tr[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_prepare_series_trims_in_seconds_at_every_on_disk_tr[0.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_prepare_series_trims_in_seconds_at_every_on_disk_tr[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_prepare_series_trims_in_seconds_at_every_on_disk_tr[1.73]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_prepare_series_trims_in_seconds_at_every_on_disk_tr[1.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.73]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.73]"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 16,
+     "n_passed": 37,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "16 failed, 37 passed in 3.82s"
+    },
+    "z_ddof0_no_nan": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_degenerate_null_gives_nan_z_and_flag_never_a_finite_number"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 1,
+     "n_passed": 52,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "1 failed, 52 passed in 4.22s"
+    },
+    "zscore_ddof1": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.73]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[2.0]"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 7,
+     "n_passed": 46,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "7 failed, 46 passed in 3.95s"
+    }
+   },
+   "survivors": []
+  },
+  "no_pin": {
+   "control": "CONTROL_OK",
+   "killed": 23,
+   "n_mutants": 23,
+   "results": {
+    "C_normalised_by_T": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.73]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[2.0]"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 7,
+     "n_passed": 45,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "7 failed, 45 passed, 1 deselected in 4.48s"
+    },
+    "chain_not_restarted": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_each_null_is_an_independent_restart_from_the_observed_graph",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_null_moments_of_all_five_classes_equal_census_of_independent_null_graphs"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 2,
+     "n_passed": 50,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "2 failed, 50 passed, 1 deselected in 3.86s"
+    },
+    "control": {
+     "failed_tests": [],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 0,
+     "n_passed": 52,
+     "returncode": 0,
+     "status": "CONTROL_OK",
+     "tail": "52 passed, 1 deselected in 3.98s"
+    },
+    "e2_sign_swapped": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_synthetic_ground_truth.py::test_shared_driver_latency_produces_spurious_direction_bias_characterization"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 1,
+     "n_passed": 51,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "1 failed, 51 passed, 1 deselected in 5.90s"
+    },
+    "head_trim_in_samples": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_prepare_series_trims_in_seconds_at_every_on_disk_tr[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_prepare_series_trims_in_seconds_at_every_on_disk_tr[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_prepare_series_trims_in_seconds_at_every_on_disk_tr[0.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_prepare_series_trims_in_seconds_at_every_on_disk_tr[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_prepare_series_trims_in_seconds_at_every_on_disk_tr[1.73]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_prepare_series_trims_in_seconds_at_every_on_disk_tr[1.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.73]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.73]"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 16,
+     "n_passed": 36,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "16 failed, 36 passed, 1 deselected in 3.87s"
+    },
+    "lag_native_samples": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.0]"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 7,
+     "n_passed": 45,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "7 failed, 45 passed, 1 deselected in 3.86s"
+    },
+    "lag_two_grid_samples": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.73]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[2.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.73]"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 11,
+     "n_passed": 41,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "11 failed, 41 passed, 1 deselected in 4.00s"
+    },
+    "no_zscore": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_flow_is_invariant_to_offset_scale_and_linear_drift_at_tr_07",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.73]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[2.0]"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 8,
+     "n_passed": 44,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "8 failed, 44 passed, 1 deselected in 3.91s"
+    },
+    "null_021C_missing_t": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_null_moments_of_all_five_classes_equal_census_of_independent_null_graphs"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 1,
+     "n_passed": 51,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "1 failed, 51 passed, 1 deselected in 3.90s"
+    },
+    "null_counts_raise_disabled": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_null_counts_raises_when_any_null_violates_an_invariant"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 1,
+     "n_passed": 51,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "1 failed, 51 passed, 1 deselected in 3.90s"
+    },
+    "params_density_primary_005": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.73]"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 4,
+     "n_passed": 48,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "4 failed, 48 passed, 1 deselected in 3.37s"
+    },
+    "params_detrend_none": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_flow_is_invariant_to_offset_scale_and_linear_drift_at_tr_07",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.73]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[2.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.73]"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 12,
+     "n_passed": 40,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "12 failed, 40 passed, 1 deselected in 4.03s"
+    },
+    "params_highpass_on": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.73]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[2.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.73]"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 11,
+     "n_passed": 41,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "11 failed, 41 passed, 1 deselected in 4.01s"
+    },
+    "params_n_null_500": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.73]"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 4,
+     "n_passed": 48,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "4 failed, 48 passed, 1 deselected in 4.06s"
+    },
+    "params_padtype_constant": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.73]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.73]"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 10,
+     "n_passed": 42,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "10 failed, 42 passed, 1 deselected in 3.92s"
+    },
+    "pipeline_ignores_detrend": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_flow_is_invariant_to_offset_scale_and_linear_drift_at_tr_07",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.73]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[2.0]"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 8,
+     "n_passed": 44,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "8 failed, 44 passed, 1 deselected in 4.06s"
+    },
+    "pipeline_lag1_native_no_grid": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.73]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.0]"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 9,
+     "n_passed": 43,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "9 failed, 43 passed, 1 deselected in 3.90s"
+    },
+    "pipeline_padtype_literal_constant": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.73]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.8]"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 6,
+     "n_passed": 46,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "6 failed, 46 passed, 1 deselected in 4.41s"
+    },
+    "pipeline_tr_ignored": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.73]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.0]"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 9,
+     "n_passed": 43,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "9 failed, 43 passed, 1 deselected in 4.10s"
+    },
+    "resample_before_detrend": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_flow_chain.py::test_detrend_before_resample_makes_offset_and_linear_trend_irrelevant",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_flow_is_invariant_to_offset_scale_and_linear_drift_at_tr_07",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.73]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.8]"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 8,
+     "n_passed": 44,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "8 failed, 44 passed, 1 deselected in 3.87s"
+    },
+    "resample_ratio_coarse": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_flow_chain.py::test_resample_ratios_are_exact",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.73]"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 4,
+     "n_passed": 48,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "4 failed, 48 passed, 1 deselected in 3.93s"
+    },
+    "trim_s_ignored_20_samples": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_prepare_series_trims_in_seconds_at_every_on_disk_tr[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_prepare_series_trims_in_seconds_at_every_on_disk_tr[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_prepare_series_trims_in_seconds_at_every_on_disk_tr[0.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_prepare_series_trims_in_seconds_at_every_on_disk_tr[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_prepare_series_trims_in_seconds_at_every_on_disk_tr[1.73]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_prepare_series_trims_in_seconds_at_every_on_disk_tr[1.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.73]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.73]"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 16,
+     "n_passed": 36,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "16 failed, 36 passed, 1 deselected in 4.25s"
+    },
+    "z_ddof0_no_nan": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_degenerate_null_gives_nan_z_and_flag_never_a_finite_number"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 1,
+     "n_passed": 51,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "1 failed, 51 passed, 1 deselected in 3.88s"
+    },
+    "zscore_ddof1": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.7]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.85]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.0]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.73]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.8]",
+      "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[2.0]"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 7,
+     "n_passed": 45,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "7 failed, 45 passed, 1 deselected in 5.58s"
+    }
+   },
+   "survivors": []
+  },
+  "old_only": {
+   "control": "CONTROL_OK",
+   "killed": 3,
+   "n_mutants": 23,
+   "results": {
+    "C_normalised_by_T": {
+     "failed_tests": [],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 0,
+     "n_passed": 29,
+     "returncode": 0,
+     "status": "SURVIVES",
+     "tail": "29 passed in 3.99s"
+    },
+    "chain_not_restarted": {
+     "failed_tests": [],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 0,
+     "n_passed": 29,
+     "returncode": 0,
+     "status": "SURVIVES",
+     "tail": "29 passed in 5.70s"
+    },
+    "control": {
+     "failed_tests": [],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 0,
+     "n_passed": 29,
+     "returncode": 0,
+     "status": "CONTROL_OK",
+     "tail": "29 passed in 3.92s"
+    },
+    "e2_sign_swapped": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_synthetic_ground_truth.py::test_shared_driver_latency_produces_spurious_direction_bias_characterization"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 1,
+     "n_passed": 28,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "1 failed, 28 passed in 3.81s"
+    },
+    "head_trim_in_samples": {
+     "failed_tests": [],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 0,
+     "n_passed": 29,
+     "returncode": 0,
+     "status": "SURVIVES",
+     "tail": "29 passed in 5.67s"
+    },
+    "lag_native_samples": {
+     "failed_tests": [],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 0,
+     "n_passed": 29,
+     "returncode": 0,
+     "status": "SURVIVES",
+     "tail": "29 passed in 6.47s"
+    },
+    "lag_two_grid_samples": {
+     "failed_tests": [],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 0,
+     "n_passed": 29,
+     "returncode": 0,
+     "status": "SURVIVES",
+     "tail": "29 passed in 5.67s"
+    },
+    "no_zscore": {
+     "failed_tests": [],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 0,
+     "n_passed": 29,
+     "returncode": 0,
+     "status": "SURVIVES",
+     "tail": "29 passed in 5.44s"
+    },
+    "null_021C_missing_t": {
+     "failed_tests": [],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 0,
+     "n_passed": 29,
+     "returncode": 0,
+     "status": "SURVIVES",
+     "tail": "29 passed in 3.93s"
+    },
+    "null_counts_raise_disabled": {
+     "failed_tests": [],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 0,
+     "n_passed": 29,
+     "returncode": 0,
+     "status": "SURVIVES",
+     "tail": "29 passed in 7.99s"
+    },
+    "params_density_primary_005": {
+     "failed_tests": [],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 0,
+     "n_passed": 29,
+     "returncode": 0,
+     "status": "SURVIVES",
+     "tail": "29 passed in 3.01s"
+    },
+    "params_detrend_none": {
+     "failed_tests": [],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 0,
+     "n_passed": 29,
+     "returncode": 0,
+     "status": "SURVIVES",
+     "tail": "29 passed in 9.70s"
+    },
+    "params_highpass_on": {
+     "failed_tests": [],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 0,
+     "n_passed": 29,
+     "returncode": 0,
+     "status": "SURVIVES",
+     "tail": "29 passed in 3.95s"
+    },
+    "params_n_null_500": {
+     "failed_tests": [],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 0,
+     "n_passed": 29,
+     "returncode": 0,
+     "status": "SURVIVES",
+     "tail": "29 passed in 3.96s"
+    },
+    "params_padtype_constant": {
+     "failed_tests": [],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 0,
+     "n_passed": 29,
+     "returncode": 0,
+     "status": "SURVIVES",
+     "tail": "29 passed in 3.85s"
+    },
+    "pipeline_ignores_detrend": {
+     "failed_tests": [],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 0,
+     "n_passed": 29,
+     "returncode": 0,
+     "status": "SURVIVES",
+     "tail": "29 passed in 4.24s"
+    },
+    "pipeline_lag1_native_no_grid": {
+     "failed_tests": [],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 0,
+     "n_passed": 29,
+     "returncode": 0,
+     "status": "SURVIVES",
+     "tail": "29 passed in 3.86s"
+    },
+    "pipeline_padtype_literal_constant": {
+     "failed_tests": [],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 0,
+     "n_passed": 29,
+     "returncode": 0,
+     "status": "SURVIVES",
+     "tail": "29 passed in 3.80s"
+    },
+    "pipeline_tr_ignored": {
+     "failed_tests": [],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 0,
+     "n_passed": 29,
+     "returncode": 0,
+     "status": "SURVIVES",
+     "tail": "29 passed in 3.76s"
+    },
+    "resample_before_detrend": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_flow_chain.py::test_detrend_before_resample_makes_offset_and_linear_trend_irrelevant"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 1,
+     "n_passed": 28,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "1 failed, 28 passed in 3.92s"
+    },
+    "resample_ratio_coarse": {
+     "failed_tests": [
+      "tests/topic1_lagmotif/test_flow_chain.py::test_resample_ratios_are_exact"
+     ],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 1,
+     "n_passed": 28,
+     "returncode": 1,
+     "status": "KILLED",
+     "tail": "1 failed, 28 passed in 3.73s"
+    },
+    "trim_s_ignored_20_samples": {
+     "failed_tests": [],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 0,
+     "n_passed": 29,
+     "returncode": 0,
+     "status": "SURVIVES",
+     "tail": "29 passed in 3.81s"
+    },
+    "z_ddof0_no_nan": {
+     "failed_tests": [],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 0,
+     "n_passed": 29,
+     "returncode": 0,
+     "status": "SURVIVES",
+     "tail": "29 passed in 6.43s"
+    },
+    "zscore_ddof1": {
+     "failed_tests": [],
+     "isolation_broken": false,
+     "n_error": 0,
+     "n_failed": 0,
+     "n_passed": 29,
+     "returncode": 0,
+     "status": "SURVIVES",
+     "tail": "29 passed in 3.84s"
+    }
+   },
+   "survivors": [
+    "pipeline_tr_ignored",
+    "pipeline_lag1_native_no_grid",
+    "lag_native_samples",
+    "lag_two_grid_samples",
+    "no_zscore",
+    "params_detrend_none",
+    "pipeline_ignores_detrend",
+    "head_trim_in_samples",
+    "z_ddof0_no_nan",
+    "null_021C_missing_t",
+    "chain_not_restarted",
+    "null_counts_raise_disabled",
+    "params_padtype_constant",
+    "params_highpass_on",
+    "zscore_ddof1",
+    "C_normalised_by_T",
+    "params_n_null_500",
+    "trim_s_ignored_20_samples",
+    "pipeline_padtype_literal_constant",
+    "params_density_primary_005"
+   ]
+  }
+ },
+ "production_sha256": {
+  "src/topic1_lagmotif/__init__.py": "cb0b70ae8500c847bea59f57960e90e4496d4e9971fc99f74f49c9a279d1e1d2",
+  "src/topic1_lagmotif/data.py": "d320bfe4afdd81fca5005c0aef6677f8aed0395e3e1146b98108e5599a9695e9",
+  "src/topic1_lagmotif/flow.py": "bead276472e5594c99d55c55f4a949e58ddb1070131730be8b745f19c121686c",
+  "src/topic1_lagmotif/motifs.py": "ab6997b97bee16b694f53dd6557aa5afe970c4141b062b6778fef838ba8de627",
+  "src/topic1_lagmotif/pipeline.py": "99bfc9f12e5406997a40a6d0285dcac54400701f9c41017c370ff5b79123be94",
+  "src/topic1_lagmotif/preprocess.py": "1520aef9c8a6ea69abfa052b198bf3ac34de6d82eef3f192b7f4b1c30f70d65f",
+  "src/topic1_lagmotif/spurious.py": "b246356c374e07ed200a303c359778386b6d61bc3cbad6a7b8befa3959991067",
+  "src/topic1_lagmotif/synthetic.py": "64f29139c22dedad02cec52e56156893d4f2bbdae7a576d6cda713d6769b9550",
+  "src/topic1_lagmotif/tr_table.py": "a3837b151b44dac5a144cb1fcf7f2286d3b944dc830d5fcfd76e5f92b2886b8d",
+  "tests/topic1_lagmotif/__init__.py": "bad61e2e085636b16e6c66787d4ad8ff410df316c20938e9bbf78d2cfc9254e9",
+  "tests/topic1_lagmotif/conftest_helpers.py": "972f2bec48313dac22d916a0e563d1e6d8f5405c23be61ff25661ad79aac3d2c",
+  "tests/topic1_lagmotif/test_defect_sensitivity.py": "ad565703f03befef5cf998e8cf6dbecc5dc3c9b4411ef0870b5111af7e907680",
+  "tests/topic1_lagmotif/test_flow_chain.py": "f8e5651ebe8045aba1eee5d47a7ec17ffbb2a3aa67b827a680baf3db8b744690",
+  "tests/topic1_lagmotif/test_null_and_census.py": "57d4328c55e931b6ea18fff8532f7163bc690d80a028d9aa59e99af25e4ad752",
+  "tests/topic1_lagmotif/test_production_entry_point.py": "d1c287e08f0d998f46493dd90ab21dfba8ff9d384d5673790a8d61b2f420d04d",
+  "tests/topic1_lagmotif/test_synthetic_ground_truth.py": "eb60ce35d0cb55f48b8daf9eea37ab1f34d140a4a43764e11ece85ebdbff5f3d",
+  "tests/topic1_lagmotif/test_tr_and_loader.py": "4e827863e1e2093186b2c29bec9163eebf7973257329670b3647cfcd3f98ab68"
+ }
+}

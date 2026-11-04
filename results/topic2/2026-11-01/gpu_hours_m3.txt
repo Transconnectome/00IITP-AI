@@ -1,0 +1,3 @@
+M3 worker_M3_r1 B300 GPU-hours (from results/gpu_ledger_2026-10-31.md completed rows, launch-to-end per run)
+smoke 0.04 + wave1 3.41 + wave2 3.43 + wave3 3.50 + wave4 1.35 = 11.73 GPU-h (M3 sub-cap 14; run cap 64)
+run-wide completed rows at 2026-11-01T05:15Z: 11.872 GPU-h (incl. explorer_M3_r1_1 0.008, explorer_M3_r1_2 0.134)

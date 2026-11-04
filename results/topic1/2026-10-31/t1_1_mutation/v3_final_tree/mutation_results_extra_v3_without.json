@@ -1,0 +1,42 @@
+[
+ {
+  "name": "control_extra",
+  "target": "none",
+  "rc": 0,
+  "summary": "54 passed in 3.84s",
+  "failed_tests": [],
+  "elapsed_s": 6.4
+ },
+ {
+  "name": "curl_returns_F",
+  "target": "curl channel",
+  "rc": 0,
+  "summary": "54 passed in 3.90s",
+  "failed_tests": [],
+  "elapsed_s": 6.5
+ },
+ {
+  "name": "seeds_ignore_position",
+  "target": "card \u00a711 seed rule",
+  "rc": 0,
+  "summary": "54 passed in 3.83s",
+  "failed_tests": [],
+  "elapsed_s": 6.5
+ },
+ {
+  "name": "sp_not_normalised",
+  "target": "SP normalisation",
+  "rc": 0,
+  "summary": "54 passed in 3.86s",
+  "failed_tests": [],
+  "elapsed_s": 6.4
+ },
+ {
+  "name": "extract_subject_drops_valid_T",
+  "target": "A1 report valid T",
+  "rc": 0,
+  "summary": "54 passed in 3.96s",
+  "failed_tests": [],
+  "elapsed_s": 6.6
+ }
+]

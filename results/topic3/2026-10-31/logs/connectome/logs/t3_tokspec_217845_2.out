@@ -1,0 +1,3 @@
+task 2 label zoo_NewUAH_deepE192_L1e-4 start 2026-10-31T08:55:29Z
+{"label": "zoo_NewUAH_deepE192_L1e-4", "n_subjects": 57, "checks": {"same_subject_set_as_reference": true, "frames_per_subject_min_max": [7, 7]}, "runtime_s": 102.0}
+task 2 end 2026-10-31T08:57:11Z

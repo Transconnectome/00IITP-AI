@@ -1,0 +1,3 @@
+start 2026-11-01T16:04:53Z host=cloud-S1HDe3 job=501 cvd=0
+{"start_utc": "2026-11-01T16:04:53Z", "host": "cloud-S1HDe3", "slurm_job": "501", "cuda_visible": "0", "all_equal": true, "no_outcome_computed": true, "end_utc": "2026-11-01T16:08:23Z"}
+end rc=0 2026-11-01T16:08:23Z

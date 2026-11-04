@@ -1,0 +1,13 @@
+# FU-E outputs after job 524 (worker_FU_E_r1, 2026-11-01T17:32:30Z). Verify: grep -v '^#' results/topic2/2026-11-02_fu_e/output_sha256.txt | LC_ALL=C sha256sum -c
+1921b044a7b6c331c22f35ee779bcb98a6a08b6ee70858a1400749c281ca0ceb  results/topic2/2026-11-02_fu_e/run_524/extract.json
+5dc5649e4c2beb2b2808dd4fbe9149bdf1601cae259198f4931e9bc3379c3c6a  results/topic2/2026-11-02_fu_e/run_524/extract_log.jsonl
+19b9814977cb0e1dff8cdd8ac65a684ca1c8c725d35485abeeefe7188f6b2971  results/topic2/2026-11-02_fu_e/run_524/slurm-524.out
+69116db60c21a276fb6b9c2ddd288f6179055781a052f3069de14019ee7e5c16  results/topic2/2026-11-02_fu_e/run_524/sacct_524.txt
+d4d92a98c168d7fecee4a79b665221539073f1042ea8fdc3b3db669535d69b7e  results/topic2/2026-11-02_fu_e/verdict.json
+9734086ec2d1fef9cb93822ae9def3b99d0f77118adac7c1f1c2360254859355  results/topic2/2026-11-02_fu_e/verdict_stdout.txt
+13dabf62d16b1ec71ede5206c6b4fb21debabf97db2afacb2c36933f6e5739ea  results/topic2/2026-11-02_fu_e/id_scan_b300.json
+ef93baa0d59ad475d806f6cb3c98196b423214d26f29ac8732aa437574345a8a  docs/03_empirical_analysis/topic2/2026-11-02_topic2_fu_e_result_report.md
+71f324def9a9ad72ae59ca16901d795035b770678bb0cf4e09b81aa6842d54e9  verification/worker_FU_E_r1/b300/fue_main.sbatch
+f9783d6ec32c6841bec9fbfb600573a790c6832b17bf3e67aa7f22b9c5e3828d  verification/worker_FU_E_r1/b300/main_submit.txt
+7af17708e054deac6ecdfd98618c742b68c58693b2c83cc4aff074e7738337f9  verification/worker_FU_E_r1/b300/smoke_499/smoke_extract.json
+ea4847946f86fd9b7bc39c5f7c17a3acb644c190fad7b515288779b9a7959f27  verification/worker_FU_E_r1/mutants/mutants_v2.json

@@ -1,0 +1,44 @@
+[
+ {
+  "run": "Fplus_E_s0",
+  "args": [
+   "--source",
+   "Fplus",
+   "--arm",
+   "E",
+   "--seed",
+   "0",
+   "--perm-file",
+   "results/topic2/2026-11-02_fu_a/partitions/perms_fua_Fplus.npz",
+   "--perm-key",
+   "E",
+   "--constants",
+   "results/topic2/2026-11-02_fu_a/fua_constants.json",
+   "--card-sha256",
+   "72be3e83c43f17990d6ed4ab8e2f254894c083f697dfe18557866866623618fb",
+   "--out",
+   "/scratch/iitp4/fu_a/runs/Fplus_E_s0"
+  ]
+ },
+ {
+  "run": "Fplus_C_s0",
+  "args": [
+   "--source",
+   "Fplus",
+   "--arm",
+   "C",
+   "--seed",
+   "0",
+   "--perm-file",
+   "results/topic2/2026-11-02_fu_a/partitions/perms_fua_Fplus.npz",
+   "--perm-key",
+   "C",
+   "--constants",
+   "results/topic2/2026-11-02_fu_a/fua_constants.json",
+   "--card-sha256",
+   "72be3e83c43f17990d6ed4ab8e2f254894c083f697dfe18557866866623618fb",
+   "--out",
+   "/scratch/iitp4/fu_a/runs/Fplus_C_s0"
+  ]
+ }
+]

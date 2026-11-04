@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" style="width:100%; height:auto; background:#FFFFFF; font-family:'Pretendard','Noto Sans KR',sans-serif;">
+  <defs>
+    <marker id="arr1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#003380"/>
+    </marker>
+    <marker id="arr1o" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#D55E00"/>
+    </marker>
+  </defs>
+  <rect x="6" y="8" width="150" height="240" rx="6" fill="#EDF6FC" stroke="#A0A0A0" stroke-width="1.2"/>
+  <text x="81" y="34" text-anchor="middle" font-size="14.5" font-weight="700" fill="#003380">① 뇌 시계열 입력</text>
+  <text x="81" y="54" text-anchor="middle" font-size="11.5" fill="#5A5A6E">뇌영상(fMRI) · 뇌파(EEG)</text>
+  <path d="M 22 96 Q 37 74, 52 96 T 82 96 T 112 96 T 140 96" fill="none" stroke="#003380" stroke-width="2.4"/>
+  <path d="M 22 128 Q 44 112, 66 128 T 110 128 T 140 128" fill="none" stroke="#D55E00" stroke-width="2.2"/>
+  <path d="M 22 158 Q 57 144, 92 158 T 140 158" fill="none" stroke="#009E73" stroke-width="2"/>
+  <rect x="16" y="178" width="130" height="58" rx="4" fill="#FFFFFF" stroke="#A0A0A0"/>
+  <text x="81" y="200" text-anchor="middle" font-size="12" font-weight="700" fill="#282945">기존 AI 한계</text>
+  <text x="81" y="220" text-anchor="middle" font-size="11" fill="#5A5A6E">임의 초기화 → 잡음 과적합</text>
+
+  <line x1="156" y1="128" x2="178" y2="128" stroke="#003380" stroke-width="2.2" marker-end="url(#arr1)"/>
+
+  <rect x="182" y="8" width="212" height="240" rx="6" fill="#EDF6FC" stroke="#003380" stroke-width="1.5"/>
+  <text x="288" y="34" text-anchor="middle" font-size="14.5" font-weight="700" fill="#003380">② 1/f 주파수 꺾임점 검출</text>
+  <text x="288" y="54" text-anchor="middle" font-size="11.5" fill="#0072B2">이중 로렌츠 스펙트럼 피팅</text>
+  <rect x="196" y="64" width="184" height="106" rx="4" fill="#FFFFFF" stroke="#A0A0A0"/>
+  <line x1="214" y1="152" x2="364" y2="152" stroke="#5A5A6E" stroke-width="1.2"/>
+  <line x1="214" y1="152" x2="214" y2="74" stroke="#5A5A6E" stroke-width="1.2"/>
+  <path d="M 218 82 L 264 88 L 312 118 L 358 146" fill="none" stroke="#003380" stroke-width="2.6"/>
+  <circle cx="264" cy="88" r="5" fill="#D55E00"/>
+  <circle cx="312" cy="118" r="5" fill="#D55E00"/>
+  <line x1="264" y1="88" x2="264" y2="152" stroke="#D55E00" stroke-dasharray="3,2" stroke-width="1.2"/>
+  <line x1="312" y1="118" x2="312" y2="152" stroke="#D55E00" stroke-dasharray="3,2" stroke-width="1.2"/>
+  <text x="264" y="165" text-anchor="middle" font-size="11" font-weight="700" fill="#D55E00">무릎 f₁</text>
+  <text x="312" y="165" text-anchor="middle" font-size="11" font-weight="700" fill="#D55E00">무릎 f₂</text>
+  <rect x="196" y="178" width="184" height="58" rx="4" fill="#FFFFFF" stroke="#A0A0A0"/>
+  <text x="288" y="200" text-anchor="middle" font-size="12" font-weight="700" fill="#003380">뇌 고유 시간척도 산출</text>
+  <text x="288" y="220" text-anchor="middle" font-size="11.5" fill="#282945">감쇠율 A_n = -2π f_n 직접 결정</text>
+
+  <line x1="394" y1="128" x2="416" y2="128" stroke="#D55E00" stroke-width="2.2" marker-end="url(#arr1o)"/>
+
+  <rect x="420" y="8" width="174" height="240" rx="6" fill="#FDEFE0" stroke="#D55E00" stroke-width="1.6"/>
+  <text x="507" y="34" text-anchor="middle" font-size="14.5" font-weight="700" fill="#D55E00">③ 이중 물리 고정 (PALM)</text>
+  <text x="507" y="54" text-anchor="middle" font-size="11.5" fill="#282945">상태공간모델(Mamba) 이식</text>
+  <rect x="432" y="64" width="150" height="50" rx="4" fill="#FFFFFF" stroke="#E69F00"/>
+  <text x="507" y="85" text-anchor="middle" font-size="12" font-weight="700" fill="#003380">고정 1: 샘플링 간격(Δ)</text>
+  <text x="507" y="104" text-anchor="middle" font-size="11" fill="#282945">촬영 주기(TR=0.72초) 고정</text>
+  <rect x="432" y="121" width="150" height="50" rx="4" fill="#FFFFFF" stroke="#E69F00"/>
+  <text x="507" y="142" text-anchor="middle" font-size="12" font-weight="700" fill="#003380">고정 2: 기억 시간상수(τ)</text>
+  <text x="507" y="161" text-anchor="middle" font-size="11" fill="#282945">뇌 기억척도(1~100 TR) 고정</text>
+  <rect x="432" y="178" width="150" height="58" rx="4" fill="#003380"/>
+  <text x="507" y="200" text-anchor="middle" font-size="12" font-weight="700" fill="#F0E442">파라미터 22% 절감 (5.98M)</text>
+  <text x="507" y="220" text-anchor="middle" font-size="11.5" fill="#FFFFFF">4대 분포 변화 전 구간 1위</text>
+
+  <rect x="6" y="258" width="588" height="34" rx="4" fill="#EDF6FC" stroke="#A0A0A0"/>
+  <text x="300" y="280" text-anchor="middle" font-size="12.5" font-weight="700" fill="#003380">핵심 원리: 주파수 꺾임점(f₁, f₂) 물리 고정 → 짧은 촬영(1.44초)·1% 라벨에서도 뇌 표현 일관성 유지</text>
+</svg>

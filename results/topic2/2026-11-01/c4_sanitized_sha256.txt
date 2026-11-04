@@ -1,0 +1,20 @@
+# Topic 2 C4 remediation (worker_M3_r2, 2026-11-01): sha256 of the 19 SANITIZED repo copies written by scripts/topic2_c4_sanitize.py from the sealed originals. Verify: cd /home/juke/git/00IITP-AI && sha256sum -c THIS_FILE
+a84b642ea42566c5ced7d0cdbed32dc270debbf25baa8d379977bde25e53fe92  results/topic2/2026-11-01/hcp_manifest.json
+cc521b087a97a6669fe6f94041dac2c2c0c0987741ac698203309af1ced2c75a  results/topic2/2026-11-01/split.json
+cdd719af09924f4e21ea34b3046fa52bf1be99e468fedcc84f1fedff6477141f  results/topic2/2026-11-01/stage0_hcp.json
+34df6f6e579995aa20a6cc93b811799065b84f3b726ec9b2cda18d367b81509d  results/topic2/2026-11-01/logs/preprocess.log
+6653f1fcabd49e0754d81339e0757d54c7fbbc29f15a00bee7980a63c2fb2c19  results/topic2/2026-11-01/runs/hcp_E_s0/run.json
+abc4f49e693a26d261484a60c1fe75657cde6087eec8f9b2390ebce0756768c4  results/topic2/2026-11-01/runs/hcp_E_s1/run.json
+d098996f69cbf3691d6023c5eb3330135b76ce4bc22757683ddd923b71331179  results/topic2/2026-11-01/runs/hcp_E_s2/run.json
+674557566c747b9508ad6544d8a478b88a3b59a08a63e506a5b8fc55a1366e70  results/topic2/2026-11-01/runs/hcp_E_s3/run.json
+95f589f9eb148c4406e87d6862ae77c888552078a78fb04cf95112a29ecdb964  results/topic2/2026-11-01/runs/hcp_E_s4/run.json
+04e7fdae43a190244dce722f8626f48456e9df798a23d117e0855f6a2fe1b357  results/topic2/2026-11-01/runs/hcp_C_s0/run.json
+b5d6e9a60d29b235352d6ec05fbed7b0963b435c06b7741ef976b767eeaf8ef8  results/topic2/2026-11-01/runs/hcp_C_s1/run.json
+94f6bd5f228a6e389e4c06283b172c2c436fbe431241b2b9b30b9f79bdb4af01  results/topic2/2026-11-01/runs/hcp_C_s2/run.json
+a814228eb8878364a3c9a459561a1095cb2e2928594f2f327817e3ac9124b742  results/topic2/2026-11-01/runs/hcp_C_s3/run.json
+9a0864875c09cc2f14b5ec268bba4676d9050d34067a242e866a903db8fcd1c7  results/topic2/2026-11-01/runs/hcp_C_s4/run.json
+a892ec8f7c5f7a7e2c1c0535641ae9ff5af8fa8cd4bb9767ef1226d458c35691  results/topic2/2026-11-01/runs/hcp_S_s0/run.json
+e33721a361e198f1bc762a0ce1ef0ce5a09bda0291a6bd0fde3c36d8177dbfe9  results/topic2/2026-11-01/runs/hcp_S_s1/run.json
+063e93ae5d4b2cc972dc1c90e856415ff90bebab84279a9ca1f1834b0ca6a22b  results/topic2/2026-11-01/runs/hcp_S_s2/run.json
+f1772a0e68259599f6154d4c6911e99491dc05f25c22a2f5526f734d2982417a  results/topic2/2026-11-01/runs/hcp_S_s3/run.json
+a91de6adafa596bf0504136dead23d17710fed670f5cef51c6e2691ff6d475ff  results/topic2/2026-11-01/runs/hcp_S_s4/run.json

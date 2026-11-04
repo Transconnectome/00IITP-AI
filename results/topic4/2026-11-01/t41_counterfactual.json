@@ -1,0 +1,82 @@
+{
+ "note": "legacy pipeline rerun on burned positions only; protected code unmodified",
+ "legacy_call": "evaluate_topology_on_fmri_streams(P, build_strictly_matched_topologies(24, 0.25, 42), dim_y=24, n_epochs=2, seed=42 + position_index_in_legacy_run)",
+ "positions": {
+  "0": {
+   "site_tr_s": 1.8,
+   "raw_valid_T_npy": 197,
+   "cache_valid_rows_of_464": 177,
+   "test_target_rows_inside_valid_portion": 0,
+   "protected_function_forecast_R2": {
+    "C0_Unconnected_Null": 1.0,
+    "C1_ErdosRenyi_Random": 1.0,
+    "C2_WattsStrogatz_SmallWorld": 1.0,
+    "C3_RichClub_HubAttracting": 1.0,
+    "C4_Bio_Fractal_Motif_HubRepel": 1.0,
+    "C5_Dense_AllToAll_Upper": 1.0
+   },
+   "protected_function_PR_uncentred": {
+    "C0_Unconnected_Null": 1.0031,
+    "C1_ErdosRenyi_Random": 1.0062,
+    "C2_WattsStrogatz_SmallWorld": 1.0084,
+    "C3_RichClub_HubAttracting": 1.0048,
+    "C4_Bio_Fractal_Motif_HubRepel": 1.0073,
+    "C5_Dense_AllToAll_Upper": 1.0059
+   },
+   "trivial": {
+    "split_index": 324,
+    "n_test_rows": 139,
+    "test_input_max_sd_over_rois": 4.1359030627651384e-25,
+    "ss_tot_test": 2.51663783231687e-45,
+    "legacy_r2": {
+     "persistence": 1.0,
+     "train_mean": -1.0,
+     "zero": 0.999999833706616
+    },
+    "guarded_r2": {
+     "persistence": "raised DegenerateTargetError (degenerate target: ss_tot/(n*sum var_train) = 2.940e-49 < 0.001)",
+     "train_mean": "raised DegenerateTargetError (degenerate target: ss_tot/(n*sum var_train) = 2.940e-49 < 0.001)",
+     "zero": "raised DegenerateTargetError (degenerate target: ss_tot/(n*sum var_train) = 2.940e-49 < 0.001)"
+    }
+   }
+  },
+  "932": {
+   "site_tr_s": 1.0,
+   "raw_valid_T_npy": 720,
+   "cache_valid_rows_of_464": 464,
+   "test_target_rows_inside_valid_portion": 139,
+   "protected_function_forecast_R2": {
+    "C0_Unconnected_Null": 0.0404,
+    "C1_ErdosRenyi_Random": 0.0533,
+    "C2_WattsStrogatz_SmallWorld": 0.0507,
+    "C3_RichClub_HubAttracting": -0.0816,
+    "C4_Bio_Fractal_Motif_HubRepel": 0.0236,
+    "C5_Dense_AllToAll_Upper": 0.0237
+   },
+   "protected_function_PR_uncentred": {
+    "C0_Unconnected_Null": 1.0,
+    "C1_ErdosRenyi_Random": 1.0007,
+    "C2_WattsStrogatz_SmallWorld": 1.0004,
+    "C3_RichClub_HubAttracting": 1.0001,
+    "C4_Bio_Fractal_Motif_HubRepel": 1.0003,
+    "C5_Dense_AllToAll_Upper": 1.0004
+   },
+   "trivial": {
+    "split_index": 324,
+    "n_test_rows": 139,
+    "test_input_max_sd_over_rois": 1.415723247152436,
+    "ss_tot_test": 5331.3343809455255,
+    "legacy_r2": {
+     "persistence": 0.9915509950202127,
+     "train_mean": -0.17916077361513305,
+     "zero": -0.08770512086951876
+    },
+    "guarded_r2": {
+     "persistence": 0.9915509950202127,
+     "train_mean": -0.17916077361513305,
+     "zero": -0.08770512086951876
+    }
+   }
+  }
+ }
+}

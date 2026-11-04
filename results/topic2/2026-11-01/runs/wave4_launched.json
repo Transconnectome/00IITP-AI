@@ -1,0 +1,23 @@
+{
+ "launched": [
+  {
+   "name": "hcp_E_s4",
+   "gpu": 0,
+   "launch_utc": "2026-11-01T04:41:49Z",
+   "pid": 432842
+  },
+  {
+   "name": "hcp_C_s4",
+   "gpu": 1,
+   "launch_utc": "2026-11-01T04:41:51Z",
+   "pid": 432866
+  },
+  {
+   "name": "hcp_S_s4",
+   "gpu": 2,
+   "launch_utc": "2026-11-01T04:41:53Z",
+   "pid": 432890
+  }
+ ],
+ "skipped_no_idle_gpu": []
+}

@@ -1,0 +1,293 @@
+{
+ "label": "T3.1 provenance + REPRODUCTION of already-public numbers (not a new result)",
+ "inputs": {
+  "L0": {
+   "path": "/home/juke/git/VRABES/RemissionAnalysis/pooled_E192_layers/layer_0.npz",
+   "sha256": "ec2970e871b8b060d24db177d8b7f45ad6302f9ee57f8c6c0e6b9a8a6627e584",
+   "sha256_verified": true,
+   "keys": [
+    "X",
+    "ids"
+   ],
+   "X_dtype": "float32",
+   "shape": [
+    57,
+    384
+   ],
+   "n_constant_columns": 0
+  },
+  "L1": {
+   "path": "/home/juke/git/VRABES/RemissionAnalysis/pooled_E192_layers/layer_1.npz",
+   "sha256": "2730359bfc0bd208c9c6e43ebbbc7ceccf657a55005934e5e4511a3dbaa5be4d",
+   "sha256_verified": true,
+   "keys": [
+    "X",
+    "ids"
+   ],
+   "X_dtype": "float32",
+   "shape": [
+    57,
+    768
+   ],
+   "n_constant_columns": 0
+  },
+  "L2": {
+   "path": "/home/juke/git/VRABES/RemissionAnalysis/pooled_E192_layers/layer_2.npz",
+   "sha256": "ce55160669f77870c11ead261e5c061680791a4c755e8ea7d0db58c957828eab",
+   "sha256_verified": true,
+   "keys": [
+    "X",
+    "ids"
+   ],
+   "X_dtype": "float32",
+   "shape": [
+    57,
+    1536
+   ],
+   "n_constant_columns": 0
+  },
+  "L3": {
+   "path": "/home/juke/git/VRABES/RemissionAnalysis/pooled_E192_layers/layer_3.npz",
+   "sha256": "f13ae7ba126bdc5a2c17efc0cb032910c07b7e14411aeb9546deb9d68dadc8eb",
+   "sha256_verified": true,
+   "keys": [
+    "X",
+    "ids"
+   ],
+   "X_dtype": "float32",
+   "shape": [
+    57,
+    1536
+   ],
+   "n_constant_columns": 0
+  },
+  "BrainLM": {
+   "path": "/home/juke/git/VRABES/RemissionAnalysis/pooled_brainlm_matrix.npz",
+   "sha256": "d0b90e46ec638d5c00e0d6c0747030ef2b5b3788f097c5585e60c71e5085a80a",
+   "sha256_verified": true,
+   "keys": [
+    "X",
+    "ids"
+   ],
+   "X_dtype": "float32",
+   "shape": [
+    57,
+    768
+   ],
+   "n_constant_columns": 0
+  },
+  "BrainJEPA": {
+   "path": "/home/juke/git/VRABES/RemissionAnalysis/pooled_brainjepa_matrix.npz",
+   "sha256": "c9c550d73acb599cc646fd5d9902e36c839e504b4a7e1983ed4a491509a4df87",
+   "sha256_verified": true,
+   "keys": [
+    "X",
+    "ids"
+   ],
+   "X_dtype": "float32",
+   "shape": [
+    57,
+    768
+   ],
+   "n_constant_columns": 0
+  },
+  "NeuroSTORM": {
+   "path": "/home/juke/git/VRABES/RemissionAnalysis/pooled_neurostorm_matrix.npz",
+   "sha256": "3d7b2c9630e773a1f720c9731856bea6cba9ae27232b01a47afcdf29edd2f4da",
+   "sha256_verified": true,
+   "keys": [
+    "X",
+    "ids"
+   ],
+   "X_dtype": "float32",
+   "shape": [
+    25,
+    288
+   ],
+   "n_constant_columns": 0
+  }
+ },
+ "reproduction": {
+  "L0": {
+   "centered_pr_old_eca": 2.7773,
+   "old_alpha_eca": 1.4717,
+   "report_pr": 2.7773,
+   "report_alpha": 1.4717,
+   "report_pr_matches_4dp": true,
+   "report_alpha_matches_4dp": true,
+   "uncentered_pr_old_srg": 1.0014,
+   "json_pr": 1.0014,
+   "json_pr_matches_4dp": true,
+   "uncentered_htsr_alpha_old_srg": 1.4656,
+   "json_alpha": 1.4656,
+   "json_alpha_matches_4dp": true,
+   "mean_vector_energy_fraction": 0.9992
+  },
+  "L1": {
+   "centered_pr_old_eca": 2.7782,
+   "old_alpha_eca": 0.9887,
+   "report_pr": 2.7782,
+   "report_alpha": 0.9887,
+   "report_pr_matches_4dp": true,
+   "report_alpha_matches_4dp": true,
+   "uncentered_pr_old_srg": 1.005,
+   "json_pr": 1.005,
+   "json_pr_matches_4dp": true,
+   "uncentered_htsr_alpha_old_srg": 1.2551,
+   "json_alpha": 1.2551,
+   "json_alpha_matches_4dp": true,
+   "mean_vector_energy_fraction": 0.9973
+  },
+  "L2": {
+   "centered_pr_old_eca": 11.0202,
+   "old_alpha_eca": 1.598,
+   "report_pr": 11.0202,
+   "report_alpha": 1.598,
+   "report_pr_matches_4dp": true,
+   "report_alpha_matches_4dp": true,
+   "uncentered_pr_old_srg": 1.0743,
+   "json_pr": 1.0743,
+   "json_pr_matches_4dp": true,
+   "uncentered_htsr_alpha_old_srg": 1.4074,
+   "json_alpha": 1.4074,
+   "json_alpha_matches_4dp": true,
+   "mean_vector_energy_fraction": 0.9645
+  },
+  "L3": {
+   "centered_pr_old_eca": 3.5786,
+   "old_alpha_eca": 1.8411,
+   "report_pr": 3.5786,
+   "report_alpha": 1.8411,
+   "report_pr_matches_4dp": true,
+   "report_alpha_matches_4dp": true,
+   "uncentered_pr_old_srg": 1.0327,
+   "json_pr": 1.0327,
+   "json_pr_matches_4dp": true,
+   "uncentered_htsr_alpha_old_srg": 1.9928,
+   "json_alpha": 1.9928,
+   "json_alpha_matches_4dp": true,
+   "mean_vector_energy_fraction": 0.9832
+  },
+  "BrainLM": {
+   "centered_pr_old_eca": 4.3188,
+   "old_alpha_eca": 1.458,
+   "report_pr": 4.3188,
+   "report_alpha": 1.458,
+   "report_pr_matches_4dp": true,
+   "report_alpha_matches_4dp": true,
+   "uncentered_pr_old_srg": 1.0028,
+   "json_pr": 1.0028,
+   "json_pr_matches_4dp": true,
+   "uncentered_htsr_alpha_old_srg": 1.691,
+   "json_alpha": 1.691,
+   "json_alpha_matches_4dp": true,
+   "mean_vector_energy_fraction": 0.9985
+  },
+  "BrainJEPA": {
+   "centered_pr_old_eca": 11.7851,
+   "old_alpha_eca": 1.8807,
+   "report_pr": 11.7851,
+   "report_alpha": 1.8807,
+   "report_pr_matches_4dp": true,
+   "report_alpha_matches_4dp": true,
+   "uncentered_pr_old_srg": 1.0581,
+   "json_pr": 1.0581,
+   "json_pr_matches_4dp": true,
+   "uncentered_htsr_alpha_old_srg": 1.5,
+   "json_alpha": 1.5,
+   "json_alpha_matches_4dp": true,
+   "mean_vector_energy_fraction": 0.9721
+  },
+  "NeuroSTORM": {
+   "centered_pr_old_eca": 12.507,
+   "old_alpha_eca": 1.196,
+   "report_pr": 12.507,
+   "report_alpha": 1.196,
+   "report_pr_matches_4dp": true,
+   "report_alpha_matches_4dp": true,
+   "uncentered_pr_old_srg": 1.0102,
+   "json_pr": 1.0102,
+   "json_pr_matches_4dp": true,
+   "uncentered_htsr_alpha_old_srg": 0.8856,
+   "json_alpha": 0.8856,
+   "json_alpha_matches_4dp": true,
+   "mean_vector_energy_fraction": 0.9948
+  }
+ },
+ "alignment": {
+  "same_order": true,
+  "n_rows": 57,
+  "subset_positions": [
+   6,
+   8,
+   10,
+   13,
+   14,
+   15,
+   17,
+   19,
+   23,
+   27,
+   28,
+   30,
+   31,
+   32,
+   34,
+   35,
+   36,
+   37,
+   38,
+   40,
+   42,
+   44,
+   51,
+   55,
+   56
+  ],
+  "subset_in_increasing_order": true
+ },
+ "producer_and_code_hashes": {
+  "ver11_model": {
+   "path": "/home/juke/git/SwiFT_v2/project/module/models/simmim_swin4d_transformer_ver11.py",
+   "sha256": "de132387f64d98cbe9b15876351a7b33f9bec112df3df8f4718327d06e95052a"
+  },
+  "pool_E192_layersweep": {
+   "path": "/home/juke/git/VRABES/RemissionAnalysis/pool_E192_layersweep.py",
+   "sha256": "0e408552317007416a0f2b7fc779c5ab2dc250369da8c006be9adb9d70b30fbb"
+  },
+  "extract_vrabes_swift_E192_sh": {
+   "path": "/home/juke/git/VRABES/RemissionAnalysis/extract_vrabes_swift_E192.sh",
+   "sha256": "b979a682da1bde91ad83049d3569cfd5179fb2fc6867bcc830c01c0317a3d8b5"
+  },
+  "extract_brainlm": {
+   "path": "/home/juke/git/VRABES/RemissionAnalysis/extract_brainlm_embeddings.py",
+   "sha256": "67348ff189e085a3cec3d127782a85bce955605de872c38dcf3cf42911509506"
+  },
+  "extract_brainjepa": {
+   "path": "/home/juke/git/VRABES/RemissionAnalysis/extract_brainjepa_embeddings.py",
+   "sha256": "832c74cf87732d11dbae74e6c4136231ce2d79d0b4b1cf782a3c0a48456750c6"
+  },
+  "extract_neurostorm": {
+   "path": "/home/juke/git/VRABES/RemissionAnalysis/extract_neurostorm_embeddings.py",
+   "sha256": "a028716b3a9d43d744246700dbf96d5e804357490e69a6d33bff3384c72ed7d3"
+  },
+  "protected_srg": {
+   "path": "/home/juke/git/00IITP-AI/src/spectral_rg_flow_diagnostic.py",
+   "sha256": "71536af238c9b3f39fb59e00e34d3744181ecaea3613ec3b50cb6af8565c896b"
+  },
+  "protected_eca": {
+   "path": "/home/juke/git/00IITP-AI/src/empirical_connectome_ablation.py",
+   "sha256": "d49105794a76af590b18846f333f8dba5c79a1c2fd18ae1221bd7eb6da73ba54"
+  },
+  "protected_json": {
+   "path": "/home/juke/git/00IITP-AI/docs/03_empirical_analysis/empirical_results.json",
+   "sha256": "39a175648c725fa14ae3118dc8f6512f2a89859b2a9a2faa8bde4b840a988205"
+  }
+ },
+ "missing_producer_files": [],
+ "all_report_numbers_reproduced": true,
+ "all_json_numbers_reproduced": true,
+ "numpy": "2.3.5",
+ "python": "3.12.3",
+ "runtime_s": 72.79
+}

@@ -1,0 +1,66 @@
+{
+ "n_train_subjects_used": 64,
+ "val_test_read": false,
+ "split_file_sha256": "c13b5f21b67f456fb39a258d7f8279b06a69b061f79de627ed884a5923140262",
+ "fc_sha256_float32": "e2912ee95d0ff255b694e6e20414972becb031221d115ebaba6f035abc1e7ad5",
+ "n_cells_any_brain": 1442,
+ "n_signal_cells": 1195,
+ "n_group_mask_voxels": 229304,
+ "arms": {
+  "E": {
+   "n_rows_changed": 0,
+   "n_cells_moved": 0,
+   "dispersion_cells": 0.7838290439963381,
+   "perm_sha256": "b83e23eb1db808bf694ae4894d62b50c9840bcd869ba7ac2456f40ddf0530bf3"
+  },
+  "C": {
+   "n_rows_changed": 231,
+   "n_cells_moved": 1512,
+   "dispersion_cells": 1.4693233229673788,
+   "perm_sha256": "21e4e239cc8811c58630809695596f35d54151a75195d8e79892dfa1cfd9bb45"
+  },
+  "S_seed0": {
+   "n_rows_changed": 232,
+   "n_cells_moved": 1514,
+   "dispersion_cells": 1.5570497288199272,
+   "perm_sha256": "01db6af087b4b1b1519c2c8aafd5c3654259837192dee56f7e35d71a5293c708"
+  },
+  "S_seed1": {
+   "n_rows_changed": 232,
+   "n_cells_moved": 1546,
+   "dispersion_cells": 1.6470193492398955,
+   "perm_sha256": "480b16bb63bdbec46d11728bf514f1894741c373cfc590aac20124796dc47c71"
+  },
+  "S_seed2": {
+   "n_rows_changed": 232,
+   "n_cells_moved": 1574,
+   "dispersion_cells": 1.6166445436965018,
+   "perm_sha256": "a6dbf915c556408d5eadbb94d61c25e3d9830086e064f64ffd85a75f6064855c"
+  },
+  "S_seed3": {
+   "n_rows_changed": 231,
+   "n_cells_moved": 1561,
+   "dispersion_cells": 1.5840933868667948,
+   "perm_sha256": "82d004cc3a9b72c8eaf2f88f96d57ee68fcf1ced1f3888660c98f2e5741b1412"
+  },
+  "S_seed4": {
+   "n_rows_changed": 232,
+   "n_cells_moved": 1552,
+   "dispersion_cells": 1.6737103215588196,
+   "perm_sha256": "540272605a584f50a2679941fc37f8ea6cee42116110be79ced8bcbf451db4c1"
+  },
+  "G": {
+   "n_rows_changed": 217,
+   "n_cells_moved": 1395,
+   "dispersion_cells": 1.1121477312359866,
+   "perm_sha256": "e9f0dd03866b027ec999fd78f17d3b2df0d18ec83dbbfb4eaeaf2d1ed9622df9"
+  },
+  "R": {
+   "n_rows_changed": 232,
+   "n_cells_moved": 1670,
+   "dispersion_cells": 2.456670384198518,
+   "perm_sha256": "678792d8b1f2da688ef407bf7194cb487d5e1891cc97b27b87d2f43cc8919492"
+  }
+ },
+ "sec": 24.0
+}

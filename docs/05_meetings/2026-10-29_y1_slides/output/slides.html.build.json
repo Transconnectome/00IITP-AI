@@ -1,0 +1,101 @@
+{
+  "schema": 1,
+  "created_at": "2026-10-29T03:56:43.500316+00:00",
+  "source": {
+    "path": "/home/juke/git/00IITP-AI/docs/05_meetings/2026-10-29_y1_slides/slides.md",
+    "sha256": "57caef7a8d7a64b72b3a5d1a93e471644b7b5962a97579cc78128738ce498481"
+  },
+  "output": {
+    "path": "/home/juke/git/00IITP-AI/docs/05_meetings/2026-10-29_y1_slides/output/slides.html",
+    "sha256": "300d18cfd166531934e97d03d883bcad5e712cc75d993cbf8c08e1e46b9caf01"
+  },
+  "format": "html",
+  "output_kind": "HTML presentation with local images/fonts embedded; image loading checked in Chromium",
+  "marp": {
+    "path": "/home/juke/.npm-global/bin/marp",
+    "version": "@marp-team/marp-cli v4.3.1 (w/ @marp-team/marp-core v4.3.0)"
+  },
+  "browser": {
+    "path": "/home/juke/.cache/ms-playwright/chromium-1217/chrome-linux/chrome",
+    "version": "Chromium 147.0.7727.0",
+    "sandbox_disabled": true
+  },
+  "themes": [
+    {
+      "path": "/home/juke/git/cha-talks/themes/cha-editorial.css",
+      "sha256": "452d55c7f8209c84b9989c02c52b7e764f0cca17dea1ac1212c5ad87e4ceb650"
+    },
+    {
+      "path": "/home/juke/git/cha-talks/themes/cha-friendly.css",
+      "sha256": "bb9e796ada357d123a8b696853c14c03220b5879e29b27451b6ed3c332ecaa8d"
+    },
+    {
+      "path": "/home/juke/git/cha-talks/themes/cha.css",
+      "sha256": "3407fa9c57303064c1346aed258ee63f757ed6ba09e738d02303248a323aa56c"
+    }
+  ],
+  "font": null,
+  "embedded_html_assets": [
+    {
+      "path": "/home/juke/git/00IITP-AI/docs/05_meetings/2026-10-29_y1_slides/figures/s01_concept.svg",
+      "sha256": "f0ed30cc6841e8166210d9154e44edeef9386b036f73a22c2917cf69057b3444",
+      "mime": "image/svg+xml"
+    },
+    {
+      "path": "/home/juke/git/00IITP-AI/docs/05_meetings/2026-10-29_y1_slides/figures/s02_concept.svg",
+      "sha256": "3f0ece3b109fb6352138e14adbc8e5bcb6929798e7b6529ae5c5e8c1bd5c78df",
+      "mime": "image/svg+xml"
+    },
+    {
+      "path": "/home/juke/git/00IITP-AI/docs/05_meetings/2026-10-29_y1_slides/figures/s03_concept.svg",
+      "sha256": "cc456e656971e5f6f78d8c9bf4508b9281b2481f57ab72d0ec46287c53cf9b70",
+      "mime": "image/svg+xml"
+    },
+    {
+      "path": "/home/juke/git/cha-talks/themes/fonts/Pretendard-Regular.otf",
+      "sha256": "3ffbacde6ab8411f1d2db54bb9b1f0b3ee2a738932033722cf0388c06aed1c93",
+      "mime": "font/otf"
+    },
+    {
+      "path": "/home/juke/git/cha-talks/themes/fonts/Pretendard-Bold.otf",
+      "sha256": "2e91915fab54df71cc9598ebf608b2bdb54c6fe3c066ac61dff0bc44fca71cc7",
+      "mime": "font/otf"
+    },
+    {
+      "path": "/home/juke/git/cha-talks/themes/fonts/Pretendard-OFL.txt",
+      "sha256": "b04538c9abec39a3db75108cf0af0fd9c77032fe8aa2cf38345b4d250e98e38e",
+      "mime": "text/plain",
+      "kind": "font_license"
+    }
+  ],
+  "lint": {
+    "mode": "final",
+    "skipped": false,
+    "forced": false,
+    "errors": 0,
+    "warnings": 3
+  },
+  "render_qa": {
+    "status": "pass",
+    "image_resources_checked": 8,
+    "font_faces": [
+      {
+        "family": "Pretendard",
+        "weight": "400",
+        "status": "loaded"
+      },
+      {
+        "family": "Pretendard",
+        "weight": "600 900",
+        "status": "loaded"
+      }
+    ],
+    "errors": [],
+    "warnings": [],
+    "limits": [
+      "Image decoding does not verify visual composition or scientific correctness",
+      "External scripts, links, remote fonts and srcset portability need separate review"
+    ]
+  },
+  "visual_review": "pending; build success does not certify aesthetics or every asset"
+}

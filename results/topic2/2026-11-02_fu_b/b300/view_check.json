@@ -1,0 +1,24 @@
+{
+ "n_orig": 88,
+ "sanitized_manifest_is_positional_in_order": true,
+ "split_check": {
+  "train": true,
+  "val": true,
+  "test": true,
+  "disjoint": true,
+  "sizes": {
+   "train": 64,
+   "val": 8,
+   "test": 16
+  }
+ },
+ "r1_files_modified_after_cut": 0,
+ "preconditions_ok": true,
+ "links": {
+  "links_made": 176,
+  "links_already_ok": 0,
+  "links_conflicting": 0,
+  "n_planned": 176
+ },
+ "utc": "2026-11-01T15:30:29Z"
+}

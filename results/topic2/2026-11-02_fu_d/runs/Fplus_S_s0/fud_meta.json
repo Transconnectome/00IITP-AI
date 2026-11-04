@@ -1,0 +1,105 @@
+{
+ "agent": "worker_FU_D_r1",
+ "cfg_name": "E192_d22182",
+ "cfg": {
+  "img_size": [
+   96,
+   96,
+   96,
+   20
+  ],
+  "in_chans": 1,
+  "embed_dim": 192,
+  "window_size": [
+   4,
+   4,
+   4,
+   10
+  ],
+  "patch_size": [
+   6,
+   6,
+   6,
+   1
+  ],
+  "depths": [
+   2,
+   2,
+   18,
+   2
+  ],
+  "num_heads": [
+   6,
+   12,
+   24,
+   48
+  ],
+  "c_multiplier": 2
+ },
+ "wrapper_sha256": "d598989bd93666c36b821448bbde0cbbb10b5eb822b454a4ff90b9a03185b84e",
+ "fud_code_sha256": {
+  "__init__.py": "9e1b9d62c515a993dc0b40c103a4ae66b999e4579d5118397c6b63ac0288adc2",
+  "config.py": "964a5ade69fe36b658488aa1726078f56839a670dbc59a0e0da37265f0040e22",
+  "design.py": "616d359b73d0fb64739f9d717d76b187c6365d1f25c1db175b6b97be5d89118a",
+  "records.py": "68c938113bd92f27a9943c88cb87ae843037ed38504acf935af3c512ba9babd9",
+  "seedplan.py": "5049a21586675b3fe051113403387e5d22fa513a984d30d8182a48a50cddd56e",
+  "slurm.py": "b4809d12a964b3ceedf4619fdcbe84a8cc97db7b548e15ad74fbc73151d3bd3c",
+  "verdict.py": "9aac22ad0d0d091c098c0346f8dd0517b9e56b7ab9b5ee70f02f2cfb7fc45ecc",
+  "view.py": "c1a141ffdb69b2ba0474de616f46037fb28df9a39a7063e121b8866c30e0c2a1"
+ },
+ "frozen_train_script_sha256": "05f08f7c4505cbbd5907df3ab114f4e57394c67d95dade4934ab76256d605c68",
+ "argv": [
+  "--perm-file",
+  "/scratch/iitp4/fu_d/code/results/topic2/2026-11-01/partitions/perms_Fplus.npz",
+  "--out",
+  "/scratch/iitp4/fu_d/runs/Fplus_S_s0",
+  "--source",
+  "Fplus",
+  "--arm",
+  "S",
+  "--seed",
+  "0",
+  "--perm-key",
+  "S_seed0",
+  "--cfg",
+  "E192_d22182",
+  "--steps",
+  "8750",
+  "--batch",
+  "16",
+  "--lr",
+  "0.0002",
+  "--wd",
+  "0.05",
+  "--warmup-frac",
+  "0.05",
+  "--mask-ratio",
+  "0.6",
+  "--val-mask-seed",
+  "7001",
+  "--test-mask-seed",
+  "7002",
+  "--probe-steps",
+  "200",
+  "--max-run-hours",
+  "1.6",
+  "--save-model"
+ ],
+ "inputs": {
+  "perm_file_sha256": "b288a5ad262b5693ed0f98e8cca57bc536ce60f621ee3a5862f1249ca8ac796b"
+ },
+ "smoke_abort": false,
+ "slurm_job_id": "536",
+ "node": "cloud-S1HDe3",
+ "cuda_visible": "0",
+ "start_utc": "2026-11-01T17:52:46Z",
+ "end_utc": "2026-11-01T19:03:27Z",
+ "run_status": "completed",
+ "post_checks": {
+  "cfg": true,
+  "n_params": true,
+  "frozen_code": true,
+  "status_completed": true
+ },
+ "post_checks_ok": true
+}

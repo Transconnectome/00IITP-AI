@@ -1,0 +1,17 @@
+{
+ "start_utc": "2026-11-01T15:27:53Z",
+ "host": "cloud-S1HDe3",
+ "lock_sha256": "ae664dc907024bc1f2a11c18cad83bdfd107e80f5eb124eac6323a20f9e231a2",
+ "freeze_sha256": "ae664dc907024bc1f2a11c18cad83bdfd107e80f5eb124eac6323a20f9e231a2",
+ "compare": {
+  "identical": true,
+  "only_in_lock": [],
+  "only_in_freeze": [],
+  "n_lock": 38,
+  "n_freeze": 38
+ },
+ "import_check": "2.15.0+cu134 13.4 2.5.4 1.18.1",
+ "import_rc": 0,
+ "end_utc": "2026-11-01T15:28:11Z",
+ "sec": 17.8
+}

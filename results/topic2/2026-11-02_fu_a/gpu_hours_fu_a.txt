@@ -1,0 +1,7 @@
+# FU-A GPU-hours (worker_FU_A_r1), from sacct ElapsedRaw x GPUs; ledger results/gpu_ledger_2026-10-31.md
+slurm_507_task0 Fplus_E_s0 1480 s x 1 GPU = 0.4111 GPU-h
+slurm_507_task1 Fplus_C_s0 1479 s x 1 GPU = 0.4108 GPU-h
+worker_FU_A_r1 total = 0.822 GPU-h
+FU-A explorer smokes (ledger): job 403 0.056 + job 427 0.074 = 0.130 GPU-h
+FU-A total = 0.952 GPU-h of cap 8 GPU-h
+Stage 1 (15 runs) not launched: card section 7.3 (F+ gate failed), not budget

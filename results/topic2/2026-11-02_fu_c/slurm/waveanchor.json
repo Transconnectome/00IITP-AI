@@ -1,0 +1,10 @@
+[
+ {
+  "name": "anchor",
+  "kind": "anchor",
+  "sbatch": "results/topic2/2026-11-02_fu_c/slurm/anchor.sbatch",
+  "remote_out": "/scratch/iitp4/fu_c/anchor",
+  "time_limit": "00:15:00",
+  "purpose": "FU-C environment anchor before card freeze: r1 hcp E s0, hcp C s0, F+ C s0 rerun to the step-300 throughput abort in the FU-C venv + positional data view; losses at steps 100/200 vs r1 logs; no val/test outcome computed; HCP-YA OA read-only on B300"
+ }
+]

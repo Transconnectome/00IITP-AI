@@ -1,0 +1,63 @@
+{
+ "run": "hcp_E_s0_a1",
+ "role": "stage1",
+ "slurm_job_id": "569",
+ "array_job_id": "516",
+ "array_task_id": "0",
+ "host": "cloud-S1HDe3",
+ "cuda_visible": "0",
+ "wrapper_start_utc": "2026-11-01T19:19:08Z",
+ "gate_state_at_start": "pass",
+ "gpu_check": {
+  "gpus": [
+   {
+    "index": "0",
+    "uuid": "GPU-f89a503e-18fd-38a6-1cbc-8a70cc0d56c9",
+    "mem_used_mib": 0.0
+   }
+  ]
+ },
+ "argv_tail": [
+  "--source",
+  "hcp",
+  "--arm",
+  "E",
+  "--seed",
+  "0",
+  "--perm-file",
+  "/scratch/iitp4/fu_b/in/perms_hcp.npz",
+  "--perm-key",
+  "E",
+  "--out",
+  "/scratch/iitp4/fu_b/runs/hcp_E_s0_a1",
+  "--cfg",
+  "E36_d2262",
+  "--steps",
+  "35000",
+  "--batch",
+  "16",
+  "--lr",
+  "0.0002",
+  "--wd",
+  "0.05",
+  "--warmup-frac",
+  "0.05",
+  "--mask-ratio",
+  "0.6",
+  "--val-mask-seed",
+  "7001",
+  "--test-mask-seed",
+  "7002",
+  "--probe-steps",
+  "200",
+  "--max-run-hours",
+  "2.2",
+  "--data-dir",
+  "/scratch/iitp4/fu_b/hcp",
+  "--split-file",
+  "/scratch/iitp4/fu_b/in/split.json",
+  "--save-model"
+ ],
+ "rc": 0,
+ "wrapper_end_utc": "2026-11-01T21:00:17Z"
+}

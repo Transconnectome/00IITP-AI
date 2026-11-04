@@ -1,0 +1,9 @@
+# Topic 2 card freeze, worker_M3_r1, 2026-11-01T03:14:34Z. Verify: cd /home/juke/git/00IITP-AI && sha256sum -c results/topic2/2026-11-01/card_sha256.txt
+c9bfc60af87f45d4541f10b1f5e074215e235d3e4fd99f001f69f8d8585c41f5  docs/03_empirical_analysis/topic2/2026-11-01_topic2_card.md
+f90edc896ef1aa085e0fa4de050d17dff2342b6d96c2f5bec7f00b33b5977e97  docs/03_empirical_analysis/topic2/2026-11-01_topic2_architecture.md
+1617d8c5404ff93e9bd8afd2bec3bca401c84704a5e2fb577d9556385fb4f874  results/topic2/2026-11-01/code_sha256_at_freeze.txt
+26ba34a9d78fd364cfd359f40655251ec1a006f06b9ceea5266d403fdb8f96d5  results/topic2/2026-11-01/hcp_manifest.json
+c13b5f21b67f456fb39a258d7f8279b06a69b061f79de627ed884a5923140262  results/topic2/2026-11-01/split.json
+b288a5ad262b5693ed0f98e8cca57bc536ce60f621ee3a5862f1249ca8ac796b  results/topic2/2026-11-01/partitions/perms_Fplus.npz
+b044266eceae820ad023aa54ef616886ec0289b0ae5a112de486565a79270d9d  results/topic2/2026-11-01/partitions/perms_Fminus.npz
+bedaf793ff06f7764f87848f4fdea80a8a082d57e1482141a4ac72cbe13cdd68  results/topic2/2026-11-01/partitions/partitions_fixtures.json

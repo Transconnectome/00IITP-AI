@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "created_at": "2026-10-29T03:56:46.178847+00:00",
+  "source": {
+    "path": "/home/juke/git/00IITP-AI/docs/05_meetings/2026-10-29_y1_slides/slides.md",
+    "sha256": "57caef7a8d7a64b72b3a5d1a93e471644b7b5962a97579cc78128738ce498481"
+  },
+  "output": {
+    "path": "/home/juke/git/00IITP-AI/docs/05_meetings/2026-10-29_y1_slides/output/slides.pptx",
+    "sha256": "0dc42accbfde100d5fc3c4dbb0dd3741c30d40a36fb39ba6bed4e61bb94a33fa"
+  },
+  "format": "pptx",
+  "output_kind": "Raster PowerPoint: each slide is a rendered image; slide objects are not editable",
+  "marp": {
+    "path": "/home/juke/.npm-global/bin/marp",
+    "version": "@marp-team/marp-cli v4.3.1 (w/ @marp-team/marp-core v4.3.0)"
+  },
+  "browser": {
+    "path": "/home/juke/.cache/ms-playwright/chromium-1217/chrome-linux/chrome",
+    "version": "Chromium 147.0.7727.0",
+    "sandbox_disabled": true
+  },
+  "themes": [
+    {
+      "path": "/home/juke/git/cha-talks/themes/cha-editorial.css",
+      "sha256": "452d55c7f8209c84b9989c02c52b7e764f0cca17dea1ac1212c5ad87e4ceb650"
+    },
+    {
+      "path": "/home/juke/git/cha-talks/themes/cha-friendly.css",
+      "sha256": "bb9e796ada357d123a8b696853c14c03220b5879e29b27451b6ed3c332ecaa8d"
+    },
+    {
+      "path": "/home/juke/git/cha-talks/themes/cha.css",
+      "sha256": "3407fa9c57303064c1346aed258ee63f757ed6ba09e738d02303248a323aa56c"
+    }
+  ],
+  "font": null,
+  "embedded_html_assets": [],
+  "lint": {
+    "mode": "final",
+    "skipped": false,
+    "forced": false,
+    "errors": 0,
+    "warnings": 3
+  },
+  "render_qa": {
+    "status": "not_applicable",
+    "reason": "PDF geometry QA requires PDF output; inspect this format separately"
+  },
+  "visual_review": "pending; build success does not certify aesthetics or every asset"
+}

@@ -1,0 +1,20 @@
+{
+ "verdict": "inconclusive",
+ "reason": "measurement-capacity gate failed (F+ fixture gain C vs E < delta)",
+ "fixture_gates": {
+  "Fplus": {
+   "status": "fail",
+   "gain_C_vs_E": 0.005510634589708632,
+   "test_nmse": {
+    "E": 0.7746782345624923,
+    "C": 0.7704092658872178
+   },
+   "C_vs_S": {
+    "status": "not_run"
+   }
+  },
+  "Fminus": {
+   "status": "not_run"
+  }
+ }
+}

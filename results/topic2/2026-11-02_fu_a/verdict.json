@@ -1,0 +1,27 @@
+{
+ "delta": 0.01,
+ "fixture_gates": {
+  "Fplus": {
+   "status": "fail",
+   "gain_C_vs_E": 0.005510634589708632,
+   "test_nmse": {
+    "E": 0.7746782345624923,
+    "C": 0.7704092658872178
+   },
+   "C_vs_S": {
+    "status": "not_run"
+   }
+  },
+  "Fminus": {
+   "status": "not_run"
+  }
+ },
+ "verdict": "inconclusive",
+ "reason": "measurement-capacity gate failed (F+ fixture gain C vs E < delta)",
+ "card_sha256": "72be3e83c43f17990d6ed4ab8e2f254894c083f697dfe18557866866623618fb",
+ "runs_found": [
+  "Fplus_C_s0",
+  "Fplus_E_s0"
+ ],
+ "secondary": {}
+}

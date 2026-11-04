@@ -1,0 +1,30 @@
+{
+ "verdict": {
+  "verdict": "inconclusive",
+  "reason": "measurement-capacity gate failed (synthetic F+)"
+ },
+ "J1_t": {
+  "mean": 0.08105268947083621,
+  "se": 0.052976715173333216,
+  "lo": -0.06603425206162275,
+  "hi": 0.22813963100329518,
+  "n": 5,
+  "df": 4,
+  "t_crit": 2.7764451051977987
+ },
+ "J2_t": {
+  "mean": 0.15004698949502515,
+  "se": 0.018759227034328488,
+  "lo": 0.0979630254182696,
+  "hi": 0.2021309535717807,
+  "n": 5,
+  "df": 4,
+  "t_crit": 2.7764451051977987
+ },
+ "gates": {
+  "Fplus_ident": false,
+  "Fminus_anat": true,
+  "G2_capacity": true,
+  "G3_rawfc": true
+ }
+}

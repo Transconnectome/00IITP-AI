@@ -1,0 +1,20 @@
+# Topic 2 C4 remediation (worker_M3_r2, 2026-11-01): sha256 of the 19 ORIGINAL token-bearing result files, sealed off-repo on B300 61.107.201.98:/scratch/iitp4/worker_M3_r2/sealed_c4/<path> (addendum_05). Verify there: cd SEALED && sha256sum -c THIS_FILE
+26ba34a9d78fd364cfd359f40655251ec1a006f06b9ceea5266d403fdb8f96d5  results/topic2/2026-11-01/hcp_manifest.json
+c13b5f21b67f456fb39a258d7f8279b06a69b061f79de627ed884a5923140262  results/topic2/2026-11-01/split.json
+61da22af206b7a92e1153f935b58ef5c3fdab5a77921484d5515467c42d8ed45  results/topic2/2026-11-01/stage0_hcp.json
+65a3d8682a97ce7c88785d48f247cc6a00a0e41b325f0ca44d5a638b7f30c7ac  results/topic2/2026-11-01/logs/preprocess.log
+70b7b321f6140848ccc0862de9b93cc577cdf15c2b3413404df9b790830d7769  results/topic2/2026-11-01/runs/hcp_E_s0/run.json
+337576e6a927e044d65c5b77981fb174c4b817f58d34f9db4f79a0be4a1f8562  results/topic2/2026-11-01/runs/hcp_E_s1/run.json
+dddaa2300bddc8bc7c14030cebd0289268cfdb045877d18d0cb33652472ab030  results/topic2/2026-11-01/runs/hcp_E_s2/run.json
+2dd3d2dfcbf3e181521f9109b6e0a4c2a0145b93a8d3df2072049a3b97f0e301  results/topic2/2026-11-01/runs/hcp_E_s3/run.json
+6d935f5369ac3f5b8554bb0f8e7ef861fbe6fa2e0f138d07a20da76e8c76a0d2  results/topic2/2026-11-01/runs/hcp_E_s4/run.json
+c3dc6c80b47846373c83f02795d97fd8f2409805ab53ad4a1c7a6f4418f473f8  results/topic2/2026-11-01/runs/hcp_C_s0/run.json
+f440710f1a88b44e8fc0df164a86f8ee1dc5b7a68ae64286cde085bc1b4a7b75  results/topic2/2026-11-01/runs/hcp_C_s1/run.json
+042077d92af8a08ff5f9049694782304535dbac958fe4506e3f678c765180cf0  results/topic2/2026-11-01/runs/hcp_C_s2/run.json
+83310b84cb9d483f6608aa58e18380f3b0db77202dfe3c9e726ec618a1ccea1b  results/topic2/2026-11-01/runs/hcp_C_s3/run.json
+8bc7111d83e50615350148dd5f69390e85f7ef9e91330f13d104617cc8676130  results/topic2/2026-11-01/runs/hcp_C_s4/run.json
+84c808e2658abc836956d03df26571bfeae197433d63f88ad54a9e6e7f978d3f  results/topic2/2026-11-01/runs/hcp_S_s0/run.json
+74dc64d0286afbd05e7a210f238c3c12b88c84fd109fc6a96ce6c8d568680e41  results/topic2/2026-11-01/runs/hcp_S_s1/run.json
+20513f1a35a9d18f2c820d80f02296ddea0f0f7bbd77bef3eb69954179e361ac  results/topic2/2026-11-01/runs/hcp_S_s2/run.json
+182314f443744aac01fdcdd26a1f100d932d3caa34791465e6659f0929cc5c7b  results/topic2/2026-11-01/runs/hcp_S_s3/run.json
+d30578e1c3d9d8fe8201b62c22c71f35b41226d0ffd0e95e22adc2d5dba8a7d0  results/topic2/2026-11-01/runs/hcp_S_s4/run.json

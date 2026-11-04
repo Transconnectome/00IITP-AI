@@ -1,0 +1,9 @@
+task 0 host cloud-S1HDe3 gpu 0 start 2026-11-01T16:12:31Z
+/scratch/iitp4/fu_a/code/src/topic2_rgpool/vendor_swift_ver11/simmim_swin4d_transformer_ver11.py:272: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):
+/scratch/iitp4/fu_a/code/src/topic2_rgpool/vendor_swift_ver11/simmim_swin4d_transformer_ver11.py:316: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=False):
+img_size:  (96, 96, 96, 20)
+patch_size:  (6, 6, 6, 1)
+{"source": "Fplus", "arm": "E", "seed": 0, "status": "completed", "test_nmse": 0.7746782345624923, "wall_sec": 1477.5}
+end 2026-11-01T16:37:11Z

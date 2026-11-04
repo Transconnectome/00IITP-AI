@@ -1,0 +1,1699 @@
+{
+ "script_sha256": "33e2757690c1dd948cf82478efbe067aa37296a05db0ab081a2073113b396e02",
+ "manifest_sha256": "063513c99122e849407c598b95dda24b2f946493095b7ed11d27bf15beb537f6",
+ "fallback_decision": {
+  "fallback_triggered": false,
+  "primary_density": 0.1
+ },
+ "extract_primary_jsonl_sha256": "948961c84a371709b562424ddbe15eefaf9d659bd2bb17415c286e335888518e",
+ "primary_unit": "broadband@0.10",
+ "card_count_checks": {
+  "n_on_disk": {
+   "observed": 1706,
+   "card": 1706
+  },
+  "n_ocd_code1": {
+   "observed": 869,
+   "card": 869
+  },
+  "n_hc_code2": {
+   "observed": 837,
+   "card": 837
+  },
+  "n_sites": {
+   "observed": 23,
+   "card": 23
+  },
+  "ybocs_nonnull_ocd": {
+   "observed": 856,
+   "card": 856
+  },
+  "med_code1_ocd": {
+   "observed": 203,
+   "card": 203
+  },
+  "med_code2_ocd": {
+   "observed": 212,
+   "card": 212
+  }
+ },
+ "exclusions_primary_unit": {
+  "unit": "broadband@0.10",
+  "total": {
+   "n": 1706,
+   "extraction_failed": 0,
+   "covariate_missing": 0,
+   "degenerate_E1": 0,
+   "degenerate_E2": 0
+  },
+  "by_group": {
+   "HC": {
+    "n": 837,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "OCD": {
+    "n": 869,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   }
+  },
+  "by_site": {
+   "Amsterdam-VUmc": {
+    "n": 57,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Bangalore-NIMHANS": {
+    "n": 358,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Barcelona-HCPB": {
+    "n": 64,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Barcelone-Bellvitge-ANTIGA-1.5T": {
+    "n": 137,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Barcelone-Bellvitge-PROV-1.5T": {
+    "n": 64,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Barcelone-Bellvitge-RESP-CBT-3T": {
+    "n": 57,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Bergen": {
+    "n": 53,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Braga-UMinho-Braga-1.5T": {
+    "n": 46,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Braga-UMinho-Braga-1.5T-act": {
+    "n": 96,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Braga-UMinho-Braga-3T": {
+    "n": 59,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Brazil": {
+    "n": 93,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Cape-Town-UCT-Skyra": {
+    "n": 39,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Dresden": {
+    "n": 35,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Kyoto-KPU-Kyoto3T": {
+    "n": 70,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "NYSPI-Columbia-Adults": {
+    "n": 70,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "NYSPI-Columbia-Pediatric": {
+    "n": 34,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "New-York": {
+    "n": 60,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "UCLA": {
+    "n": 51,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Vancouver-BCCHR": {
+    "n": 45,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Yale-Gruner": {
+    "n": 29,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Yale-Pittinger-HCP-Prisma": {
+    "n": 61,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Yale-Pittinger-HCP-Trio": {
+    "n": 43,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Yale-Pittinger-Yale-2014": {
+    "n": 85,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   }
+  },
+  "by_site_group": {
+   "Amsterdam-VUmc|HC": {
+    "n": 28,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Amsterdam-VUmc|OCD": {
+    "n": 29,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Bangalore-NIMHANS|HC": {
+    "n": 189,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Bangalore-NIMHANS|OCD": {
+    "n": 169,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Barcelona-HCPB|HC": {
+    "n": 28,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Barcelona-HCPB|OCD": {
+    "n": 36,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Barcelone-Bellvitge-ANTIGA-1.5T|HC": {
+    "n": 86,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Barcelone-Bellvitge-ANTIGA-1.5T|OCD": {
+    "n": 51,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Barcelone-Bellvitge-PROV-1.5T|HC": {
+    "n": 21,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Barcelone-Bellvitge-PROV-1.5T|OCD": {
+    "n": 43,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Barcelone-Bellvitge-RESP-CBT-3T|HC": {
+    "n": 47,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Barcelone-Bellvitge-RESP-CBT-3T|OCD": {
+    "n": 10,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Bergen|HC": {
+    "n": 24,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Bergen|OCD": {
+    "n": 29,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Braga-UMinho-Braga-1.5T|HC": {
+    "n": 18,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Braga-UMinho-Braga-1.5T|OCD": {
+    "n": 28,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Braga-UMinho-Braga-1.5T-act|HC": {
+    "n": 52,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Braga-UMinho-Braga-1.5T-act|OCD": {
+    "n": 44,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Braga-UMinho-Braga-3T|HC": {
+    "n": 27,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Braga-UMinho-Braga-3T|OCD": {
+    "n": 32,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Brazil|HC": {
+    "n": 34,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Brazil|OCD": {
+    "n": 59,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Cape-Town-UCT-Skyra|HC": {
+    "n": 16,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Cape-Town-UCT-Skyra|OCD": {
+    "n": 23,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Dresden|HC": {
+    "n": 10,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Dresden|OCD": {
+    "n": 25,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Kyoto-KPU-Kyoto3T|HC": {
+    "n": 36,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Kyoto-KPU-Kyoto3T|OCD": {
+    "n": 34,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "NYSPI-Columbia-Adults|HC": {
+    "n": 32,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "NYSPI-Columbia-Adults|OCD": {
+    "n": 38,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "NYSPI-Columbia-Pediatric|HC": {
+    "n": 13,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "NYSPI-Columbia-Pediatric|OCD": {
+    "n": 21,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "New-York|HC": {
+    "n": 11,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "New-York|OCD": {
+    "n": 49,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "UCLA|HC": {
+    "n": 19,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "UCLA|OCD": {
+    "n": 32,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Vancouver-BCCHR|HC": {
+    "n": 22,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Vancouver-BCCHR|OCD": {
+    "n": 23,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Yale-Gruner|HC": {
+    "n": 16,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Yale-Gruner|OCD": {
+    "n": 13,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Yale-Pittinger-HCP-Prisma|HC": {
+    "n": 26,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Yale-Pittinger-HCP-Prisma|OCD": {
+    "n": 35,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Yale-Pittinger-HCP-Trio|HC": {
+    "n": 22,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Yale-Pittinger-HCP-Trio|OCD": {
+    "n": 21,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Yale-Pittinger-Yale-2014|HC": {
+    "n": 60,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   },
+   "Yale-Pittinger-Yale-2014|OCD": {
+    "n": 25,
+    "extraction_failed": 0,
+    "covariate_missing": 0,
+    "degenerate_E1": 0,
+    "degenerate_E2": 0
+   }
+  }
+ },
+ "primary": {
+  "E1": {
+   "n": 1706,
+   "n_ocd": 869,
+   "n_hc": 837,
+   "n_sites": 23,
+   "beta_fe": 0.5488149763376566,
+   "se_fe": 0.2438959273489577,
+   "t_fe": 2.2502014785693056,
+   "d_fe": 0.11304089385433949,
+   "t_fl": 2.2502014785691546,
+   "p_fl": 0.0223,
+   "B": 9999,
+   "perm_seed": 20261031,
+   "include_logdur": true,
+   "beta_lmm": 0.5488149763376239,
+   "se_lmm_wald": 0.243702364742729,
+   "p_lmm_wald_secondary": 0.024322984881183233,
+   "sigma_eps_lmm": 4.851159635923867,
+   "re_var_site": 1.6688931868335755,
+   "d": 0.11313067751337895,
+   "lmm_converged_flag": true,
+   "lmm_n_warnings": 0,
+   "lmm_warning_kinds": [],
+   "lmm_mle_retvals": {},
+   "scale_ratio_lmm_over_fe": 0.9984133740977841,
+   "mundlak_equality_ratio": 1.3428505995338868e-13,
+   "mundlak": true,
+   "raw_cohen_d_DESCRIPTIVE": 0.08705132665332768,
+   "welch_p_DESCRIPTIVE": 0.07200105000074954,
+   "mean_ocd": -1.557729377866222,
+   "mean_hc": -2.002134391294478,
+   "sd_ocd": 5.306716017803772,
+   "sd_hc": 4.886955559407164,
+   "n_excluded_degenerate": 0
+  },
+  "E2": {
+   "n": 1706,
+   "n_ocd": 869,
+   "n_hc": 837,
+   "n_sites": 23,
+   "beta_fe": 0.34387077815043804,
+   "se_fe": 0.4588142281995121,
+   "t_fe": 0.7494771456845672,
+   "d_fe": 0.03765065807593775,
+   "t_fl": 0.7494771456843755,
+   "p_fl": 0.4416,
+   "B": 9999,
+   "perm_seed": 20261031,
+   "include_logdur": true,
+   "beta_lmm": 0.34387077815034767,
+   "se_lmm_wald": 0.458350292028468,
+   "p_lmm_wald_secondary": 0.4531127270036046,
+   "sigma_eps_lmm": 9.123959212089519,
+   "re_var_site": 9.797278046043544,
+   "d": 0.03768876757961704,
+   "lmm_converged_flag": true,
+   "lmm_n_warnings": 0,
+   "lmm_warning_kinds": [],
+   "lmm_mle_retvals": {},
+   "scale_ratio_lmm_over_fe": 0.9979786955813619,
+   "mundlak_equality_ratio": 1.9696894440071734e-13,
+   "mundlak": true,
+   "raw_cohen_d_DESCRIPTIVE": 0.019868709236711177,
+   "welch_p_DESCRIPTIVE": 0.6816806169493366,
+   "mean_ocd": 6.375704320923267,
+   "mean_hc": 6.183635880665211,
+   "sd_ocd": 9.659078399862782,
+   "sd_hc": 9.674974831185672,
+   "n_excluded_degenerate": 0
+  },
+  "decision": {
+   "endpoints": {
+    "E1": {
+     "p_fl": 0.0223,
+     "p_holm": 0.0446,
+     "d": 0.11313067751337895,
+     "survives": false,
+     "reason": "|d| < 0.15"
+    },
+    "E2": {
+     "p_fl": 0.4416,
+     "p_holm": 0.4416,
+     "d": 0.03768876757961704,
+     "survives": false,
+     "reason": "p_Holm >= 0.05; |d| < 0.15"
+    }
+   },
+   "topic1_killed": true,
+   "verdict": "Topic 1 KILLED (neither endpoint survives)",
+   "same_rule_with_d_fe_DESCRIPTIVE": {
+    "E1": false,
+    "E2": false
+   },
+   "lmm_converged_flags": {
+    "E1": true,
+    "E2": true
+   }
+  },
+  "label": "PRIMARY broadband@0.10"
+ },
+ "descriptives_primary_unit": {
+  "by_group": {
+   "HC": {
+    "n": 837,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.6206001288382355,
+    "acceptance_p10": 0.4818280178028659,
+    "grid_len_median": 160.0,
+    "grid_len_min": 100,
+    "gradient_share_mean": 0.23263978837321006
+   },
+   "OCD": {
+    "n": 869,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.632193923833275,
+    "acceptance_p10": 0.48399393182805034,
+    "grid_len_median": 160.0,
+    "grid_len_min": 100,
+    "gradient_share_mean": 0.21712249287965582
+   }
+  },
+  "by_site": {
+   "Amsterdam-VUmc": {
+    "n": 57,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.5896999621013018,
+    "acceptance_p10": 0.4856619778549717,
+    "grid_len_median": 157.0,
+    "grid_len_min": 157,
+    "gradient_share_mean": 0.25552904802680304
+   },
+   "Bangalore-NIMHANS": {
+    "n": 358,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.6377610608400022,
+    "acceptance_p10": 0.5410205612244898,
+    "grid_len_median": 133.0,
+    "grid_len_min": 130,
+    "gradient_share_mean": 0.22557862209721102
+   },
+   "Barcelona-HCPB": {
+    "n": 64,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.6599477405490122,
+    "acceptance_p10": 0.5690752279635258,
+    "grid_len_median": 220.0,
+    "grid_len_min": 220,
+    "gradient_share_mean": 0.22367495750449212
+   },
+   "Barcelone-Bellvitge-ANTIGA-1.5T": {
+    "n": 137,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.6689770144305587,
+    "acceptance_p10": 0.5784930026052975,
+    "grid_len_median": 100.0,
+    "grid_len_min": 100,
+    "gradient_share_mean": 0.20317846511281953
+   },
+   "Barcelone-Bellvitge-PROV-1.5T": {
+    "n": 64,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.6783053342447352,
+    "acceptance_p10": 0.6004138091619626,
+    "grid_len_median": 100.0,
+    "grid_len_min": 100,
+    "gradient_share_mean": 0.18597136224510402
+   },
+   "Barcelone-Bellvitge-RESP-CBT-3T": {
+    "n": 57,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.6369973103351082,
+    "acceptance_p10": 0.5254628571428571,
+    "grid_len_median": 220.0,
+    "grid_len_min": 220,
+    "gradient_share_mean": 0.1805959638944335
+   },
+   "Bergen": {
+    "n": 53,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.5861031406942543,
+    "acceptance_p10": 0.4737503343465046,
+    "grid_len_median": 124.0,
+    "grid_len_min": 124,
+    "gradient_share_mean": 0.24272879567531155
+   },
+   "Braga-UMinho-Braga-1.5T": {
+    "n": 46,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.7426574824425607,
+    "acceptance_p10": 0.6960712983065567,
+    "grid_len_median": 160.0,
+    "grid_len_min": 160,
+    "gradient_share_mean": 0.133305988110056
+   },
+   "Braga-UMinho-Braga-1.5T-act": {
+    "n": 96,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.6485768000750832,
+    "acceptance_p10": 0.5151681068171949,
+    "grid_len_median": 160.0,
+    "grid_len_min": 154,
+    "gradient_share_mean": 0.2665573972606905
+   },
+   "Braga-UMinho-Braga-3T": {
+    "n": 59,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.5725308701987828,
+    "acceptance_p10": 0.3626354515848893,
+    "grid_len_median": 340.0,
+    "grid_len_min": 340,
+    "gradient_share_mean": 0.2934791005544177
+   },
+   "Brazil": {
+    "n": 93,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.6868323477091591,
+    "acceptance_p10": 0.628180481980026,
+    "grid_len_median": 110.0,
+    "grid_len_min": 110,
+    "gradient_share_mean": 0.1350666513475461
+   },
+   "Cape-Town-UCT-Skyra": {
+    "n": 39,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.5321492142356125,
+    "acceptance_p10": 0.34662042770299606,
+    "grid_len_median": 238.0,
+    "grid_len_min": 238,
+    "gradient_share_mean": 0.33515707566365366
+   },
+   "Dresden": {
+    "n": 35,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.48620581663668505,
+    "acceptance_p10": 0.32223310464611377,
+    "grid_len_median": 316.0,
+    "grid_len_min": 316,
+    "gradient_share_mean": 0.34044383280995516
+   },
+   "Kyoto-KPU-Kyoto3T": {
+    "n": 70,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.6888461424539419,
+    "acceptance_p10": 0.646789442032132,
+    "grid_len_median": 174.0,
+    "grid_len_min": 174,
+    "gradient_share_mean": 0.11693250839235257
+   },
+   "NYSPI-Columbia-Adults": {
+    "n": 70,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.6131320757087029,
+    "acceptance_p10": 0.49073323165436383,
+    "grid_len_median": 206.0,
+    "grid_len_min": 137,
+    "gradient_share_mean": 0.20445197180209768
+   },
+   "NYSPI-Columbia-Pediatric": {
+    "n": 34,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.6128453034405251,
+    "acceptance_p10": 0.5228920701259228,
+    "grid_len_median": 206.0,
+    "grid_len_min": 137,
+    "gradient_share_mean": 0.1987466979850835
+   },
+   "New-York": {
+    "n": 60,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.4844926226660877,
+    "acceptance_p10": 0.2644273111159357,
+    "grid_len_median": 220.0,
+    "grid_len_min": 220,
+    "gradient_share_mean": 0.36897764780492365
+   },
+   "UCLA": {
+    "n": 51,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.6795261981388299,
+    "acceptance_p10": 0.6058509444203213,
+    "grid_len_median": 188.0,
+    "grid_len_min": 188,
+    "gradient_share_mean": 0.19391743649277668
+   },
+   "Vancouver-BCCHR": {
+    "n": 45,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.6452997701066242,
+    "acceptance_p10": 0.5664962809379069,
+    "grid_len_median": 130.0,
+    "grid_len_min": 130,
+    "gradient_share_mean": 0.17804382987536876
+   },
+   "Yale-Gruner": {
+    "n": 29,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.6166534497731595,
+    "acceptance_p10": 0.43456952236213636,
+    "grid_len_median": 130.0,
+    "grid_len_min": 130,
+    "gradient_share_mean": 0.2007024196348601
+   },
+   "Yale-Pittinger-HCP-Prisma": {
+    "n": 61,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.5702490043279259,
+    "acceptance_p10": 0.41860120495006514,
+    "grid_len_median": 288.0,
+    "grid_len_min": 288,
+    "gradient_share_mean": 0.2512199098550128
+   },
+   "Yale-Pittinger-HCP-Trio": {
+    "n": 43,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.5390206805582203,
+    "acceptance_p10": 0.3260446634824143,
+    "grid_len_median": 155.0,
+    "grid_len_min": 155,
+    "gradient_share_mean": 0.2776751218111133
+   },
+   "Yale-Pittinger-Yale-2014": {
+    "n": 85,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.5856542614492605,
+    "acceptance_p10": 0.4169210790273556,
+    "grid_len_median": 279.0,
+    "grid_len_min": 279,
+    "gradient_share_mean": 0.25765868835934047
+   }
+  },
+  "by_site_group": {
+   "Amsterdam-VUmc|HC": {
+    "n": 28,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.5833913028813349,
+    "acceptance_p10": 0.4860109075119409,
+    "grid_len_median": 157.0,
+    "grid_len_min": 157,
+    "gradient_share_mean": 0.2686223489849627
+   },
+   "Amsterdam-VUmc|OCD": {
+    "n": 29,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.5957910813481665,
+    "acceptance_p10": 0.5105768562744247,
+    "grid_len_median": 157.0,
+    "grid_len_min": 157,
+    "gradient_share_mean": 0.24288724020513175
+   },
+   "Bangalore-NIMHANS|HC": {
+    "n": 189,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.6192412918966979,
+    "acceptance_p10": 0.5129119344333477,
+    "grid_len_median": 133.0,
+    "grid_len_min": 130,
+    "gradient_share_mean": 0.2469072044770089
+   },
+   "Bangalore-NIMHANS|OCD": {
+    "n": 169,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.6584725184156502,
+    "acceptance_p10": 0.565767025618758,
+    "grid_len_median": 133.0,
+    "grid_len_min": 133,
+    "gradient_share_mean": 0.2017259471280879
+   },
+   "Barcelona-HCPB|HC": {
+    "n": 28,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.641300152363377,
+    "acceptance_p10": 0.5184587570560139,
+    "grid_len_median": 220.0,
+    "grid_len_min": 220,
+    "gradient_share_mean": 0.24747206865525148
+   },
+   "Barcelona-HCPB|OCD": {
+    "n": 36,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.6744514202489507,
+    "acceptance_p10": 0.5979470744680851,
+    "grid_len_median": 220.0,
+    "grid_len_min": 220,
+    "gradient_share_mean": 0.20516609327612367
+   },
+   "Barcelone-Bellvitge-ANTIGA-1.5T|HC": {
+    "n": 86,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.6524046159458341,
+    "acceptance_p10": 0.5615898936170213,
+    "grid_len_median": 100.0,
+    "grid_len_min": 100,
+    "gradient_share_mean": 0.2255493473411855
+   },
+   "Barcelone-Bellvitge-ANTIGA-1.5T|OCD": {
+    "n": 51,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.696922627561663,
+    "acceptance_p10": 0.650007001736865,
+    "grid_len_median": 100.0,
+    "grid_len_min": 100,
+    "gradient_share_mean": 0.16545501664930046
+   },
+   "Barcelone-Bellvitge-PROV-1.5T|HC": {
+    "n": 21,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.6658366959245705,
+    "acceptance_p10": 0.5977574359531046,
+    "grid_len_median": 100.0,
+    "grid_len_min": 100,
+    "gradient_share_mean": 0.21322352139375567
+   },
+   "Barcelone-Bellvitge-PROV-1.5T|OCD": {
+    "n": 43,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.6843946692383039,
+    "acceptance_p10": 0.6431294181502387,
+    "grid_len_median": 100.0,
+    "grid_len_min": 100,
+    "gradient_share_mean": 0.1726621682422741
+   },
+   "Barcelone-Bellvitge-RESP-CBT-3T|HC": {
+    "n": 47,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.6306760271061798,
+    "acceptance_p10": 0.5208323577941816,
+    "grid_len_median": 220.0,
+    "grid_len_min": 220,
+    "gradient_share_mean": 0.1822685253114734
+   },
+   "Barcelone-Bellvitge-RESP-CBT-3T|OCD": {
+    "n": 10,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.6667073415110726,
+    "acceptance_p10": 0.6218216652192793,
+    "grid_len_median": 220.0,
+    "grid_len_min": 220,
+    "gradient_share_mean": 0.17273492523434583
+   },
+   "Bergen|HC": {
+    "n": 24,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.5869142775727312,
+    "acceptance_p10": 0.484187259009987,
+    "grid_len_median": 124.0,
+    "grid_len_min": 124,
+    "gradient_share_mean": 0.23460923324737068
+   },
+   "Bergen|OCD": {
+    "n": 29,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.5854318550017219,
+    "acceptance_p10": 0.47537603560573166,
+    "grid_len_median": 124.0,
+    "grid_len_min": 124,
+    "gradient_share_mean": 0.2494484335467109
+   },
+   "Braga-UMinho-Braga-1.5T|HC": {
+    "n": 18,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.7302091655811261,
+    "acceptance_p10": 0.691773266391663,
+    "grid_len_median": 160.0,
+    "grid_len_min": 160,
+    "gradient_share_mean": 0.16144237541237474
+   },
+   "Braga-UMinho-Braga-1.5T|OCD": {
+    "n": 28,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.750659971853483,
+    "acceptance_p10": 0.6993295722970039,
+    "grid_len_median": 160.0,
+    "grid_len_min": 160,
+    "gradient_share_mean": 0.11521831055856539
+   },
+   "Braga-UMinho-Braga-1.5T-act|HC": {
+    "n": 52,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.616204771577207,
+    "acceptance_p10": 0.44124945831524104,
+    "grid_len_median": 160.0,
+    "grid_len_min": 160,
+    "gradient_share_mean": 0.3140508993255865
+   },
+   "Braga-UMinho-Braga-1.5T-act|OCD": {
+    "n": 44,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.6868346519362097,
+    "acceptance_p10": 0.6001564567954842,
+    "grid_len_median": 160.0,
+    "grid_len_min": 154,
+    "gradient_share_mean": 0.21042871300217697
+   },
+   "Braga-UMinho-Braga-3T|HC": {
+    "n": 27,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.5946104927550216,
+    "acceptance_p10": 0.37995237733391235,
+    "grid_len_median": 340.0,
+    "grid_len_min": 340,
+    "gradient_share_mean": 0.264069622843969
+   },
+   "Braga-UMinho-Braga-3T|OCD": {
+    "n": 32,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.5539011886669561,
+    "acceptance_p10": 0.3308167878853669,
+    "grid_len_median": 340.0,
+    "grid_len_min": 340,
+    "gradient_share_mean": 0.31829334737260895
+   },
+   "Brazil|HC": {
+    "n": 34,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.6915965732037496,
+    "acceptance_p10": 0.6468098198002605,
+    "grid_len_median": 110.0,
+    "grid_len_min": 110,
+    "gradient_share_mean": 0.11661706229919025
+   },
+   "Brazil|OCD": {
+    "n": 59,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.6840868618309206,
+    "acceptance_p10": 0.6238354667824576,
+    "grid_len_median": 110.0,
+    "grid_len_min": 110,
+    "gradient_share_mean": 0.14569861791778507
+   },
+   "Cape-Town-UCT-Skyra|HC": {
+    "n": 16,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.5422156806339556,
+    "acceptance_p10": 0.4262715751194095,
+    "grid_len_median": 238.0,
+    "grid_len_min": 238,
+    "gradient_share_mean": 0.34897619562066584
+   },
+   "Cape-Town-UCT-Skyra|OCD": {
+    "n": 23,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.5251464550019822,
+    "acceptance_p10": 0.3124750347372992,
+    "grid_len_median": 238.0,
+    "grid_len_min": 238,
+    "gradient_share_mean": 0.32554377482399305
+   },
+   "Dresden|HC": {
+    "n": 10,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.4987103506296135,
+    "acceptance_p10": 0.3193192922275293,
+    "grid_len_median": 316.0,
+    "grid_len_min": 316,
+    "gradient_share_mean": 0.3134535108214559
+   },
+   "Dresden|OCD": {
+    "n": 25,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.4812040030395137,
+    "acceptance_p10": 0.3267387277464177,
+    "grid_len_median": 316.0,
+    "grid_len_min": 316,
+    "gradient_share_mean": 0.3512399616053549
+   },
+   "Kyoto-KPU-Kyoto3T|HC": {
+    "n": 36,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.6824226103029865,
+    "acceptance_p10": 0.6422483336951801,
+    "grid_len_median": 174.0,
+    "grid_len_min": 174,
+    "gradient_share_mean": 0.13313799015161087
+   },
+   "Kyoto-KPU-Kyoto3T|OCD": {
+    "n": 34,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.6956475294373068,
+    "acceptance_p10": 0.6669536257056013,
+    "grid_len_median": 174.0,
+    "grid_len_min": 174,
+    "gradient_share_mean": 0.09977376300019672
+   },
+   "NYSPI-Columbia-Adults|HC": {
+    "n": 32,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.5837151673767911,
+    "acceptance_p10": 0.34644348892748583,
+    "grid_len_median": 206.0,
+    "grid_len_min": 206,
+    "gradient_share_mean": 0.23047609194840224
+   },
+   "NYSPI-Columbia-Adults|OCD": {
+    "n": 38,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.6379042090408393,
+    "acceptance_p10": 0.5631116673903604,
+    "grid_len_median": 206.0,
+    "grid_len_min": 137,
+    "gradient_share_mean": 0.18253692325784113
+   },
+   "NYSPI-Columbia-Pediatric|HC": {
+    "n": 13,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.6026391111927587,
+    "acceptance_p10": 0.5262724468085107,
+    "grid_len_median": 206.0,
+    "grid_len_min": 206,
+    "gradient_share_mean": 0.19818245445173088
+   },
+   "NYSPI-Columbia-Pediatric|OCD": {
+    "n": 21,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.6191634224510472,
+    "acceptance_p10": 0.526600010855406,
+    "grid_len_median": 206.0,
+    "grid_len_min": 137,
+    "gradient_share_mean": 0.1990959916009684
+   },
+   "New-York|HC": {
+    "n": 11,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.44472330162238977,
+    "acceptance_p10": 0.19765526487190618,
+    "grid_len_median": 220.0,
+    "grid_len_min": 220,
+    "gradient_share_mean": 0.40404780352621705
+   },
+   "New-York|OCD": {
+    "n": 49,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.49342042943099945,
+    "acceptance_p10": 0.29920645896656534,
+    "grid_len_median": 220.0,
+    "grid_len_min": 220,
+    "gradient_share_mean": 0.3611047557042251
+   },
+   "UCLA|HC": {
+    "n": 19,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.6694174480654523,
+    "acceptance_p10": 0.5581184585323491,
+    "grid_len_median": 188.0,
+    "grid_len_min": 188,
+    "gradient_share_mean": 0.20124831828847153
+   },
+   "UCLA|OCD": {
+    "n": 32,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.685528268494898,
+    "acceptance_p10": 0.6157404342162397,
+    "grid_len_median": 188.0,
+    "grid_len_min": 188,
+    "gradient_share_mean": 0.18956472542658287
+   },
+   "Vancouver-BCCHR|HC": {
+    "n": 22,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.6483885830734615,
+    "acceptance_p10": 0.5667946634824141,
+    "grid_len_median": 130.0,
+    "grid_len_min": 130,
+    "gradient_share_mean": 0.1825125212286556
+   },
+   "Vancouver-BCCHR|OCD": {
+    "n": 23,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.6423452533557363,
+    "acceptance_p10": 0.5810449891445939,
+    "grid_len_median": 130.0,
+    "grid_len_min": 130,
+    "gradient_share_mean": 0.1737694294504857
+   },
+   "Yale-Gruner|HC": {
+    "n": 16,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.6432406148230568,
+    "acceptance_p10": 0.5058969062092922,
+    "grid_len_median": 130.0,
+    "grid_len_min": 130,
+    "gradient_share_mean": 0.1576290717992287
+   },
+   "Yale-Gruner|OCD": {
+    "n": 13,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.5839307850963626,
+    "acceptance_p10": 0.4226575944420321,
+    "grid_len_median": 130.0,
+    "grid_len_min": 130,
+    "gradient_share_mean": 0.25371577081717556
+   },
+   "Yale-Pittinger-HCP-Prisma|HC": {
+    "n": 26,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.568569416981195,
+    "acceptance_p10": 0.4096079895788103,
+    "grid_len_median": 288.0,
+    "grid_len_min": 288,
+    "gradient_share_mean": 0.24258761948338578
+   },
+   "Yale-Pittinger-HCP-Prisma|OCD": {
+    "n": 35,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.5714966977854972,
+    "acceptance_p10": 0.42656338905775076,
+    "grid_len_median": 288.0,
+    "grid_len_min": 288,
+    "gradient_share_mean": 0.2576324684167929
+   },
+   "Yale-Pittinger-HCP-Trio|HC": {
+    "n": 22,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.5563824882564244,
+    "acceptance_p10": 0.3557444463742944,
+    "grid_len_median": 155.0,
+    "grid_len_min": 155,
+    "gradient_share_mean": 0.2590936899089556
+   },
+   "Yale-Pittinger-HCP-Trio|OCD": {
+    "n": 21,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.5208321201124827,
+    "acceptance_p10": 0.3188487841945289,
+    "grid_len_median": 155.0,
+    "grid_len_min": 155,
+    "gradient_share_mean": 0.29714138380385
+   },
+   "Yale-Pittinger-Yale-2014|HC": {
+    "n": 60,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.5934768542842668,
+    "acceptance_p10": 0.4204490968302214,
+    "grid_len_median": 279.0,
+    "grid_len_min": 279,
+    "gradient_share_mean": 0.24873492403865363
+   },
+   "Yale-Pittinger-Yale-2014|OCD": {
+    "n": 25,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.5668800386452453,
+    "acceptance_p10": 0.42247455275727314,
+    "grid_len_median": 279.0,
+    "grid_len_min": 279,
+    "gradient_share_mean": 0.27907572272898884
+   }
+  }
+ },
+ "descriptives_all_units": {
+  "broadband@0.10": {
+   "HC": {
+    "n": 837,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.6206001288382355,
+    "acceptance_p10": 0.4818280178028659,
+    "grid_len_median": 160.0,
+    "grid_len_min": 100,
+    "gradient_share_mean": 0.23263978837321006
+   },
+   "OCD": {
+    "n": 869,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.632193923833275,
+    "acceptance_p10": 0.48399393182805034,
+    "grid_len_median": 160.0,
+    "grid_len_min": 100,
+    "gradient_share_mean": 0.21712249287965582
+   }
+  },
+  "broadband@0.05": {
+   "HC": {
+    "n": 837,
+    "deg_E1_rate": 0.0011947431302270011,
+    "deg_E2_rate": 0.0011947431302270011,
+    "acceptance_mean": 0.7056377553095515,
+    "acceptance_p10": 0.551718228397742,
+    "grid_len_median": 160.0,
+    "grid_len_min": 100,
+    "gradient_share_mean": 0.23263978837321006
+   },
+   "OCD": {
+    "n": 869,
+    "deg_E1_rate": 0.0011507479861910242,
+    "deg_E2_rate": 0.0011507479861910242,
+    "acceptance_mean": 0.7176220169369317,
+    "acceptance_p10": 0.5474150803300043,
+    "grid_len_median": 160.0,
+    "grid_len_min": 100,
+    "gradient_share_mean": 0.21712249287965582
+   }
+  },
+  "broadband@0.15": {
+   "HC": {
+    "n": 837,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.5490759375828002,
+    "acceptance_p10": 0.4260433989577302,
+    "grid_len_median": 160.0,
+    "grid_len_min": 100,
+    "gradient_share_mean": 0.23263978837321006
+   },
+   "OCD": {
+    "n": 869,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.5595171996844271,
+    "acceptance_p10": 0.42816016357845976,
+    "grid_len_median": 160.0,
+    "grid_len_min": 100,
+    "gradient_share_mean": 0.21712249287965582
+   }
+  },
+  "curl@0.10": {
+   "HC": {
+    "n": 837,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.6757747880407405,
+    "acceptance_p10": 0.6063050021710812,
+    "grid_len_median": 160.0,
+    "grid_len_min": 100,
+    "gradient_share_mean": 0.23263978837321006
+   },
+   "OCD": {
+    "n": 869,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.6784473066476059,
+    "acceptance_p10": 0.5982766066000869,
+    "grid_len_median": 160.0,
+    "grid_len_min": 100,
+    "gradient_share_mean": 0.21712249287965582
+   }
+  },
+  "curl@0.05": {
+   "HC": {
+    "n": 837,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.7637331798531964,
+    "acceptance_p10": 0.6812204515848893,
+    "grid_len_median": 160.0,
+    "grid_len_min": 100,
+    "gradient_share_mean": 0.23263978837321006
+   },
+   "OCD": {
+    "n": 869,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.7668628765851516,
+    "acceptance_p10": 0.670620690403821,
+    "grid_len_median": 160.0,
+    "grid_len_min": 100,
+    "gradient_share_mean": 0.21712249287965582
+   }
+  },
+  "curl@0.15": {
+   "HC": {
+    "n": 837,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.5989281446061188,
+    "acceptance_p10": 0.5409522466705269,
+    "grid_len_median": 160.0,
+    "grid_len_min": 100,
+    "gradient_share_mean": 0.23263978837321006
+   },
+   "OCD": {
+    "n": 869,
+    "deg_E1_rate": 0.0,
+    "deg_E2_rate": 0.0,
+    "acceptance_mean": 0.6012546129035697,
+    "acceptance_p10": 0.5363985842501447,
+    "grid_len_median": 160.0,
+    "grid_len_min": 100,
+    "gradient_share_mean": 0.21712249287965582
+   }
+  }
+ },
+ "log_ratio_030C_secondary": {
+  "n": 1706,
+  "n_ocd": 869,
+  "n_hc": 837,
+  "n_sites": 23,
+  "beta_fe": 0.04533058223932203,
+  "se_fe": 0.025401183936142168,
+  "t_fe": 1.7845854096124725,
+  "d_fe": 0.08965025211443223,
+  "t_fl": 1.7845854096123033,
+  "p_fl": 0.0665,
+  "B": 9999,
+  "perm_seed": 20261031,
+  "include_logdur": true,
+  "beta_lmm": 0.04533058223931793,
+  "se_lmm_wald": 0.02538433238817435,
+  "p_lmm_wald_secondary": 0.07413648694540093,
+  "sigma_eps_lmm": 0.5053026415906389,
+  "re_var_site": 0.012464067643441736,
+  "d": 0.0897097669955219,
+  "lmm_converged_flag": true,
+  "lmm_n_warnings": 0,
+  "lmm_warning_kinds": [],
+  "lmm_mle_retvals": {},
+  "scale_ratio_lmm_over_fe": 0.998673608425644,
+  "mundlak_equality_ratio": 1.6144469122064075e-13,
+  "mundlak": true,
+  "raw_cohen_d_DESCRIPTIVE": 0.03807323786380348,
+  "welch_p_DESCRIPTIVE": 0.43200626216807037,
+  "mean_ocd": -0.20196210022524988,
+  "mean_hc": -0.2224420398689146,
+  "sd_ocd": 0.5344024087852554,
+  "sd_hc": 0.5415259127343377
+ },
+ "acceptance_stratified_POSTFREEZE": {
+  "threshold_acceptance_p10": 0.4835712657403387,
+  "E1": {
+   "n": 1535,
+   "n_ocd": 783,
+   "n_hc": 752,
+   "n_sites": 23,
+   "beta_fe": 0.5535557697135608,
+   "se_fe": 0.2258183669427104,
+   "t_fe": 2.4513319142636285,
+   "d_fe": 0.12946496098549187,
+   "t_fl": 2.4513319142629966,
+   "p_fl": 0.0143,
+   "B": 9999,
+   "perm_seed": 20261031,
+   "include_logdur": true,
+   "beta_lmm": 0.553555769713412,
+   "se_lmm_wald": 0.22552910124217046,
+   "p_lmm_wald_secondary": 0.014109007629541774,
+   "sigma_eps_lmm": 4.27024176473571,
+   "re_var_site": 1.0076246819634354,
+   "d": 0.1296310139357349,
+   "lmm_converged_flag": true,
+   "lmm_n_warnings": 0,
+   "lmm_warning_kinds": [],
+   "lmm_mle_retvals": {},
+   "scale_ratio_lmm_over_fe": 0.9974397084288819,
+   "mundlak_equality_ratio": 6.588032998109208e-13,
+   "mundlak": true,
+   "raw_cohen_d_DESCRIPTIVE": 0.1009622495323337,
+   "welch_p_DESCRIPTIVE": 0.0483876832916452,
+   "mean_ocd": -1.6343945480989517,
+   "mean_hc": -2.09234141141202,
+   "sd_ocd": 4.430851359472856,
+   "sd_hc": 4.6426053363542765
+  },
+  "E2": {
+   "n": 1535,
+   "n_ocd": 783,
+   "n_hc": 752,
+   "n_sites": 23,
+   "beta_fe": 0.7550112877626963,
+   "se_fe": 0.42066477839685795,
+   "t_fe": 1.7948050954967607,
+   "d_fe": 0.09479106860763552,
+   "t_fl": 1.794805095495784,
+   "p_fl": 0.0666,
+   "B": 9999,
+   "perm_seed": 20261031,
+   "include_logdur": true,
+   "beta_lmm": 0.7550112877622975,
+   "se_lmm_wald": 0.4202030397755843,
+   "p_lmm_wald_secondary": 0.07237097977609519,
+   "sigma_eps_lmm": 7.956261787217545,
+   "re_var_site": 5.03344541368158,
+   "d": 0.09489522943743399,
+   "lmm_converged_flag": true,
+   "lmm_n_warnings": 0,
+   "lmm_warning_kinds": [],
+   "lmm_mle_retvals": {},
+   "scale_ratio_lmm_over_fe": 0.9978059241775908,
+   "mundlak_equality_ratio": 9.48004517908873e-13,
+   "mundlak": true,
+   "raw_cohen_d_DESCRIPTIVE": 0.054719015711562784,
+   "welch_p_DESCRIPTIVE": 0.28441191582091546,
+   "mean_ocd": 5.816370391477269,
+   "mean_hc": 5.35387464748236,
+   "sd_ocd": 8.285236202636316,
+   "sd_hc": 8.622608808372714
+  }
+ },
+ "secondary_family2_ybocs": {
+  "E1": {
+   "n": 856,
+   "n_sites": 23,
+   "beta": 0.04008461106207983,
+   "se": 0.04013170576086794,
+   "t": 0.9988264964597134,
+   "p_fl": 0.3073,
+   "B": 9999,
+   "perm_seed": 20261031,
+   "std_beta": 0.03192526637767738,
+   "q_bh": 0.3609
+  },
+  "E2": {
+   "n": 856,
+   "n_sites": 23,
+   "beta": 0.01997689849297164,
+   "se": 0.02255570585991773,
+   "t": 0.8856694007732775,
+   "p_fl": 0.3609,
+   "B": 9999,
+   "perm_seed": 20261031,
+   "std_beta": 0.02883674068474696,
+   "q_bh": 0.3609
+  }
+ },
+ "secondary_family3_medication": {
+  "E1": {
+   "n": 301,
+   "n_sites": 11,
+   "beta": -0.5523822863832546,
+   "se": 0.8396878510619546,
+   "t": -0.6578424180898363,
+   "p_fl": 0.5682,
+   "B": 9999,
+   "perm_seed": 20261031,
+   "std_beta": -0.04060230220909407,
+   "contrast": "code 1 minus code 2 (coding direction unconfirmed; no medication interpretation)",
+   "n_code1": 180,
+   "n_code2": 121,
+   "d_fe": -0.08556389027637652,
+   "q_bh": 0.5682
+  },
+  "E2": {
+   "n": 301,
+   "n_sites": 11,
+   "beta": -2.1620682663709894,
+   "se": 1.4155862287329664,
+   "t": -1.5273306722587776,
+   "p_fl": 0.155,
+   "B": 9999,
+   "perm_seed": 20261031,
+   "std_beta": -0.09003579301190336,
+   "contrast": "code 1 minus code 2 (coding direction unconfirmed; no medication interpretation)",
+   "n_code1": 180,
+   "n_code2": 121,
+   "d_fe": -0.198656016187524,
+   "q_bh": 0.31
+  }
+ },
+ "secondary_family1_classification": {
+  "lagmotif": {
+   "pooled_oof_auroc": 0.5156849562729514,
+   "pooled_auroc_ci95_site_bootstrap": [
+    0.4680922632940175,
+    0.5599122702651683,
+    2000
+   ],
+   "mean_per_site_auroc": 0.5554328681124651,
+   "n_sites_with_both_classes": 23,
+   "n": 1706
+  },
+  "lagmotif_unit": "broadband@0.10",
+  "static_fc_comparator_same_subjects_same_folds": {
+   "pooled_oof_auroc": 0.5630237312556626,
+   "pooled_auroc_ci95_site_bootstrap": [
+    0.5239332938268938,
+    0.6003547121531305,
+    2000
+   ],
+   "mean_per_site_auroc": 0.558911228553501,
+   "n_sites_with_both_classes": 23,
+   "n": 1706
+  },
+  "static_fc_sha256": "672fd77a6c2f7945a88d3f24c0e500c378d7f011a8b3b197038107f3859c9745",
+  "note": "descriptive (no p-value); external baselines in card 6 are not comparable folds"
+ },
+ "elapsed_s": 77.8
+}

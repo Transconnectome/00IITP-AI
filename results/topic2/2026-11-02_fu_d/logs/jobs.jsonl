@@ -1,0 +1,8 @@
+{"event": "submitted", "name": "smoke", "kind": "smoke", "job_id": "511", "partition": "debug", "c": 0.1, "utc": "2026-11-01T16:13:50Z"}
+{"event": "closed", "name": "smoke", "job_id": "511", "state": "COMPLETED", "gpuh": 0.04, "utc": "2026-11-01T16:39:16Z", "elapsed_raw": 144}
+{"event": "submitted", "name": "Fplus_E_s0", "kind": "train", "job_id": "534", "partition": "gpu", "c": 1.31, "utc": "2026-11-01T16:39:57Z"}
+{"event": "submitted", "name": "Fplus_C_s0", "kind": "train", "job_id": "535", "partition": "gpu", "c": 1.31, "utc": "2026-11-01T16:40:43Z"}
+{"event": "submitted", "name": "Fplus_S_s0", "kind": "train", "job_id": "536", "partition": "gpu", "c": 1.31, "utc": "2026-11-01T16:41:11Z"}
+{"event": "closed", "name": "Fplus_E_s0", "job_id": "534", "state": "COMPLETED", "gpuh": 1.175, "utc": "2026-11-01T19:06:59Z", "elapsed_raw": 4230}
+{"event": "closed", "name": "Fplus_C_s0", "job_id": "535", "state": "COMPLETED", "gpuh": 1.18, "utc": "2026-11-01T19:09:08Z", "elapsed_raw": 4248}
+{"event": "closed", "name": "Fplus_S_s0", "job_id": "536", "state": "COMPLETED", "gpuh": 1.18, "utc": "2026-11-01T19:11:21Z", "elapsed_raw": 4246}

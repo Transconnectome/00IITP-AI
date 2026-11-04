@@ -1,0 +1,1 @@
+/home/juke/.agents/registry/claude_sessions/handoffs/session_3_1.md

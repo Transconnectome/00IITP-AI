@@ -1,0 +1,5 @@
+# FU-C report-table renderer (presentation only, non-governing); written before any Stage-1 record was copied off B300 or read
+# frozen_utc: 2026-11-01T16:36:10Z
+# verify: cd /home/juke/git/00IITP-AI && grep -v '^#' results/topic2/2026-11-02_fu_c/code_sha256_presentation_before_results.txt | LC_ALL=C sha256sum -c
+# section: presentation
+394d797a30ffcc7b7ea700cc77a902d871b2f6e0a558380556f3f07f1c798652  scripts/topic2fu_c_report_tables.py

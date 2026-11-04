@@ -1,0 +1,30 @@
+{
+ "label": "zoo_NewUAH_deepE192_L1e-4",
+ "python": "3.8.10",
+ "numpy": "1.22.3",
+ "host": "node2",
+ "seed": 20261031,
+ "code_sha256": {
+  "src/topic3_spectral/__init__.py": "9786a620bf9bb19ba66c9acb02639df2e335dbbf0eda9bc413792db4ee898269",
+  "src/topic3_spectral/analysis.py": "c46608872f24a64316331c8dfb9397f7e58e10e7975f7367bfd97159333d5a12",
+  "src/topic3_spectral/estimators.py": "efc6f7ec0891db1d71e26599484074e5a4c8f60ccc58cb6b8de9d8120d91f7e9",
+  "src/topic3_spectral/io_contract.py": "ec2894049182e1be90d587fbbbe479844a28b523fea798276ac8ac59b191f27b",
+  "src/topic3_spectral/resampling.py": "fa86147be3c13034e0f0e3114728506c2559d88b6320a56c94d993f10cc7fc5c",
+  "src/topic3_spectral/token_job.py": "a0fc8022953275fb5e02c6f7c4f777641fd9fb9d3a23877a6256797d4687ebf8",
+  "scripts/topic3_token_job.py": "2e98ad563155e551ca3d9517ea16b7c37d5a6388157df03a8f81dfad2a403ad2"
+ },
+ "checks": {
+  "same_subject_set_as_reference": true,
+  "frames_per_subject_min_max": [
+   7,
+   7
+  ]
+ },
+ "n_subjects": 57,
+ "compute_seconds": 102.0,
+ "outputs": {
+  "spectra_npz": "zoo_NewUAH_deepE192_L1e-4_token_spectra.npz",
+  "spectra_sha256": "6d10a90944b840224492abb6ea6caa915ad28e5a6dd3bacaf7ce737d325305f2"
+ },
+ "runtime_s": 102.0
+}

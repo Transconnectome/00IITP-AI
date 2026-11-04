@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" style="width:100%; height:auto; background:#FFFFFF; font-family:'Pretendard','Noto Sans KR',sans-serif;">
+  <defs>
+    <marker id="arr3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#003380"/>
+    </marker>
+    <marker id="arr3o" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#D55E00"/>
+    </marker>
+  </defs>
+  <rect x="6" y="8" width="144" height="240" rx="6" fill="#EDF6FC" stroke="#A0A0A0" stroke-width="1.2"/>
+  <text x="78" y="32" text-anchor="middle" font-size="13.5" font-weight="700" fill="#003380">① 4차원 뇌신호 입력</text>
+  <rect x="14" y="44" width="128" height="60" rx="4" fill="#FFFFFF" stroke="#003380"/>
+  <text x="78" y="66" text-anchor="middle" font-size="12" font-weight="700" fill="#003380">SwiFT V2 기초모델</text>
+  <text x="78" y="86" text-anchor="middle" font-size="11" fill="#282945">50,870명 사전학습</text>
+  <rect x="14" y="112" width="128" height="60" rx="4" fill="#FFFFFF" stroke="#A0A0A0"/>
+  <text x="78" y="134" text-anchor="middle" font-size="12" font-weight="700" fill="#282945">이중 경로 진폭 보존</text>
+  <text x="78" y="154" text-anchor="middle" font-size="11" fill="#D55E00" font-weight="700">원시 신호 + 표준화(z)</text>
+  <rect x="14" y="180" width="128" height="58" rx="4" fill="#FFFFFF" stroke="#A0A0A0"/>
+  <text x="78" y="201" text-anchor="middle" font-size="11.5" font-weight="700" fill="#003380">Mind the Gap 정렬</text>
+  <text x="78" y="221" text-anchor="middle" font-size="10.5" fill="#0072B2" font-weight="700">음성+언어 비선형 융합</text>
+
+  <line x1="150" y1="128" x2="168" y2="128" stroke="#003380" stroke-width="2.2" marker-end="url(#arr3)"/>
+
+  <rect x="172" y="8" width="230" height="240" rx="6" fill="#EDF6FC" stroke="#003380" stroke-width="1.5"/>
+  <text x="287" y="32" text-anchor="middle" font-size="13.5" font-weight="700" fill="#003380">② 뇌영역 토큰화 &amp; 동결 VLM</text>
+  <rect x="184" y="44" width="206" height="58" rx="4" fill="#FFFFFF" stroke="#A0A0A0"/>
+  <text x="287" y="66" text-anchor="middle" font-size="12" font-weight="700" fill="#282945">해부학 관심영역(ROI) 집계기</text>
+  <text x="287" y="86" text-anchor="middle" font-size="11" fill="#5A5A6E">424개 뇌영역 압축 → 주의집중 분산 해결</text>
+  <rect x="184" y="110" width="206" height="60" rx="4" fill="#003380"/>
+  <text x="287" y="133" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">동결 시각언어모델 (Qwen3-VL)</text>
+  <text x="287" y="153" text-anchor="middle" font-size="11" fill="#F0E442">본체 100% 동결 · 경량 어댑터만 학습</text>
+  <rect x="184" y="178" width="206" height="60" rx="4" fill="#FFFFFF" stroke="#D55E00"/>
+  <text x="287" y="201" text-anchor="middle" font-size="12" font-weight="700" fill="#D55E00">다중 턴 문맥 내 비교 학습</text>
+  <text x="287" y="221" text-anchor="middle" font-size="11" fill="#282945">참조 피험자 대조 → 연속 지표 정밀 보정</text>
+
+  <line x1="402" y1="128" x2="420" y2="128" stroke="#D55E00" stroke-width="2.2" marker-end="url(#arr3o)"/>
+
+  <rect x="424" y="8" width="170" height="240" rx="6" fill="#FDEFE0" stroke="#D55E00" stroke-width="1.6"/>
+  <text x="509" y="32" text-anchor="middle" font-size="13.5" font-weight="700" fill="#D55E00">③ 통합 인지·임상 추론</text>
+  <rect x="434" y="44" width="150" height="58" rx="4" fill="#FFFFFF" stroke="#E69F00"/>
+  <text x="509" y="66" text-anchor="middle" font-size="11.5" font-weight="700" fill="#003380">뇌 과제 정밀 디코딩</text>
+  <text x="509" y="87" text-anchor="middle" font-size="12" font-weight="700" fill="#D55E00">운동 98.6% · 기억 90.4%</text>
+  <rect x="434" y="110" width="150" height="60" rx="4" fill="#FFFFFF" stroke="#E69F00"/>
+  <text x="509" y="133" text-anchor="middle" font-size="11.5" font-weight="700" fill="#003380">연속형 표현형 회귀</text>
+  <text x="509" y="154" text-anchor="middle" font-size="12" font-weight="700" fill="#D55E00">R² -0.19 → +0.79 도약</text>
+  <rect x="434" y="178" width="150" height="60" rx="4" fill="#003380"/>
+  <text x="509" y="201" text-anchor="middle" font-size="11.5" font-weight="700" fill="#FFFFFF">7개 외부 코호트 14과제</text>
+  <text x="509" y="221" text-anchor="middle" font-size="12" font-weight="700" fill="#F0E442">임상 예후 AUPRC 0.734</text>
+
+  <rect x="6" y="258" width="588" height="34" rx="4" fill="#EDF6FC" stroke="#A0A0A0"/>
+  <text x="300" y="280" text-anchor="middle" font-size="12.5" font-weight="700" fill="#003380">핵심 원리: 5만 명 뇌 기초모델 + 해부학 영역 토큰화·다중 턴 비교 → 뇌-언어-행동 통합 추론</text>
+</svg>

@@ -1,0 +1,322 @@
+[
+ {
+  "name": "control",
+  "target": "none",
+  "rc": 0,
+  "summary": "89 passed in 5.10s",
+  "failed_tests": [],
+  "elapsed_s": 7.6
+ },
+ {
+  "name": "pad_not_stripped",
+  "target": "A1/A2 padding",
+  "rc": 1,
+  "summary": "8 failed, 76 passed, 5 errors in 4.58s",
+  "failed_tests": [
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_prepare_series_trims_in_seconds_at_every_on_disk_tr[0.7]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_prepare_series_trims_in_seconds_at_every_on_disk_tr[0.8]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_prepare_series_trims_in_seconds_at_every_on_disk_tr[0.85]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_prepare_series_trims_in_seconds_at_every_on_disk_tr[1.0]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_prepare_series_trims_in_seconds_at_every_on_disk_tr[1.73]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_prepare_series_trims_in_seconds_at_every_on_disk_tr[1.8]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_prepare_series_trims_in_seconds_at_every_on_disk_tr[2.0]",
+   "tests/topic1_lagmotif/test_tr_and_loader.py::test_padding_rows_are_stripped_by_loader_and_features_identical"
+  ],
+  "elapsed_s": 7.3
+ },
+ {
+  "name": "lag_native_samples",
+  "target": "A1/A2 lag in seconds",
+  "rc": 1,
+  "summary": "9 failed, 80 passed in 5.30s",
+  "failed_tests": [
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.7]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.8]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.85]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.0]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.73]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.8]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.7]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.85]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.0]"
+  ],
+  "elapsed_s": 7.9
+ },
+ {
+  "name": "roi_subsample_80",
+  "target": "A1 304 ROIs",
+  "rc": 1,
+  "summary": "4 failed, 85 passed in 4.57s",
+  "failed_tests": [
+   "tests/topic1_lagmotif/test_extract_contract.py::test_all_304_rois_reach_the_graph",
+   "tests/topic1_lagmotif/test_extract_contract.py::test_curl_channel_is_F_minus_its_gradient_part",
+   "tests/topic1_lagmotif/test_extract_contract.py::test_null_seeds_follow_card_rule_with_position",
+   "tests/topic1_lagmotif/test_extract_contract.py::test_sp_is_unit_norm_z_over_the_five_classes"
+  ],
+  "elapsed_s": 7.2
+ },
+ {
+  "name": "roi_subsample_80_in_flow",
+  "target": "A1 304 ROIs",
+  "rc": 1,
+  "summary": "4 failed, 85 passed in 4.57s",
+  "failed_tests": [
+   "tests/topic1_lagmotif/test_extract_contract.py::test_all_304_rois_reach_the_graph",
+   "tests/topic1_lagmotif/test_extract_contract.py::test_null_seeds_follow_card_rule_with_position",
+   "tests/topic1_lagmotif/test_extract_contract.py::test_sp_is_unit_norm_z_over_the_five_classes",
+   "tests/topic1_lagmotif/test_flow_chain.py::test_full_chain_uses_all_304_rois_and_exact_edge_count"
+  ],
+  "elapsed_s": 7.2
+ },
+ {
+  "name": "null_allows_reciprocal",
+  "target": "A1/A2 null mutual",
+  "rc": 1,
+  "summary": "10 failed, 74 passed, 5 errors in 3.18s",
+  "failed_tests": [
+   "tests/topic1_lagmotif/test_null_and_census.py::test_every_null_graph_preserves_degrees_and_has_no_mutual_edges_or_self_loops",
+   "tests/topic1_lagmotif/test_null_and_census.py::test_rank_two_identity_holds_exactly",
+   "tests/topic1_lagmotif/test_null_and_census.py::test_null_is_uniform_over_reachable_class_lazy_chain",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_null_moments_of_all_five_classes_equal_census_of_independent_null_graphs",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_each_null_is_an_independent_restart_from_the_observed_graph",
+   "tests/topic1_lagmotif/test_synthetic_ground_truth.py::test_planted_cycles_detected_and_absent_in_matched_control",
+   "tests/topic1_lagmotif/test_synthetic_ground_truth.py::test_planted_cycles_per_seed_separation",
+   "tests/topic1_lagmotif/test_synthetic_ground_truth.py::test_autocorrelation_mismatch_is_calibrated_by_oriented_degree_preserving_null",
+   "tests/topic1_lagmotif/test_synthetic_ground_truth.py::test_shared_driver_latency_produces_spurious_direction_bias_characterization",
+   "tests/topic1_lagmotif/test_tr_and_loader.py::test_padding_rows_are_stripped_by_loader_and_features_identical"
+  ],
+  "elapsed_s": 6.0
+ },
+ {
+  "name": "null_allows_reciprocal_and_checker_off",
+  "target": "A1/A2 null mutual (+checker off)",
+  "rc": 1,
+  "summary": "4 failed, 85 passed in 4.88s",
+  "failed_tests": [
+   "tests/topic1_lagmotif/test_null_and_census.py::test_every_null_graph_preserves_degrees_and_has_no_mutual_edges_or_self_loops",
+   "tests/topic1_lagmotif/test_null_and_census.py::test_invariant_checker_flags_reciprocal_edges_from_a_v1_style_swap",
+   "tests/topic1_lagmotif/test_null_and_census.py::test_null_is_uniform_over_reachable_class_lazy_chain",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_null_moments_of_all_five_classes_equal_census_of_independent_null_graphs"
+  ],
+  "elapsed_s": 7.3
+ },
+ {
+  "name": "null_allows_selfloop",
+  "target": "A1/A2 null self-loop",
+  "rc": 1,
+  "summary": "10 failed, 74 passed, 5 errors in 3.21s",
+  "failed_tests": [
+   "tests/topic1_lagmotif/test_null_and_census.py::test_every_null_graph_preserves_degrees_and_has_no_mutual_edges_or_self_loops",
+   "tests/topic1_lagmotif/test_null_and_census.py::test_rank_two_identity_holds_exactly",
+   "tests/topic1_lagmotif/test_null_and_census.py::test_rotation_move_reaches_both_orientations_of_an_isolated_triangle",
+   "tests/topic1_lagmotif/test_null_and_census.py::test_null_is_uniform_over_reachable_class_lazy_chain",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_null_moments_of_all_five_classes_equal_census_of_independent_null_graphs",
+   "tests/topic1_lagmotif/test_synthetic_ground_truth.py::test_planted_cycles_detected_and_absent_in_matched_control",
+   "tests/topic1_lagmotif/test_synthetic_ground_truth.py::test_planted_cycles_per_seed_separation",
+   "tests/topic1_lagmotif/test_synthetic_ground_truth.py::test_autocorrelation_mismatch_is_calibrated_by_oriented_degree_preserving_null",
+   "tests/topic1_lagmotif/test_synthetic_ground_truth.py::test_shared_driver_latency_produces_spurious_direction_bias_characterization",
+   "tests/topic1_lagmotif/test_tr_and_loader.py::test_padding_rows_are_stripped_by_loader_and_features_identical"
+  ],
+  "elapsed_s": 5.8
+ },
+ {
+  "name": "rotation_breaks_indegree",
+  "target": "A1/A2 null degree",
+  "rc": 1,
+  "summary": "11 failed, 73 passed, 5 errors in 3.07s",
+  "failed_tests": [
+   "tests/topic1_lagmotif/test_null_and_census.py::test_every_null_graph_preserves_degrees_and_has_no_mutual_edges_or_self_loops",
+   "tests/topic1_lagmotif/test_null_and_census.py::test_rank_two_identity_holds_exactly",
+   "tests/topic1_lagmotif/test_null_and_census.py::test_rotation_move_reaches_both_orientations_of_an_isolated_triangle",
+   "tests/topic1_lagmotif/test_null_and_census.py::test_null_is_uniform_over_reachable_class_lazy_chain",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_null_moments_of_all_five_classes_equal_census_of_independent_null_graphs",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_each_null_is_an_independent_restart_from_the_observed_graph",
+   "tests/topic1_lagmotif/test_synthetic_ground_truth.py::test_planted_cycles_detected_and_absent_in_matched_control",
+   "tests/topic1_lagmotif/test_synthetic_ground_truth.py::test_planted_cycles_per_seed_separation",
+   "tests/topic1_lagmotif/test_synthetic_ground_truth.py::test_autocorrelation_mismatch_is_calibrated_by_oriented_degree_preserving_null",
+   "tests/topic1_lagmotif/test_synthetic_ground_truth.py::test_shared_driver_latency_produces_spurious_direction_bias_characterization",
+   "tests/topic1_lagmotif/test_tr_and_loader.py::test_padding_rows_are_stripped_by_loader_and_features_identical"
+  ],
+  "elapsed_s": 5.5
+ },
+ {
+  "name": "flow_sign_flipped",
+  "target": "A2 direction",
+  "rc": 1,
+  "summary": "13 failed, 76 passed in 4.93s",
+  "failed_tests": [
+   "tests/topic1_lagmotif/test_flow_chain.py::test_two_tr_sampling_gives_consistent_flow_magnitude_and_direction",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.7]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.8]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.85]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.0]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.73]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.8]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[2.0]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.7]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.85]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.0]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.73]",
+   "tests/topic1_lagmotif/test_synthetic_ground_truth.py::test_planted_cycles_per_seed_separation"
+  ],
+  "elapsed_s": 7.4
+ },
+ {
+  "name": "silent_fallback_missing_file",
+  "target": "A1 no synthetic fallback",
+  "rc": 1,
+  "summary": "1 failed, 88 passed in 5.26s",
+  "failed_tests": [
+   "tests/topic1_lagmotif/test_tr_and_loader.py::test_missing_subject_raises_without_participant_id"
+  ],
+  "elapsed_s": 7.7
+ },
+ {
+  "name": "silent_fallback_no_meta",
+  "target": "A1 no fallback (metadata)",
+  "rc": 1,
+  "summary": "1 failed, 88 passed in 5.14s",
+  "failed_tests": [
+   "tests/topic1_lagmotif/test_tr_and_loader.py::test_missing_subject_raises_without_participant_id"
+  ],
+  "elapsed_s": 7.6
+ },
+ {
+  "name": "topk_smallest",
+  "target": "A2 planted cycle",
+  "rc": 1,
+  "summary": "4 failed, 85 passed in 4.92s",
+  "failed_tests": [
+   "tests/topic1_lagmotif/test_flow_chain.py::test_full_chain_uses_all_304_rois_and_exact_edge_count",
+   "tests/topic1_lagmotif/test_synthetic_ground_truth.py::test_planted_cycles_detected_and_absent_in_matched_control",
+   "tests/topic1_lagmotif/test_synthetic_ground_truth.py::test_planted_cycles_per_seed_separation",
+   "tests/topic1_lagmotif/test_synthetic_ground_truth.py::test_shared_driver_latency_produces_spurious_direction_bias_characterization"
+  ],
+  "elapsed_s": 7.3
+ },
+ {
+  "name": "census_030C_wrong",
+  "target": "A2 030C census",
+  "rc": 1,
+  "summary": "7 failed, 82 passed in 5.25s",
+  "failed_tests": [
+   "tests/topic1_lagmotif/test_null_and_census.py::test_closed_form_census_matches_networkx[30-0.2-0]",
+   "tests/topic1_lagmotif/test_null_and_census.py::test_closed_form_census_matches_networkx[60-0.1-1]",
+   "tests/topic1_lagmotif/test_null_and_census.py::test_closed_form_census_matches_networkx[120-0.15-2]",
+   "tests/topic1_lagmotif/test_null_and_census.py::test_closed_form_census_matches_networkx[304-0.05-3]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_null_moments_of_all_five_classes_equal_census_of_independent_null_graphs",
+   "tests/topic1_lagmotif/test_synthetic_ground_truth.py::test_planted_cycles_detected_and_absent_in_matched_control",
+   "tests/topic1_lagmotif/test_synthetic_ground_truth.py::test_autocorrelation_mismatch_is_calibrated_by_oriented_degree_preserving_null"
+  ],
+  "elapsed_s": 7.6
+ },
+ {
+  "name": "null_counts_030C_wrong",
+  "target": "A2 030C null",
+  "rc": 1,
+  "summary": "2 failed, 87 passed in 5.31s",
+  "failed_tests": [
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_null_moments_of_all_five_classes_equal_census_of_independent_null_graphs",
+   "tests/topic1_lagmotif/test_synthetic_ground_truth.py::test_autocorrelation_mismatch_is_calibrated_by_oriented_degree_preserving_null"
+  ],
+  "elapsed_s": 7.8
+ },
+ {
+  "name": "sp_includes_nothing_zscore_ddof0",
+  "target": "A2 Z definition",
+  "rc": 1,
+  "summary": "2 failed, 87 passed in 5.22s",
+  "failed_tests": [
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_degenerate_null_gives_nan_z_and_flag_never_a_finite_number",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_null_moments_of_all_five_classes_equal_census_of_independent_null_graphs"
+  ],
+  "elapsed_s": 7.6
+ },
+ {
+  "name": "chain_frozen",
+  "target": "A2 null moves",
+  "rc": 1,
+  "summary": "10 failed, 79 passed in 3.43s",
+  "failed_tests": [
+   "tests/topic1_lagmotif/test_extract_contract.py::test_null_seeds_follow_card_rule_with_position",
+   "tests/topic1_lagmotif/test_extract_contract.py::test_sp_is_unit_norm_z_over_the_five_classes",
+   "tests/topic1_lagmotif/test_null_and_census.py::test_every_null_graph_preserves_degrees_and_has_no_mutual_edges_or_self_loops",
+   "tests/topic1_lagmotif/test_null_and_census.py::test_rank_two_identity_holds_exactly",
+   "tests/topic1_lagmotif/test_null_and_census.py::test_rotation_move_reaches_both_orientations_of_an_isolated_triangle",
+   "tests/topic1_lagmotif/test_null_and_census.py::test_null_is_uniform_over_reachable_class_lazy_chain",
+   "tests/topic1_lagmotif/test_synthetic_ground_truth.py::test_planted_cycles_detected_and_absent_in_matched_control",
+   "tests/topic1_lagmotif/test_synthetic_ground_truth.py::test_planted_cycles_per_seed_separation",
+   "tests/topic1_lagmotif/test_synthetic_ground_truth.py::test_autocorrelation_mismatch_is_calibrated_by_oriented_degree_preserving_null",
+   "tests/topic1_lagmotif/test_synthetic_ground_truth.py::test_shared_driver_latency_produces_spurious_direction_bias_characterization"
+  ],
+  "elapsed_s": 5.9
+ },
+ {
+  "name": "head_trim_samples",
+  "target": "A1 valid T",
+  "rc": 1,
+  "summary": "20 failed, 69 passed in 5.20s",
+  "failed_tests": [
+   "tests/topic1_lagmotif/test_extract_contract.py::test_reported_valid_T_is_after_head_trim",
+   "tests/topic1_lagmotif/test_extract_contract.py::test_null_seeds_follow_card_rule_with_position",
+   "tests/topic1_lagmotif/test_extract_contract.py::test_sp_is_unit_norm_z_over_the_five_classes",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_prepare_series_trims_in_seconds_at_every_on_disk_tr[0.7]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_prepare_series_trims_in_seconds_at_every_on_disk_tr[0.8]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_prepare_series_trims_in_seconds_at_every_on_disk_tr[0.85]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_prepare_series_trims_in_seconds_at_every_on_disk_tr[1.0]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_prepare_series_trims_in_seconds_at_every_on_disk_tr[1.73]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_prepare_series_trims_in_seconds_at_every_on_disk_tr[1.8]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.7]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.8]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.85]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.0]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.73]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.8]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.7]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.85]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.0]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.73]",
+   "tests/topic1_lagmotif/test_tr_and_loader.py::test_head_trim_is_defined_in_seconds"
+  ],
+  "elapsed_s": 7.5
+ },
+ {
+  "name": "no_detrend",
+  "target": "A1 preprocessing",
+  "rc": 1,
+  "summary": "8 failed, 81 passed in 5.15s",
+  "failed_tests": [
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.7]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.8]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.85]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.0]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.73]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.8]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[2.0]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_flow_is_invariant_to_offset_scale_and_linear_drift_at_tr_07"
+  ],
+  "elapsed_s": 7.5
+ },
+ {
+  "name": "lag_4s",
+  "target": "A1 lag value",
+  "rc": 1,
+  "summary": "13 failed, 76 passed in 5.30s",
+  "failed_tests": [
+   "tests/topic1_lagmotif/test_extract_contract.py::test_null_seeds_follow_card_rule_with_position",
+   "tests/topic1_lagmotif/test_extract_contract.py::test_sp_is_unit_norm_z_over_the_five_classes",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.7]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.8]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[0.85]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.0]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.73]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[1.8]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_equals_card_spec_oracle_at_every_on_disk_tr[2.0]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.7]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[0.85]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.0]",
+   "tests/topic1_lagmotif/test_production_entry_point.py::test_subject_flow_lag_is_two_seconds_through_loader[1.73]"
+  ],
+  "elapsed_s": 7.7
+ }
+]

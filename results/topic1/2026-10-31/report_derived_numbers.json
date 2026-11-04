@@ -1,0 +1,37 @@
+{
+ "source": "stats_results.json",
+ "note": "derived, descriptive; verdict is card section 5 only",
+ "E1": {
+  "d": 0.11313067751337895,
+  "approx_wald_95ci_d": [
+   0.01459011124053027,
+   0.21167124378624114
+  ],
+  "se_d_approx": 0.050275799118803796,
+  "ci_contains_0.15": true,
+  "ci_contains_0": false
+ },
+ "E2": {
+  "d": 0.03768876757961704,
+  "approx_wald_95ci_d": [
+   -0.060873256467946196,
+   0.1362507916272001
+  ],
+  "se_d_approx": 0.05028674696304753,
+  "ci_contains_0.15": false,
+  "ci_contains_0": true
+ },
+ "site_group_cells": {
+  "n_cells": 46,
+  "min_n": 10,
+  "max_n": 189
+ },
+ "site_acceptance_mean_range": [
+  0.4844926226660877,
+  0.7426574824425607
+ ],
+ "site_gradient_share_mean_range": [
+  0.11693250839235257,
+  0.36897764780492365
+ ]
+}

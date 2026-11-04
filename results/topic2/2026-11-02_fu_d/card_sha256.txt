@@ -1,0 +1,2 @@
+# FU-D card freeze, worker_FU_D_r1, 2026-11-01T16:06:07Z (before any FU-D real-data run; check: grep -v '^#' card_sha256.txt | sha256sum -c)
+1b7fee6c2dcee404998200810237235cbf4d28bdae642dc9171905825036001b  docs/03_empirical_analysis/topic2/2026-11-02_topic2_fu_d_card.md
